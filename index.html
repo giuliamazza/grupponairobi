@@ -1,125 +1,690 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Gruppo Nairobi</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header class="hero">
-        <nav class="top-nav">
-            <div class="nav-left">
-                <span class="association-name">GRUPPO NAIROBI</span>
-            </div>
-            <div class="nav-center">
-                <div class="nav-menu">
-                    <div><a href="#where">Where</a></div>
-                    <div><a href="#why">Why</a></div>
-                    <div><a href="#project-details">Project Details</a></div>
-                    <div><a href="#our-appeal">Our Appeal</a></div>
-                    <div><a href="#the-association">The Association</a></div>
-                </div>
-            </div>
-            <div class="nav-menu-right">
-                <div class="nav-menu">
-                    <div><a href="it.html" id="langBtn" class="lang-link">Italiano</a></div>
-                    <div><a href="https://www.gofundme.com/f/associazione-gruppo-nairobi" id="donateBtn" target="_blank" class="donate-btn">Donate</a></div>
-                </div>
-            </div>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Main navigation -->
+    <header class="Header_container">
+      <a href="#" class="Header_logo">
+        <span>Gruppo</span>
+        <span>Nairobi</span>
+      </a>
+      <button
+        class="Header_menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="Header_desktop">
+        <nav role="navigation" aria-label="Main Navigation">
+          <ul class="Menu_list">
+            <li><a href="#who">Who we are</a></li>
+            <li><a href="#where">Where</a></li>
+            <li><a href="#why">Why</a></li>
+            <li><a href="#project-details">Project Details</a></li>
+            <li><a href="#our-appeal">Our Appeal</a></li>
+            <li><a href="#the-association">The Association</a></li>
+          </ul>
         </nav>
+        <div class="Menu_buttons">
+          <a href="it.html" class="Button_lang">IT</a>
+          <a
+            href="https://www.gofundme.com/f/associazione-gruppo-nairobi"
+            target="_blank"
+            class="Button_primary Button_inverted"
+          >
+            Donate
+          </a>
+        </div>
+      </div>
+
+      <div class="Header_background"></div>
     </header>
 
-    <main id="main">
-        <section class="side-by-side">
-            <div class="hero-overlay">
-                <div class="hero-text-container">
-                    <h1 class="hero-association">GRUPPO NAIROBI</h1>
-                    <h2>Who We Are</h2>
-                    <p>Gruppo Nairobi is a dedicated non‑profit organization with a bold vision – to build an elementary school to offer quality education to children in need. Education is the key to a brighter future.</p>
-                </div>
-            </div>
-        </section>
+    <div id="mobile-menu" class="Header_mobile" aria-hidden="true">
+      <nav>
+        <ul class="Menu_list">
+          <li><a href="#who">Who we are</a></li>
+          <li><a href="#where">Where</a></li>
+          <li><a href="#why">Why</a></li>
+          <li><a href="#project-details">Project Details</a></li>
+          <li><a href="#our-appeal">Our Appeal</a></li>
+          <li><a href="#the-association">The Association</a></li>
+        </ul>
+      </nav>
+      <div class="Menu_buttons">
+        <a href="it.html" class="Button_lang">Italiano</a>
+        <a
+          href="https://www.gofundme.com/f/associazione-gruppo-nairobi"
+          target="_blank"
+          class="Button_primary Button_inverted"
+        >
+          Donate
+        </a>
+      </div>
+    </div>
 
-        <!-- Where Section (image on right) -->
-        <section id="where" class="fold-section side-by-side reverse">
-            <div class="side-text">
-                <h2>Where</h2>
-                <p>The school will be built in Kenya, approximately 90 km from Nairobi, in the Municipality of Ngunga Paris within the Machakos District. Situated near the Tanzanian border, this region suffers from high poverty rates and limited access to quality educational facilities.</p>
-            </div>
-            <div class="side-image">
-                <img src="sources/map.jpeg" alt="Location Map">
-            </div>
-        </section>
+    <main>
+      <!-- Hero section with background image -->
+      <section name="Hero" class="Section_container Hero_wrapper">
+        <div class="Hero_container">
+          <div class="Hero_inner">
+            <div class="Hero_background"></div>
+            <h1 class="Hero_text">Gruppo Nairobi</h1>
+          </div>
+        </div>
+      </section>
 
-        <!-- Why Section (image on left) -->
-        <section id="why" class="fold-section side-by-side">
-            <div class="side-image">
-                <img src="sources/team.jpeg" alt="Team">
-            </div>
-            <div class="side-text">
-                <h2>Why</h2>
-                <p>The inspiration for this project came from Sister Hitha, a cherished mentor. Now in Kenya, she leads a dedicated team committed to providing educational opportunities for children who, due to financial hardships, cannot attend public schools.</p>
-            </div>
-        </section>
+      <!-- Who we are Section -->
+      <section id="who" name="Who we are" class="Section_container">
+        <h2 class="Text_section_center">Who We Are</h2>
+        <div class="Section_1-1 Section_top-border">
+          <div class="Section_who">
+            <p class="Text_who_primary">
+              Gruppo Nairobi is a dedicated non‑profit organization with a bold
+              vision – to build an elementary school to offer quality education
+              to children in need.
+            </p>
+            <p class="Text_who_secondary">
+              <span class="Text_emphasis">Education</span> is the key to a
+              brighter future.
+            </p>
+          </div>
+          <img src="sources/kenya.jpg" alt="Kenya" class="Image_who" />
+        </div>
+      </section>
 
-        <!-- Project Details Section with Gallery (text on left; gallery on right) -->
-        <section id="project-details" class="fold-section  side-by-side">
-            <div class="project-details-content">
-                <div class="side-text">
-                    <h2>Project Details</h2>
-                    <p>The proposed primary school will feature six classrooms, built on land donated by a local congregation of nuns. An estimated investment of €180,000 is required. Your support is crucial to make this vision a reality.</p>
-                </div>
-                <div class="gallery">
-                    <img src="sources/2d-face.jpeg" alt="Concept Image">
-                    <img src="sources/plan.jpeg" alt="Blueprint Plan">
-                    <img src="sources/render.jpeg" alt="Project Render">
-                </div>
+      <!-- Where Section -->
+      <section
+        id="where"
+        name="Where"
+        class="Section_container Section_top_margin"
+      >
+        <div class="Section_1-1 Section_top-border">
+          <div class="Section_where">
+            <h2 class="Text_section_top">Where</h2>
+            <p class="Text_where_primary">
+              The school will be built in Kenya, approximately 90 km from
+              Nairobi, in the Municipality of Ngunga Paris within the Machakos
+              District. Situated near the Tanzanian border, this region suffers
+              from high poverty rates and limited access to quality educational
+              facilities.
+            </p>
+          </div>
+          <img src="sources/map.jpeg" alt="Location map" class="Image_where" />
+        </div>
+      </section>
+
+      <!-- Why Section -->
+      <section id="why" name="Why" class="Section_container Section_top_margin">
+        <div class="Section_1-1 Section_top-border">
+          <div class="Section_where">
+            <h2 class="Text_section_top">Why</h2>
+            <p class="Text_where_primary">
+              The inspiration for this project came from Sister Hitha, a
+              cherished mentor. Now in Kenya, she leads a dedicated team
+              committed to providing educational opportunities for children who,
+              due to financial hardships, cannot attend public schools.
+            </p>
+          </div>
+          <img src="sources/team.jpeg" alt="Team" class="Image_where" />
+        </div>
+      </section>
+
+      <!-- Project Details Section with Gallery -->
+      <section
+        id="project-details"
+        name="Project details"
+        class="Section_container Section_top_margin"
+      >
+        <div class="Section_1-1 Section_top-border">
+          <div class="Section_where Section_sticky">
+            <div class="Text_project-container">
+              <h2 class="Text_section_top">Project Details</h2>
+              <p class="Text_where_primary">
+                The proposed primary school will feature six classrooms, built
+                on land donated by a local congregation of nuns.
+              </p>
             </div>
-        </section>
+          </div>
+          <div class="Project-details-image-wrapper">
+            <img
+              src="sources/2d-face.jpeg"
+              alt="Concept Image"
+              class="Image_where"
+            />
+            <img
+              src="sources/plan.jpeg"
+              alt="Blueprint Plan"
+              class="Image_where"
+            />
+            <img
+              src="sources/render.jpg"
+              alt="Project Render"
+              class="Image_where"
+            />
+          </div>
+        </div>
+      </section>
 
-        <!-- Our Appeal Section (full-width text) -->
-        <section id="our-appeal" class="fold-section side-by-side">
-            <h2>Our Appeal</h2>
-            <p>We are passionately committed to making this project a reality, but we cannot do it alone. Join us in building this school to provide education, hope, and a brighter future for countless children.</p>
-        </section>
+      <!--Support needed Section -->
+      <section id="support-needed" name="Support needed">
+        <p class="Section_container Text_support-needed">
+          An estimated investment of €180,000 is required. <br />
+          Your support is <span class="Text_emphasis">crucial</span> to make
+          this vision a reality.
+        </p>
+      </section>
 
-        <!-- The Association Section (image on right) -->
-        <section id="the-association" class="fold-section side-by-side reverse">
-            <div class="side-text">
-                <h2>The Association</h2>
-                <div class="side-list">
-                    <ul>
-                        <li>President: Mazza Pierdomenico</li>
-                        <li>Vice President: Abela Franco</li>
-                        <li>Administrator: Rinaldi Mattia</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="side-image">
-                <img src="sources/2d-face.jpeg" alt="Association">
-            </div>
-        </section>
-        </main>
+      <!-- Our Appeal Section -->
+      <section id="our-appeal" name="Our appeal">
+        <div class="Section_container Section_our-appeal">
+          <div class="Section_our-appeal-bg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:svgjs="http://svgjs.dev/svgjs"
+              viewBox="0 0 800 800"
+            >
+              <defs>
+                <filter
+                  id="llleaves-blur-2"
+                  x="-100%"
+                  y="-100%"
+                  width="400%"
+                  height="400%"
+                >
+                  <feGaussianBlur
+                    in="SourceGraphic"
+                    stdDeviation="2"
+                  ></feGaussianBlur>
+                </filter>
+                <filter
+                  id="llleaves-blur-3"
+                  x="-100%"
+                  y="-100%"
+                  width="400%"
+                  height="400%"
+                >
+                  <feGaussianBlur
+                    in="SourceGraphic"
+                    stdDeviation="4"
+                  ></feGaussianBlur>
+                </filter>
+                <filter
+                  id="llleaves-blur-4"
+                  x="-100%"
+                  y="-100%"
+                  width="400%"
+                  height="400%"
+                >
+                  <feGaussianBlur
+                    in="SourceGraphic"
+                    stdDeviation="12"
+                  ></feGaussianBlur>
+                </filter>
+              </defs>
+              <g fill="hsl(158, 100%, 67%)">
+                <path
+                  d="M389 378H439C467 378 489 400 489 428H439C411 428 389 406 389 378Z "
+                  transform="matrix(-0.3844045387952703,-0.09584281594167862,0.09584281594167862,-0.3844045387952703,569.1289377066272,599.9900253328908)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.61"
+                ></path>
+                <path
+                  d="M506 246H556C584 246 606 268 606 296H556C528 296 506 274 506 246Z "
+                  transform="matrix(-0.384376541408857,-0.06777595500178607,0.06777595500178607,-0.384376541408857,751.3460732178405,412.84947370279326)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.60"
+                ></path>
+                <path
+                  d="M575 141H625C653 141 675 163 675 191H625C597 191 575 169 575 141Z "
+                  transform="matrix(-0.32987203539388854,-0.2867533855443523,0.2867533855443523,-0.32987203539388854,783.5689601208179,399.97962384060577)"
+                  opacity="0.67"
+                ></path>
+                <path
+                  d="M7 31H57C85 31 107 53 107 81H57C29 81 7 59 7 31Z "
+                  transform="matrix(-0.2163618181821819,0.21636181818218192,-0.21636181818218192,-0.2163618181821819,81.44888545458656,55.783638181817814)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.47"
+                ></path>
+                <path
+                  d="M116 112H166C194 112 216 134 216 162H166C138 162 116 140 116 112Z "
+                  transform="matrix(-0.03472976493869068,0.24711511791028046,-0.24711511791028046,-0.03472976493869068,205.61991213353107,100.73686822349407)"
+                  filter="url(#llleaves-blur-3)"
+                  opacity="0.38"
+                ></path>
+                <path
+                  d="M695 44H745C773 44 795 66 795 94H745C717 94 695 72 695 44Z "
+                  transform="matrix(0.2972537477133189,-0.4757054363524818,0.4757054363524818,0.2972537477133189,490.72228284525613,402.89004149037993)"
+                  opacity="0.86"
+                ></path>
+                <path
+                  d="M311 215H361C389 215 411 237 411 265H361C333 265 311 243 311 215Z "
+                  transform="matrix(-0.378187015798787,-0.01320658160348137,0.01320658160348137,-0.378187015798787,494.35593311852654,335.5324597505657)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.58"
+                ></path>
+                <path
+                  d="M96 329H146C174 329 196 351 196 379H146C118 379 96 357 96 329Z "
+                  transform="matrix(-0.1566602189422883,0.2412355823727514,-0.2412355823727514,-0.1566602189422883,254.269788125528,374.23732247914836)"
+                  filter="url(#llleaves-blur-3)"
+                  opacity="0.44"
+                ></path>
+                <path
+                  d="M92 548H142C170 548 192 570 192 598H142C114 598 92 576 92 548Z "
+                  transform="matrix(-0.1566602189422883,0.2412355823727514,-0.2412355823727514,-0.1566602189422883,302.4737397893915,628.5108527570005)"
+                  filter="url(#llleaves-blur-3)"
+                  opacity="0.44"
+                ></path>
+                <path
+                  d="M604 393H654C682 393 704 415 704 443H654C626 443 604 421 604 393Z "
+                  transform="matrix(-0.3846715008499977,-0.11030277790165212,0.11030277790165212,-0.3846715008499977,859.4686003930078,650.9307041029796)"
+                  opacity="0.61"
+                ></path>
+                <path
+                  d="M702 316H752C780 316 802 338 802 366H752C724 366 702 344 702 316Z "
+                  transform="matrix(-0.3770389935137902,-0.006581240112252897,0.006581240112252897,-0.3770389935137902,1033.2891202440921,474.5193893526167)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.58"
+                ></path>
+                <path
+                  d="M320 538H370C398 538 420 560 420 588H370C342 588 320 566 320 538Z "
+                  transform="matrix(-0.38260554912646366,-0.04021346364934101,0.04021346364934101,-0.38260554912646366,488.92387314221264,793.2859057084552)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.59"
+                ></path>
+                <path
+                  d="M0 260H50C78 260 100 282 100 310H50C22 310 0 288 0 260Z "
+                  transform="matrix(-0.32714097868794323,0.11264367240086487,-0.11264367240086487,-0.32714097868794323,98.46049556864365,372.60299530602055)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.53"
+                ></path>
+                <path
+                  d="M402 267H452C480 267 502 289 502 317H452C424 317 402 295 402 267Z "
+                  transform="matrix(-0.3842849213287554,-0.09581299195764731,0.09581299195764731,-0.3842849213287554,597.7193907889645,447.51866939285316)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.61"
+                ></path>
+                <path
+                  d="M344 719H394C422 719 444 741 444 769H394C366 769 344 747 344 719Z "
+                  transform="matrix(-0.38370446230188554,-0.06765744932205654,0.06765744932205654,-0.38370446230188554,494.8424158513329,1056.133154985493)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.60"
+                ></path>
+                <path
+                  d="M203 519H253C281 519 303 541 303 569H253C225 569 203 547 203 519Z "
+                  transform="matrix(-0.26374083442269497,0.18467332039649006,-0.18467332039649006,-0.26374083442269497,420.18871740463237,640.7526638656341)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.49"
+                ></path>
+                <path
+                  d="M457 719H507C535 719 557 741 557 769H507C479 769 457 747 457 719Z "
+                  transform="matrix(-0.38511389930275336,-0.07485855879970135,0.07485855879970135,-0.38511389930275336,646.5579791995182,1068.478030392697)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.60"
+                ></path>
+                <path
+                  d="M108 723H158C186 723 208 745 208 773H158C130 773 108 751 108 723Z "
+                  transform="matrix(-0.15174242689750905,0.24283864528457128,-0.24283864528457128,-0.15174242689750905,363.61861012266576,823.1348293643746)"
+                  filter="url(#llleaves-blur-3)"
+                  opacity="0.44"
+                ></path>
+                <path
+                  d="M401 611H451C479 611 501 633 501 661H451C423 661 401 639 401 611Z "
+                  transform="matrix(-0.3842849213287554,-0.09581299195764731,0.09581299195764731,-0.3842849213287554,563.375436634205,923.6168693379874)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.61"
+                ></path>
+                <path
+                  d="M616 634H666C694 634 716 656 716 684H666C638 684 616 662 616 634Z "
+                  transform="matrix(-0.3846715008499977,-0.11030277790165212,0.11030277790165212,-0.3846715008499977,849.5016889289097,985.9601691426487)"
+                  opacity="0.61"
+                ></path>
+                <path
+                  d="M702 449H752C780 449 802 471 802 499H752C724 499 702 477 702 449Z "
+                  transform="matrix(-0.3770389935137902,-0.006581240112252897,0.006581240112252897,-0.3770389935137902,1032.4138153091624,657.6655754899507)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.58"
+                ></path>
+                <path
+                  d="M102 215H152C180 215 202 237 202 265H152C124 265 102 243 102 215Z "
+                  transform="matrix(-0.15174242689750905,0.24283864528457128,-0.24283864528457128,-0.15174242689750905,233.3461237567185,239.50670837214733)"
+                  filter="url(#llleaves-blur-3)"
+                  opacity="0.44"
+                ></path>
+                <path
+                  d="M217 157H267C295 157 317 179 317 207H267C239 207 217 185 217 157Z "
+                  transform="matrix(-0.244641588227302,0.19810685200193695,-0.19810685200193695,-0.244641588227302,368.3747511210422,173.6302395728518)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.48"
+                ></path>
+                <path
+                  d="M295 439H345C373 439 395 461 395 489H345C317 489 295 467 295 439Z "
+                  transform="matrix(-0.37033144573919446,0.019408248669869246,-0.019408248669869246,-0.37033144573919446,481.7697761628414,629.1379450318814)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.57"
+                ></path>
+              </g>
+              <g fill="none" stroke-width="3" stroke="hsl(158, 100%, 67%)">
+                <path
+                  d="M707 584H757C785 584 807 606 807 634H757C729 634 707 612 707 584Z "
+                  transform="matrix(-0.3770389935137902,-0.006581240112252897,0.006581240112252897,-0.3770389935137902,1038.4105428615771,843.5987458148737)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.58"
+                ></path>
+                <path
+                  d="M2 722H52C80 722 102 744 102 772H52C24 772 2 750 2 722Z "
+                  transform="matrix(-0.28964883133848723,0.16055496895363996,-0.16055496895363996,-0.28964883133848723,186.99630103797037,955.0188186242608)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.51"
+                ></path>
+                <path
+                  d="M570 726H620C648 726 670 748 670 776H620C592 776 570 754 570 726Z "
+                  transform="matrix(-0.3851688278241388,-0.09603337459884136,0.09603337459884136,-0.3851688278241388,786.683608927236,1099.8024819472098)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.61"
+                ></path>
+                <path
+                  d="M445 149H495C523 149 545 171 545 199H495C467 199 445 177 445 149Z "
+                  transform="matrix(-0.3845034231141392,-0.1030273817104357,0.1030273817104357,-0.3845034231141392,667.4024300238831,291.9021495685259)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.61"
+                ></path>
+                <path
+                  d="M194 396H244C272 396 294 418 294 446H244C216 446 194 424 194 396Z "
+                  transform="matrix(-0.23574194704945867,0.20492734811706956,-0.20492734811706956,-0.23574194704945867,387.7954486373542,470.24508676725713)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.48"
+                ></path>
+                <path
+                  d="M614 521H664C692 521 714 543 714 571H664C636 571 614 549 614 521Z "
+                  transform="matrix(-0.3846715008499977,-0.11030277790165212,0.11030277790165212,-0.3846715008499977,859.1965598300965,829.2716839907957)"
+                  opacity="0.61"
+                ></path>
+                <path
+                  d="M269 626H319C347 626 369 648 369 676H319C291 676 269 654 269 626Z "
+                  transform="matrix(-0.3586298124703605,0.050402133193746694,-0.050402133193746694,-0.3586298124703605,466.2146988871741,868.3897274293996)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.56"
+                ></path>
+                <path
+                  d="M695 177H745C773 177 795 199 795 227H745C717 227 695 205 695 177Z "
+                  transform="matrix(-0.38254284664841215,-0.04697035545227255,0.04697035545227255,-0.38254284664841215,1020.506408951708,314.2665698349223)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.59"
+                ></path>
+                <path
+                  d="M291 324H341C369 324 391 346 391 374H341C313 374 291 352 291 324Z "
+                  transform="matrix(-0.37033144573919446,0.019408248669869246,-0.019408248669869246,-0.37033144573919446,474.05650178284975,471.62746176655344)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.57"
+                ></path>
+                <path
+                  d="M235 36H285C313 36 335 58 335 86H285C257 86 235 64 235 36Z "
+                  transform="matrix(0.004119725402158861,0.23601891021894794,-0.23601891021894794,0.004119725402158861,298.22303178374057,-6.516692661931856)"
+                  filter="url(#llleaves-blur-3)"
+                  opacity="0.36"
+                ></path>
+                <path
+                  d="M417 487H467C495 487 517 509 517 537H467C439 537 417 515 417 487Z "
+                  transform="matrix(-0.3850275753017551,-0.08889061984337772,0.08889061984337772,-0.3850275753017551,601.2958803061102,750.6460380213559)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.61"
+                ></path>
+                <path
+                  d="M150 630H200C228 630 250 652 250 680H200C172 680 150 658 150 630Z "
+                  transform="matrix(-0.1865849942233697,0.2304132788185483,-0.2304132788185483,-0.1865849942233697,388.2376964708231,731.1305154525975)"
+                  filter="url(#llleaves-blur-3)"
+                  opacity="0.45"
+                ></path>
+                <path
+                  d="M196 274H246C274 274 296 296 296 324H246C218 324 196 302 196 274Z "
+                  transform="matrix(-0.23574194704945867,0.20492734811706956,-0.20492734811706956,-0.23574194704945867,365.2657960611706,319.074714530989)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.48"
+                ></path>
+                <path
+                  d="M3 143H53C81 143 103 165 103 193H53C25 193 3 171 3 143Z "
+                  transform="matrix(-0.27646260281177376,0.1727530074461589,-0.1727530074461589,-0.27646260281177376,96.67502319997871,205.2898078777316)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.50"
+                ></path>
+                <path
+                  d="M606 268H656C684 268 706 290 706 318H656C628 318 606 296 606 268Z "
+                  transform="matrix(-0.3846715008499977,-0.11030277790165212,0.11030277790165212,-0.3846715008499977,876.0257906324144,478.06737205253313)"
+                  opacity="0.61"
+                ></path>
+                <path
+                  d="M226 725H276C304 725 326 747 326 775H276C248 775 226 753 226 725Z "
+                  transform="matrix(-0.2932657360325985,0.15593215783167833,-0.15593215783167833,-0.2932657360325985,473.8904615187559,926.9120264629057)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.51"
+                ></path>
+                <path
+                  d="M98 443H148C176 443 198 465 198 493H148C120 493 98 471 98 443Z "
+                  transform="matrix(-0.1566602189422883,0.2412355823727514,-0.2412355823727514,-0.1566602189422883,284.0839649539063,505.61411627382375)"
+                  filter="url(#llleaves-blur-3)"
+                  opacity="0.44"
+                ></path>
+                <path
+                  d="M354 20H404C432 20 454 42 454 70H404C376 70 354 48 354 20Z "
+                  transform="matrix(-0.2628368014930987,0.18404030972439694,-0.18404030972439694,-0.2628368014930987,518.4678817408096,-17.524629061466932)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.49"
+                ></path>
+                <path
+                  d="M518 483H568C596 483 618 505 618 533H568C540 533 518 511 518 483Z "
+                  transform="matrix(-0.3839432756059752,-0.07463101260363766,0.07463101260363766,-0.3839432756059752,748.167226141546,745.4335991667016)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.60"
+                ></path>
+                <path
+                  d="M583 28H633C661 28 683 50 683 78H633C605 78 583 56 583 28Z "
+                  transform="matrix(0.018006518287717006,-0.5156392184305114,0.5156392184305114,0.018006518287717006,594.272995347058,378.44527979726473)"
+                  opacity="0.79"
+                ></path>
+                <path
+                  d="M9 617H59C87 617 109 639 109 667H59C31 667 9 645 9 617Z "
+                  transform="matrix(-0.28964883133848723,0.16055496895363996,-0.16055496895363996,-0.28964883133848723,179.1655711172076,818.481806551044)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.51"
+                ></path>
+                <path
+                  d="M511 604H561C589 604 611 626 611 654H561C533 654 511 632 511 604Z "
+                  transform="matrix(-0.384376541408857,-0.06777595500178607,0.06777595500178607,-0.384376541408857,734.0041640342454,908.7951553021729)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.60"
+                ></path>
+                <path
+                  d="M497 364H547C575 364 597 386 597 414H547C519 414 497 392 497 364Z "
+                  transform="matrix(-0.38438213177808517,-0.06777694073471312,0.06777694073471312,-0.38438213177808517,730.8917961368093,575.5986358435632)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.60"
+                ></path>
+                <path
+                  d="M695 717H745C773 717 795 739 795 767H745C717 767 695 745 695 717Z "
+                  transform="matrix(-0.38254284664841215,-0.04697035545227255,0.04697035545227255,-0.38254284664841215,995.1424170074808,1060.8397070250649)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.59"
+                ></path>
+                <path
+                  d="M469 36H519C547 36 569 58 569 86H519C491 86 469 64 469 36Z "
+                  transform="matrix(-0.3538627544949838,-0.23868344170018713,0.23868344170018713,-0.3538627544949838,688.0950796391851,206.46233426659114)"
+                  opacity="0.66"
+                ></path>
+                <path
+                  d="M335 115H385C413 115 435 137 435 165H385C357 165 335 143 335 115Z "
+                  transform="matrix(-0.3585425886687361,0.050389874687860485,-0.050389874687860485,-0.3585425886687361,530.0934790937639,170.79586065879676)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.56"
+                ></path>
+                <path
+                  d="M-1 379H49C77 379 99 401 99 429H49C21 429 -1 407 -1 379Z "
+                  transform="matrix(-0.32714097868794323,0.11264367240086487,-0.11264367240086487,-0.32714097868794323,110.53795160565862,530.6454154422867)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.53"
+                ></path>
+                <path
+                  d="M122 19H172C200 19 222 41 222 69H172C144 69 122 47 122 19Z "
+                  transform="matrix(0.07643432598046046,0.18918159538397336,-0.18918159538397336,0.07643432598046046,167.17728612825562,8.097655250816324)"
+                  filter="url(#llleaves-blur-3)"
+                  opacity="0.31"
+                ></path>
+                <path
+                  d="M-3 497H47C75 497 97 519 97 547H47C19 547 -3 525 -3 497Z "
+                  transform="matrix(-0.32714097868794323,0.11264367240086487,-0.11264367240086487,-0.32714097868794323,121.17562299158479,687.4733382722657)"
+                  filter="url(#llleaves-blur-2)"
+                  opacity="0.53"
+                ></path>
+              </g>
+            </svg>
+          </div>
+          <h2>Our Appeal</h2>
+          <p>
+            We are passionately committed to making this project a reality, but
+            we cannot do it alone. Join us in building this school to provide
+            education, hope, and a brighter future for countless children.
+          </p>
+          <a
+            href="https://www.gofundme.com/f/associazione-gruppo-nairobi"
+            target="_blank"
+            class="Button_primary"
+          >
+            Donate
+          </a>
+        </div>
+      </section>
 
-        <footer>
-            <p>&copy; 2025 Gruppo Nairobi. All rights reserved.</p>
-        </footer>
+      <!-- The Association Section -->
+      <section
+        id="the-association"
+        name="The association"
+        class="Section_container Section_top_margin"
+      >
+        <div class="Section_1-1 Section_top-border">
+          <div class="Section_where">
+            <h2 class="Text_section_top">The Association</h2>
+          </div>
+          <div class="Container_members">
+            <ul>
+              <li>
+                <span>Mazza Pierdomenico</span>
+                <span>President</span>
+              </li>
 
-        <script>
-            // Add a subtle grey background under the sticky menu after scrolling past the hero fold
-            window.addEventListener('scroll', function () {
-                const topNav = document.querySelector('.top-nav');
-                const heroHeight = document.querySelector('.hero').offsetHeight;
-                const links = document.querySelectorAll('.nav-menu div a');
-                if (window.scrollY > heroHeight - 60) {
-                    topNav.classList.add('scrolled');
-                    links.forEach(link => link.classList.add('scrolled'));
-                } else {
-                    topNav.classList.remove('scrolled');
-                    links.forEach(link => link.classList.remove('scrolled'));
-                }
-            });
-        </script>
-</body>
+              <li>
+                <span>Abela Franco</span>
+                <span>Vice President</span>
+              </li>
+
+              <li>
+                <span>Rinaldi Mattia</span>
+                <span>Administrator</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="Section_container Footer_wrapper">
+      <div class="Footer_container">
+        <div class="Footer_inner">
+          <p class="Footer_text">Gruppo Nairobi</p>
+
+          <div class="Footer_bottom-line">
+            <p class="Footer_copyright">
+              &copy; 2025 Gruppo Nairobi. All rights reserved.
+            </p>
+            <a href="#" class="Footer_top">Back to top</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const burgerMenu = document.querySelector(".Header_menu");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileLinks = document.querySelectorAll(".Header_mobile a");
+
+        // Function to open mobile menu
+        function openMobileMenu() {
+          burgerMenu.classList.add("Header_active");
+          burgerMenu.setAttribute("aria-expanded", "true");
+          mobileMenu.setAttribute("aria-hidden", "false");
+
+          // Disable scrolling on the body
+          document.body.style.overflow = "hidden";
+        }
+
+        // Function to close mobile menu
+        function closeMobileMenu() {
+          burgerMenu.classList.remove("Header_active");
+          burgerMenu.setAttribute("aria-expanded", "false");
+          mobileMenu.setAttribute("aria-hidden", "true");
+
+          // Enable scrolling on the body
+          document.body.style.overflow = "auto";
+        }
+
+        // Function to handle menu click
+        function handleMenuClick() {
+          if (burgerMenu.getAttribute("aria-expanded") === "true") {
+            closeMobileMenu();
+          } else {
+            openMobileMenu();
+          }
+        }
+
+        // Event listeners for opening and closing the menu
+        burgerMenu.addEventListener("click", handleMenuClick);
+
+        // Close menu when clicking on a link (for better UX)
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", closeMobileMenu);
+        });
+
+        // Close menu when pressing Escape key
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
+            closeMobileMenu();
+          }
+        });
+
+        // Tab trap for the mobile menu
+        mobileMenu.addEventListener("keydown", function (e) {
+          if (e.key === "Tab" && mobileMenu.classList.contains("active")) {
+            // Define focusable elements inside the mobile menu
+            const focusableElements = mobileMenu.querySelectorAll(
+              'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+
+            // If shift + tab is pressed and focus is on the first element, move to the last element
+            if (e.shiftKey && document.activeElement === firstElement) {
+              e.preventDefault();
+              lastElement.focus();
+            }
+            // If tab is pressed and focus is on the last element, move to the first element
+            else if (!e.shiftKey && document.activeElement === lastElement) {
+              e.preventDefault();
+              firstElement.focus();
+            }
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
