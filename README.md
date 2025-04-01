@@ -26,7 +26,7 @@ Feel free to use it, remix it, or go completely rogue with your own vision — *
 ## 🛠️ How to Contribute
 
 1. Fork this repo
-2. Build your version of the site (HTML/CSS/JS or any stack you like)
+2. Build your version of the site (HTML/CSS/JS or any stack you like but consider we are trying to keep it as simple as possible, so less work will be needed in the future)
 3. Deploy it using GitHub Pages (or any other way you prefer)
 4. Let G know by opening an issue or messaging directly
 
