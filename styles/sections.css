@@ -1,0 +1,168 @@
+.landing-section {
+    background-image: url('../sources/kenya.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.landing-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: white;
+    text-align: left;
+    padding: 20vh 10% 5% 10%;
+    box-sizing: border-box;
+}
+
+.section-title {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.section-subtitle {
+    font-size: 3rem;
+    max-width: 1000px;
+    line-height: 1.4;
+}
+
+.section-text {
+    font-size: 1.5rem;
+}
+
+.section * {
+    position: relative;
+    z-index: 2;
+}
+
+.section-tag {
+    display: inline-block;
+    position: relative;
+    color: #FFD700;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-left: 60px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.section-tag::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2px;
+    width: 50px;
+    background-color: #FFD700;
+}
+
+.two-column-container {
+    display: flex;
+    width: 100%;
+    gap: 5%;
+    justify-content: center;
+}
+
+.column {
+    flex: 1;
+}
+
+.text-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.image-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.image-container {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.project-graph {
+    max-width: 100%;
+    height: auto;
+}
+
+.stacked-images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.image-wrapper {
+    width: 100%;
+}
+
+.team-container {
+    display: flex;
+    width: 100%;
+    margin-top: 40px;
+    gap: 30px;
+}
+
+.team-member {
+    flex: 1;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.team-member h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.team-member p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.donate-btn-large {
+    font-size: 2rem;
+    padding: 15px 40px;
+    min-width: 200px;
+    margin-top: 30px;
+    border-radius: 12px;
+}
+
+.donate-btn-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

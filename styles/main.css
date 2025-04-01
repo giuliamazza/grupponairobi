@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+main {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background: #0B1D26;
+    color: #fff;
+    font-family: 'Almarai', sans-serif;
+}
+
+footer {
+    text-align: center;
+    padding: 15px 30px;
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+footer a {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

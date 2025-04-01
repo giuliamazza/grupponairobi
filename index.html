@@ -2,124 +2,161 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>Gruppo Nairobi</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/top-nav.css" rel="stylesheet">
+    <link href="styles/sections.css" rel="stylesheet">
 </head>
 <body>
-    <header class="hero">
-        <nav class="top-nav">
-            <div class="nav-left">
-                <span class="association-name">GRUPPO NAIROBI</span>
+<header class="hero">
+    <nav class="top-nav">
+        <div class="nav-left">
+            <span class="logo-text">GRUPPO NAIROBI</span>
+        </div>
+        <div class="nav-center">
+            <div class="nav-menu">
+                <div><a href="#our-why">Our Why</a></div>
+                <div><a href="#the-project">The Project</a></div>
+                <div><a href="#the-plan">The Plan</a></div>
+                <div><a href="#who-whe-are">Who We Are</a></div>
             </div>
-            <div class="nav-center">
-                <div class="nav-menu">
-                    <div><a href="#where">Where</a></div>
-                    <div><a href="#why">Why</a></div>
-                    <div><a href="#project-details">Project Details</a></div>
-                    <div><a href="#our-appeal">Our Appeal</a></div>
-                    <div><a href="#the-association">The Association</a></div>
+        </div>
+        <div class="nav-menu-right">
+            <div class="nav-menu">
+                <div class="dropdown">
+                    <button class="dropdown-btn">
+                        <span id="current-language"></span> &#9662;
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="index.html">ENG</a>
+                        <a href="index.html">ITA</a>
+                    </div>
+                </div>
+                <div><a class="donate-btn" href="https://www.gofundme.com/f/associazione-gruppo-nairobi"
+                        target="_blank">Donate</a></div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="section landing-section" id="landing">
+        <h1 class="section-title">Ignite Hope</h1>
+        <p class="section-subtitle">
+            Join us in building a school that transforms lives and empowers the next generation.
+        </p>
+    </section>
+
+    <section class="section" id="our-why">
+        <div class="two-column-container">
+            <div class="column text-column">
+                <div class="section-tag">Our Why</div>
+                <h1 class="section-title">Why build a school in Kenya?</h1>
+                <p class="section-text">
+                    The inspiration for this project came from <b>Sister Hitha</b>, a cherished mentor and former school
+                    director with whom we have a long history – including our collaborative efforts in establishing a
+                    school in
+                    Kerala, India. Now in Kenya, Sister Hitha leads a dedicated team of Indian and Kenyan nuns committed
+                    to
+                    providing educational opportunities for children who, due to financial hardships, cannot attend
+                    public
+                    schools. Our initiative not only seeks to lift these children out of poverty through education but
+                    also aims
+                    to create local opportunities that help reduce illegal immigration.
+                </p>
+            </div>
+            <div class="column image-column">
+                <img alt="Our team in Kenya" class="section-image" src="sources/team2.jpeg">
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="the-project">
+        <div class="section-tag">The Project</div>
+        <h1 class="section-title">A Detailed look at the Project</h1>
+        <p class="section-text">
+            Gruppo Nairobi is building a world-class primary school in the heart of Kenya, providing children with
+            quality education that fosters creativity and growth. With six classrooms planned on donated land, this
+            vision needs €180,000 to become a reality. Your support will help create a space where young minds can
+            thrive.
+        </p>
+        <div class="image-container">
+            <img alt="Project graph" class="project-graph" src="sources/graph.png">
+        </div>
+    </section>
+
+    <section class="section" id="the-plan">
+        <div class="two-column-container">
+            <div class="column text-column">
+                <div class="section-tag">The Plan</div>
+                <h1 class="section-title">Plans and Renderings</h1>
+                <p class="section-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in vestibulum tortor, vitae
+                    venenatis lectus. Praesent gravida dapibus neque sit amet molestie. Morbi blandit eu dolor a luctus.
+                    Vestibulum sollicitudin elit ac nunc scelerisque rhoncus. Nulla felis sapien, condimentum ut
+                    imperdiet vel, aliquet id ante. In vitae odio ut libero volutpat commodo. Donec ex erat, mollis nec
+                    interdum a, maximus et nunc. Proin gravida auctor nisl, sed lobortis sem rutrum at. Donec sed felis
+                    libero. Pellentesque nulla metus, tincidunt nec dolor vitae, finibus lacinia tellus.
+                </p>
+            </div>
+            <div class="column image-column">
+                <div class="stacked-images">
+                    <div class="image-wrapper">
+                        <img alt="School rendering" class="section-image" src="sources/render.jpeg">
+                    </div>
+                    <div class="image-wrapper">
+                        <img alt="School floor plan" class="section-image" src="sources/plan.jpeg">
+                    </div>
                 </div>
             </div>
-            <div class="nav-menu-right">
-                <div class="nav-menu">
-                    <div><a href="it.html" id="langBtn" class="lang-link">Italiano</a></div>
-                    <div><a href="https://www.gofundme.com/f/associazione-gruppo-nairobi" id="donateBtn" target="_blank" class="donate-btn">Donate</a></div>
-                </div>
-            </div>
-        </nav>
-    </header>
+        </div>
+    </section>
 
-    <main id="main">
-        <section class="side-by-side">
-            <div class="hero-overlay">
-                <div class="hero-text-container">
-                    <h1 class="hero-association">GRUPPO NAIROBI</h1>
-                    <h2>Who We Are</h2>
-                    <p>Gruppo Nairobi is a dedicated non‑profit organization with a bold vision – to build an elementary school to offer quality education to children in need. Education is the key to a brighter future.</p>
-                </div>
-            </div>
-        </section>
+    <section class="section" id="donate">
+        <h1 class="section-title">Donate Now</h1>
+        <p class="section-text">
+            Embrace the opportunity to transform lives. Whether you can give a lot or a little, every cent counts.
+            Together, we can impact the future of education in Kenya. It's time for a step towards better education, and
+            you can help make it happen with your generous donation.
+        </p>
+        <div class="donate-btn-container"><a class="donate-btn donate-btn-large"
+                                             href="https://www.gofundme.com/f/associazione-gruppo-nairobi"
+                                             target="_blank">Donate</a></div>
+    </section>
 
-        <!-- Where Section (image on right) -->
-        <section id="where" class="fold-section side-by-side reverse">
-            <div class="side-text">
-                <h2>Where</h2>
-                <p>The school will be built in Kenya, approximately 90 km from Nairobi, in the Municipality of Ngunga Paris within the Machakos District. Situated near the Tanzanian border, this region suffers from high poverty rates and limited access to quality educational facilities.</p>
+    <section class="section" id="who-whe-are">
+        <div class="section-tag">Who We Are</div>
+        <h1 class="section-title">About Associazione Gruppo Nairobi</h1>
+        <p class="section-text">
+            We are Gruppo Nairobi, a non-profit dedicated to expanding access to education for children in
+            underprivileged communities. Guided by the belief that education is the key to development, we work to
+            create opportunities that empower the next generation. With a strong commitment to community values, our
+            efforts aim to make a lasting impact where it's needed most.
+        </p>
+        <div class="team-container">
+            <div class="team-member">
+                <h3>President</h3>
+                <p>Mazza Pierdomenico</p>
             </div>
-            <div class="side-image">
-                <img src="sources/map.jpeg" alt="Location Map">
+            <div class="team-member">
+                <h3>Vice President</h3>
+                <p>Abela Franco</p>
             </div>
-        </section>
+            <div class="team-member">
+                <h3>Administrator</h3>
+                <p>Rinaldi Mattia</p>
+            </div>
+        </div>
+    </section>
+</main>
 
-        <!-- Why Section (image on left) -->
-        <section id="why" class="fold-section side-by-side">
-            <div class="side-image">
-                <img src="sources/team.jpeg" alt="Team">
-            </div>
-            <div class="side-text">
-                <h2>Why</h2>
-                <p>The inspiration for this project came from Sister Hitha, a cherished mentor. Now in Kenya, she leads a dedicated team committed to providing educational opportunities for children who, due to financial hardships, cannot attend public schools.</p>
-            </div>
-        </section>
+<footer>
+    <p>Gruppo Nairobi - Ignite Hope</p>
+    <p>Contact us: <a href="mailto:info@grupponairobi.org">info@grupponairobi.org</a></p>
+    <p>&copy; 2025 Gruppo Nairobi. All rights reserved.</p>
+</footer>
 
-        <!-- Project Details Section with Gallery (text on left; gallery on right) -->
-        <section id="project-details" class="fold-section  side-by-side">
-            <div class="project-details-content">
-                <div class="side-text">
-                    <h2>Project Details</h2>
-                    <p>The proposed primary school will feature six classrooms, built on land donated by a local congregation of nuns. An estimated investment of €180,000 is required. Your support is crucial to make this vision a reality.</p>
-                </div>
-                <div class="gallery">
-                    <img src="sources/2d-face.jpeg" alt="Concept Image">
-                    <img src="sources/plan.jpeg" alt="Blueprint Plan">
-                    <img src="sources/render.jpeg" alt="Project Render">
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Appeal Section (full-width text) -->
-        <section id="our-appeal" class="fold-section side-by-side">
-            <h2>Our Appeal</h2>
-            <p>We are passionately committed to making this project a reality, but we cannot do it alone. Join us in building this school to provide education, hope, and a brighter future for countless children.</p>
-        </section>
-
-        <!-- The Association Section (image on right) -->
-        <section id="the-association" class="fold-section side-by-side reverse">
-            <div class="side-text">
-                <h2>The Association</h2>
-                <div class="side-list">
-                    <ul>
-                        <li>President: Mazza Pierdomenico</li>
-                        <li>Vice President: Abela Franco</li>
-                        <li>Administrator: Rinaldi Mattia</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="side-image">
-                <img src="sources/2d-face.jpeg" alt="Association">
-            </div>
-        </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2025 Gruppo Nairobi. All rights reserved.</p>
-        </footer>
-
-        <script>
-            // Add a subtle grey background under the sticky menu after scrolling past the hero fold
-            window.addEventListener('scroll', function () {
-                const topNav = document.querySelector('.top-nav');
-                const heroHeight = document.querySelector('.hero').offsetHeight;
-                const links = document.querySelectorAll('.nav-menu div a');
-                if (window.scrollY > heroHeight - 60) {
-                    topNav.classList.add('scrolled');
-                    links.forEach(link => link.classList.add('scrolled'));
-                } else {
-                    topNav.classList.remove('scrolled');
-                    links.forEach(link => link.classList.remove('scrolled'));
-                }
-            });
-        </script>
+<script src="scripts/top-nav.js"></script>
 </body>
 </html>
