@@ -1,3 +1,5 @@
+you can find a preview of the current website here: https://giuliamazza.github.io/grupponairobi/
+
 # 🌍 Build a School in Kenya — Charity Website
 
 Welcome to the official repo for the charity stream website project supporting the construction of a primary school in Kenya!
