@@ -8,9 +8,9 @@
         const userLang = navigator.language || navigator.userLanguage;
 
         if (userLang.toLowerCase().indexOf('it') === 0) {
-            window.location.replace('/it/');
+            window.location.replace('./it/');
         } else {
-            window.location.replace('/en/');
+            window.location.replace('./en/');
         }
     </script>
 
@@ -19,6 +19,6 @@
 </head>
 <body>
 <!-- Fallback content if JavaScript is disabled -->
-<p>Please select your language: <a href="/en/">English</a> | <a href="/it/">Italiano</a></p>
+<p>Please select your language: <a href="./en/">English</a> | <a href="./it/">Italiano</a></p>
 </body>
 </html>
