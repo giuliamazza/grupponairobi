@@ -81,8 +81,25 @@
     position: absolute;
     background-color: #0B1D26;
     min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
+    top: 100%;
+    left: 0;
+    margin-top: 0;
+    padding-top: 5px;
+}
+
+.dropdown::after {
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 100%;
+    bottom: -10px;
+    left: 0;
+}
+
+#current-language {
+    display: inline-block;
 }
 
 .dropdown-content a {

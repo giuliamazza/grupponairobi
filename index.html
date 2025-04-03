@@ -4,159 +4,21 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>Gruppo Nairobi</title>
-    <link href="styles/main.css" rel="stylesheet">
-    <link href="styles/top-nav.css" rel="stylesheet">
-    <link href="styles/sections.css" rel="stylesheet">
+    <script>
+        const userLang = navigator.language || navigator.userLanguage;
+
+        if (userLang.toLowerCase().indexOf('it') === 0) {
+            window.location.replace('/it/');
+        } else {
+            window.location.replace('/en/');
+        }
+    </script>
+
+    <link href="/it/" hreflang="it" rel="alternate">
+    <link href="/en/" hreflang="en" rel="alternate">
 </head>
 <body>
-<header class="hero">
-    <nav class="top-nav">
-        <div class="nav-left">
-            <span class="logo-text">GRUPPO NAIROBI</span>
-        </div>
-        <div class="nav-center">
-            <div class="nav-menu">
-                <div><a href="#our-why">Our Why</a></div>
-                <div><a href="#the-project">The Project</a></div>
-                <div><a href="#the-plan">The Plan</a></div>
-                <div><a href="#who-whe-are">Who We Are</a></div>
-            </div>
-        </div>
-        <div class="nav-menu-right">
-            <div class="nav-menu">
-                <div class="dropdown">
-                    <button class="dropdown-btn">
-                        <span id="current-language"></span> &#9662;
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="index.html">ENG</a>
-                        <a href="index.html">ITA</a>
-                    </div>
-                </div>
-                <div><a class="donate-btn" href="https://www.gofundme.com/f/associazione-gruppo-nairobi"
-                        target="_blank">Donate</a></div>
-            </div>
-        </div>
-    </nav>
-</header>
-
-<main>
-    <section class="section landing-section" id="landing">
-        <h1 class="section-title">Ignite Hope</h1>
-        <p class="section-subtitle">
-            Join us in building a school that transforms lives and empowers the next generation.
-        </p>
-    </section>
-
-    <section class="section" id="our-why">
-        <div class="two-column-container">
-            <div class="column text-column">
-                <div class="section-tag">Our Why</div>
-                <h1 class="section-title">Why build a school in Kenya?</h1>
-                <p class="section-text">
-                    The inspiration for this project came from <b>Sister Hitha</b>, a cherished mentor and former school
-                    director with whom we have a long history – including our collaborative efforts in establishing a
-                    school in
-                    Kerala, India. Now in Kenya, Sister Hitha leads a dedicated team of Indian and Kenyan nuns committed
-                    to
-                    providing educational opportunities for children who, due to financial hardships, cannot attend
-                    public
-                    schools. Our initiative not only seeks to lift these children out of poverty through education but
-                    also aims
-                    to create local opportunities that help reduce illegal immigration.
-                </p>
-            </div>
-            <div class="column image-column">
-                <img alt="Our team in Kenya" class="section-image" src="sources/team2.jpeg">
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="the-project">
-        <div class="section-tag">The Project</div>
-        <h1 class="section-title">A Detailed look at the Project</h1>
-        <p class="section-text">
-            Gruppo Nairobi is building a world-class primary school in the heart of Kenya, providing children with
-            quality education that fosters creativity and growth. With six classrooms planned on donated land, this
-            vision needs €180,000 to become a reality. Your support will help create a space where young minds can
-            thrive.
-        </p>
-        <div class="image-container">
-            <img alt="Project graph" class="project-graph" src="sources/graph.png">
-        </div>
-    </section>
-
-    <section class="section" id="the-plan">
-        <div class="two-column-container">
-            <div class="column text-column">
-                <div class="section-tag">The Plan</div>
-                <h1 class="section-title">Plans and Renderings</h1>
-                <p class="section-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in vestibulum tortor, vitae
-                    venenatis lectus. Praesent gravida dapibus neque sit amet molestie. Morbi blandit eu dolor a luctus.
-                    Vestibulum sollicitudin elit ac nunc scelerisque rhoncus. Nulla felis sapien, condimentum ut
-                    imperdiet vel, aliquet id ante. In vitae odio ut libero volutpat commodo. Donec ex erat, mollis nec
-                    interdum a, maximus et nunc. Proin gravida auctor nisl, sed lobortis sem rutrum at. Donec sed felis
-                    libero. Pellentesque nulla metus, tincidunt nec dolor vitae, finibus lacinia tellus.
-                </p>
-            </div>
-            <div class="column image-column">
-                <div class="stacked-images">
-                    <div class="image-wrapper">
-                        <img alt="School rendering" class="section-image" src="sources/render.jpeg">
-                    </div>
-                    <div class="image-wrapper">
-                        <img alt="School floor plan" class="section-image" src="sources/plan.jpeg">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="donate">
-        <h1 class="section-title">Donate Now</h1>
-        <p class="section-text">
-            Embrace the opportunity to transform lives. Whether you can give a lot or a little, every cent counts.
-            Together, we can impact the future of education in Kenya. It's time for a step towards better education, and
-            you can help make it happen with your generous donation.
-        </p>
-        <div class="donate-btn-container"><a class="donate-btn donate-btn-large"
-                                             href="https://www.gofundme.com/f/associazione-gruppo-nairobi"
-                                             target="_blank">Donate</a></div>
-    </section>
-
-    <section class="section" id="who-whe-are">
-        <div class="section-tag">Who We Are</div>
-        <h1 class="section-title">About Associazione Gruppo Nairobi</h1>
-        <p class="section-text">
-            We are Gruppo Nairobi, a non-profit dedicated to expanding access to education for children in
-            underprivileged communities. Guided by the belief that education is the key to development, we work to
-            create opportunities that empower the next generation. With a strong commitment to community values, our
-            efforts aim to make a lasting impact where it's needed most.
-        </p>
-        <div class="team-container">
-            <div class="team-member">
-                <h3>President</h3>
-                <p>Mazza Pierdomenico</p>
-            </div>
-            <div class="team-member">
-                <h3>Vice President</h3>
-                <p>Abela Franco</p>
-            </div>
-            <div class="team-member">
-                <h3>Administrator</h3>
-                <p>Rinaldi Mattia</p>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer>
-    <p>Gruppo Nairobi - Ignite Hope</p>
-    <p>Contact us: <a href="mailto:info@grupponairobi.org">info@grupponairobi.org</a></p>
-    <p>&copy; 2025 Gruppo Nairobi. All rights reserved.</p>
-</footer>
-
-<script src="scripts/top-nav.js"></script>
+<!-- Fallback content if JavaScript is disabled -->
+<p>Please select your language: <a href="/en/">English</a> | <a href="/it/">Italiano</a></p>
 </body>
 </html>
