@@ -2,124 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>Gruppo Nairobi</title>
-    <link rel="stylesheet" href="styles.css">
+    <script>
+        const userLang = navigator.language || navigator.userLanguage;
+
+        if (userLang.toLowerCase().indexOf('it') === 0) {
+            window.location.replace('./it/');
+        } else {
+            window.location.replace('./en/');
+        }
+    </script>
+
+    <link href="/it/" hreflang="it" rel="alternate">
+    <link href="/en/" hreflang="en" rel="alternate">
 </head>
 <body>
-    <header class="hero">
-        <nav class="top-nav">
-            <div class="nav-left">
-                <span class="association-name">GRUPPO NAIROBI</span>
-            </div>
-            <div class="nav-center">
-                <div class="nav-menu">
-                    <div><a href="#where">Where</a></div>
-                    <div><a href="#why">Why</a></div>
-                    <div><a href="#project-details">Project Details</a></div>
-                    <div><a href="#our-appeal">Our Appeal</a></div>
-                    <div><a href="#the-association">The Association</a></div>
-                </div>
-            </div>
-            <div class="nav-menu-right">
-                <div class="nav-menu">
-                    <div><a href="it.html" id="langBtn" class="lang-link">Italiano</a></div>
-                    <div><a href="https://www.gofundme.com/f/associazione-gruppo-nairobi" id="donateBtn" target="_blank" class="donate-btn">Donate</a></div>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main id="main">
-        <section class="side-by-side">
-            <div class="hero-overlay">
-                <div class="hero-text-container">
-                    <h1 class="hero-association">GRUPPO NAIROBI</h1>
-                    <h2>Who We Are</h2>
-                    <p>Gruppo Nairobi is a dedicated non‑profit organization with a bold vision – to build an elementary school to offer quality education to children in need. Education is the key to a brighter future.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Where Section (image on right) -->
-        <section id="where" class="fold-section side-by-side reverse">
-            <div class="side-text">
-                <h2>Where</h2>
-                <p>The school will be built in Kenya, approximately 90 km from Nairobi, in the Municipality of Ngunga Paris within the Machakos District. Situated near the Tanzanian border, this region suffers from high poverty rates and limited access to quality educational facilities.</p>
-            </div>
-            <div class="side-image">
-                <img src="sources/map.jpeg" alt="Location Map">
-            </div>
-        </section>
-
-        <!-- Why Section (image on left) -->
-        <section id="why" class="fold-section side-by-side">
-            <div class="side-image">
-                <img src="sources/team.jpeg" alt="Team">
-            </div>
-            <div class="side-text">
-                <h2>Why</h2>
-                <p>The inspiration for this project came from Sister Hitha, a cherished mentor. Now in Kenya, she leads a dedicated team committed to providing educational opportunities for children who, due to financial hardships, cannot attend public schools.</p>
-            </div>
-        </section>
-
-        <!-- Project Details Section with Gallery (text on left; gallery on right) -->
-        <section id="project-details" class="fold-section  side-by-side">
-            <div class="project-details-content">
-                <div class="side-text">
-                    <h2>Project Details</h2>
-                    <p>The proposed primary school will feature six classrooms, built on land donated by a local congregation of nuns. An estimated investment of €180,000 is required. Your support is crucial to make this vision a reality.</p>
-                </div>
-                <div class="gallery">
-                    <img src="sources/2d-face.jpeg" alt="Concept Image">
-                    <img src="sources/plan.jpeg" alt="Blueprint Plan">
-                    <img src="sources/render.jpeg" alt="Project Render">
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Appeal Section (full-width text) -->
-        <section id="our-appeal" class="fold-section side-by-side">
-            <h2>Our Appeal</h2>
-            <p>We are passionately committed to making this project a reality, but we cannot do it alone. Join us in building this school to provide education, hope, and a brighter future for countless children.</p>
-        </section>
-
-        <!-- The Association Section (image on right) -->
-        <section id="the-association" class="fold-section side-by-side reverse">
-            <div class="side-text">
-                <h2>The Association</h2>
-                <div class="side-list">
-                    <ul>
-                        <li>President: Mazza Pierdomenico</li>
-                        <li>Vice President: Abela Franco</li>
-                        <li>Administrator: Rinaldi Mattia</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="side-image">
-                <img src="sources/2d-face.jpeg" alt="Association">
-            </div>
-        </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2025 Gruppo Nairobi. All rights reserved.</p>
-        </footer>
-
-        <script>
-            // Add a subtle grey background under the sticky menu after scrolling past the hero fold
-            window.addEventListener('scroll', function () {
-                const topNav = document.querySelector('.top-nav');
-                const heroHeight = document.querySelector('.hero').offsetHeight;
-                const links = document.querySelectorAll('.nav-menu div a');
-                if (window.scrollY > heroHeight - 60) {
-                    topNav.classList.add('scrolled');
-                    links.forEach(link => link.classList.add('scrolled'));
-                } else {
-                    topNav.classList.remove('scrolled');
-                    links.forEach(link => link.classList.remove('scrolled'));
-                }
-            });
-        </script>
+<!-- Fallback content if JavaScript is disabled -->
+<p>Please select your language: <a href="./en/">English</a> | <a href="./it/">Italiano</a></p>
 </body>
 </html>
