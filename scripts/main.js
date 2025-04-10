@@ -69,6 +69,52 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
+
+  // Lightbox
+  const lightbox = document.createElement("div")
+  lightbox.classList.add("lightbox")
+  document.body.appendChild(lightbox)
+  
+  const lightboxImg = document.createElement("img")
+  lightbox.appendChild(lightboxImg)
+  
+  const lightboxClose = document.createElement("div")
+  lightboxClose.classList.add("lightbox-close")
+  lightboxClose.innerHTML = "&times;"
+  lightbox.appendChild(lightboxClose)
+  
+  // Set up delegated event listener (more reliable)
+  document.addEventListener("click", (e) => {
+    const trigger = e.target.closest(".lightbox-trigger")
+    if (!trigger) return
+  
+    e.preventDefault()
+  
+    const imgSrc = trigger.getAttribute("href")
+    if (!imgSrc) return
+  
+    lightboxImg.src = imgSrc
+    lightbox.classList.add("active")
+  })
+  
+  // Handle close events
+  lightboxClose.addEventListener("click", () => {
+    lightbox.classList.remove("active")
+  })
+  
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("active")
+    }
+  })
+  
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      lightbox.classList.remove("active")
+    }
+  })
+  
+
   // ===== Share Modal: ONLY opening, closing, copy link functionality =====
   const shareModal = document.getElementById("share-modal")
   const shareClose = document.querySelector(".share-close")
@@ -301,45 +347,3 @@ document.addEventListener("scroll", () => {
   }
 })
 
-// Lightbox functionality
-document.addEventListener("DOMContentLoaded", () => {
-  const lightbox = document.createElement("div")
-  lightbox.classList.add("lightbox")
-  document.body.appendChild(lightbox)
-
-  const lightboxImg = document.createElement("img")
-  lightbox.appendChild(lightboxImg)
-
-  const lightboxClose = document.createElement("div")
-  lightboxClose.classList.add("lightbox-close")
-  lightboxClose.innerHTML = "&times;"
-  lightbox.appendChild(lightboxClose)
-
-  const triggers = document.querySelectorAll(".lightbox-trigger")
-
-  triggers.forEach((trigger) => {
-    trigger.addEventListener("click", (e) => {
-      e.preventDefault()
-      const imgSrc = trigger.getAttribute("href")
-      lightboxImg.src = imgSrc
-      lightbox.classList.add("active")
-      closeMobileMenu() // Close mobile menu when opening lightbox
-    })
-  })
-
-  lightboxClose.addEventListener("click", () => {
-    lightbox.classList.remove("active")
-  })
-
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      lightbox.classList.remove("active")
-    }
-  })
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      lightbox.classList.remove("active")
-    }
-  })
-})
