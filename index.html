@@ -7,6 +7,7 @@
   <meta name="description" content="Join Gruppo Nairobi to build a school in Kenya that transforms lives and empowers a new generation.">
   <meta name="author" content="Gruppo Nairobi Team">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#00a651">
 
   <!-- Open Graph / Social Meta Tags -->
   <meta property="og:title" content="Gruppo Nairobi – Build a School, Ignite Hope">
@@ -21,17 +22,20 @@
 
   <link rel="icon" type="image/png" href="../images/favicons/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="../images/favicons/favicon.svg" />
-  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="../images/favicons/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="Gruppo Nairobi" />
   <link rel="manifest" href="../images/favicons/site.webmanifest" />
 
+  <!-- Preload critical resources -->
   <link rel="preload" href="fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
   <link rel="stylesheet" href="styles/main.css">
+  <!-- Restored Font Awesome CDN link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Load translations first -->
-  <script src="translations/translations.js"></script>
+  <script src="translations/translations.js" defer></script>
 </head>
 <body>
   <header>
@@ -43,7 +47,7 @@
           <span class="brand">GRUPPO NAIROBI</span>
         </div>
       </div>
-      <nav>
+      <nav aria-label="Main navigation">
         <ul>
           <li><a href="#our-why" class="lang" data-key="nav_why">Our Why</a></li>
           <li><a href="#the-project" class="lang" data-key="nav_project">The Project</a></li>
@@ -51,7 +55,8 @@
           <li><a href="#donate" class="nav-donate lang" data-key="nav_donate">Donate</a></li>
           <li>
             <div class="language-switcher">
-              <select id="language-select" class="language-select">
+              <label for="language-select" class="sr-only">Select Language</label>
+              <select id="language-select" class="language-select" aria-label="Select language">
                 <option value="en">ENG</option>
                 <option value="it">ITA</option>
                 <option value="de">DEU</option>
@@ -60,243 +65,243 @@
           </li>
         </ul>
       </nav>
-      <button class="mobile-menu-btn">
-        <i class="fas fa-bars"></i>
+      <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container-wide">
-      <div class="hero-card">
-        <div class="hero-content">
-          <h1 class="lang" data-key="hero_title">Ignite Hope</h1>
-          <p class="lang" data-key="hero_text">Join us to build a school that changes lives and empowers a new generation.</p>
-          <div class="hero-buttons">
-            <a href="https://gofund.me/93307ded" class="btn primary lang" data-key="hero_donate">I wanna help!</a>
-            <a href="#" class="btn secondary lang" data-key="hero_read">Share on Social Media</a>
-          </div>
-        </div>
-        <div class="hero-feature" onclick="scrollToProject()">
-          <div class="feature-box">
-            <div class="progress-ring">
-              <svg class="progress-ring__svg" width="64" height="64">
-                <circle class="progress-ring__circle--bg" cx="32" cy="32" r="28"/>
-                <circle class="progress-ring__circle" cx="32" cy="32" r="28"/>
-              </svg>
-              <div class="progress-ring__text">58%</div>
-            </div>
-            <div class="feature-text">
-              <h3 class="lang" data-key="hero_build">Build a School</h3>
-              <p class="small-text lang" data-key="hero_next_goal">Next Goal: Foundations</p>
+  <main>
+    <section class="hero">
+      <div class="container-wide">
+        <div class="hero-card">
+          <div class="hero-content">
+            <h1 class="lang" data-key="hero_title">Ignite Hope</h1>
+            <p class="lang" data-key="hero_text">Join us to build a school that changes lives and empowers a new generation.</p>
+            <div class="hero-buttons">
+              <a href="https://gofund.me/93307ded" class="btn primary lang" data-key="hero_donate">I wanna help!</a>
+              <a href="#" class="btn secondary lang" data-key="hero_read">Share on Social Media</a>
             </div>
           </div>
-        </div>
-        
-        
-      </div>
-    </div>
-  </section>
-
-  <section id="our-why" class="our-why">
-    <div class="container">
-      <div class="section-content">
-        <h2 class="lang" data-key="why_title">Our Why: Education is the Key to Development</h2>
-        <p class="lang" data-key="why_p1">In Kenya, thousands of children are denied an education simply because their families cannot afford school fees.</p>
-        <p class="lang" data-key="why_p2">Inspired by Sister Hitha, a close partner who helped us build a school in Kerala, India, we are launching a new mission: 
-          to create a six-classroom primary school in Ngunga Parish, Machakos District, near the Tanzanian border — a region deeply impacted by poverty and lack of infrastructure.</p>
-        <p class="lang" data-key="why_p3">Education opens the door to opportunity. It lifts children out of poverty, strengthens local communities, and reduces the need for risky migration.</p>
-        <p class="lang" data-key="why_p4">You can be that change.</p>
-        <a href="https://gofund.me/93307ded" class="btn primary lang" data-key="why_donate">Donate to Build the School!</a>
-      </div>
-      <div class="section-image">
-        <img src="images/children.jpg" alt="Children in school uniforms">
-      </div>
-    </div>
-  </section>
-
-  <section id="the-project" class="the-project">
-    <div class="container">
-      <div class="section-content">
-        <h2 class="lang" data-key="project_title">The Project:<br>6 Classrooms. Infinite Possibilities.</h2>
-        <p class="lang" data-key="project_text">We're creating a vibrant school for children who would otherwise be left behind. 
-          The land is ready — a gift from the local nuns. Now, we need your help to build it.</p>
-        
-        <div class="project-timeline">
-          <div class="timeline-item">
-            <div class="timeline-icon completed">
-              <i class="fas fa-tint"></i>
-            </div>
-            <div class="timeline-content completed">
-              <h4 class="lang" data-key="timeline_water">Water Fountain</h4>
-              <p class="lang" data-key="timeline_water_desc">Clean water access for all students</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-icon completed">
-              <i class="fas fa-solar-panel"></i>
-            </div>
-            <div class="timeline-content completed">
-              <h4 class="lang" data-key="timeline_solar">Solar Panels</h4>
-              <p class="lang" data-key="timeline_solar_desc">Sustainable energy for the school</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-icon active">
-              <i class="fas fa-building"></i>
-            </div>
-            <div class="timeline-content active">
-              <h4 class="lang" data-key="timeline_foundations">Foundations</h4>
-              <p class="lang" data-key="timeline_foundations_desc">Currently in progress</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-icon future">
-              <i class="fas fa-home"></i>
-            </div>
-            <div class="timeline-content future">
-              <h4 class="lang" data-key="timeline_ceilings">Ceilings</h4>
-              <p class="lang" data-key="timeline_ceilings_desc">Next phase after foundations</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-icon future">
-              <i class="fas fa-chalkboard"></i>
-            </div>
-            <div class="timeline-content future">
-              <h4 class="lang" data-key="timeline_classrooms">6 Fully Furnished Classrooms</h4>
-              <p class="lang" data-key="timeline_classrooms_desc">Learning spaces for the children</p>
-            </div>
-          </div>
-          
-          <div class="timeline-item">
-            <div class="timeline-icon future">
-              <i class="fas fa-check-circle"></i>
-            </div>
-            <div class="timeline-content future">
-              <h4 class="lang" data-key="timeline_completed">Completed</h4>
-              <p class="lang" data-key="timeline_completed_desc">Final phase of the project</p>
+          <div class="hero-feature" onclick="scrollToProject()" role="button" tabindex="0" aria-label="View project progress">
+            <div class="feature-box">
+              <div class="progress-ring">
+                <svg class="progress-ring__svg" width="64" height="64" aria-hidden="true">
+                  <circle class="progress-ring__circle--bg" cx="32" cy="32" r="28"/>
+                  <circle class="progress-ring__circle" cx="32" cy="32" r="28"/>
+                </svg>
+                <div class="progress-ring__text">58%</div>
+              </div>
+              <div class="feature-text">
+                <h3 class="lang" data-key="hero_build">Build a School</h3>
+                <p class="small-text lang" data-key="hero_next_goal">Next Goal: Foundations</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="section-image">
-        <a href="images/school-render.jpg" class="lightbox-trigger">
-          <img src="images/school-render.jpg" alt="School rendering">
-        </a>
-        <div class="image-caption lang" data-key="project_render_caption">
-          A home for hope: Six bright, welcoming classrooms designed to inspire creativity and community.
+    </section>
+
+    <section id="our-why" class="our-why">
+      <div class="container">
+        <div class="section-content">
+          <h2 class="lang" data-key="why_title">Our Why: Education is the Key to Development</h2>
+          <p class="lang" data-key="why_p1">In Kenya, thousands of children are denied an education simply because their families cannot afford school fees.</p>
+          <p class="lang" data-key="why_p2">Inspired by Sister Hitha, a close partner who helped us build a school in Kerala, India, we are launching a new mission: 
+            to create a six-classroom primary school in Ngunga Parish, Machakos District, near the Tanzanian border — a region deeply impacted by poverty and lack of infrastructure.</p>
+          <p class="lang" data-key="why_p3">Education opens the door to opportunity. It lifts children out of poverty, strengthens local communities, and reduces the need for risky migration.</p>
+          <p class="lang" data-key="why_p4">You can be that change.</p>
+          <a href="https://gofund.me/93307ded" class="btn primary lang" data-key="why_donate">Donate to Build the School!</a>
         </div>
-      
-        <a href="images/floor-plan.jpg" class="lightbox-trigger">
-          <img src="images/floor-plan.jpg" alt="School floor plan" class="floor-plan">
-        </a>
-        <div class="image-caption lang" data-key="project_plan_caption">
-          Built with care: Every corner planned to nurture safety, belonging, and imagination.
+        <div class="section-image">
+          <img src="images/children.jpg" alt="Children in school uniforms in Kenya" loading="lazy" width="600" height="400">
         </div>
       </div>
-    </div>
-    
-    <!-- funding-container outside container -->
-<div class="funding-container">
-  <div class="funding-header">
-    <h3 class="lang" data-key="funding_title">Project Funding Progress</h3>
-  </div>
+    </section>
 
-  <div class="funding-goal">
-    <div class="current-amount">€12,855</div>
-    <div class="total-amount">€22,000</div>
-  </div>
-
-  <div class="progress-container">
-    <div class="progress-bar" style="width: 58%;"></div>
-  </div>
-
-  <div class="progress-labels">
-    <div class="progress-label">58% <span class="lang" data-key="funding_progress">Funded</span></div>
-    <div class="progress-label">42% <span class="lang" data-key="funding_remaining">to go</span></div>
-  </div>
-
-  <div class="donate-button-container">
-    <a href="https://gofund.me/93307ded" class="btn primary lang" data-key="funding_donate">Donate on GoFundMe</a>
-  </div>
-</div>
-
-  </section>
-
-  <section id="who-we-are" class="who-we-are">
-    <div class="container">
-      <h2 class="lang" data-key="who_title">Who We Are: Gruppo Nairobi</h2>
-      <p class="lang" data-key="who_text">We are Gruppo Nairobi, a non-profit driven by the belief that education unlocks true development.
-        Our small but passionate team works hand-in-hand with local communities to turn dreams into reality.</p>
-      
-      <div class="team">
-        <div class="team-member">
-          <div class="member-avatar">
-            <img src="images/avatar1.svg" alt="Mazza Pierdonienico">
+    <section id="the-project" class="the-project">
+      <div class="container">
+        <div class="section-content">
+          <h2 class="lang" data-key="project_title">The Project:<br>6 Classrooms. Infinite Possibilities.</h2>
+          <p class="lang" data-key="project_text">We're creating a vibrant school for children who would otherwise be left behind. 
+            The land is ready — a gift from the local nuns. Now, we need your help to build it.</p>
+          
+          <div class="project-timeline" aria-label="Project timeline">
+            <div class="timeline-item">
+              <div class="timeline-icon completed" aria-hidden="true">
+                <i class="fas fa-tint"></i>
+              </div>
+              <div class="timeline-content completed">
+                <h4 class="lang" data-key="timeline_water">Water Fountain</h4>
+                <p class="lang" data-key="timeline_water_desc">Clean water access for all students</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-icon completed" aria-hidden="true">
+                <i class="fas fa-solar-panel"></i>
+              </div>
+              <div class="timeline-content completed">
+                <h4 class="lang" data-key="timeline_solar">Solar Panels</h4>
+                <p class="lang" data-key="timeline_solar_desc">Sustainable energy for the school</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-icon active" aria-hidden="true">
+                <i class="fas fa-building"></i>
+              </div>
+              <div class="timeline-content active">
+                <h4 class="lang" data-key="timeline_foundations">Foundations</h4>
+                <p class="lang" data-key="timeline_foundations_desc">Currently in progress</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-icon future" aria-hidden="true">
+                <i class="fas fa-home"></i>
+              </div>
+              <div class="timeline-content future">
+                <h4 class="lang" data-key="timeline_ceilings">Ceilings</h4>
+                <p class="lang" data-key="timeline_ceilings_desc">Next phase after foundations</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-icon future" aria-hidden="true">
+                <i class="fas fa-chalkboard"></i>
+              </div>
+              <div class="timeline-content future">
+                <h4 class="lang" data-key="timeline_classrooms">6 Fully Furnished Classrooms</h4>
+                <p class="lang" data-key="timeline_classrooms_desc">Learning spaces for the children</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-icon future" aria-hidden="true">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div class="timeline-content future">
+                <h4 class="lang" data-key="timeline_completed">Completed</h4>
+                <p class="lang" data-key="timeline_completed_desc">Final phase of the project</p>
+              </div>
+            </div>
           </div>
-          <h3>Mazza Pierdonienico</h3>
-          <p class="lang" data-key="role_president">President</p>
         </div>
-        
-        <div class="team-member">
-          <div class="member-avatar">
-            <img src="images/avatar2.svg" alt="Abela Franco">
+        <div class="section-image">
+          <a href="images/school-render.jpg" class="lightbox-trigger" aria-label="View larger school rendering">
+            <img src="images/school-render.jpg" alt="School rendering showing the planned building design" loading="lazy" width="600" height="400">
+          </a>
+          <div class="image-caption lang" data-key="project_render_caption">
+            A home for hope: Six bright, welcoming classrooms designed to inspire creativity and community.
           </div>
-          <h3>Abela Franco</h3>
-          <p class="lang" data-key="role_vp">Vice President</p>
-        </div>
         
-        <div class="team-member">
-          <div class="member-avatar">
-            <img src="images/avatar3.svg" alt="Rinaldi Mattia">
+          <a href="images/floor-plan.jpg" class="lightbox-trigger" aria-label="View larger floor plan">
+            <img src="images/floor-plan.jpg" alt="School floor plan showing the layout of classrooms" class="floor-plan" loading="lazy" width="600" height="400">
+          </a>
+          <div class="image-caption lang" data-key="project_plan_caption">
+            Built with care: Every corner planned to nurture safety, belonging, and imagination.
           </div>
-          <h3>Rinaldi Mattia</h3>
-          <p class="lang" data-key="role_admin">Administrator</p>
         </div>
       </div>
       
-      <div class="values">
-        <div class="value">
-          <div class="value-icon">
-            <i class="fas fa-hand-holding-usd"></i>
-          </div>
-          <h3 class="lang" data-key="value_funding">Transparent Funding</h3>
-          <p class="lang" data-key="value_funding_text">Every cent goes directly to the school project, securely managed through GoFundMe.</p>
-        </div>
-        
-        <div class="value">
-          <div class="value-icon">
-            <i class="fas fa-globe"></i>
-          </div>
-          <h3 class="lang" data-key="value_global">Global Movement</h3>
-          <p class="lang" data-key="value_global_text">Be part of a growing family of changemakers from around the world.</p>
-        </div>
+      <!-- funding-container outside container -->
+    <div class="funding-container">
+      <div class="funding-header">
+        <h3 class="lang" data-key="funding_title">Project Funding Progress</h3>
       </div>
-    </div>
-  </section>
 
-  <section class="cta" id="donate">
-    <div class="container-wide">
-      <div class="cta-card">
-        <div class="cta-bg"></div>
-        <div class="cta-content">
-          <h2 class="lang" data-key="cta_title">Together, We Are Stronger</h2>
-          <p class="lang" data-key="cta_p1">Over €12,855 raised already! Every donation brings us closer to opening our doors to the first students.
-            Read messages of encouragement and generosity from our donors.</p>
+      <div class="funding-goal">
+        <div class="current-amount">€12,855</div>
+        <div class="total-amount">€22,000</div>
+      </div>
+
+      <div class="progress-container" aria-label="Funding progress" role="progressbar" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar" id="funding-progress-bar"></div>
+      </div>
+
+      <div class="progress-labels">
+        <div class="progress-label"><span id="funding-progress-text">58%</span> <span class="lang" data-key="funding_progress">Funded</span></div>
+        <div class="progress-label"><span id="funding-remaining-text">42%</span> <span class="lang" data-key="funding_remaining">to go</span></div>
+      </div>
+
+      <div class="donate-button-container">
+        <a href="https://gofund.me/93307ded" class="btn primary lang" data-key="funding_donate">Donate on GoFundMe</a>
+      </div>
+    </div>
+
+    </section>
+
+    <section id="who-we-are" class="who-we-are">
+      <div class="container">
+        <h2 class="lang" data-key="who_title">Who We Are: Gruppo Nairobi</h2>
+        <p class="lang" data-key="who_text">We are Gruppo Nairobi, a non-profit driven by the belief that education unlocks true development.
+          Our small but passionate team works hand-in-hand with local communities to turn dreams into reality.</p>
         
-          <a href="https://gofund.me/93307ded" class="btn primary lang" data-key="cta_donate">Donate Now and Be Part of It</a>
-          <div class="social-links">
-          <a href="#" class="lang" data-key="cta_share">Share on Social Media</a> &bull; <a href="#contact" class="lang" data-key="cta_contact">Contact Us</a>
+        <div class="team">
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="images/avatar.png" alt="Mazza Pierdonienico" loading="lazy" width="120" height="120">
+            </div>
+            <h3>Mazza Pierdonienico</h3>
+            <p class="lang" data-key="role_president">President</p>
+          </div>
+          
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="images/avatar.png" alt="Abela Franco" loading="lazy" width="120" height="120">
+            </div>
+            <h3>Abela Franco</h3>
+            <p class="lang" data-key="role_vp">Vice President</p>
+          </div>
+          
+          <div class="team-member">
+            <div class="member-avatar">
+              <img src="images/avatar.png" alt="Rinaldi Mattia" loading="lazy" width="120" height="120">
+            </div>
+            <h3>Rinaldi Mattia</h3>
+            <p class="lang" data-key="role_admin">Administrator</p>
+          </div>
+        </div>
+        
+        <div class="values">
+          <div class="value">
+            <div class="value-icon" aria-hidden="true">
+              <i class="fas fa-hand-holding-usd"></i>
+            </div>
+            <h3 class="lang" data-key="value_funding">Transparent Funding</h3>
+            <p class="lang" data-key="value_funding_text">Every cent goes directly to the school project, securely managed through GoFundMe.</p>
+          </div>
+          
+          <div class="value">
+            <div class="value-icon" aria-hidden="true">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3 class="lang" data-key="value_global">Global Movement</h3>
+            <p class="lang" data-key="value_global_text">Be part of a growing family of changemakers from around the world.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="cta" id="donate">
+      <div class="container-wide">
+        <div class="cta-card">
+          <div class="cta-bg"></div>
+          <div class="cta-content">
+            <h2 class="lang" data-key="cta_title">Together, We Are Stronger</h2>
+            <p class="lang" data-key="cta_p1">Over €12,855 raised already! Every donation brings us closer to opening our doors to the first students.
+              Read messages of encouragement and generosity from our donors.</p>
+          
+            <a href="https://gofund.me/93307ded" class="btn primary lang" data-key="cta_donate">Donate Now and Be Part of It</a>
+            <div class="social-links">
+            <a href="#" class="lang" data-key="cta_share">Share on Social Media</a> &bull; <a href="mailto:info@grupponairobi.org" class="lang" data-key="cta_contact">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="container footer-container">
@@ -324,7 +329,8 @@
           </div>
           <div class="footer-column">
             <div class="language-switcher">
-              <select id="language-select-footer" class="language-select">
+              <label for="language-select-footer" class="sr-only">Select Language</label>
+              <select id="language-select-footer" class="language-select" aria-label="Select language">
                 <option value="en">ENG</option>
                 <option value="it">ITA</option>
                 <option value="de">DEU</option>
@@ -342,22 +348,28 @@
   
 
   <!-- Scripts -->
-  <script src="scripts/main.js"></script>
+  <script src="scripts/main.js" defer></script>
   <script>
     document.getElementById('current-year').textContent = new Date().getFullYear();
   </script>
 
   <!-- Social Share Modal -->
-  <div id="share-modal" class="share-modal">
+  <div id="share-modal" class="share-modal" aria-hidden="true" role="dialog" aria-labelledby="share-title">
     <div class="share-modal-content">
-      <span class="share-close">&times;</span>
-      <h3>Share this project</h3>
+      <span class="share-close" aria-label="Close">&times;</span>
+      <h3 id="share-title">Share this project</h3>
       <div class="share-buttons">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" class="btn secondary" id="share-facebook">Share on Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn secondary" id="share-facebook">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i> Share on Facebook
+        </a>
 
-        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgrupponairobi.org%2F&text=Every%20child%20deserves%20a%20future.%20Help%20us%20build%20a%20school%20in%20Kenya%20with%20Gruppo%20Nairobi.%20🏫✨" target="_blank" class="btn secondary" id="share-twitter">Share on Twitter</a>
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgrupponairobi.org%2F&text=Every%20child%20deserves%20a%20future.%20Help%20us%20build%20a%20school%20in%20Kenya%20with%20Gruppo%20Nairobi.%20🏫✨" target="_blank" rel="noopener noreferrer" class="btn secondary" id="share-twitter">
+          <i class="fab fa-twitter" aria-hidden="true"></i> Share on Twitter
+        </a>
 
-        <button class="btn secondary" id="copy-link">Copy Link</button>
+        <button class="btn secondary" id="copy-link">
+          <i class="fas fa-link" aria-hidden="true"></i> Copy Link
+        </button>
       </div>
     </div>
   </div>
