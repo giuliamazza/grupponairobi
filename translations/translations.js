@@ -49,7 +49,7 @@ window.translations = {
     cta_contact: "Contact Us",
 
     // Timeline Additions
-    timeline_well: "Well Construction <em>(€14,000)</em>",
+    timeline_well: "Well Construction",
     timeline_well_desc: "Clean water access for all students",
     timeline_solar: "Solar Panels",
     timeline_solar_desc: "Sustainable energy for the school",

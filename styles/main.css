@@ -592,9 +592,10 @@ nav a:hover {
 .timeline-content h4 {
   font-weight: 600;
   margin-bottom: 5px;
+  display: inline-block
 }
 
-.timeline-content.completed h4 {
+.timeline-content.completed h4 , em {
   color: var(--primary-color);
 }
 
