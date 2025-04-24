@@ -121,8 +121,8 @@ window.translations = {
     cta_contact: "Contattaci",
 
     // Timeline Additions
-    timeline_water: "Fontana d'acqua",
-    timeline_water_desc: "Accesso ad acqua pulita per tutti gli studenti",
+    timeline_well: "NO_TRANSLATION",
+    timeline_well_desc: "Accesso ad acqua pulita per tutti gli studenti",
     timeline_solar: "Pannelli Solari",
     timeline_solar_desc: "Energia sostenibile per la scuola",
     timeline_foundations: "Fondamenta",
@@ -192,8 +192,8 @@ window.translations = {
     cta_contact: "Kontaktiere Uns",
 
     // Timeline Additions
-    timeline_water: "Trinkwasserbrunnen",
-    timeline_water_desc: "Sauberer Wasserzugang für alle Schüler",
+    timeline_well: "NO_TRANSLATION",
+    timeline_well_desc: "Sauberer Wasserzugang für alle Schüler",
     timeline_solar: "Solaranlagen",
     timeline_solar_desc: "Nachhaltige Energie für die Schule",
     timeline_foundations: "Fundamente",
