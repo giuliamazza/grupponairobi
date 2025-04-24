@@ -319,13 +319,6 @@ nav a:hover {
   position: absolute;
   bottom: 30px;
   left: 30px;
-  background: rgba(255, 255, 255, 255, 0.1);
-}
-
-.hero-feature {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
   background: rgba(255, 255, 255, 0.08);
   padding: 15px 25px;
   border-radius: 12px;
