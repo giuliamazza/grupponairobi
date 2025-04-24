@@ -595,15 +595,18 @@ nav a:hover {
   display: inline-block
 }
 
-.timeline-content.completed h4 , em {
+.timeline-content.completed h4,
+.timeline-content.completed em {
   color: var(--primary-color);
 }
 
-.timeline-content.active h4 {
+.timeline-content.active h4,
+.timeline-content.active em {
   color: var(--active-color);
 }
 
-.timeline-content.future h4 {
+.timeline-content.future h4,
+.timeline-content.future em {
   color: var(--dark-gray);
 }
 
