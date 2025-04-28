@@ -319,14 +319,7 @@ nav a:hover {
   position: absolute;
   bottom: 30px;
   left: 30px;
-  background: rgba(255, 255, 255, 255, 0.1);
-}
-
-.hero-feature {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(68, 68, 68, 0.3);
   padding: 15px 25px;
   border-radius: 12px;
   backdrop-filter: blur(6px);
@@ -338,7 +331,7 @@ nav a:hover {
 }
 
 .hero-feature:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(68, 68, 68, 0.5)
 }
 
 .hero-feature:focus {
