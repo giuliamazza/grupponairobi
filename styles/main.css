@@ -592,21 +592,17 @@ nav a:hover {
 .timeline-content h4 {
   font-weight: 600;
   margin-bottom: 5px;
-  display: inline-block
 }
 
-.timeline-content.completed h4,
-.timeline-content.completed em {
+.timeline-content.completed h4 {
   color: var(--primary-color);
 }
 
-.timeline-content.active h4,
-.timeline-content.active em {
+.timeline-content.active h4 {
   color: var(--active-color);
 }
 
-.timeline-content.future h4,
-.timeline-content.future em {
+.timeline-content.future h4 {
   color: var(--dark-gray);
 }
 
