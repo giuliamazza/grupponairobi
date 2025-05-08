@@ -117,15 +117,11 @@ function updateAmountFormats(lang) {
   })
 }
 
-// Mock implementation of updateElementText (replace with your actual implementation)
-function updateElementText(element, lang) {
-  // This is a placeholder; replace with your actual logic to update the text content
-  // based on the language.  For example, you might fetch translations from a file
-  // or use a translation library.
-  console.log(`Updating element text to language: ${lang}`)
-  // For demonstration, let's just set the text to "Translated" + lang
-  element.textContent = "Translated (" + lang + ")"
-}
+// This function can be removed or commented out
+// function updateElementText(element, lang) {
+//   console.log(`Updating element text to language: ${lang}`)
+//   element.textContent = "Translated (" + lang + ")"
+// }
 
 // Modify your existing changeLanguage function to call updateAmountFormats
 function changeLanguage(lang, animate = true) {
@@ -141,12 +137,12 @@ function changeLanguage(lang, animate = true) {
     if (animate) {
       element.style.opacity = "0"
       setTimeout(() => {
-        updateElementText(element, lang)
+        updateElementTextFunc(element, lang)
         element.style.opacity = "1"
       }, 50) // Reduced from 150ms to 50ms for faster response
     } else {
       // Immediate update without animation for initial load
-      updateElementText(element, lang)
+      updateElementTextFunc(element, lang)
     }
   })
 
@@ -381,10 +377,10 @@ function initializeLanguage() {
   }
 
   // Apply translations immediately without transition
-  changeLanguage(currentLang, false)
+  changeLanguageInner(currentLang, false)
 }
 
-function changeLanguage(lang, animate = true) {
+function changeLanguageInner(lang, animate = true) {
   console.log("Changing language to:", lang)
 
   // Save language preference
@@ -481,45 +477,45 @@ function updateFundingProgress(percent) {
 
 // Initialize animations for fade-in elements
 function initAnimations() {
-  // Add fade-in class to elements we want to animate
+  // Group 1: Section headings - appear first
+  const sectionHeadings = document.querySelectorAll("section h2")
+  sectionHeadings.forEach((heading) => {
+    heading.classList.add("fade-in")
+  })
+
+  // Group 2: Main content - appear second
   const sections = document.querySelectorAll("section")
   sections.forEach((section) => {
-    const h2 = section.querySelector("h2")
     const paragraphs = section.querySelectorAll("p")
-    const buttons = section.querySelectorAll(".btn")
-
-    if (h2) h2.classList.add("fade-in")
-
-    paragraphs.forEach((p, index) => {
-      p.classList.add("fade-in")
-      if (index === 1) p.classList.add("fade-in-delay-1")
-      if (index === 2) p.classList.add("fade-in-delay-2")
-    })
-
-    buttons.forEach((btn) => {
-      btn.classList.add("fade-in", "fade-in-delay-3")
+    paragraphs.forEach((p) => {
+      p.classList.add("fade-in", "fade-in-delay-1")
     })
   })
 
-  // Timeline items animation
+  // Group 3: Interactive elements - appear third
+  const buttons = document.querySelectorAll(".btn")
+  buttons.forEach((btn) => {
+    btn.classList.add("fade-in", "fade-in-delay-2")
+  })
+
+  // Group 4: Timeline items - appear in sequence but faster
   const timelineItems = document.querySelectorAll(".timeline-item")
   timelineItems.forEach((item, index) => {
     item.classList.add("fade-in")
-    item.style.transitionDelay = `${0.1 * index}s`
+    // Faster sequential appearance
+    item.style.transitionDelay = `${0.05 * index}s`
   })
 
-  // Team members animation
+  // Group 5: Team members - appear together
   const teamMembers = document.querySelectorAll(".team-member")
-  teamMembers.forEach((member, index) => {
-    member.classList.add("fade-in")
-    member.style.transitionDelay = `${0.1 * index}s` // Reduced from 0.2s to 0.1s
+  teamMembers.forEach((member) => {
+    member.classList.add("fade-in", "fade-in-delay-1")
   })
 
-  // Values animation
+  // Group 6: Values - appear together
   const values = document.querySelectorAll(".value")
-  values.forEach((value, index) => {
-    value.classList.add("fade-in")
-    value.style.transitionDelay = `${0.1 * index}s` // Reduced from 0.2s to 0.1s
+  values.forEach((value) => {
+    value.classList.add("fade-in", "fade-in-delay-2")
   })
 
   // Check which elements are in viewport on load
