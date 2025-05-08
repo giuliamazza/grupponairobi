@@ -1,3 +1,159 @@
+// Declare variables
+const shareModal = document.getElementById("shareModal")
+const shareButtons = document.querySelectorAll(".share-button")
+const shareClose = document.getElementById("shareClose")
+
+// Function to close the mobile menu (replace with actual implementation)
+const closeMobileMenu = () => {
+  // Your implementation here
+  console.log("closeMobileMenu function called")
+}
+
+// Improve keyboard accessibility for share modal
+if (shareModal) {
+  // Update ARIA attributes when opening/closing modal
+  const updateModalAccessibility = (isOpen) => {
+    shareModal.setAttribute("aria-hidden", !isOpen)
+
+    // Get all focusable elements in the modal
+    const focusableElements = shareModal.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])')
+
+    if (isOpen) {
+      // Focus the first element when modal opens
+      if (focusableElements.length > 0) {
+        setTimeout(() => {
+          focusableElements[0].focus()
+        }, 50)
+      }
+    }
+  }
+
+  // Update open/close functions to handle accessibility
+  shareButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault()
+      shareModal.style.display = "block"
+      updateModalAccessibility(true)
+      closeMobileMenu()
+    })
+  })
+
+  if (shareClose) {
+    shareClose.addEventListener("click", () => {
+      shareModal.style.display = "none"
+      updateModalAccessibility(false)
+    })
+  }
+
+  // Add event listener for the new close button
+  const closeShareModalBtn = document.getElementById("close-share-modal")
+  if (closeShareModalBtn) {
+    closeShareModalBtn.addEventListener("click", () => {
+      shareModal.style.display = "none"
+      updateModalAccessibility(false)
+    })
+  }
+
+  // Handle keyboard navigation within modal
+  shareModal.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      shareModal.style.display = "none"
+      updateModalAccessibility(false)
+      return
+    }
+
+    if (e.key === "Tab") {
+      const focusableElements = shareModal.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])')
+      const firstElement = focusableElements[0]
+      const lastElement = focusableElements[focusableElements.length - 1]
+
+      // If shift+tab on first element, go to last element
+      if (e.shiftKey && document.activeElement === firstElement) {
+        e.preventDefault()
+        lastElement.focus()
+      }
+      // If tab on last element, go to first element
+      else if (!e.shiftKey && document.activeElement === lastElement) {
+        e.preventDefault()
+        firstElement.focus()
+      }
+    }
+  })
+
+  // Close modal when clicking outside
+  window.addEventListener("click", (e) => {
+    if (e.target === shareModal) {
+      shareModal.style.display = "none"
+      updateModalAccessibility(false)
+    }
+  })
+}
+
+// Add this function to your existing main.js file
+
+// Format currency amounts based on language
+function formatCurrencyForLanguage(value, lang) {
+  if (lang === "en") {
+    // English uses comma as thousands separator
+    return "€" + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  } else {
+    // Italian and German use dot as thousands separator
+    return "€" + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+  }
+}
+
+// Update all amount elements with the correct format
+function updateAmountFormats(lang) {
+  document.querySelectorAll(".amount").forEach((element) => {
+    const value = element.getAttribute("data-value")
+    if (value) {
+      // If it's inside parentheses (like in timeline items)
+      if (element.tagName.toLowerCase() === "em") {
+        element.textContent = "(" + formatCurrencyForLanguage(value, lang) + ")"
+      } else {
+        element.textContent = formatCurrencyForLanguage(value, lang)
+      }
+    }
+  })
+}
+
+// Mock implementation of updateElementText (replace with your actual implementation)
+function updateElementText(element, lang) {
+  // This is a placeholder; replace with your actual logic to update the text content
+  // based on the language.  For example, you might fetch translations from a file
+  // or use a translation library.
+  console.log(`Updating element text to language: ${lang}`)
+  // For demonstration, let's just set the text to "Translated" + lang
+  element.textContent = "Translated (" + lang + ")"
+}
+
+// Modify your existing changeLanguage function to call updateAmountFormats
+function changeLanguage(lang, animate = true) {
+  console.log("Changing language to:", lang)
+
+  // Save language preference
+  localStorage.setItem("language", lang)
+
+  // Update currency formats
+  updateAmountFormats(lang)
+
+  document.querySelectorAll(".lang").forEach((element) => {
+    if (animate) {
+      element.style.opacity = "0"
+      setTimeout(() => {
+        updateElementText(element, lang)
+        element.style.opacity = "1"
+      }, 50) // Reduced from 150ms to 50ms for faster response
+    } else {
+      // Immediate update without animation for initial load
+      updateElementText(element, lang)
+    }
+  })
+
+  // Update HTML lang attribute
+  document.documentElement.lang = lang
+}
+
 // Main JavaScript for interactivity
 
 // Set the project progress percentage in one place
@@ -20,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
     langSelect.addEventListener("change", (e) => {
       changeLanguage(e.target.value)
       if (langSelectFooter) langSelectFooter.value = e.target.value
-      closeMobileMenu() // Close mobile menu when changing language
+      closeMobileMenuFunc() // Close mobile menu when changing language
     })
   }
 
@@ -41,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
   navLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
       // Immediate close for better responsiveness
-      closeMobileMenu()
+      closeMobileMenuFunc()
 
       // Handle smooth scrolling for anchor links
       if (this.getAttribute("href").startsWith("#")) {
@@ -63,57 +219,55 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = document.querySelector(this.getAttribute("href"))
         if (target) {
           target.scrollIntoView({ behavior: "smooth", block: "start" })
-          closeMobileMenu()
+          closeMobileMenuFunc()
         }
       }
     })
   })
 
-
   // Lightbox
   const lightbox = document.createElement("div")
   lightbox.classList.add("lightbox")
   document.body.appendChild(lightbox)
-  
+
   const lightboxImg = document.createElement("img")
   lightbox.appendChild(lightboxImg)
-  
+
   const lightboxClose = document.createElement("div")
   lightboxClose.classList.add("lightbox-close")
   lightboxClose.innerHTML = "&times;"
   lightbox.appendChild(lightboxClose)
-  
+
   // Set up delegated event listener (more reliable)
   document.addEventListener("click", (e) => {
     const trigger = e.target.closest(".lightbox-trigger")
     if (!trigger) return
-  
+
     e.preventDefault()
-  
+
     const imgSrc = trigger.getAttribute("href")
     if (!imgSrc) return
-  
+
     lightboxImg.src = imgSrc
     lightbox.classList.add("active")
   })
-  
+
   // Handle close events
   lightboxClose.addEventListener("click", () => {
     lightbox.classList.remove("active")
   })
-  
+
   lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) {
       lightbox.classList.remove("active")
     }
   })
-  
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       lightbox.classList.remove("active")
     }
   })
-  
 
   // ===== Share Modal: ONLY opening, closing, copy link functionality =====
   const shareModal = document.getElementById("share-modal")
@@ -125,12 +279,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update ARIA attributes when opening/closing modal
     const updateModalAccessibility = (isOpen) => {
       shareModal.setAttribute("aria-hidden", !isOpen)
-      
+
       // Get all focusable elements in the modal
-      const focusableElements = shareModal.querySelectorAll(
-        'a[href], button, [tabindex]:not([tabindex="-1"])'
-      )
-      
+      const focusableElements = shareModal.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])')
+
       if (isOpen) {
         // Focus the first element when modal opens
         if (focusableElements.length > 0) {
@@ -140,24 +292,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     }
-    
+
     // Update open/close functions to handle accessibility
     shareButtons.forEach((button) => {
       button.addEventListener("click", (e) => {
         e.preventDefault()
         shareModal.style.display = "block"
         updateModalAccessibility(true)
-        closeMobileMenu()
+        closeMobileMenuFunc()
       })
     })
-    
+
     if (shareClose) {
       shareClose.addEventListener("click", () => {
         shareModal.style.display = "none"
         updateModalAccessibility(false)
       })
     }
-    
+
     // Handle keyboard navigation within modal
     shareModal.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
@@ -165,19 +317,17 @@ document.addEventListener("DOMContentLoaded", () => {
         updateModalAccessibility(false)
         return
       }
-      
+
       if (e.key === "Tab") {
-        const focusableElements = shareModal.querySelectorAll(
-          'a[href], button, [tabindex]:not([tabindex="-1"])'
-        )
+        const focusableElements = shareModal.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])')
         const firstElement = focusableElements[0]
         const lastElement = focusableElements[focusableElements.length - 1]
-        
+
         // If shift+tab on first element, go to last element
         if (e.shiftKey && document.activeElement === firstElement) {
           e.preventDefault()
           lastElement.focus()
-        } 
+        }
         // If tab on last element, go to first element
         else if (!e.shiftKey && document.activeElement === lastElement) {
           e.preventDefault()
@@ -185,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     })
-    
+
     // Close modal when clicking outside
     window.addEventListener("click", (e) => {
       if (e.target === shareModal) {
@@ -240,16 +390,19 @@ function changeLanguage(lang, animate = true) {
   // Save language preference
   localStorage.setItem("language", lang)
 
+  // Update currency formats
+  updateAmountFormats(lang)
+
   document.querySelectorAll(".lang").forEach((element) => {
     if (animate) {
       element.style.opacity = "0"
       setTimeout(() => {
-        updateElementText(element, lang)
+        updateElementTextFunc(element, lang)
         element.style.opacity = "1"
       }, 50) // Reduced from 150ms to 50ms for faster response
     } else {
       // Immediate update without animation for initial load
-      updateElementText(element, lang)
+      updateElementTextFunc(element, lang)
     }
   })
 
@@ -257,14 +410,14 @@ function changeLanguage(lang, animate = true) {
   document.documentElement.lang = lang
 }
 
-function updateElementText(element, lang) {
+function updateElementTextFunc(element, lang) {
   const key = element.getAttribute("data-key")
   if (key && window.translations && window.translations[lang] && window.translations[lang][key]) {
     element.innerHTML = window.translations[lang][key]
   }
 }
 
-function closeMobileMenu() {
+function closeMobileMenuFunc() {
   const nav = document.querySelector("nav")
   if (nav && nav.classList.contains("active")) {
     nav.classList.remove("active")

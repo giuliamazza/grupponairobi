@@ -132,7 +132,7 @@ window.translations = {
     timeline_solar: "Pannelli Solari",
     timeline_solar_desc: "Energia sostenibile per la scuola",
     timeline_foundations: "Fondazioni",
-    timeline_foundations_desc: "Attualmente in costruzione",
+    timeline_foundations_desc: "Attualmente in corso",
     timeline_concrete: "Struttura Cemento Armato",
     timeline_concrete_desc: "Prossima fase dopo le fondazioni",
     timeline_walls: "Murature",
@@ -234,7 +234,7 @@ window.translations = {
 
     // Error page
     "404_title": "Seite nicht gefunden",
-    "404_text": "Hoppla! Hier geht’s nicht weiter. Zurück zur Startseite!",
+    "404_text": "Hoppla! Hier geht's nicht weiter. Zurück zur Startseite!",
     "404_back_home": "Zurück zur Startseite",
 
   },
