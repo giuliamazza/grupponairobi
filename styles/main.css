@@ -111,11 +111,11 @@ img {
   margin-right: 8px;
 }
 
-/* Animation Classes - Optimized for better performance */
+/* Animation Classes - Optimized for better performance and faster appearance */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Reduced from 0.8s to 0.5s */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Reduced from 0.5s to 0.3s */
   will-change: opacity, transform;
 }
 
@@ -124,19 +124,18 @@ img {
   transform: translateY(0);
 }
 
+/* Reduced number of delay classes and made them appear faster */
 .fade-in-delay-1 {
-  transition-delay: 0.1s; /* Reduced from 0.2s to 0.1s */
+  transition-delay: 0.05s; /* Reduced from 0.1s to 0.05s */
 }
 
 .fade-in-delay-2 {
-  transition-delay: 0.2s; /* Reduced from 0.4s to 0.2s */
+  transition-delay: 0.1s; /* Reduced from 0.2s to 0.1s */
 }
 
 .fade-in-delay-3 {
-  transition-delay: 0.3s; /* Reduced from 0.6s to 0.3s */
+  transition-delay: 0.15s; /* Reduced from 0.3s to 0.15s */
 }
-
-
 
 /* Header */
 header {
@@ -224,9 +223,9 @@ nav a:hover {
   position: relative;
 }
 
-/* Hero card background image with .jpg extension */
+/* Hero Section - Improved sizing for different devices */
 .hero-card {
-  min-height: 74vh; /* Increased from 80vh to 90vh for more space */
+  min-height: 80vh; /* Default size */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -245,7 +244,7 @@ nav a:hover {
   padding: 12rem 0 12rem 8rem;
 }
 
-/* Hero Section - Improved Professional Layout */
+/* Hero content improvements */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -279,16 +278,17 @@ nav a:hover {
   margin-bottom: 0;
 }
 
-/* Improve button responsiveness */
+/* Improved button styling to prevent text wrapping */
 .btn {
   display: inline-block;
   padding: 12px 24px;
   border-radius: 30px;
   font-weight: bold;
-  transition: all 0.2s; /* Reduced from 0.3s to 0.2s */
+  transition: all 0.2s;
   text-align: center;
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+  white-space: nowrap; /* Prevent text wrapping */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn:active {
@@ -399,6 +399,31 @@ nav a:hover {
   font-size: 0.85rem;
   color: #e0e0e0;
   margin-top: 3px;
+}
+
+/* GoFundMe widget styling - updated for right side positioning */
+.gfm-embed {
+  position: absolute;
+  bottom: 30px;
+  right: 30px; /* Changed from left to right */
+  z-index: 2;
+  max-width: 320px; /* Updated from 280px to 320px */
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transform: scale(0.85); /* Scale down the widget */
+  transform-origin: bottom right; /* Changed from bottom left to bottom right */
+  transition: transform 0.2s ease;
+}
+
+.gfm-embed:hover {
+  transform: scale(0.88); /* Subtle feedback effect on hover */
+}
+
+/* Hide the original hero-feature when GoFundMe is active */
+.hero-feature.hidden {
+  display: none;
 }
 
 /* Our Why Section */
@@ -1103,17 +1128,58 @@ button:focus {
   outline-offset: 2px;
 }
 
-/* Responsive Improvements */
-@media (max-width: 1200px) {
-  .hero-card {
-    min-height: 80vh; /* Slightly smaller for MacBook sizes */
+/* Improved responsive styles for iPad and other tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero h1 {
+    font-size: clamp(3.5rem, 7vw, 5rem); /* Increased minimum size for iPad */
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-content {
+    max-width: 70%; /* Wider content area on tablets */
+  }
+
+  .hero-buttons {
+    flex-wrap: nowrap; /* Prevent wrapping */
+  }
+
+  .btn {
+    min-width: auto; /* Allow buttons to size naturally */
+    padding: 12px 20px; /* Slightly reduced padding */
+  }
+
+  .gfm-embed {
+    bottom: 20px;
+    right: 20px;
+    transform: scale(0.8); /* Smaller on tablets */
   }
 }
 
-@media (max-width: 768px) {
+/* MacBook 14" and 16" specific adjustments */
+@media (min-width: 1280px) and (max-width: 1800px) {
+  /* MacBook breakpoint */
   .hero-card {
-    min-height: 80vh; /* Adjusted for tablets but still taller than original */
-    padding: 6rem 2rem;
+    min-height: 78vh; /* Reduced from 82vh to 78vh for better fit */
+    padding-bottom: 10rem; /* Increased padding to ensure space for widget */
+  }
+
+  .gfm-embed {
+    bottom: 30px;
+    right: 30px; /* Positioned on right */
+    transform: scale(0.8); /* Scale down more on MacBooks */
+  }
+
+  .gfm-embed:hover {
+    transform: scale(0.83); /* Consistent hover effect */
+  }
+}
+
+/* Combined responsive styles for tablets and mobile */
+@media (max-width: 768px) {
+  /* Hero section styles */
+  .hero-card {
+    min-height: 100vh;
+    padding: 6rem 1.5rem 8rem 1.5rem;
     align-items: center;
   }
 
@@ -1121,6 +1187,12 @@ button:focus {
     text-align: center;
     max-width: 100%;
     align-items: center;
+    padding: 40px 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    margin-bottom: 1.5rem;
   }
 
   .hero-content p {
@@ -1132,16 +1204,32 @@ button:focus {
     justify-content: center;
     width: 100%;
     gap: 1rem;
+    flex-direction: row; /* Keep buttons in a row if possible */
+    flex-wrap: wrap; /* Allow wrapping only when necessary */
   }
 
   .btn {
-    width: auto;
-    min-width: 160px;
+    flex: 0 1 auto; /* Allow buttons to shrink but not grow */
+    min-width: 140px; /* Minimum width for buttons */
   }
-}
 
-/* Responsive */
-@media (max-width: 768px) {
+  .gfm-embed {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin: 3rem auto 1rem;
+    max-width: 100%;
+    transform: scale(1);
+    transform-origin: center;
+  }
+
+  /* CTA section styles */
+  .cta-content {
+    padding: 40px 20px;
+  }
+
+  /* Layout styles */
   .our-why .container,
   .the-project .container {
     grid-template-columns: 1fr;
@@ -1160,6 +1248,7 @@ button:focus {
     grid-template-columns: 1fr;
   }
 
+  /* Navigation styles */
   nav {
     display: none;
   }
@@ -1183,17 +1272,39 @@ button:focus {
   .mobile-menu-btn {
     display: block;
   }
+}
 
-  .hero-content,
-  .cta-content {
-    padding: 40px 20px;
+/* iPad Air specific fixes */
+@media only screen and (min-width: 768px) and (max-width: 834px) {
+  .hero h1 {
+    font-size: 3.8rem !important; /* Force larger font size on iPad Air */
+  }
+
+  .hero-buttons {
+    gap: 1.5rem; /* More space between buttons */
+  }
+
+  .btn {
+    padding: 12px 18px; /* Slightly reduced padding */
+    font-size: 0.95rem; /* Slightly smaller font */
   }
 }
 
+/* Combined mobile styles */
 @media (max-width: 480px) {
+  /* Header styles */
+  header {
+    padding: 20px 12px 20px 0;
+  }
+
+  /* Hero section styles */
   .hero-card {
-    min-height: 80vh; /* Taller on mobile */
-    padding: 4rem 1.5rem;
+    min-height: 110vh;
+    padding: 4rem 1.5rem 6rem 1.5rem;
+  }
+
+  .hero-content {
+    margin-bottom: 2rem;
   }
 
   .hero h1 {
@@ -1211,12 +1322,7 @@ button:focus {
 
   .btn {
     width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    padding: 20px 12px 20px 0;
+    margin-bottom: 0.5rem;
   }
 
   .hero-feature {
@@ -1225,10 +1331,12 @@ button:focus {
     padding: 5px 10px;
   }
 
+  /* CTA section styles */
   .cta-card {
     padding: 2rem 0 4rem 1rem;
   }
 
+  /* Image styles */
   .section-image img {
     margin-top: 0;
   }
