@@ -1088,12 +1088,28 @@ footer .logo {
 .share-buttons .btn:focus {
   outline: 2px solid #ffffff;
   outline-offset: 2px;
+  /* Remove any transitions for focus state */
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .share-close:focus {
   outline: 2px solid #ffffff;
   outline-offset: 2px;
   color: var(--primary-color);
+  /* Remove any transitions for focus state */
+  transition: color 0.2s;
+}
+
+/* Add this to ensure immediate focus visibility */
+:focus {
+  transition-property: background-color, color, border-color;
+  transition-duration: 0.2s;
+}
+
+/* Override any inherited transitions for focus states */
+:focus-visible {
+  transition-property: background-color, color, border-color;
+  transition-duration: 0.2s;
 }
 
 .share-buttons {
