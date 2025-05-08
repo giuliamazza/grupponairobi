@@ -238,6 +238,14 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(() => alert("Failed to copy link."))
     })
   }
+
+  // Check scroll position immediately on page load
+  if (window.scrollY > 10) {
+    const header = document.querySelector("header")
+    if (header) {
+      header.classList.add("scrolled")
+    }
+  }
 })
 
 // Language functions
@@ -451,11 +459,13 @@ function checkVisibility() {
 }
 
 // Scroll effect for header background
-document.addEventListener("scroll", () => {
+window.addEventListener("scroll", () => {
   const header = document.querySelector("header")
-  if (window.scrollY > 10) {
-    header.classList.add("scrolled")
-  } else {
-    header.classList.remove("scrolled")
+  if (header) {
+    if (window.scrollY > 10) {
+      header.classList.add("scrolled")
+    } else {
+      header.classList.remove("scrolled")
+    }
   }
 })
