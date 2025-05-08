@@ -20,6 +20,7 @@
 <meta name="twitter:description" content="Join us to build a school that transforms lives and empowers the next generation.">
 <meta name="twitter:image" content="../images/og-image.jpg">
 
+<!-- Favicons -->
 <link rel="icon" type="image/png" href="../images/favicons/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="../images/favicons/favicon.svg" />
 <link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -29,7 +30,53 @@
 
 <!-- Preload critical resources -->
 <link rel="preload" href="fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="images/kenya.webp" as="image" type="image/webp">
+<link rel="preload" href="images/kenya.jpg" as="image" type="image/jpeg">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+<!-- Critical CSS for first paint -->
+<style>
+  /* Critical CSS for above-the-fold content */
+  :root {
+    --primary-color: #00a651;
+    --secondary-color: #fdb813;
+    --text-color: #0b1d26;
+    --white: #ffffff;
+    --rich-black: #0b1d26;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Geist", system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  
+  .container-wide {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    padding: 32px 0;
+    z-index: 1000;
+  }
+  
+  .hero-card {
+    min-height: 80vh;
+    display: flex;
+    color: var(--white);
+    position: relative;
+    border-radius: 20px;
+    padding: 12rem 0 12rem 8rem;
+  }
+</style>
 
 <link rel="stylesheet" href="styles/main.css">
 <!-- Restored Font Awesome CDN link -->
@@ -248,9 +295,9 @@
     </div>
 
     <div class="funding-goal">
-  <div class="current-amount amount" data-value="12855">€12,855</div>
-  <div class="total-amount amount" data-value="22000">€22,000</div>
-</div>
+      <div class="current-amount amount" data-value="12855">€12,855</div>
+      <div class="total-amount amount" data-value="22000">€22,000</div>
+    </div>
 
     <div class="progress-container" aria-label="Funding progress" role="progressbar" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100">
       <div class="progress-bar" id="funding-progress-bar"></div>
@@ -393,14 +440,11 @@
 
 <!-- Scripts -->
 <script src="scripts/main.js" defer></script>
-<script>
-  document.getElementById('current-year').textContent = new Date().getFullYear();
-</script>
 
 <!-- Social Share Modal -->
 <div id="share-modal" class="share-modal" aria-hidden="true" role="dialog" aria-labelledby="share-title">
   <div class="share-modal-content">
-    <span class="share-close" aria-label="Close">&times;</span>
+    <span class="share-close" aria-label="Close" tabindex="0" role="button">&times;</span>
     <h3 id="share-title">Share this project</h3>
     <div class="share-buttons">
       <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn secondary" id="share-facebook" tabindex="0" role="button">
@@ -413,10 +457,6 @@
 
       <button class="btn secondary" id="copy-link" tabindex="0">
         <i class="fas fa-link" aria-hidden="true"></i> Copy Link
-      </button>
-      
-      <button class="btn primary" id="close-share-modal" tabindex="0">
-        <i class="fas fa-times" aria-hidden="true"></i> Close
       </button>
     </div>
   </div>

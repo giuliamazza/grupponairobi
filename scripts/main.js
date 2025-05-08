@@ -1,95 +1,8 @@
 // Declare variables
-const shareModal = document.getElementById("shareModal")
-const shareButtons = document.querySelectorAll(".share-button")
-const shareClose = document.getElementById("shareClose")
-
-// Function to close the mobile menu (replace with actual implementation)
-const closeMobileMenu = () => {
-  // Your implementation here
-  console.log("closeMobileMenu function called")
-}
-
-// Improve keyboard accessibility for share modal
-if (shareModal) {
-  // Update ARIA attributes when opening/closing modal
-  const updateModalAccessibility = (isOpen) => {
-    shareModal.setAttribute("aria-hidden", !isOpen)
-
-    // Get all focusable elements in the modal
-    const focusableElements = shareModal.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])')
-
-    if (isOpen) {
-      // Focus the first element when modal opens
-      if (focusableElements.length > 0) {
-        setTimeout(() => {
-          focusableElements[0].focus()
-        }, 50)
-      }
-    }
-  }
-
-  // Update open/close functions to handle accessibility
-  shareButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      e.preventDefault()
-      shareModal.style.display = "block"
-      updateModalAccessibility(true)
-      closeMobileMenu()
-    })
-  })
-
-  if (shareClose) {
-    shareClose.addEventListener("click", () => {
-      shareModal.style.display = "none"
-      updateModalAccessibility(false)
-    })
-  }
-
-  // Add event listener for the new close button
-  const closeShareModalBtn = document.getElementById("close-share-modal")
-  if (closeShareModalBtn) {
-    closeShareModalBtn.addEventListener("click", () => {
-      shareModal.style.display = "none"
-      updateModalAccessibility(false)
-    })
-  }
-
-  // Handle keyboard navigation within modal
-  shareModal.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      shareModal.style.display = "none"
-      updateModalAccessibility(false)
-      return
-    }
-
-    if (e.key === "Tab") {
-      const focusableElements = shareModal.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])')
-      const firstElement = focusableElements[0]
-      const lastElement = focusableElements[focusableElements.length - 1]
-
-      // If shift+tab on first element, go to last element
-      if (e.shiftKey && document.activeElement === firstElement) {
-        e.preventDefault()
-        lastElement.focus()
-      }
-      // If tab on last element, go to first element
-      else if (!e.shiftKey && document.activeElement === lastElement) {
-        e.preventDefault()
-        firstElement.focus()
-      }
-    }
-  })
-
-  // Close modal when clicking outside
-  window.addEventListener("click", (e) => {
-    if (e.target === shareModal) {
-      shareModal.style.display = "none"
-      updateModalAccessibility(false)
-    }
-  })
-}
-
-// Add this function to your existing main.js file
+const shareModal = document.getElementById("share-modal")
+const shareButtons = document.querySelectorAll('a.lang[data-key="hero_read"], a.lang[data-key="cta_share"]')
+const shareClose = document.querySelector(".share-close")
+const copyLink = document.getElementById("copy-link")
 
 // Format currency amounts based on language
 function formatCurrencyForLanguage(value, lang) {
@@ -119,45 +32,22 @@ function updateAmountFormats(lang) {
   })
 }
 
-// This function can be removed or commented out
-// function updateElementText(element, lang) {
-//   console.log(`Updating element text to language: ${lang}`)
-//   element.textContent = "Translated (" + lang + ")"
-// }
+// Function to close the mobile menu
+function closeMobileMenuFunc() {
+  const nav = document.querySelector("nav")
+  if (nav && nav.classList.contains("active")) {
+    nav.classList.remove("active")
+  }
+}
 
-// Modify your existing changeLanguage function to call updateAmountFormats
-function changeLanguage(lang, animate = true) {
-  console.log("Changing language to:", lang)
-
-  // Save language preference
-  localStorage.setItem("language", lang)
-
-  // Update currency formats
-  updateAmountFormats(lang)
-
-  document.querySelectorAll(".lang").forEach((element) => {
-    if (animate) {
-      element.style.opacity = "0"
-      setTimeout(() => {
-        updateElementTextFunc(element, lang)
-        element.style.opacity = "1"
-      }, 50) // Reduced from 150ms to 50ms for faster response
-    } else {
-      // Immediate update without animation for initial load
-      updateElementTextFunc(element, lang)
-    }
-  })
-
-  // Update HTML lang attribute
-  document.documentElement.lang = lang
+function scrollToProject() {
+  const projectSection = document.querySelector("#the-project")
+  if (projectSection) {
+    projectSection.scrollIntoView({ behavior: "smooth", block: "start" })
+  }
 }
 
 // Main JavaScript for interactivity
-
-// Set the project progress percentage in one place
-// Change this value to update all progress indicators
-const PROJECT_PROGRESS = 58 // Current progress percentage
-
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize language
   initializeLanguage()
@@ -268,26 +158,27 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   // ===== Share Modal: ONLY opening, closing, copy link functionality =====
-  const shareModal = document.getElementById("share-modal")
-  const shareClose = document.querySelector(".share-close")
-  const shareButtons = document.querySelectorAll('a.lang[data-key="hero_read"], a.lang[data-key="cta_share"]')
-  const copyLink = document.getElementById("copy-link")
-
   if (shareModal) {
     // Update ARIA attributes when opening/closing modal
     const updateModalAccessibility = (isOpen) => {
       shareModal.setAttribute("aria-hidden", !isOpen)
 
-      // Get all focusable elements in the modal
-      const focusableElements = shareModal.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])')
-
       if (isOpen) {
-        // Focus the first element when modal opens
+        // Add visible class for animation
+        shareModal.classList.add("visible")
+
+        // Get all focusable elements in the modal
+        const focusableElements = shareModal.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])')
+
+        // Focus the first element when modal opens - minimal delay
         if (focusableElements.length > 0) {
-          setTimeout(() => {
+          requestAnimationFrame(() => {
             focusableElements[0].focus()
-          }, 50)
+          })
         }
+      } else {
+        // Remove visible class for animation
+        shareModal.classList.remove("visible")
       }
     }
 
@@ -296,49 +187,45 @@ document.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", (e) => {
         e.preventDefault()
         shareModal.style.display = "block"
-        updateModalAccessibility(true)
+        // Minimal delay to allow display:block to take effect
+        requestAnimationFrame(() => {
+          updateModalAccessibility(true)
+        })
         closeMobileMenuFunc()
       })
     })
 
     if (shareClose) {
+      // Add keyboard support for the close button
       shareClose.addEventListener("click", () => {
-        shareModal.style.display = "none"
         updateModalAccessibility(false)
+        // Delay hiding the modal to allow for fade-out animation
+        setTimeout(() => {
+          shareModal.style.display = "none"
+        }, 600) // Balanced delay for fade out
+      })
+
+      // Add keyboard support for the close button
+      shareClose.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault()
+          updateModalAccessibility(false)
+          // Delay hiding the modal to allow for fade-out animation
+          setTimeout(() => {
+            shareModal.style.display = "none"
+          }, 600) // Balanced delay for fade out
+        }
       })
     }
-
-    // Handle keyboard navigation within modal
-    shareModal.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        shareModal.style.display = "none"
-        updateModalAccessibility(false)
-        return
-      }
-
-      if (e.key === "Tab") {
-        const focusableElements = shareModal.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])')
-        const firstElement = focusableElements[0]
-        const lastElement = focusableElements[focusableElements.length - 1]
-
-        // If shift+tab on first element, go to last element
-        if (e.shiftKey && document.activeElement === firstElement) {
-          e.preventDefault()
-          lastElement.focus()
-        }
-        // If tab on last element, go to first element
-        else if (!e.shiftKey && document.activeElement === lastElement) {
-          e.preventDefault()
-          firstElement.focus()
-        }
-      }
-    })
 
     // Close modal when clicking outside
     window.addEventListener("click", (e) => {
       if (e.target === shareModal) {
-        shareModal.style.display = "none"
         updateModalAccessibility(false)
+        // Delay hiding the modal to allow for fade-out animation
+        setTimeout(() => {
+          shareModal.style.display = "none"
+        }, 600) // Balanced delay for fade out
       }
     })
   }
@@ -379,10 +266,11 @@ function initializeLanguage() {
   }
 
   // Apply translations immediately without transition
-  changeLanguageInner(currentLang, false)
+  changeLanguage(currentLang, false)
 }
 
-function changeLanguageInner(lang, animate = true) {
+// Modify your existing changeLanguage function to call updateAmountFormats
+function changeLanguage(lang, animate = true) {
   console.log("Changing language to:", lang)
 
   // Save language preference
@@ -415,19 +303,9 @@ function updateElementTextFunc(element, lang) {
   }
 }
 
-function closeMobileMenuFunc() {
-  const nav = document.querySelector("nav")
-  if (nav && nav.classList.contains("active")) {
-    nav.classList.remove("active")
-  }
-}
-
-function scrollToProject() {
-  const projectSection = document.querySelector("#the-project")
-  if (projectSection) {
-    projectSection.scrollIntoView({ behavior: "smooth", block: "start" })
-  }
-}
+// Set the project progress percentage in one place
+// Change this value to update all progress indicators
+const PROJECT_PROGRESS = 58 // Current progress percentage
 
 // Function to update all progress indicators based on PROJECT_PROGRESS
 function updateProgressIndicators() {
@@ -477,67 +355,99 @@ function updateFundingProgress(percent) {
   }
 }
 
-// Initialize animations for fade-in elements
+// Replace the initAnimations function with this more balanced version
 function initAnimations() {
-  // Group 1: Section headings - appear first
+  // Use IntersectionObserver for better performance
+  const fadeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        // Add visible class when element enters viewport with minimal delay
+        if (entry.isIntersecting) {
+          // Minimal delay - just enough to prevent all elements appearing at once
+          requestAnimationFrame(() => {
+            entry.target.classList.add("visible")
+          })
+          fadeObserver.unobserve(entry.target) // Stop observing once visible
+        }
+      })
+    },
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1, // Trigger when 10% of the element is visible
+    },
+  )
+
+  // Group 1: Section headings - appear immediately
   const sectionHeadings = document.querySelectorAll("section h2")
   sectionHeadings.forEach((heading) => {
     heading.classList.add("fade-in")
+    fadeObserver.observe(heading)
   })
 
-  // Group 2: Main content - appear second
+  // Group 2: Main content - appear with minimal staggering
   const sections = document.querySelectorAll("section")
   sections.forEach((section) => {
     const paragraphs = section.querySelectorAll("p")
-    paragraphs.forEach((p) => {
-      p.classList.add("fade-in", "fade-in-delay-1")
+    paragraphs.forEach((p, index) => {
+      p.classList.add("fade-in")
+      // Very minimal delay based on index
+      p.style.transitionDelay = `${0.03 * index}s` // Just enough to create a subtle flow
+      fadeObserver.observe(p)
     })
   })
 
-  // Group 3: Interactive elements - appear third
+  // Group 3: Interactive elements
   const buttons = document.querySelectorAll(".btn")
-  buttons.forEach((btn) => {
-    btn.classList.add("fade-in", "fade-in-delay-2")
+  buttons.forEach((btn, index) => {
+    btn.classList.add("fade-in")
+    btn.style.transitionDelay = `${0.05 * index}s` // Minimal delay
+    fadeObserver.observe(btn)
   })
 
-  // Group 4: Timeline items - appear in sequence but faster
+  // Group 4: Timeline items - appear with subtle staggering
   const timelineItems = document.querySelectorAll(".timeline-item")
   timelineItems.forEach((item, index) => {
     item.classList.add("fade-in")
-    // Faster sequential appearance
-    item.style.transitionDelay = `${0.05 * index}s`
+    // Subtle staggering
+    const delay = 0.04 * index // Small incremental delay
+    item.style.transitionDelay = `${delay}s`
+    fadeObserver.observe(item)
   })
 
-  // Group 5: Team members - appear together
+  // Group 5: Team members - appear with minimal staggering
   const teamMembers = document.querySelectorAll(".team-member")
-  teamMembers.forEach((member) => {
-    member.classList.add("fade-in", "fade-in-delay-1")
+  teamMembers.forEach((member, index) => {
+    member.classList.add("fade-in")
+    member.style.transitionDelay = `${0.05 * index}s` // Minimal delay between members
+    fadeObserver.observe(member)
   })
 
-  // Group 6: Values - appear together
+  // Group 6: Values - appear with minimal staggering
   const values = document.querySelectorAll(".value")
-  values.forEach((value) => {
-    value.classList.add("fade-in", "fade-in-delay-2")
+  values.forEach((value, index) => {
+    value.classList.add("fade-in")
+    value.style.transitionDelay = `${0.08 * index}s` // Slightly longer delay between values
+    fadeObserver.observe(value)
   })
 
-  // Check which elements are in viewport on load
-  checkVisibility()
-
-  // Add scroll event listener to check for elements entering viewport
-  window.addEventListener("scroll", checkVisibility)
-}
-
-function checkVisibility() {
-  const fadeElements = document.querySelectorAll(".fade-in")
-
-  fadeElements.forEach((element) => {
-    const elementTop = element.getBoundingClientRect().top
-    const elementVisible = 150 // How far from the top before the element becomes visible
-
-    if (elementTop < window.innerHeight - elementVisible) {
-      element.classList.add("visible")
+  // Trigger initial check for elements already in viewport
+  document.querySelectorAll(".fade-in").forEach((el) => {
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight) {
+      // Immediate visibility for initial content
+      requestAnimationFrame(() => {
+        el.classList.add("visible")
+      })
     }
   })
+}
+
+// Replace the old checkVisibility function with this more efficient version
+// that only runs when needed
+function checkVisibility() {
+  // This function is now handled by the IntersectionObserver in initAnimations
+  // Keeping this as a placeholder for backward compatibility
 }
 
 // Scroll effect for header background

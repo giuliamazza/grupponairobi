@@ -111,11 +111,11 @@ img {
   margin-right: 8px;
 }
 
-/* Animation Classes - Optimized for better performance and faster appearance */
+/* Modern Animation Classes - Refined balance */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Reduced from 0.5s to 0.3s */
+  transform: translateY(8px); /* Subtle movement */
+  transition: opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1), transform 1.5s cubic-bezier(0.22, 1, 0.36, 1); /* Slower animation with elegant easing */
   will-change: opacity, transform;
 }
 
@@ -124,17 +124,17 @@ img {
   transform: translateY(0);
 }
 
-/* Reduced number of delay classes and made them appear faster */
+/* Minimal delay classes - content appears quickly but animates slowly */
 .fade-in-delay-1 {
-  transition-delay: 0.05s; /* Reduced from 0.1s to 0.05s */
+  transition-delay: 0.05s; /* Very short delay */
 }
 
 .fade-in-delay-2 {
-  transition-delay: 0.1s; /* Reduced from 0.2s to 0.1s */
+  transition-delay: 0.1s; /* Short delay */
 }
 
 .fade-in-delay-3 {
-  transition-delay: 0.15s; /* Reduced from 0.3s to 0.15s */
+  transition-delay: 0.15s; /* Still short delay */
 }
 
 /* Header */
@@ -221,6 +221,7 @@ nav a:hover {
   padding: 0;
   min-height: 70vh;
   position: relative;
+  content-visibility: auto;
 }
 
 /* Hero Section - Improved sizing for different devices */
@@ -232,16 +233,47 @@ nav a:hover {
   color: var(--white);
   align-items: flex-start;
   background: linear-gradient(
-      135deg,
-      #fdb813 0%,
-      rgba(253, 184, 19, 0.7) 30%,
-      rgba(253, 184, 19, 0.3) 60%,
-      transparent 90%
-    ), url("../images/kenya.jpg") center center / cover no-repeat;
+    135deg,
+    #fdb813 0%,
+    rgba(253, 184, 19, 0.7) 30%,
+    rgba(253, 184, 19, 0.3) 60%,
+    transparent 90%
+  );
   position: relative;
   overflow: hidden;
   border-radius: 20px;
   padding: 12rem 0 12rem 8rem;
+}
+
+/* WebP support with fallback */
+@supports (background-image: url("../images/kenya.webp")) {
+  .hero-card {
+    background-image: linear-gradient(
+        135deg,
+        #fdb813 0%,
+        rgba(253, 184, 19, 0.7) 30%,
+        rgba(253, 184, 19, 0.3) 60%,
+        transparent 90%
+      ), url("../images/kenya.webp");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+@supports not (background-image: url("../images/kenya.webp")) {
+  .hero-card {
+    background-image: linear-gradient(
+        135deg,
+        #fdb813 0%,
+        rgba(253, 184, 19, 0.7) 30%,
+        rgba(253, 184, 19, 0.3) 60%,
+        transparent 90%
+      ), url("../images/kenya.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
 
 /* Hero content improvements */
@@ -278,17 +310,17 @@ nav a:hover {
   margin-bottom: 0;
 }
 
-/* Improved button styling to prevent text wrapping */
+/* Improve button responsiveness */
 .btn {
   display: inline-block;
   padding: 12px 24px;
   border-radius: 30px;
   font-weight: bold;
-  transition: all 0.2s;
+  transition: all 0.2s; /* Reduced from 0.3s to 0.2s */
   text-align: center;
   cursor: pointer;
   white-space: nowrap; /* Prevent text wrapping */
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
 }
 
 .btn:active {
@@ -331,7 +363,7 @@ nav a:hover {
 }
 
 .hero-feature:hover {
-  background: rgba(68, 68, 68, 0.5)
+  background: rgba(68, 68, 68, 0.5);
 }
 
 .hero-feature:focus {
@@ -401,19 +433,19 @@ nav a:hover {
   margin-top: 3px;
 }
 
-/* GoFundMe widget styling - updated for right side positioning */
+/* GoFundMe widget styling - updated with scaling */
 .gfm-embed {
   position: absolute;
-  bottom: 30px;
-  right: 30px; /* Changed from left to right */
+  bottom: 25px;
+  right: 30px;
   z-index: 2;
-  max-width: 320px; /* Updated from 280px to 320px */
+  max-width: 320px;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transform: scale(0.85); /* Scale down the widget */
-  transform-origin: bottom right; /* Changed from bottom left to bottom right */
+  transform: scale(0.85);
+  transform-origin: bottom right;
   transition: transform 0.2s ease;
 }
 
@@ -429,6 +461,7 @@ nav a:hover {
 /* Our Why Section */
 .our-why {
   padding: 80px 0;
+  content-visibility: auto;
 }
 
 .our-why .container {
@@ -456,7 +489,6 @@ nav a:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   margin-top: 4rem;
 }
-
 
 .our-why,
 .the-project,
@@ -498,7 +530,7 @@ nav a:hover {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
   z-index: 9999;
@@ -513,7 +545,7 @@ nav a:hover {
   max-height: 90%;
   object-fit: contain;
   border-radius: 10px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 }
 
 .lightbox-close {
@@ -530,6 +562,7 @@ nav a:hover {
 .the-project {
   padding: 80px 0;
   background: linear-gradient(to top, #fffcee 0%, #ffffff 100%);
+  content-visibility: auto;
 }
 
 .the-project .container {
@@ -617,7 +650,7 @@ nav a:hover {
 .timeline-content h4 {
   font-weight: 600;
   margin-bottom: 5px;
-  display: inline-block
+  display: inline-block;
 }
 
 .timeline-content.completed h4,
@@ -752,6 +785,7 @@ nav a:hover {
 .who-we-are {
   padding: 80px 0;
   text-align: center;
+  content-visibility: auto;
 }
 
 .who-we-are > p {
@@ -817,6 +851,7 @@ nav a:hover {
   padding: 32px 0;
   position: relative;
   overflow: hidden;
+  content-visibility: auto;
 }
 
 /* CTA card background image with .jpg extension */
@@ -866,6 +901,7 @@ nav a:hover {
 /* Footer */
 footer {
   padding: 4rem 0 20px;
+  content-visibility: auto;
 }
 
 .footer-container {
@@ -966,7 +1002,6 @@ footer .logo {
   }
 }
 
-
 .copyright {
   text-align: center;
   font-size: 0.9rem;
@@ -976,7 +1011,7 @@ footer .logo {
   margin-top: 40px;
 }
 
-/* Share Modal Styles */
+/* Share Modal Styles - Refined */
 .share-modal {
   display: none;
   position: fixed;
@@ -986,19 +1021,32 @@ footer .logo {
   width: 100%;
   height: 100%;
   overflow: auto;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.6s ease; /* Moderate fade for modal background */
+}
+
+.share-modal.visible {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
 .share-modal-content {
   position: relative;
   background-color: #333;
-  margin: 10% auto;
+  margin: 15% auto;
   padding: 30px;
   border-radius: 8px;
   max-width: 500px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   color: white;
   text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); /* Slower, more elegant modal animation */
+}
+
+.share-modal.visible .share-modal-content {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .share-close {
@@ -1045,6 +1093,7 @@ footer .logo {
 .share-close:focus {
   outline: 2px solid #ffffff;
   outline-offset: 2px;
+  color: var(--primary-color);
 }
 
 .share-buttons {
@@ -1066,7 +1115,6 @@ footer .logo {
   font-size: 1.2rem;
 }
 
-
 /* Improve keyboard accessibility for share modal */
 .share-modal[aria-hidden="false"] {
   display: block;
@@ -1080,16 +1128,6 @@ footer .logo {
 .share-close:focus {
   outline: 2px solid #ffffff;
   outline-offset: 2px;
-}
-
-#close-share-modal {
-  margin-top: 10px;
-  background-color: var(--rich-black);
-  border: 1px solid var(--white);
-}
-
-#close-share-modal:hover {
-  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Mobile Menu - Improved responsiveness */
@@ -1128,6 +1166,24 @@ button:focus {
   outline-offset: 2px;
 }
 
+/* MacBook 14" and 16" specific adjustments */
+@media (min-width: 1280px) and (max-width: 1800px) {
+  /* MacBook breakpoint */
+  .hero-card {
+    min-height: 78vh; /* Reduced from 82vh to 78vh for better fit */
+    padding-bottom: 10rem; /* Increased padding to ensure space for widget */
+  }
+
+  .gfm-embed {
+    bottom: 30px; /* Better positioning */
+    transform: scale(0.8); /* Scale down more on MacBooks */
+  }
+
+  .gfm-embed:hover {
+    transform: scale(0.83); /* Consistent hover effect */
+  }
+}
+
 /* Improved responsive styles for iPad and other tablets */
 @media (min-width: 768px) and (max-width: 1024px) {
   .hero h1 {
@@ -1155,22 +1211,19 @@ button:focus {
   }
 }
 
-/* MacBook 14" and 16" specific adjustments */
-@media (min-width: 1280px) and (max-width: 1800px) {
-  /* MacBook breakpoint */
-  .hero-card {
-    min-height: 78vh; /* Reduced from 82vh to 78vh for better fit */
-    padding-bottom: 10rem; /* Increased padding to ensure space for widget */
+/* iPad Air specific fixes */
+@media only screen and (min-width: 768px) and (max-width: 834px) {
+  .hero h1 {
+    font-size: 3.8rem !important; /* Force larger font size on iPad Air */
   }
 
-  .gfm-embed {
-    bottom: 30px;
-    right: 30px; /* Positioned on right */
-    transform: scale(0.8); /* Scale down more on MacBooks */
+  .hero-buttons {
+    gap: 1.5rem; /* More space between buttons */
   }
 
-  .gfm-embed:hover {
-    transform: scale(0.83); /* Consistent hover effect */
+  .btn {
+    padding: 12px 18px; /* Slightly reduced padding */
+    font-size: 0.95rem; /* Slightly smaller font */
   }
 }
 
@@ -1262,6 +1315,7 @@ button:focus {
     background: white;
     z-index: 1000;
     padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   nav.active ul {
@@ -1271,22 +1325,6 @@ button:focus {
 
   .mobile-menu-btn {
     display: block;
-  }
-}
-
-/* iPad Air specific fixes */
-@media only screen and (min-width: 768px) and (max-width: 834px) {
-  .hero h1 {
-    font-size: 3.8rem !important; /* Force larger font size on iPad Air */
-  }
-
-  .hero-buttons {
-    gap: 1.5rem; /* More space between buttons */
-  }
-
-  .btn {
-    padding: 12px 18px; /* Slightly reduced padding */
-    font-size: 0.95rem; /* Slightly smaller font */
   }
 }
 
