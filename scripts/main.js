@@ -121,27 +121,79 @@ document.addEventListener("DOMContentLoaded", () => {
   const shareButtons = document.querySelectorAll('a.lang[data-key="hero_read"], a.lang[data-key="cta_share"]')
   const copyLink = document.getElementById("copy-link")
 
-  shareButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      e.preventDefault()
-      if (shareModal) {
-        shareModal.style.display = "block"
+  if (shareModal) {
+    // Update ARIA attributes when opening/closing modal
+    const updateModalAccessibility = (isOpen) => {
+      shareModal.setAttribute("aria-hidden", !isOpen)
+      
+      // Get all focusable elements in the modal
+      const focusableElements = shareModal.querySelectorAll(
+        'a[href], button, [tabindex]:not([tabindex="-1"])'
+      )
+      
+      if (isOpen) {
+        // Focus the first element when modal opens
+        if (focusableElements.length > 0) {
+          setTimeout(() => {
+            focusableElements[0].focus()
+          }, 50)
+        }
       }
-      closeMobileMenu() // Close mobile menu when opening share modal
+    }
+    
+    // Update open/close functions to handle accessibility
+    shareButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault()
+        shareModal.style.display = "block"
+        updateModalAccessibility(true)
+        closeMobileMenu()
+      })
     })
-  })
-
-  if (shareClose) {
-    shareClose.addEventListener("click", () => {
-      shareModal.style.display = "none"
+    
+    if (shareClose) {
+      shareClose.addEventListener("click", () => {
+        shareModal.style.display = "none"
+        updateModalAccessibility(false)
+      })
+    }
+    
+    // Handle keyboard navigation within modal
+    shareModal.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        shareModal.style.display = "none"
+        updateModalAccessibility(false)
+        return
+      }
+      
+      if (e.key === "Tab") {
+        const focusableElements = shareModal.querySelectorAll(
+          'a[href], button, [tabindex]:not([tabindex="-1"])'
+        )
+        const firstElement = focusableElements[0]
+        const lastElement = focusableElements[focusableElements.length - 1]
+        
+        // If shift+tab on first element, go to last element
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault()
+          lastElement.focus()
+        } 
+        // If tab on last element, go to first element
+        else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault()
+          firstElement.focus()
+        }
+      }
+    })
+    
+    // Close modal when clicking outside
+    window.addEventListener("click", (e) => {
+      if (e.target === shareModal) {
+        shareModal.style.display = "none"
+        updateModalAccessibility(false)
+      }
     })
   }
-
-  window.addEventListener("click", (e) => {
-    if (e.target === shareModal) {
-      shareModal.style.display = "none"
-    }
-  })
 
   if (copyLink) {
     copyLink.addEventListener("click", () => {
@@ -346,4 +398,3 @@ document.addEventListener("scroll", () => {
     header.classList.remove("scrolled")
   }
 })
-
