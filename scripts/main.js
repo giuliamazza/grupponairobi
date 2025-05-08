@@ -104,8 +104,10 @@ function formatCurrencyForLanguage(value, lang) {
 
 // Update all amount elements with the correct format
 function updateAmountFormats(lang) {
+  console.log("Updating amount formats for language:", lang)
   document.querySelectorAll(".amount").forEach((element) => {
     const value = element.getAttribute("data-value")
+    console.log("Found element with data-value:", value)
     if (value) {
       // If it's inside parentheses (like in timeline items)
       if (element.tagName.toLowerCase() === "em") {
