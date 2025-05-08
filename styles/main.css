@@ -900,6 +900,48 @@ footer .logo {
   text-decoration: underline;
 }
 
+.footer-description {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--dark-gray);
+}
+
+.footer-description a {
+  color: #00a651;
+  text-decoration: underline;
+}
+
+.organization-info {
+  border-left: 3px solid var(--primary-color);
+  padding-left: 15px;
+  max-width: 400px;
+}
+
+.org-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 8px;
+}
+
+.address-section {
+  margin-top: 12px;
+}
+
+.address-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* Responsive styles for footer description */
+@media (max-width: 768px) {
+  .organization-info {
+    max-width: 100%;
+  }
+}
+
+
 .copyright {
   text-align: center;
   font-size: 0.9rem;
@@ -909,43 +951,75 @@ footer .logo {
   margin-top: 40px;
 }
 
-/* Share Modal */
+/* Share Modal Styles */
 .share-modal {
   display: none;
   position: fixed;
-  z-index: 9999;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .share-modal-content {
-  background-color: var(--rich-black);
-  margin: 15% auto;
+  position: relative;
+  background-color: #333;
+  margin: 10% auto;
   padding: 30px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
+  border-radius: 8px;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   color: white;
-}
-
-.share-modal-content h3 {
-  color: #ffffff;
-  margin-bottom: 20px;
+  text-align: center;
 }
 
 .share-close {
   position: absolute;
-  right: 20px;
-  top: 15px;
-  font-size: 30px;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
   font-weight: bold;
+  color: #ffffff;
   cursor: pointer;
-  color: white;
+  transition: color 0.2s;
+}
+
+.share-close:hover,
+.share-close:focus {
+  color: #00a651;
+  text-decoration: none;
+}
+
+.share-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.share-buttons .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Improve keyboard accessibility for share modal */
+.share-modal[aria-hidden="false"] {
+  display: block;
+}
+
+.share-buttons .btn:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.share-close:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
 
 .share-buttons {
@@ -965,6 +1039,32 @@ footer .logo {
 
 .share-buttons .btn i {
   font-size: 1.2rem;
+}
+
+
+/* Improve keyboard accessibility for share modal */
+.share-modal[aria-hidden="false"] {
+  display: block;
+}
+
+.share-buttons .btn:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.share-close:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+#close-share-modal {
+  margin-top: 10px;
+  background-color: var(--rich-black);
+  border: 1px solid var(--white);
+}
+
+#close-share-modal:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Mobile Menu - Improved responsiveness */

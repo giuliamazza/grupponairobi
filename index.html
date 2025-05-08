@@ -345,8 +345,16 @@
           </div>
         </div>
         <div class="footer-description">
-          <p><span class="lang" data-key="footer_location">Location</span>: Ngunga Parish, Machakos District, Kenya</p>
-          <p>Email: <a href="mailto:info@grupponairobi.org">info@grupponairobi.org</a></p>
+          <div class="organization-info">
+            <p class="org-name">GRUPPO NAIROBI</p>
+            <p>Associazione Gruppo Nairobi – Associazione di Promozione Sociale/APS – Ente del Terzo Settore/ETS</p>
+            <p>Iscrizione al RUNTS – Rep. N° 147799 – Associazione con riconoscimento di Personalità Giuridica</p>
+            <div class="address-section">
+              <p class="address-title">Sede legale:</p>
+              <p>Via Prova 32 – 37047 San Bonifacio (VR)</p>
+              <p>CF: 92031590232</p>
+            </div>
+          </div>
         </div>
       </div>
   
@@ -373,32 +381,29 @@
     </div>
   
     <div class="copyright">
-      © <span id="current-year">2025</span> Gruppo Nairobi. All rights reserved.
+      © COPYRIGHT GRUPPO NAIROBI – TUTTI I DIRITTI RISERVATI
     </div>
   </footer>
   
 
   <!-- Scripts -->
   <script src="scripts/main.js" defer></script>
-  <script>
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-  </script>
 
   <!-- Social Share Modal -->
   <div id="share-modal" class="share-modal" aria-hidden="true" role="dialog" aria-labelledby="share-title">
     <div class="share-modal-content">
-      <span class="share-close" aria-label="Close">&times;</span>
+      <span class="share-close" aria-label="Close" tabindex="0">&times;</span>
       <h3 id="share-title">Share this project</h3>
       <div class="share-buttons">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn secondary" id="share-facebook">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn secondary" id="share-facebook" tabindex="0" role="button">
           <i class="fab fa-facebook-f" aria-hidden="true"></i> Share on Facebook
         </a>
 
-        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgrupponairobi.org%2F&text=Every%20child%20deserves%20a%20future.%20Help%20us%20build%20a%20school%20in%20Kenya%20with%20Gruppo%20Nairobi.%20🏫✨" target="_blank" rel="noopener noreferrer" class="btn secondary" id="share-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgrupponairobi.org%2F&text=Every%20child%20deserves%20a%20future.%20Help%20us%20build%20a%20school%20in%20Kenya%20with%20Gruppo%20Nairobi.%20🏫✨" target="_blank" rel="noopener noreferrer" class="btn secondary" id="share-twitter" tabindex="0" role="button">
           <i class="fab fa-twitter" aria-hidden="true"></i> Share on Twitter
         </a>
 
-        <button class="btn secondary" id="copy-link">
+        <button class="btn secondary" id="copy-link" tabindex="0">
           <i class="fas fa-link" aria-hidden="true"></i> Copy Link
         </button>
       </div>
