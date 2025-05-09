@@ -175,33 +175,33 @@ window.translations = {
     hero_next_goal: "Nächstes Ziel: Fundamente",
 
     why_title: "Unser Warum: Bildung ist der Schlüssel zur Entwicklung",
-    why_p1: "In Kenia werden tausende Kinder von der Bildung ausgeschlossen, weil sie sich die Schulgebühren nicht leisten können.",
-    why_p2: "Inspiriert von Schwester Hitha, die uns half, eine Schule in Kerala, Indien zu bauen, starten wir jetzt eine neue Mission: den Bau einer sechs-Klassen Grundschule in der Pfarrei Ngunga, Bezirk Machakos, nahe der tansanischen Grenze — eine Region, die stark von Armut und fehlender Infrastruktur betroffen ist.",
-    why_p3: "Bildung öffnet Türen zu Chancen. Sie hilft Kindern, der Armut zu entkommen, stärkt lokale Gemeinschaften und verringert die Notwendigkeit gefährlicher Migration.",
-    why_p4: "Du kannst diese Veränderung sein.",
+    why_p1: "In Kenia bleibt tausenden Kindern der Zugang zur Schule verwehrt, weil ihre Familien sich die Gebühren nicht leisten können.",
+    why_p2: "Inspiriert von Schwester Hitha, die uns beim Bau einer Schule in Kerala (Indien) unterstützte, beginnen wir nun ein neues Projekt: den Bau einer Grundschule mit sechs Klassen in der Pfarrei Ngunga im Bezirk Machakos, nahe der tansanischen Grenze. Die Region ist stark von Armut und fehlender Infrastruktur geprägt.",
+    why_p3: "Bildung schafft Chancen. Sie hilft Kindern, der Armut zu entkommen, stärkt Gemeinschaften vor Ort und verringert den Druck zur gefährlichen Migration.",
+    why_p4: "Du kannst Teil dieser Veränderung sein.",
     why_donate: "Spende für den Schulbau!",
 
     project_title: "Das Projekt: 6 Klassenzimmer. Unendliche Möglichkeiten.",
-    project_text: "Wir bauen eine lebendige Schule für Kinder, die sonst keine Chance auf Bildung hätten. Das Land ist bereit — großzügig gespendet von den örtlichen Nonnen. Jetzt brauchen wir deine Hilfe, um es Wirklichkeit werden zu lassen.",
+    project_text: "Wir bauen eine Schule für Kinder, die sonst keine Chance auf Bildung hätten. Das Grundstück wurde uns von den örtlichen Nonnen geschenkt. Jetzt brauchen wir deine Unterstützung, damit die Schule Wirklichkeit wird.",
     project_render_caption: "Ein Zuhause der Hoffnung: Sechs helle, einladende Klassenzimmer, gestaltet zur Förderung von Kreativität und Gemeinschaft.",
     project_plan_caption: "Mit Sorgfalt geplant: Jeder Bereich fördert Sicherheit, Zugehörigkeit und Vorstellungskraft.",
 
     who_title: "Wer Wir Sind: Gruppo Nairobi",
-    who_text: "Wir sind Gruppo Nairobi, eine Non-Profit-Organisation, die glaubt, dass Bildung der wahre Schlüssel zur Entwicklung ist. Unser kleines, leidenschaftliches Team arbeitet Hand in Hand mit lokalen Gemeinschaften, um Träume Wirklichkeit werden zu lassen.",
+    who_text: "Wir sind Gruppo Nairobi, eine gemeinnützige Organisation, die überzeugt ist: Bildung ist der Schlüssel zur Entwicklung. Unser kleines, engagiertes Team arbeitet eng mit lokalen Gemeinschaften zusammen, um Träume Wirklichkeit werden zu lassen.",
     role_president: "Präsident",
     role_vp: "Vizepräsident",
     role_admin: "Administrator",
 
     value_funding: "Transparente Finanzierung",
-    value_funding_text: "Jeder Cent geht direkt an das Schulprojekt und wird sicher über GoFundMe verwaltet.",
-    value_global: "Globale Bewegung",
-    value_global_text: "Sei Teil einer wachsenden Familie von Changemakern auf der ganzen Welt.",
+    value_funding_text: "Jeder Cent fließt direkt in das Schulprojekt und wird sicher über GoFundMe verwaltet.",
+    value_global: "Eine weltweite Bewegung",
+    value_global_text: "Werde Teil einer wachsenden Gemeinschaft von Menschen, die aktiv etwas verändern wollen.",
 
     cta_title: "Gemeinsam sind wir stärker",
-    cta_p1: "Bereits über €12.855 gesammelt! Jede Spende bringt uns dem Ziel näher, unsere Türen für die ersten Schüler zu öffnen. Lies Nachrichten der Ermutigung und Großzügigkeit unserer Unterstützer.",
+    cta_p1: "Bereits über 12.855 € gesammelt! Jede Spende bringt uns dem Ziel näher, die Schule für die ersten Kinder zu öffnen. Lies die Nachrichten voller Ermutigung und Großzügigkeit unserer Unterstützerinnen und Unterstützer.",
     cta_donate: "Jetzt Spenden und Teil Werden",
-    cta_share: "Teile es auf Social Media",
-    cta_contact: "Kontaktiere Uns",
+    cta_share: "Teile die Aktion auf Social Media",
+    cta_contact: "Kontaktiere uns direkt",
 
     // Timeline Additions
     timeline_well: "Brunnenbau",
@@ -224,7 +224,7 @@ window.translations = {
     timeline_windowsdoors_desc: "Einbau von Fenstern und Türen",
 
     // Funding Section
-    funding_title: "Projektfinanzierungsfortschritt",
+    funding_title: "Fortschritt der Projektfinanzierung",
     funding_progress: "Finanziert",
     funding_remaining: "verbleibend",
     funding_donate: "Auf GoFundMe spenden",
