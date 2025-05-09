@@ -12,10 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
   lightbox.setAttribute("aria-label", "Image lightbox")
   document.body.appendChild(lightbox)
 
+  // Create a centered container for the image
+  const lightboxContent = document.createElement("div")
+  lightboxContent.className = "lightbox-content"
+  lightbox.appendChild(lightboxContent)
+
   // Create image element
   const lightboxImg = document.createElement("img")
   lightboxImg.setAttribute("alt", "") // Will be updated with caption text
-  lightbox.appendChild(lightboxImg)
+  lightboxContent.appendChild(lightboxImg)
 
   // Create close button
   const lightboxClose = document.createElement("button")
@@ -129,10 +134,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // Hide loader when image is loaded
     lightboxLoader.style.display = "none"
 
+    // Reset any inline styles that might be causing positioning issues
+    lightboxImg.style = ""
+
     // Update image source and caption
     lightboxImg.src = image.src
     lightboxImg.setAttribute("alt", image.caption || "Image")
     lightboxCaption.textContent = image.caption
+
+    // Force centering after image loads
+    lightboxImg.onload = function () {
+      // Reset any potential inline styles
+      this.style = ""
+    }
   }
 
   // Close lightbox function
@@ -277,8 +291,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle window resize
   window.addEventListener("resize", () => {
     if (lightbox.classList.contains("active")) {
-      // Adjust lightbox positioning if needed
-      // This is a placeholder for any specific adjustments needed on resize
+      // Force recenter on resize
+      const img = lightboxContent.querySelector("img")
+      if (img) {
+        img.style = ""
+      }
     }
   })
 

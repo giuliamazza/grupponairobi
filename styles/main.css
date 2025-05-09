@@ -608,6 +608,8 @@ nav a:hover {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   background-color: var(--lightbox-bg);
@@ -615,9 +617,8 @@ nav a:hover {
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--lightbox-transition), visibility var(--lightbox-transition);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center !important;
+  overflow: hidden;
 }
 
 .lightbox.active {
@@ -625,14 +626,29 @@ nav a:hover {
   visibility: visible;
 }
 
+.lightbox-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .lightbox img {
-  max-width: 90%;
-  max-height: 85vh;
+  max-width: 80% !important;
+  max-height: 80vh !important;
   object-fit: contain;
   border-radius: 4px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
   transform: scale(0.95);
   transition: transform var(--lightbox-transition);
+  position: relative !important;
+  margin: 0 auto !important;
+  display: block !important;
 }
 
 .lightbox.active img {
@@ -665,11 +681,15 @@ nav a:hover {
 
 .lightbox-nav {
   position: absolute;
-  width: 100%;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
   display: flex;
   justify-content: space-between;
   padding: 0 30px;
   z-index: 10000;
+  pointer-events: none;
 }
 
 .lightbox-nav button {
@@ -685,6 +705,7 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: auto;
 }
 
 .lightbox-nav button:hover,
@@ -1071,11 +1092,6 @@ footer .logo {
   color: var(--dark-gray);
 }
 
-.footer-description a {
-  color: #00a651;
-  text-decoration: underline;
-}
-
 .organization-info {
   border-left: 3px solid var(--primary-color);
   padding-left: 15px;
@@ -1460,6 +1476,10 @@ button:focus {
   .lightbox-caption {
     padding: 10px;
     font-size: 14px;
+  }
+
+  .lightbox-counter {
+    display: none;
   }
 }
 
