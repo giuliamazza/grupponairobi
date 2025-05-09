@@ -4,6 +4,90 @@ const shareButtons = document.querySelectorAll('a.lang[data-key="hero_read"], a.
 const shareClose = document.querySelector(".share-close")
 const copyLink = document.getElementById("copy-link")
 
+// Cache for current language to avoid unnecessary localStorage reads
+let currentLanguage = null
+
+// Console error suppression for third-party scripts - More targeted
+;(() => {
+  // Store the original console functions
+  const originalConsoleError = console.error
+  const originalConsoleLog = console.log
+  const originalConsoleWarn = console.warn
+
+  // Filter out specific error messages
+  console.error = (...args) => {
+    // Convert args to string for easier filtering
+    const errorText = args.join(" ")
+
+    // Filter out common errors
+    if (
+      errorText.includes("gofundme.com") ||
+      errorText.includes("Transcend") ||
+      errorText.includes("airgap.js") ||
+      errorText.includes("xdi.js") ||
+      errorText.includes("auth.gofundme.com") ||
+      errorText.includes("mParticle") ||
+      errorText.includes("frame-ancestors") ||
+      errorText.includes("Content Security Policy") ||
+      errorText.includes("Refused to frame") ||
+      errorText.includes("has been blocked by CORS policy") ||
+      errorText.includes("401 (Unauthorized)") ||
+      errorText.includes("400 (Bad Request)")
+    ) {
+      // Suppress these errors
+      return
+    }
+
+    // Pass other errors to the original console.error
+    originalConsoleError.apply(console, args)
+  }
+
+  // Filter console.log as well - but only for specific patterns
+  console.log = (...args) => {
+    // Convert args to string for easier filtering
+    const logText = args.join(" ")
+
+    if (
+      logText.includes("airgap.js") ||
+      logText.includes("Successfully registered") ||
+      logText.includes("GoogleAnalytics") ||
+      logText.includes("GoogleTagManager") ||
+      logText.includes("Optimizely") ||
+      logText.includes("GoFundMe script not loaded") || // Suppress GoFundMe loading messages
+      logText.includes("Initializing GoFundMe widgets") // Suppress GoFundMe initialization messages
+    ) {
+      // Suppress these logs
+      return
+    }
+
+    // Pass other logs to the original console.log
+    originalConsoleLog.apply(console, args)
+  }
+
+  // Filter console.warn as well - but only for specific patterns
+  console.warn = (...args) => {
+    // Convert args to string for easier filtering
+    const warnText = args.join(" ")
+
+    if (
+      warnText.includes("preloaded") ||
+      warnText.includes("not used within") ||
+      warnText.includes("Invalid previewUrl") ||
+      warnText.includes("preload") ||
+      warnText.includes("credentials mode") ||
+      warnText.includes("crossorigin attribute") ||
+      warnText.includes("Content Security Policy") ||
+      warnText.includes("was preloaded using link")
+    ) {
+      // Suppress these warnings
+      return
+    }
+
+    // Pass other warnings to the original console.warn
+    originalConsoleWarn.apply(console, args)
+  }
+})()
+
 // Format currency amounts based on language
 function formatCurrencyForLanguage(value, lang) {
   if (lang === "en") {
@@ -17,10 +101,8 @@ function formatCurrencyForLanguage(value, lang) {
 
 // Update all amount elements with the correct format
 function updateAmountFormats(lang) {
-  console.log("Updating amount formats for language:", lang)
   document.querySelectorAll(".amount").forEach((element) => {
     const value = element.getAttribute("data-value")
-    console.log("Found element with data-value:", value)
     if (value) {
       // If it's inside parentheses (like in timeline items)
       if (element.tagName.toLowerCase() === "em") {
@@ -47,6 +129,31 @@ function scrollToProject() {
   }
 }
 
+// Optimized localStorage functions
+function getStoredLanguage() {
+  // Use cached value if available
+  if (currentLanguage) return currentLanguage
+
+  try {
+    return localStorage.getItem("language") || null
+  } catch (e) {
+    console.error("Error accessing localStorage:", e)
+    return null
+  }
+}
+
+function storeLanguage(lang) {
+  // Only update localStorage if the language has changed
+  if (currentLanguage === lang) return
+
+  try {
+    localStorage.setItem("language", lang)
+    currentLanguage = lang // Update cache
+  } catch (e) {
+    console.error("Error storing language preference:", e)
+  }
+}
+
 // Main JavaScript for interactivity
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize language
@@ -60,18 +167,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector("nav")
   const navLinks = document.querySelectorAll("nav a")
 
+  // Simple language switching without disabling or animations
   if (langSelect) {
     langSelect.addEventListener("change", (e) => {
-      changeLanguage(e.target.value)
-      if (langSelectFooter) langSelectFooter.value = e.target.value
+      const newLang = e.target.value
+      changeLanguage(newLang)
+
+      // Keep the footer select in sync
+      if (langSelectFooter) {
+        langSelectFooter.value = newLang
+      }
+
       closeMobileMenuFunc() // Close mobile menu when changing language
     })
   }
 
+  // Simple language switching for footer select
   if (langSelectFooter) {
     langSelectFooter.addEventListener("change", (e) => {
-      changeLanguage(e.target.value)
-      if (langSelect) langSelect.value = e.target.value
+      const newLang = e.target.value
+      changeLanguage(newLang)
+
+      // Keep the header select in sync
+      if (langSelect) {
+        langSelect.value = newLang
+      }
     })
   }
 
@@ -113,123 +233,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Lightbox
-  const lightbox = document.createElement("div")
-  lightbox.classList.add("lightbox")
-  document.body.appendChild(lightbox)
-
-  const lightboxImg = document.createElement("img")
-  lightbox.appendChild(lightboxImg)
-
-  const lightboxClose = document.createElement("div")
-  lightboxClose.classList.add("lightbox-close")
-  lightboxClose.innerHTML = "&times;"
-  lightbox.appendChild(lightboxClose)
-
-  // Set up delegated event listener (more reliable)
-  document.addEventListener("click", (e) => {
-    const trigger = e.target.closest(".lightbox-trigger")
-    if (!trigger) return
-
-    e.preventDefault()
-
-    const imgSrc = trigger.getAttribute("href")
-    if (!imgSrc) return
-
-    lightboxImg.src = imgSrc
-    lightbox.classList.add("active")
-  })
-
-  // Handle close events
-  lightboxClose.addEventListener("click", () => {
-    lightbox.classList.remove("active")
-  })
-
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      lightbox.classList.remove("active")
-    }
-  })
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      lightbox.classList.remove("active")
-    }
-  })
-
-  // ===== Share Modal: ONLY opening, closing, copy link functionality =====
-  if (shareModal) {
-    // Update ARIA attributes when opening/closing modal
-    const updateModalAccessibility = (isOpen) => {
-      shareModal.setAttribute("aria-hidden", !isOpen)
-
-      if (isOpen) {
-        // Add visible class for animation
-        shareModal.classList.add("visible")
-
-        // Get all focusable elements in the modal
-        const focusableElements = shareModal.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])')
-
-        // Focus the first element when modal opens - minimal delay
-        if (focusableElements.length > 0) {
-          requestAnimationFrame(() => {
-            focusableElements[0].focus()
-          })
-        }
-      } else {
-        // Remove visible class for animation
-        shareModal.classList.remove("visible")
-      }
-    }
-
-    // Update open/close functions to handle accessibility
-    shareButtons.forEach((button) => {
-      button.addEventListener("click", (e) => {
-        e.preventDefault()
-        shareModal.style.display = "block"
-        // Minimal delay to allow display:block to take effect
-        requestAnimationFrame(() => {
-          updateModalAccessibility(true)
-        })
-        closeMobileMenuFunc()
-      })
-    })
-
-    if (shareClose) {
-      // Add keyboard support for the close button
-      shareClose.addEventListener("click", () => {
-        updateModalAccessibility(false)
-        // Delay hiding the modal to allow for fade-out animation
-        setTimeout(() => {
-          shareModal.style.display = "none"
-        }, 600) // Balanced delay for fade out
-      })
-
-      // Add keyboard support for the close button
-      shareClose.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault()
-          updateModalAccessibility(false)
-          // Delay hiding the modal to allow for fade-out animation
-          setTimeout(() => {
-            shareModal.style.display = "none"
-          }, 600) // Balanced delay for fade out
-        }
-      })
-    }
-
-    // Close modal when clicking outside
-    window.addEventListener("click", (e) => {
-      if (e.target === shareModal) {
-        updateModalAccessibility(false)
-        // Delay hiding the modal to allow for fade-out animation
-        setTimeout(() => {
-          shareModal.style.display = "none"
-        }, 600) // Balanced delay for fade out
-      }
-    })
-  }
-
   if (copyLink) {
     copyLink.addEventListener("click", () => {
       navigator.clipboard
@@ -246,18 +249,23 @@ document.addEventListener("DOMContentLoaded", () => {
       header.classList.add("scrolled")
     }
   }
+
+  // Handle GoFundMe widgets - simplified approach
+  handleGoFundMeWidgets()
 })
 
 // Language functions
 function initializeLanguage() {
-  // Check if a language preference is stored
-  let currentLang = localStorage.getItem("language") || "en"
+  // Check if a language preference is stored - use optimized function
+  let lang = getStoredLanguage() || "en"
 
   // If no stored preference, try to detect browser language
-  if (!localStorage.getItem("language")) {
+  if (!lang) {
     const browserLang = navigator.language.split("-")[0]
     if (["en", "it", "de"].includes(browserLang)) {
-      currentLang = browserLang
+      lang = browserLang
+    } else {
+      lang = "en" // Default to English
     }
   }
 
@@ -266,48 +274,59 @@ function initializeLanguage() {
   const langSelectFooter = document.getElementById("language-select-footer")
 
   if (langSelect) {
-    langSelect.value = currentLang
+    langSelect.value = lang
   }
 
   if (langSelectFooter) {
-    langSelectFooter.value = currentLang
+    langSelectFooter.value = lang
   }
 
   // Apply translations immediately without transition
-  changeLanguage(currentLang, false)
+  changeLanguage(lang)
 }
 
-// Modify your existing changeLanguage function to call updateAmountFormats
-function changeLanguage(lang, animate = true) {
-  console.log("Changing language to:", lang)
+// Simplified changeLanguage function - no animations, no disabling
+function changeLanguage(lang) {
+  // Skip if language hasn't changed
+  if (currentLanguage === lang) return
 
-  // Save language preference
-  localStorage.setItem("language", lang)
+  // Save language preference - use optimized function
+  storeLanguage(lang)
 
   // Update currency formats
   updateAmountFormats(lang)
 
-  document.querySelectorAll(".lang").forEach((element) => {
-    if (animate) {
-      element.style.opacity = "0"
-      setTimeout(() => {
-        updateElementTextFunc(element, lang)
-        element.style.opacity = "1"
-      }, 50) // Reduced from 150ms to 50ms for faster response
-    } else {
-      // Immediate update without animation for initial load
-      updateElementTextFunc(element, lang)
-    }
-  })
+  // Make sure we have the translations object
+  if (!window.translations || !window.translations[lang]) {
+    console.error("Translations not found for language:", lang)
+    return
+  }
 
-  // Update HTML lang attribute
-  document.documentElement.lang = lang
+  try {
+    // Update all elements with translations immediately
+    document.querySelectorAll(".lang").forEach((element) => {
+      updateElementTextFunc(element, lang)
+    })
+
+    // Update HTML lang attribute
+    document.documentElement.lang = lang
+  } catch (error) {
+    console.error("Error updating translations:", error)
+  }
+
+  // Dispatch a custom event to notify other scripts of language change
+  document.dispatchEvent(new CustomEvent("languageChanged", { detail: { language: lang } }))
 }
 
+// Fix the updateElementTextFunc to properly handle the translations structure
 function updateElementTextFunc(element, lang) {
-  const key = element.getAttribute("data-key")
-  if (key && window.translations && window.translations[lang] && window.translations[lang][key]) {
-    element.innerHTML = window.translations[lang][key]
+  try {
+    const key = element.getAttribute("data-key")
+    if (key && window.translations && window.translations[lang] && window.translations[lang][key]) {
+      element.innerHTML = window.translations[lang][key]
+    }
+  } catch (error) {
+    console.error("Error updating element text:", error)
   }
 }
 
@@ -451,13 +470,6 @@ function initAnimations() {
   })
 }
 
-// Replace the old checkVisibility function with this more efficient version
-// that only runs when needed
-function checkVisibility() {
-  // This function is now handled by the IntersectionObserver in initAnimations
-  // Keeping this as a placeholder for backward compatibility
-}
-
 // Scroll effect for header background
 window.addEventListener("scroll", () => {
   const header = document.querySelector("header")
@@ -467,5 +479,137 @@ window.addEventListener("scroll", () => {
     } else {
       header.classList.remove("scrolled")
     }
+  }
+})
+
+// Improved GoFundMe widget handling
+function handleGoFundMeWidgets() {
+  // Show fallbacks immediately for all widgets
+  const widgets = document.querySelectorAll(".gfm-embed")
+
+  if (widgets.length === 0) return
+
+  // For each widget, set up a fallback display after a timeout
+  widgets.forEach((widget) => {
+    // Set a timeout to check if iframe was created
+    setTimeout(() => {
+      const iframe = widget.querySelector("iframe")
+
+      // If no iframe was created, show the fallback
+      if (!iframe) {
+        const fallbackContainer = widget.closest(".large-gofundme-container, .gfm-embed-container")
+        if (fallbackContainer) {
+          const fallback = fallbackContainer.querySelector(".gfm-fallback")
+          if (fallback) {
+            fallback.style.display = "block"
+          }
+        }
+      } else {
+        // If iframe exists, style it properly
+        if (widget.closest(".large-gofundme-container")) {
+          iframe.style.width = "100%"
+          iframe.style.border = "none"
+
+          // Remove extra padding that might be causing white space
+          iframe.style.marginBottom = "0"
+          iframe.style.paddingBottom = "0"
+        }
+      }
+    }, 3000) // Check after 3 seconds
+  })
+}
+
+// Share functionality
+document.addEventListener("DOMContentLoaded", () => {
+  // Share modal functionality
+  const shareModal = document.getElementById("share-modal")
+  const shareButtons = document.querySelectorAll('a.lang[data-key="hero_read"], a.lang[data-key="cta_share"]')
+  const shareClose = document.querySelector(".share-close")
+
+  // Store the element that had focus before opening the modal
+  let previouslyFocusedElement = null
+
+  // Open modal
+  if (shareButtons && shareModal) {
+    shareButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault()
+        // Store the element that had focus before opening the modal
+        previouslyFocusedElement = document.activeElement
+
+        // Show the modal
+        shareModal.style.display = "block"
+        shareModal.setAttribute("aria-hidden", "false")
+
+        setTimeout(() => {
+          shareModal.classList.add("visible")
+
+          // Focus the close button
+          if (shareClose) {
+            shareClose.focus()
+          }
+        }, 10)
+      })
+    })
+  }
+
+  // Close modal
+  if (shareClose && shareModal) {
+    shareClose.addEventListener("click", () => {
+      closeShareModal()
+    })
+  }
+
+  // Close when clicking outside
+  if (shareModal) {
+    window.addEventListener("click", (e) => {
+      if (e.target === shareModal) {
+        closeShareModal()
+      }
+    })
+  }
+
+  // Close with Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && shareModal && shareModal.style.display === "block") {
+      closeShareModal()
+    }
+  })
+
+  // Function to close the modal
+  function closeShareModal() {
+    shareModal.classList.remove("visible")
+
+    setTimeout(() => {
+      shareModal.style.display = "none"
+      shareModal.setAttribute("aria-hidden", "true")
+
+      // Return focus to the element that had focus before opening the modal
+      if (previouslyFocusedElement) {
+        previouslyFocusedElement.focus()
+      }
+    }, 300)
+  }
+
+  // Trap focus within the modal when it's open
+  if (shareModal) {
+    shareModal.addEventListener("keydown", (e) => {
+      if (e.key === "Tab") {
+        const focusableElements = shareModal.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])')
+        const firstElement = focusableElements[0]
+        const lastElement = focusableElements[focusableElements.length - 1]
+
+        // If shift+tab and focus is on first element, move to last element
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault()
+          lastElement.focus()
+        }
+        // If tab and focus is on last element, move to first element
+        else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault()
+          firstElement.focus()
+        }
+      }
+    })
   }
 })
