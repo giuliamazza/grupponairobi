@@ -1217,6 +1217,10 @@ footer .logo {
   transition-duration: 0.2s;
 }
 
+/* Override any inherited transitions  color, border-color;
+  transition-duration: 0.2s;
+}
+
 /* Override any inherited transitions for focus states */
 :focus-visible {
   transition-property: background-color, color, border-color;
