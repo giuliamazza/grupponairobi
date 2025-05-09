@@ -58,9 +58,7 @@ body {
 }
 
 /* Master Modern Typography */
-h1,
-.hero h1 {
-  /* Use rem units instead of clamp to avoid the deprecated API warning */
+h1 {
   font-size: 4rem;
   font-weight: 800;
   line-height: 1.1;
@@ -68,17 +66,45 @@ h1,
   margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
-  h1,
+/* Hero-specific H1 styling */
+.hero h1 {
+  font-size: 6rem; /* Default large size */
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+
+@media (max-width: 1200px) {
   .hero h1 {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
     font-size: 3rem;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  h1,
-  .hero h1 {
+  h1 {
     font-size: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
   }
 }
 
@@ -326,39 +352,6 @@ nav a:hover {
   max-width: 60%;
   display: flex;
   flex-direction: column;
-}
-
-.hero h1 {
-  font-size: 6rem; /* Default large size */
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
-  color: var(--white);
-}
-
-@media (max-width: 1200px) {
-  .hero h1 {
-    font-size: 5rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .hero h1 {
-    font-size: 4rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 3.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
 }
 
 .hero-content p {
