@@ -168,7 +168,7 @@ window.translations = {
     nav_donate: "Spenden",
 
     hero_title: "Hoffnung Entfachen",
-    hero_text: "Hilf uns, eine Schule zu bauen, für eine starke, gebildete Generation in Kenia",
+    hero_text: "Hilf uns, eine Schule zu bauen, die Leben verändert und eine neue Generation stärkt.",
     hero_donate: "Ich will helfen!",
     hero_read: "Teile es auf Social Media",
     hero_build: "Baue eine Schule",
@@ -224,7 +224,7 @@ window.translations = {
     timeline_windowsdoors_desc: "Einbau von Fenstern und Türen",
 
     // Funding Section
-    funding_title: "Projektfortschritt",
+    funding_title: "Fortschritt der Projektfinanzierung",
     funding_progress: "Finanziert",
     funding_remaining: "verbleibend",
     funding_donate: "Auf GoFundMe spenden",
