@@ -1,8 +1,10 @@
 /* Load Geist Variable Font */
 @font-face {
   font-family: "Geist";
-  src: url("../fonts/Geist-VariableFont_wght.ttf") format("truetype");
+  src: url("../fonts/Geist-VariableFont_wght.ttf") format("truetype"), url("fonts/Geist-VariableFont_wght.ttf")
+    format("truetype");
   font-weight: 100 900;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -19,6 +21,12 @@
   --dark-gray: #666;
   --rich-black: #0b1d26;
   --light-gray: #ccc;
+  /* Lightbox variables */
+  --lightbox-bg: rgba(0, 0, 0, 0.9);
+  --lightbox-text: #ffffff;
+  --lightbox-control-bg: rgba(255, 255, 255, 0.15);
+  --lightbox-control-hover: rgba(255, 255, 255, 0.3);
+  --lightbox-transition: 0.3s ease;
 }
 
 * {
@@ -214,6 +222,24 @@ nav a:hover {
   background-color: var(--white);
   font-size: 14px;
   cursor: pointer;
+}
+
+/* Add this to the CSS file to ensure language selectors have no transitions */
+.language-select {
+  transition: none !important;
+  animation: none !important;
+}
+
+.language-switcher {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Ensure the select doesn't change appearance during language switching */
+.language-select:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  transition: none !important;
 }
 
 /* Hero Section */
@@ -433,24 +459,28 @@ nav a:hover {
   margin-top: 3px;
 }
 
-/* GoFundMe widget styling - updated with scaling */
-.gfm-embed {
+/* Update GoFundMe widget container styles */
+.gfm-embed-container {
   position: absolute;
   bottom: 25px;
   right: 30px;
   z-index: 2;
   max-width: 320px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transform: scale(0.85);
   transform-origin: bottom right;
   transition: transform 0.2s ease;
 }
 
-.gfm-embed:hover {
-  transform: scale(0.88); /* Subtle feedback effect on hover */
+.gfm-embed-container:hover {
+  transform: scale(0.88);
+}
+
+/* GoFundMe widget styling - updated with scaling */
+.gfm-embed {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Hide the original hero-feature when GoFundMe is active */
@@ -510,9 +540,59 @@ nav a:hover {
   margin-top: 2rem;
 }
 
-.funding-container {
-  padding: 0 28px; /* Increased padding */
-  margin: 3rem auto 24px auto;
+/* GoFundMe Section - Updated for fixed-width widget */
+.gofundme-section {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.gofundme-section .section-title {
+  margin-bottom: 40px;
+  color: var(--rich-black);
+}
+
+/* Updated container to be wider */
+.gofundme-section .container {
+  max-width: 600px; /* Increased from 550px to give more space */
+  background-color: white;
+  border-radius: 16px;
+  padding: 40px 40px; /* Increased horizontal padding */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.gofundme-section #__next {
+  margin: 0;
+  padding: 0;
+}
+
+.large-gofundme-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the widget */
+  align-items: center;
+  overflow: visible; /* Allow widget to be fully visible */
+}
+
+/* The large GoFundMe widget styling - SIMPLIFIED */
+.large-gofundme-container .gfm-embed {
+  width: 100%;
+  min-height: 420px;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0 auto;
+}
+
+/* Fallback for GoFundMe widget */
+.gfm-fallback {
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  display: none; /* Hidden by default, shown if widget fails */
 }
 
 .team {
@@ -523,39 +603,140 @@ nav a:hover {
   gap: 40px; /* Increased gap */
 }
 
+/* Modern Lightbox - Completely redesigned */
 .lightbox {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--lightbox-bg);
   z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--lightbox-transition), visibility var(--lightbox-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lightbox.active {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
 }
 
 .lightbox img {
   max-width: 90%;
-  max-height: 90%;
+  max-height: 85vh;
   object-fit: contain;
-  border-radius: 10px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+  transform: scale(0.95);
+  transition: transform var(--lightbox-transition);
+}
+
+.lightbox.active img {
+  transform: scale(1);
 }
 
 .lightbox-close {
   position: absolute;
   top: 20px;
-  right: 30px;
-  font-size: 2rem;
-  color: #fff;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--lightbox-control-bg);
+  color: var(--lightbox-text);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
   cursor: pointer;
+  transition: background-color 0.2s ease;
   z-index: 10000;
+  border: none;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+  background-color: var(--lightbox-control-hover);
+}
+
+.lightbox-nav {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  z-index: 10000;
+}
+
+.lightbox-nav button {
+  background-color: var(--lightbox-control-bg);
+  color: var(--lightbox-text);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-nav button:hover,
+.lightbox-nav button:focus {
+  background-color: var(--lightbox-control-hover);
+}
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--lightbox-text);
+  padding: 15px;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--lightbox-transition), transform var(--lightbox-transition);
+}
+
+.lightbox.active .lightbox-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lightbox-counter {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: var(--lightbox-text);
+  background-color: var(--lightbox-control-bg);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* Lightbox trigger styling */
+.lightbox-trigger {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  display: block;
+}
+
+.lightbox-trigger:hover {
+  opacity: 0.9;
+}
+
+.lightbox-trigger:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
 /* The Project Section */
@@ -701,84 +882,6 @@ nav a:hover {
 
 .floor-plan {
   margin-top: 20px;
-}
-
-/* Unified Progress Bar */
-.funding-container {
-  max-width: 1100px;
-  margin: 5rem auto 32px auto;
-  padding: 0 20px;
-}
-
-.funding-header {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.funding-goal {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-
-.current-amount {
-  font-size: clamp(2rem, 4vw, 2.5rem);
-  font-weight: 400;
-  color: var(--primary-color);
-}
-
-.total-amount {
-  font-size: clamp(2rem, 4vw, 2.5rem);
-  font-weight: 400;
-  color: var(--dark-gray);
-}
-
-.progress-container {
-  height: 12px;
-  background-color: #eee;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 6px;
-  width: 100%;
-}
-
-.progress-bar {
-  height: 100%;
-  background: linear-gradient(to right, #00a651 0%, #007239 100%);
-  border-radius: 10px;
-  transition: width 1.5s ease-in-out;
-}
-
-.progress-marker {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 2px;
-  background-color: var(--dark-gray);
-}
-
-.progress-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0;
-}
-
-.progress-label {
-  font-size: 0.9rem;
-  color: var(--dark-gray);
-}
-
-.progress-label:first-child {
-  color: var(--primary-color);
-}
-
-.donate-button-container {
-  text-align: center;
-  margin-top: 40px;
 }
 
 /* Who We Are Section */
@@ -1092,14 +1195,6 @@ footer .logo {
   transition: background-color 0.2s, color 0.2s;
 }
 
-.share-close:focus {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
-  color: var(--primary-color);
-  /* Remove any transitions for focus state */
-  transition: color 0.2s;
-}
-
 /* Add this to ensure immediate focus visibility */
 :focus {
   transition-property: background-color, color, border-color;
@@ -1190,12 +1285,12 @@ button:focus {
     padding-bottom: 10rem; /* Increased padding to ensure space for widget */
   }
 
-  .gfm-embed {
+  .gfm-embed-container {
     bottom: 30px; /* Better positioning */
     transform: scale(0.8); /* Scale down more on MacBooks */
   }
 
-  .gfm-embed:hover {
+  .gfm-embed-container:hover {
     transform: scale(0.83); /* Consistent hover effect */
   }
 }
@@ -1220,7 +1315,7 @@ button:focus {
     padding: 12px 20px; /* Slightly reduced padding */
   }
 
-  .gfm-embed {
+  .gfm-embed-container {
     bottom: 20px;
     right: 20px;
     transform: scale(0.8); /* Smaller on tablets */
@@ -1282,7 +1377,7 @@ button:focus {
     min-width: 140px; /* Minimum width for buttons */
   }
 
-  .gfm-embed {
+  .gfm-embed-container {
     position: relative;
     bottom: auto;
     left: auto;
@@ -1342,6 +1437,50 @@ button:focus {
   .mobile-menu-btn {
     display: block;
   }
+
+  /* Lightbox responsive adjustments */
+  .lightbox-nav {
+    padding: 0 15px;
+  }
+
+  .lightbox-nav button {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .lightbox-close {
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+
+  .lightbox-caption {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* Responsive adjustments for the GoFundMe widget */
+@media (max-width: 640px) {
+  .gofundme-section .container {
+    padding: 30px 15px;
+    border-radius: 12px;
+  }
+
+  /* Create horizontal scrolling container for small screens */
+  .large-gofundme-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+
+  /* Ensure the widget doesn't shrink */
+  .large-gofundme-container .gfm-embed {
+    min-width: 100%;
+    min-height: 420px;
+  }
 }
 
 /* Combined mobile styles */
@@ -1394,6 +1533,40 @@ button:focus {
   .section-image img {
     margin-top: 0;
   }
+
+  /* GoFundMe widget responsive styles */
+  .large-gofundme-container {
+    overflow-x: auto;
+    padding: 0;
+  }
+
+  /* Lightbox mobile adjustments */
+  .lightbox-nav {
+    padding: 0 10px;
+  }
+
+  .lightbox-nav button {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .lightbox-caption {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .lightbox-counter {
+    display: none;
+  }
 }
 
 /* Print styles for better accessibility */
@@ -1429,4 +1602,26 @@ button:focus {
   a[href^="http"]:after {
     content: " (" attr(href) ")";
   }
+}
+
+/* Fix for GoFundMe widget loading spinner */
+.gfm-embed {
+  position: relative;
+  min-height: 200px;
+}
+
+/* Show fallback after a delay if widget doesn't load */
+.gfm-fallback {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Ensure proper iframe dimensions */
+iframe {
+  border: 0;
+}
+
+/* Prevent body scrolling when lightbox is open */
+body.lightbox-open {
+  overflow: hidden;
 }
