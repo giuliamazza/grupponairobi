@@ -156,15 +156,9 @@ if (window.scrollY > 10) {
         </div>
       </div>
       
-      <!-- GoFundMe Widget (replaces hero-feature) - Simple approach -->
+      <!-- GoFundMe Widget (replaces hero-feature) -->
       <div class="gfm-embed-container">
         <div class="gfm-embed" data-url="https://www.gofundme.com/f/associazione-gruppo-nairobi/widget/medium"></div>
-        <!-- Added fallback for the hero widget -->
-        <div class="gfm-fallback" style="display: none;">
-          <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi" target="_blank" rel="noopener noreferrer" class="btn primary">
-            Donate on GoFundMe
-          </a>
-        </div>
       </div>
       
       <!-- Original hero-feature (hidden but preserved for future use) -->
@@ -322,19 +316,18 @@ if (window.scrollY > 10) {
   </div>
 </section>
 
-<!-- Update the GoFundMe section with the correct large widget styling -->
+<!-- Simplified GoFundMe section with small alternative button -->
 <section id="gofundme-widget" class="gofundme-section">
   <div class="container">
     <h2 class="section-title lang" data-key="funding_title">Support Our Project</h2>
     <div class="large-gofundme-container">
-      <!-- Large GoFundMe widget - Simple approach -->
+      <!-- Large GoFundMe widget -->
       <div class="gfm-embed" data-url="https://www.gofundme.com/f/associazione-gruppo-nairobi/widget/large"></div>
       
-      <!-- Fallback link if widget fails to load -->
-      <div class="gfm-fallback" style="display: none;">
-        <p>Having trouble viewing the donation widget?</p>
-        <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi" target="_blank" rel="noopener noreferrer" class="btn primary">
-          Donate on GoFundMe
+      <!-- Simple alternative donate link -->
+      <div class="gfm-alternative">
+        <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi" target="_blank" rel="noopener noreferrer" class="alternative-donate-link">
+          <i class="fas fa-external-link-alt"></i> Donate directly on GoFundMe
         </a>
       </div>
     </div>
@@ -454,6 +447,12 @@ if (window.scrollY > 10) {
             <option value="de">DEU</option>
           </select>
         </div>
+        <!-- Direct donation link in footer -->
+        <div class="direct-donate">
+          <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi" target="_blank" rel="noopener noreferrer" class="footer-donate-link">
+            <i class="fas fa-heart"></i> Donate Directly
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -472,7 +471,7 @@ if (window.scrollY > 10) {
 <!-- Social Share Modal -->
 <div id="share-modal" class="share-modal" aria-hidden="true" role="dialog" aria-labelledby="share-title">
 <div class="share-modal-content">
-  <span class="share-close" aria-label="Close" tabindex="0" role="button">&times;</span>
+  <button class="share-close" aria-label="Close modal" type="button">&times;</button>
   <h3 id="share-title">Share this project</h3>
   <div class="share-buttons">
     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn secondary" id="share-facebook" tabindex="0" role="button">

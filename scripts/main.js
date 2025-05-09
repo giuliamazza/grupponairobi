@@ -1,12 +1,4 @@
-// Declare variables
-const shareModal = document.getElementById("share-modal")
-const shareButtons = document.querySelectorAll('a.lang[data-key="hero_read"], a.lang[data-key="cta_share"]')
-const shareClose = document.querySelector(".share-close")
-const copyLink = document.getElementById("copy-link")
-
-// Cache for current language to avoid unnecessary localStorage reads
-let currentLanguage = null
-
+// Add this to the top of the file to handle GoFundMe CSP errors
 // Console error suppression for third-party scripts - More targeted
 ;(() => {
   // Store the original console functions
@@ -32,7 +24,8 @@ let currentLanguage = null
       errorText.includes("Refused to frame") ||
       errorText.includes("has been blocked by CORS policy") ||
       errorText.includes("401 (Unauthorized)") ||
-      errorText.includes("400 (Bad Request)")
+      errorText.includes("400 (Bad Request)") ||
+      errorText.includes("Issues were logged in the Issues panel")
     ) {
       // Suppress these errors
       return
@@ -52,9 +45,7 @@ let currentLanguage = null
       logText.includes("Successfully registered") ||
       logText.includes("GoogleAnalytics") ||
       logText.includes("GoogleTagManager") ||
-      logText.includes("Optimizely") ||
-      logText.includes("GoFundMe script not loaded") || // Suppress GoFundMe loading messages
-      logText.includes("Initializing GoFundMe widgets") // Suppress GoFundMe initialization messages
+      logText.includes("Optimizely")
     ) {
       // Suppress these logs
       return
@@ -87,6 +78,15 @@ let currentLanguage = null
     originalConsoleWarn.apply(console, args)
   }
 })()
+
+// Declare variables
+const shareModal = document.getElementById("share-modal")
+const shareButtons = document.querySelectorAll('a.lang[data-key="hero_read"], a.lang[data-key="cta_share"]')
+const shareClose = document.querySelector(".share-close")
+const copyLink = document.getElementById("copy-link")
+
+// Cache for current language to avoid unnecessary localStorage reads
+let currentLanguage = null
 
 // Format currency amounts based on language
 function formatCurrencyForLanguage(value, lang) {
@@ -482,41 +482,15 @@ window.addEventListener("scroll", () => {
   }
 })
 
-// Improved GoFundMe widget handling
+// Simple function to add title attributes to GoFundMe iframes for accessibility
 function handleGoFundMeWidgets() {
-  // Show fallbacks immediately for all widgets
-  const widgets = document.querySelectorAll(".gfm-embed")
-
-  if (widgets.length === 0) return
-
-  // For each widget, set up a fallback display after a timeout
-  widgets.forEach((widget) => {
-    // Set a timeout to check if iframe was created
-    setTimeout(() => {
-      const iframe = widget.querySelector("iframe")
-
-      // If no iframe was created, show the fallback
-      if (!iframe) {
-        const fallbackContainer = widget.closest(".large-gofundme-container, .gfm-embed-container")
-        if (fallbackContainer) {
-          const fallback = fallbackContainer.querySelector(".gfm-fallback")
-          if (fallback) {
-            fallback.style.display = "block"
-          }
-        }
-      } else {
-        // If iframe exists, style it properly
-        if (widget.closest(".large-gofundme-container")) {
-          iframe.style.width = "100%"
-          iframe.style.border = "none"
-
-          // Remove extra padding that might be causing white space
-          iframe.style.marginBottom = "0"
-          iframe.style.paddingBottom = "0"
-        }
-      }
-    }, 3000) // Check after 3 seconds
-  })
+  // Add title attributes to iframes for accessibility
+  setTimeout(() => {
+    const iframes = document.querySelectorAll(".gfm-embed iframe")
+    iframes.forEach((iframe) => {
+      iframe.setAttribute("title", "GoFundMe Donation Widget")
+    })
+  }, 2000)
 }
 
 // Share functionality
@@ -529,7 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Store the element that had focus before opening the modal
   let previouslyFocusedElement = null
 
-  // Open modal
+  // Open modal - optimized for performance
   if (shareButtons && shareModal) {
     shareButtons.forEach((button) => {
       button.addEventListener("click", (e) => {
@@ -541,22 +515,33 @@ document.addEventListener("DOMContentLoaded", () => {
         shareModal.style.display = "block"
         shareModal.setAttribute("aria-hidden", "false")
 
-        setTimeout(() => {
-          shareModal.classList.add("visible")
+        // Force a reflow before adding the visible class
+        shareModal.offsetWidth
 
-          // Focus the close button
-          if (shareClose) {
-            shareClose.focus()
-          }
-        }, 10)
+        // Add visible class
+        shareModal.classList.add("visible")
+
+        // Focus the close button
+        if (shareClose) {
+          shareClose.focus()
+        }
       })
     })
   }
 
-  // Close modal
+  // Close modal - optimized for performance
   if (shareClose && shareModal) {
+    // Add click event listener
     shareClose.addEventListener("click", () => {
       closeShareModal()
+    })
+
+    // Add keyboard event listener for Enter and Space keys
+    shareClose.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault()
+        closeShareModal()
+      }
     })
   }
 
@@ -576,10 +561,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  // Function to close the modal
+  // Function to close the modal - optimized for performance
   function closeShareModal() {
     shareModal.classList.remove("visible")
 
+    // Use a shorter timeout that matches the CSS transition duration
     setTimeout(() => {
       shareModal.style.display = "none"
       shareModal.setAttribute("aria-hidden", "true")
@@ -610,6 +596,30 @@ document.addEventListener("DOMContentLoaded", () => {
           firstElement.focus()
         }
       }
+    })
+  }
+
+  // Add a simple success notification for copy link button
+  const copyLinkBtn = document.getElementById("copy-link")
+  if (copyLinkBtn) {
+    copyLinkBtn.addEventListener("click", () => {
+      navigator.clipboard
+        .writeText(window.location.href)
+        .then(() => {
+          // Store original text
+          const originalText = copyLinkBtn.innerHTML
+
+          // Change to success message
+          copyLinkBtn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> Link copied!'
+
+          // Reset after 2 seconds
+          setTimeout(() => {
+            copyLinkBtn.innerHTML = originalText
+          }, 2000)
+        })
+        .catch(() => {
+          alert("Failed to copy link.")
+        })
     })
   }
 })

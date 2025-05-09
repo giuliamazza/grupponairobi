@@ -60,11 +60,26 @@ body {
 /* Master Modern Typography */
 h1,
 .hero h1 {
-  font-size: clamp(2rem, 6vw, 6rem);
+  /* Use rem units instead of clamp to avoid the deprecated API warning */
+  font-size: 4rem;
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  h1,
+  .hero h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1,
+  .hero h1 {
+    font-size: 2rem;
+  }
 }
 
 h2 {
@@ -205,7 +220,8 @@ nav a:hover {
 .nav-donate,
 .nav-donate:hover {
   background: none;
-  color: var(--primary-color);
+  color: #007a3d; /* Darker green with better contrast against white background */
+  font-weight: 700; /* Make it bolder for better visibility */
 }
 
 /* Language Switcher */
@@ -313,12 +329,36 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 6vw, 6rem);
+  font-size: 6rem; /* Default large size */
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
   color: var(--white);
+}
+
+@media (max-width: 1200px) {
+  .hero h1 {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
 }
 
 .hero-content p {
@@ -540,24 +580,24 @@ nav a:hover {
   margin-top: 2rem;
 }
 
-/* GoFundMe Section - Updated for fixed-width widget */
+/* GoFundMe Section - Updated for more compact styling */
 .gofundme-section {
-  padding: 80px 0;
-  background-color: #fef7f2;
+  padding: 40px 0; /* Further reduced padding from 60px to 40px */
+  background-color: #f9f9f9;
   text-align: center;
 }
 
 .gofundme-section .section-title {
-  margin-bottom: 40px;
+  margin-bottom: 20px; /* Reduced from 30px to 20px */
   color: var(--rich-black);
 }
 
-/* Updated container to be wider */
+/* Updated container to be more compact */
 .gofundme-section .container {
-  max-width: 600px; /* Increased from 550px to give more space */
+  max-width: 600px;
   background-color: white;
   border-radius: 16px;
-  padding: 40px 40px; /* Increased horizontal padding */
+  padding: 25px 20px; /* Reduced padding */
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
@@ -571,9 +611,9 @@ nav a:hover {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center the widget */
+  justify-content: center;
   align-items: center;
-  overflow: visible; /* Allow widget to be fully visible */
+  overflow: visible;
 }
 
 /* The large GoFundMe widget styling - SIMPLIFIED */
@@ -585,14 +625,50 @@ nav a:hover {
   margin: 0 auto;
 }
 
-/* Fallback for GoFundMe widget */
-.gfm-fallback {
-  margin-top: 20px;
-  padding: 20px;
+/* Simple alternative donate link styling */
+.gfm-alternative {
+  margin-top: 15px;
   text-align: center;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  display: none; /* Hidden by default, shown if widget fails */
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+.alternative-donate-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.alternative-donate-link:hover {
+  color: #007a3d;
+  text-decoration: underline;
+}
+
+.alternative-donate-link i {
+  font-size: 0.8rem;
+}
+
+/* Direct donation link in footer */
+.direct-donate {
+  margin-top: 15px;
+}
+
+.footer-donate-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footer-donate-link:hover {
+  color: #007a3d;
+  text-decoration: underline;
 }
 
 .team {
@@ -1058,9 +1134,11 @@ footer .logo {
   gap: 10px;
 }
 
+/* Footer heading styles */
 .footer-column h3 {
   margin: 0;
   font-size: 1rem;
+  font-weight: 600;
 }
 
 .footer-link {
@@ -1130,7 +1208,7 @@ footer .logo {
   margin-top: 40px;
 }
 
-/* Share Modal Styles - Refined */
+/* Share Modal Styles - Modern Redesign - Optimized Animations */
 .share-modal {
   display: none;
   position: fixed;
@@ -1141,97 +1219,77 @@ footer .logo {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0);
-  transition: background-color 0.6s ease; /* Moderate fade for modal background */
+  transition: background-color 0.25s ease;
+  backdrop-filter: blur(0);
+  transition: backdrop-filter 0.25s ease, background-color 0.25s ease;
 }
 
 .share-modal.visible {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
 }
 
 .share-modal-content {
   position: relative;
-  background-color: #333;
-  margin: 15% auto;
-  padding: 30px;
-  border-radius: 8px;
+  background-color: #1e1e1e;
+  margin: 10% auto;
+  padding: 40px;
+  border-radius: 16px;
   max-width: 500px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
   color: white;
   text-align: center;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); /* Slower, more elegant modal animation */
+  transform: translateY(20px) scale(0.98);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  will-change: transform, opacity;
 }
 
 .share-modal.visible .share-modal-content {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .share-close {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #ffffff;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
-  transition: color 0.2s;
+  transition: all 0.15s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border: none;
+  will-change: transform, background-color;
 }
 
 .share-close:hover,
 .share-close:focus {
-  color: #00a651;
-  text-decoration: none;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.share-modal h3 {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .share-buttons {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.share-buttons .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-/* Improve keyboard accessibility for share modal */
-.share-modal[aria-hidden="false"] {
-  display: block;
-}
-
-.share-buttons .btn:focus {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
-  /* Remove any transitions for focus state */
-  transition: background-color 0.2s, color 0.2s;
-}
-
-/* Add this to ensure immediate focus visibility */
-:focus {
-  transition-property: background-color, color, border-color;
-  transition-duration: 0.2s;
-}
-
-/* Override any inherited transitions  color, border-color;
-  transition-duration: 0.2s;
-}
-
-/* Override any inherited transitions for focus states */
-:focus-visible {
-  transition-property: background-color, color, border-color;
-  transition-duration: 0.2s;
-}
-
-.share-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 12px;
+  margin-top: 24px;
 }
 
 .share-buttons .btn {
@@ -1239,11 +1297,49 @@ footer .logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-weight: 500;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  will-change: transform, background-color;
 }
 
 .share-buttons .btn i {
   font-size: 1.2rem;
+}
+
+.share-buttons .btn.secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.share-buttons .btn.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Social media specific colors */
+#share-facebook {
+  border-left: 4px solid #1877f2;
+}
+
+#share-twitter {
+  border-left: 4px solid #1da1f2;
+}
+
+#share-linkedin {
+  border-left: 4px solid #0a66c2;
+}
+
+#share-whatsapp {
+  border-left: 4px solid #25d366;
+}
+
+#copy-link {
+  border-left: 4px solid #fdb813;
 }
 
 /* Improve keyboard accessibility for share modal */
@@ -1252,13 +1348,28 @@ footer .logo {
 }
 
 .share-buttons .btn:focus {
-  outline: 2px solid #ffffff;
+  outline: 2px solid rgba(255, 255, 255, 0.5);
   outline-offset: 2px;
 }
 
 .share-close:focus {
-  outline: 2px solid #ffffff;
+  outline: 2px solid rgba(255, 255, 255, 0.5);
   outline-offset: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile adjustments for share modal */
+@media (max-width: 600px) {
+  .share-modal-content {
+    margin: 15% auto;
+    padding: 30px 20px;
+    width: 90%;
+  }
+
+  .share-close {
+    top: 12px;
+    right: 12px;
+  }
 }
 
 /* Mobile Menu - Improved responsiveness */
@@ -1490,7 +1601,7 @@ button:focus {
 /* Responsive adjustments for the GoFundMe widget */
 @media (max-width: 640px) {
   .gofundme-section .container {
-    padding: 30px 15px;
+    padding: 25px 15px; /* Further reduced padding */
     border-radius: 12px;
   }
 
@@ -1632,12 +1743,6 @@ button:focus {
 .gfm-embed {
   position: relative;
   min-height: 200px;
-}
-
-/* Show fallback after a delay if widget doesn't load */
-.gfm-fallback {
-  margin-top: 20px;
-  text-align: center;
 }
 
 /* Ensure proper iframe dimensions */
