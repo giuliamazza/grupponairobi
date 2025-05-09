@@ -224,7 +224,7 @@ window.translations = {
     timeline_windowsdoors_desc: "Einbau von Fenstern und Türen",
 
     // Funding Section
-    funding_title: "Fortschritt der Projektfinanzierung",
+    funding_title: "Spendenfortschritt",
     funding_progress: "Finanziert",
     funding_remaining: "verbleibend",
     funding_donate: "Auf GoFundMe spenden",
