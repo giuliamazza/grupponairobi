@@ -205,7 +205,7 @@ window.translations = {
 
     // Timeline Additions
     timeline_well: "Brunnenbau",
-    timeline_well_desc: "Zugang zu sauberem Wasser für alle Schüler",
+    timeline_well_desc: "Sauberes Wasser für alle Schüler",
     timeline_solar: "Solaranlagen",
     timeline_solar_desc: "Nachhaltige Energieversorgung für die Schule",
     timeline_foundations: "Fundamente",
@@ -215,11 +215,11 @@ window.translations = {
     timeline_walls: "Mauerwerk",
     timeline_walls_desc: "Errichtung stabiler Wände für die Klassenräume",
     timeline_floor: "Bodenbeläge",
-    timeline_floor_desc: "Schaffung eines komfortablen und sicheren Bodens",
-    timeline_electric: "Elektrik",
+    timeline_floor_desc: "Ein sicherer und komfortabler Boden für die Klassenräume",
+    timeline_electric: "Elektroinstallation",
     timeline_electric_desc: "Beleuchtung, Steckdosen und elektrische Anlagen",
     timeline_water: "Wasseranschluss",
-    timeline_water_desc: "Anschluss des Gebäudes an die Wasserleitung",
+    timeline_water_desc: "Anschluss an die Wasserversorgung",
     timeline_windowsdoors: "Fenster und Türen",
     timeline_windowsdoors_desc: "Einbau von Fenstern und Türen",
 
