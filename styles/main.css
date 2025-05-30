@@ -245,3 +245,25 @@
 .team-member p {
   color: #2d3748 !important;
 }
+
+/* Keep timeline headings the same size as before */
+.timeline-content h3 {
+  font-size: var(--text-lg) !important;
+  font-weight: 600 !important;
+  margin-bottom: var(--space-xs) !important;
+  line-height: 1.3 !important;
+}
+
+/* Ensure the timeline content styling is preserved */
+.timeline-content.completed h3 {
+  color: var(--brand-accent) !important;
+}
+
+.timeline-content.active h3 {
+  color: var(--brand-secondary) !important;
+  font-weight: 700 !important;
+}
+
+.timeline-content.future h3 {
+  color: var(--text-secondary) !important;
+}
