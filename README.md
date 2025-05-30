@@ -1,4 +1,4 @@
-you can find a preview of the current website here: https://giuliamazza.github.io/grupponairobi/
+You can find a preview of the current website here: https://giuliamazza.github.io/grupponairobi/
 
 # 🌍 Build a School in Kenya — Charity Website
 
@@ -10,18 +10,9 @@ This is a fun and meaningful way to get involved — not only do you get to prac
 
 ## 💡 What's this about?
 
-We're building a landing page to promote a charity initiative by *Gruppo Nairobi*, a non-profit building a 6-classroom school for kids in the Machakos District, Kenya. The website will help us collect donations, tell the story, and show progress.
+We're building a landing page to promote a charity initiative by \*Gruppo Nairobi\*, a non-profit building a 6-classroom school for kids in the Machakos District, Kenya. The website will help us collect donations, tell the story, and show progress.
 
 But this repo is not just about the cause — it's also about creativity and collaboration. If you love designing or coding, **this is your playground**.
-
----
-
-## 🎨 Figma Design (Optional Starting Point)
-
-We've put together a draft design on Figma to give you a starting idea of what the site could look like.  
-👉 [View the Figma](https://www.figma.com/design/whRPIFr9S16t6tA8tpDqV3/nairobi-group-page?node-id=0-1&t=JXDeLwcFAKvELLad-1)
-
-Feel free to use it, remix it, or go completely rogue with your own vision — **we're open to fresh takes**!
 
 ---
 
@@ -38,7 +29,7 @@ Feel free to use it, remix it, or go completely rogue with your own vision — *
 
 We're looking for:
 - Web devs (HTML/CSS/JS or frameworks like React, Vue, etc.)
-- Designers (create new layouts or improve the Figma)
+- Designers (create new layouts or improve existing design)
 - UX people (think about how to make donation flow super smooth)
 - Animators, illustrators, writers — you name it!
 
@@ -48,5 +39,3 @@ We're looking for:
 
 DM Giulia or open an issue if you're not sure where to start.  
 Thanks for being here — you're literally building a better world. 🌱
-
----
