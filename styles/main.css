@@ -267,3 +267,8 @@
 .timeline-content.future h3 {
   color: var(--text-secondary) !important;
 }
+
+/* Make logo very close to text */
+.logo img {
+  margin-right: 0.25rem !important;
+}
