@@ -15,7 +15,8 @@ window.SITE_CONFIG = {
   // Twitch Configuration
   twitch: {
     // Streamers list - easily editable by team members
-    streamers: ["studytme", "forsen", "loltyler1"],
+    // streamers: ["studytme", "forsen", "loltyler1"],
+    streamers: ["studytme"],
 
     display: {
       maxStreamers: 6,
