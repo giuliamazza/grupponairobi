@@ -272,3 +272,18 @@
 .logo img {
   margin-right: 0.25rem !important;
 }
+
+/* Fix CTA background on mobile */
+@media (max-width: 768px) {
+  .cta-card {
+    background: linear-gradient(
+        315deg,
+        rgba(44, 62, 80, 0.95) 0%,
+        rgba(44, 62, 80, 0.85) 30%,
+        rgba(52, 73, 94, 0.7) 60%,
+        rgba(52, 73, 94, 0.6) 100%
+      ), url("../images/hero-bg.jpg") center center / cover no-repeat !important;
+    background-attachment: scroll !important;
+    min-height: 400px !important;
+  }
+}
