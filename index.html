@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="Join us to build a school that transforms lives and empowers the next generation.">
 <meta name="twitter:image" content="./images/og-image.jpg">
 
-<!-- Optimized Favicons -->
+<!-- FIXED: Optimized Favicons - Changed from absolute to relative paths -->
 <link rel="icon" type="image/png" href="./images/favicons/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="./images/favicons/favicon.svg" />
 <link rel="shortcut icon" href="./images/favicons/favicon.ico" />
@@ -139,7 +139,6 @@ if (window.scrollY > 10) {
 </script>
 
 <link rel="stylesheet" href="./styles/main.css">
-<!-- SECURITY FIX: Added integrity check for Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 <script src="./translations/translations.js" defer></script>
 </head>
@@ -447,7 +446,6 @@ if (window.scrollY > 10) {
       </div>
       
       <div class="support-actions">
-        <!-- SECURITY FIX: Already has rel="noopener noreferrer" ✓ -->
         <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi/donate" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
           <i class="fas fa-heart"></i>
           <span class="lang" data-key="donate_now">Donate Now</span>
@@ -455,7 +453,6 @@ if (window.scrollY > 10) {
         <p class="support-note lang" data-key="support_note">Secure donation through GoFundMe</p>
         
         <div class="alternative-links">
-          <!-- SECURITY FIX: Already has rel="noopener noreferrer" ✓ -->
           <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi" target="_blank" rel="noopener noreferrer" class="link-secondary">
             <i class="fas fa-external-link-alt"></i>
             <span class="lang" data-key="view_campaign">View Full Campaign</span>
@@ -526,10 +523,9 @@ if (window.scrollY > 10) {
         <p class="lang" data-key="cta_p1">Every donation brings us closer to opening our doors to the first students.
           Read messages of encouragement and generosity from our donors.</p>
       
-        <!-- SECURITY FIX: Already has rel="noopener noreferrer" ✓ -->
         <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi/donate" target="_blank" rel="noopener noreferrer" class="btn btn-secondary lang" data-key="cta_donate">Donate Now and Be Part of It</a>
         <div class="social-links">
-        <a href="#" class="lang" data-key="cta_share">Share on Social Media</a> &bull; <!-- SECURITY FIX: Added rel="noopener noreferrer" --> <a href="mailto:info@grupponairobi.org" class="lang" data-key="cta_contact" rel="noopener noreferrer">Contact Us</a>
+        <a href="#" class="lang" data-key="cta_share">Share on Social Media</a> &bull; <a href="mailto:info@grupponairobi.org" class="lang" data-key="cta_contact" rel="noopener noreferrer">Contact Us</a>
         </div>
       </div>
     </div>
@@ -580,7 +576,6 @@ if (window.scrollY > 10) {
           </select>
         </div>
         <div class="direct-donate">
-          <!-- SECURITY FIX: Already has rel="noopener noreferrer" ✓ -->
           <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi/donate" target="_blank" rel="noopener noreferrer" class="footer-donate-link">
             <i class="fas fa-heart"></i> Donate Directly
           </a>
@@ -601,7 +596,6 @@ if (window.scrollY > 10) {
   <button class="share-close" aria-label="Close modal" type="button">&times;</button>
   <h3 id="share-title">Share this project</h3>
   <div class="share-buttons">
-    <!-- SECURITY FIX: Already have rel="noopener noreferrer" ✓ -->
     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
       <i class="fab fa-facebook-f"></i> Share on Facebook
     </a>
@@ -621,16 +615,13 @@ if (window.scrollY > 10) {
 </div>
 </div>
 
-<!-- SECURITY FIX: Enhanced input sanitization -->
 <script>
-// Basic XSS protection
 function sanitizeInput(str) {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;
 }
 
-// Apply to any user inputs if they exist
 document.addEventListener('DOMContentLoaded', function() {
   const inputs = document.querySelectorAll('input[type="text"], textarea');
   inputs.forEach(input => {
@@ -641,16 +632,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- Load configuration first -->
 <script src="./scripts/config.js"></script>
 
-<!-- Load core functionality -->
-<script src="./scripts/main.js" defer></script>
+<script src="./scripts/core.js" defer></script>
 
-<!-- Load UI components -->
 <script src="./scripts/ui-components.js" defer></script>
 
-<!-- Load Twitch integration last -->
 <script src="./scripts/twitch-client.js" defer></script>
 
 </body>
