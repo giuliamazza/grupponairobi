@@ -221,3 +221,27 @@
 .social-links a:hover {
   opacity: 1;
 }
+
+/* Accessibility contrast fixes */
+.highlight-text {
+  color: #007a3d !important;
+  font-weight: 600;
+}
+
+.btn-accent {
+  background-color: #007a3d !important;
+  border-color: #007a3d !important;
+}
+
+.btn-accent:hover {
+  background-color: #005a2d !important;
+  border-color: #005a2d !important;
+}
+
+.footer-donate-link {
+  color: #007a3d !important;
+}
+
+.team-member p {
+  color: #2d3748 !important;
+}
