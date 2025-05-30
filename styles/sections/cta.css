@@ -1,0 +1,103 @@
+/* ===== CTA SECTION - RESTORED ORIGINAL HEIGHT AND STYLING ===== */
+.cta-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  padding: var(--space-4xl) var(--space-3xl);
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+      315deg,
+      rgba(44, 62, 80, 0.95) 0%,
+      rgba(44, 62, 80, 0.85) 30%,
+      rgba(52, 73, 94, 0.7) 60%,
+      rgba(52, 73, 94, 0.6) 100%
+    ), url("../../images/hero-bg.jpg") top -40px center / cover no-repeat;
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cta-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl), 0 25px 50px rgba(11, 29, 38, 0.2);
+}
+
+.cta-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E")
+    repeat;
+  pointer-events: none;
+}
+
+.cta-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+.cta-card:hover::after {
+  left: 100%;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  text-align: center;
+}
+
+.cta-content h2 {
+  color: var(--text-inverse);
+  margin-bottom: var(--space-lg);
+}
+
+.cta-content p {
+  color: var(--text-inverse);
+  opacity: 0.9;
+  margin-bottom: var(--space-xl);
+}
+
+.cta .btn {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.social-links {
+  font-size: var(--text-sm);
+  font-weight: bold;
+  color: var(--text-inverse);
+  margin-top: .5em;
+}
+
+.social-links a {
+  color: var(--text-inverse);
+  opacity: 0.8;
+  transition: opacity var(--transition-normal);
+}
+
+.social-links a:hover {
+  opacity: 1;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .cta-card {
+    min-height: 400px;
+    padding: var(--space-xl) var(--space-lg);
+  }
+}

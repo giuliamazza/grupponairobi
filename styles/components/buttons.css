@@ -1,0 +1,103 @@
+/* ===== BUTTON SYSTEM ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  border: none;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: var(--text-base);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  text-align: center;
+  justify-content: center;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background-color: var(--interactive-primary);
+  color: var(--text-inverse);
+}
+
+.btn-primary:hover {
+  background-color: var(--interactive-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background-color: var(--interactive-secondary);
+  color: var(--brand-primary);
+}
+
+.btn-secondary:hover {
+  background-color: #e9a912;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-accent {
+  background-color: var(--interactive-accent);
+  color: var(--text-inverse);
+}
+
+.btn-accent:hover {
+  background-color: #008a45;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-large {
+  padding: var(--space-lg) var(--space-2xl);
+  font-size: var(--text-lg);
+}
+
+.btn-twitch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: linear-gradient(135deg, #6441a5, #9146ff);
+  color: white;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 15px rgba(100, 65, 165, 0.3);
+}
+
+.btn-twitch:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(100, 65, 165, 0.4);
+  background: linear-gradient(135deg, #5a3a9a, #8040e6);
+}
+
+.btn-twitch i {
+  font-size: var(--text-lg);
+}
+
+.link-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--brand-accent);
+  font-weight: 600;
+  transition: color var(--transition-normal);
+}
+
+.link-secondary:hover {
+  color: #007a3d;
+  text-decoration: underline;
+}
+
+.link-secondary i {
+  font-size: var(--text-sm);
+}

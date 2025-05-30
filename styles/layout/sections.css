@@ -1,0 +1,42 @@
+/* ===== SECTION SYSTEM ===== */
+.section {
+  padding: var(--space-4xl) 0;
+  position: relative;
+}
+
+.section-light {
+  background-color: var(--bg-tertiary);
+}
+
+.section-white {
+  background-color: var(--bg-secondary);
+}
+
+.section-accent {
+  background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+}
+
+.section-dark {
+  background: linear-gradient(135deg, var(--bg-dark) 0%, #34495e 100%);
+  color: var(--text-inverse);
+}
+
+/* ===== UNIFIED HEADING STYLES ===== */
+.section-title {
+  text-align: left;
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+  font-weight: 700;
+  margin-bottom: var(--space-2xl);
+  color: inherit;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.section-subtitle {
+  text-align: left;
+  font-size: clamp(var(--text-lg), 2.5vw, var(--text-xl));
+  color: var(--text-secondary);
+  margin-bottom: var(--space-3xl);
+  max-width: 800px;
+  line-height: 1.5;
+}
