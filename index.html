@@ -21,15 +21,15 @@
 <meta name="twitter:image" content="./images/og-image.jpg">
 
 <!-- Optimized Favicons -->
-<link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/images/favicons/favicon.svg" />
-<link rel="shortcut icon" href="/images/favicons/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" href="./images/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="./images/favicons/favicon.svg" />
+<link rel="shortcut icon" href="./images/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png" />
 <meta name="apple-mobile-web-app-title" content="Charity" />
-<link rel="manifest" href="/images/favicons/site.webmanifest" />
+<link rel="manifest" href="./images/favicons/site.webmanifest" />
 
 <!-- Preload critical resources -->
-<link rel="preload" href="fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="./fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="./images/kenya.webp" as="image" type="image/webp">
 
 <!-- Critical CSS for first paint -->
@@ -642,24 +642,16 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!-- Load configuration first -->
-<script src="./scripts/config.js"></script>
+<script src="./js/config.js"></script>
 
 <!-- Load core functionality -->
-<script src="./scripts/core.js" defer></script>
+<script src="./js/main.js" defer></script>
 
 <!-- Load UI components -->
-<script src="./scripts/ui-components.js" defer></script>
+<script src="./js/ui-components.js" defer></script>
 
 <!-- Load Twitch integration last -->
-<script src="./scripts/twitch-client.js" defer></script>
+<script src="./js/twitch-client.js" defer></script>
 
-<script>
-// Final initialization check
-window.addEventListener('load', function() {
-  console.log("🏁 All scripts loaded");
-  console.log("🎮 Twitch client:", window.twitchClient);
-  console.log("📊 Status:", window.twitchClient?.getStatus());
-});
-</script>
 </body>
 </html>
