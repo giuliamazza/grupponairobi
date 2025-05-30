@@ -1,0 +1,304 @@
+/* ===== RESPONSIVE UTILITIES ===== */
+
+/* Grid utilities */
+@media (max-width: 768px) {
+  .container,
+  .container-wide {
+    padding: 0 var(--space-md);
+  }
+
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-xl) !important;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-lg) !important;
+  }
+
+  .streamers-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-lg) !important;
+  }
+
+  .streamer-card {
+    padding: var(--space-lg);
+  }
+
+  .get-involved-cta {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  /* Hero section styles */
+  .hero-card {
+    min-height: 100vh;
+    padding: var(--space-4xl) var(--space-lg) var(--space-4xl) var(--space-lg);
+    align-items: center;
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 100%;
+    align-items: center;
+    padding: var(--space-3xl) var(--space-lg);
+  }
+
+  .hero-content p {
+    max-width: 100%;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    width: 100%;
+    gap: var(--space-md);
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    flex: 0 1 auto;
+    min-width: 140px;
+  }
+
+  /* Layout styles */
+  .hero .btn:hover {
+    /* Disable the margin shift on mobile */
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* General mobile layout adjustments */
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+
+  /* Navigation styles */
+  nav {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    z-index: 1000;
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+    border-top: 1px solid var(--border-light);
+  }
+
+  nav.active {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+    padding: var(--space-sm) 0;
+  }
+
+  nav a {
+    display: block;
+    padding: var(--space-sm) 0;
+    font-size: var(--text-lg);
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    font-size: var(--text-xl);
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: var(--space-sm);
+    z-index: 1001;
+  }
+
+  /* Share modal mobile adjustments */
+  .share-modal-content {
+    margin: 15% auto;
+    padding: var(--space-xl) var(--space-lg);
+    width: 90%;
+  }
+
+  .share-close {
+    top: var(--space-md);
+    right: var(--space-md);
+  }
+
+  /* Hero feature mobile adjustments - MOVED TO HERO.CSS */
+  /* 
+  .hero-feature {
+    bottom: var(--space-md);
+    left: var(--space-md);
+    right: var(--space-md);
+    min-width: auto;
+    padding: var(--space-md);
+  }
+  */
+
+  .progress-ring {
+    width: 48px;
+    height: 48px;
+    margin-right: var(--space-md);
+  }
+
+  .progress-ring__icon {
+    font-size: 1.2rem;
+  }
+
+  .feature-text h3 {
+    font-size: var(--text-base);
+  }
+
+  .feature-text .goal-text {
+    font-size: var(--text-xs);
+  }
+
+  .feature-text .next-goal {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Smaller spacing on mobile */
+  .section {
+    padding: var(--space-2xl) 0 !important;
+  }
+
+  .get-involved {
+    padding: var(--space-3xl) 0;
+  }
+
+  /* Button adjustments */
+  .btn {
+    width: 100%;
+    margin-bottom: var(--space-sm);
+  }
+
+  /* Card adjustments */
+  .streamer-card,
+  .team-member {
+    padding: var(--space-lg) !important;
+  }
+
+  .streamer-avatar,
+  .member-avatar {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .member-initial {
+    width: 70px !important;
+    height: 70px !important;
+    font-size: 1.8rem !important;
+  }
+
+  .btn-twitch {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--text-sm);
+  }
+
+  /* Hero section styles */
+  .hero-card {
+    min-height: 110vh;
+    padding: var(--space-3xl) var(--space-lg) var(--space-4xl) var(--space-lg);
+  }
+
+  .hero-content {
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Hero feature mobile adjustments - MOVED TO HERO.CSS */
+  /* 
+  .hero-feature {
+    bottom: var(--space-sm);
+    left: var(--space-sm);
+    right: var(--space-sm);
+    padding: var(--space-sm);
+  }
+  */
+
+  .progress-ring {
+    width: 40px;
+    height: 40px;
+    margin-right: var(--space-sm);
+  }
+
+  .progress-ring__icon {
+    font-size: 1rem;
+  }
+
+  /* CTA section styles */
+  .cta-card {
+    padding: var(--space-xl) 0 var(--space-3xl) var(--space-md);
+  }
+
+  /* Image styles */
+  .section-image img {
+    margin-top: 0;
+  }
+}
+
+/* Print styles */
+@media print {
+  .hero-card {
+    background: #fff !important;
+    color: #000 !important;
+    min-height: auto;
+    padding: var(--space-xl);
+  }
+
+  .hero h1,
+  .hero p {
+    color: #000 !important;
+  }
+
+  .btn,
+  .hero-feature,
+  .lightbox-trigger,
+  .share-modal,
+  .live-indicator {
+    display: none !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,1749 +1,289 @@
-/* Load Geist Variable Font */
-@font-face {
-  font-family: "Geist";
-  src: url("../fonts/Geist-VariableFont_wght.ttf") format("truetype"), url("fonts/Geist-VariableFont_wght.ttf")
-    format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
+/* ===== MAIN STYLESHEET - IMPORTS ALL MODULES ===== */
 
-/* Base styles */
-:root {
-  --primary-color: #00a651;
-  --secondary-color: #fdb813;
-  --active-color: #6261b6;
-  --bittersweet: #ff6f61;
-  --background-color: #fff9e0;
-  --text-color: #0b1d26;
-  --white: #ffffff;
-  --gray: #f5f5f5;
-  --dark-gray: #666;
-  --rich-black: #0b1d26;
-  --light-gray: #ccc;
-  /* Lightbox variables */
-  --lightbox-bg: rgba(0, 0, 0, 0.9);
-  --lightbox-text: #ffffff;
-  --lightbox-control-bg: rgba(255, 255, 255, 0.15);
-  --lightbox-control-hover: rgba(255, 255, 255, 0.3);
-  --lightbox-transition: 0.3s ease;
-}
+/* Base styles - foundational CSS */
+@import url("./base/variables.css");
+@import url("./base/reset.css");
+@import url("./base/typography.css");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Layout styles - page structure */
+@import url("./layout/sections.css");
+@import url("./layout/header.css");
 
-body {
-  font-family: "Geist", system-ui, sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--background-color);
-}
+/* Component styles - reusable UI elements */
+@import url("./components/buttons.css");
+@import url("./components/live-indicators.css");
+@import url("./components/modals.css");
+@import url("./components/loading.css");
 
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+/* Section styles - page-specific sections */
+@import url("./sections/hero.css");
+@import url("./sections/our-why.css");
+@import url("./sections/project.css");
+@import url("./sections/streamers.css");
+@import url("./sections/team.css");
+@import url("./sections/support.css");
+@import url("./sections/footer.css");
+@import url("./sections/cta.css");
 
-.container-wide {
-  width: 100%;
-  max-width: 1800px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+/* Utility styles - responsive and helper classes */
+@import url("./utilities/responsive.css");
 
-/* Master Modern Typography */
-h1 {
-  font-size: 4rem;
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 20px;
-}
+/* ===== LEGACY SUPPORT & SPECIFIC OVERRIDES ===== */
 
-/* Hero-specific H1 styling */
-.hero h1 {
-  font-size: 6rem; /* Default large size */
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
-  color: var(--white);
-}
-
-@media (max-width: 1200px) {
-  .hero h1 {
-    font-size: 5rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .hero h1 {
-    font-size: 4rem;
-  }
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 3rem;
-  }
-
-  .hero h1 {
-    font-size: 3.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-}
-
-h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 3rem;
-}
-
-h3 {
-  font-size: clamp(1rem, 3vw, 1.25rem);
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: clamp(1rem, 2vw, 1.063rem);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block; /* Prevent layout shifts */
-}
-
-/* Accessibility */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* Add styles for the share icons */
-.share-icon {
-  margin-right: 8px;
-}
-
-/* Modern Animation Classes - Refined balance */
-.fade-in {
-  opacity: 0;
-  transform: translateY(8px); /* Subtle movement */
-  transition: opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1), transform 1.5s cubic-bezier(0.22, 1, 0.36, 1); /* Slower animation with elegant easing */
-  will-change: opacity, transform;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Minimal delay classes - content appears quickly but animates slowly */
-.fade-in-delay-1 {
-  transition-delay: 0.05s; /* Very short delay */
-}
-
-.fade-in-delay-2 {
-  transition-delay: 0.1s; /* Short delay */
-}
-
-.fade-in-delay-3 {
-  transition-delay: 0.15s; /* Still short delay */
-}
-
-/* Header */
-header {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background-color: transparent;
-  padding: 32px 0;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1000;
-}
-
-header.scrolled {
-  background-color: #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  height: 40px;
-  margin-right: 10px;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  font-size: 12px;
-}
-
-.logo-text .brand {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-nav ul {
-  display: flex;
-  gap: 48px;
-  align-items: center;
-}
-
-nav a {
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: var(--primary-color);
-}
-
-.nav-donate,
-.nav-donate:hover {
-  background: none;
-  color: #007a3d; /* Darker green with better contrast against white background */
-  font-weight: 700; /* Make it bolder for better visibility */
-}
-
-/* Language Switcher */
-.language-switcher {
-  display: flex;
-  align-items: center;
-}
-
-.language-switcher select {
-  padding: 5px;
-  margin: 0;
-  border: 2px solid var(--light-gray);
-  border-radius: 4px;
-  background-color: var(--white);
-  font-size: 14px;
-  cursor: pointer;
-}
-
-/* Add this to the CSS file to ensure language selectors have no transitions */
-.language-select {
-  transition: none !important;
-  animation: none !important;
-}
-
-.language-switcher {
-  transition: none !important;
-  animation: none !important;
-}
-
-/* Ensure the select doesn't change appearance during language switching */
-.language-select:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-  transition: none !important;
-}
-
-/* Hero Section */
-.hero {
-  padding: 0;
-  min-height: 70vh;
-  position: relative;
-  content-visibility: auto;
-}
-
-/* Hero Section - Improved sizing for different devices */
-.hero-card {
-  min-height: 80vh; /* Default size */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: var(--white);
-  align-items: flex-start;
-  background: linear-gradient(
-    135deg,
-    #fdb813 0%,
-    rgba(253, 184, 19, 0.7) 30%,
-    rgba(253, 184, 19, 0.3) 60%,
-    transparent 90%
-  );
+/* Get involved section */
+.get-involved {
   position: relative;
   overflow: hidden;
-  border-radius: 20px;
-  padding: 12rem 0 12rem 8rem;
 }
 
-/* WebP support with fallback */
-@supports (background-image: url("../images/kenya.webp")) {
-  .hero-card {
-    background-image: linear-gradient(
-        135deg,
-        #fdb813 0%,
-        rgba(253, 184, 19, 0.7) 30%,
-        rgba(253, 184, 19, 0.3) 60%,
-        transparent 90%
-      ), url("../images/kenya.webp");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-}
-
-@supports not (background-image: url("../images/kenya.webp")) {
-  .hero-card {
-    background-image: linear-gradient(
-        135deg,
-        #fdb813 0%,
-        rgba(253, 184, 19, 0.7) 30%,
-        rgba(253, 184, 19, 0.3) 60%,
-        transparent 90%
-      ), url("../images/kenya.jpg");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-}
-
-/* Hero content improvements */
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: left;
-  max-width: 60%;
-  display: flex;
-  flex-direction: column;
-}
-
-.hero-content p {
-  font-size: clamp(1.125rem, 2vw, 1.25rem);
-  line-height: 1.5;
-  margin-bottom: 2.5rem;
-  max-width: 90%;
-  font-weight: 400;
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: flex-start;
-  gap: 1rem;
-  margin-bottom: 0;
-}
-
-/* Improve button responsiveness */
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 30px;
-  font-weight: bold;
-  transition: all 0.2s; /* Reduced from 0.3s to 0.2s */
-  text-align: center;
-  cursor: pointer;
-  white-space: nowrap; /* Prevent text wrapping */
-  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
-}
-
-.btn:active {
-  transform: scale(0.98); /* Slight scale effect for feedback */
-}
-
-.btn.primary {
-  background-color: var(--rich-black); /* Changed to dark color */
-  color: var(--white);
-  padding-top: 13px;
-}
-
-.btn.primary:hover {
-  background-color: #142e41;
-}
-
-.btn.secondary {
-  background-color: transparent;
-  border: 2px solid var(--white);
-  color: var(--white);
-}
-
-.btn.secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.hero-feature {
+.get-involved::before {
+  content: "";
   position: absolute;
-  bottom: 30px;
-  left: 30px;
-  background: rgba(68, 68, 68, 0.3);
-  padding: 15px 25px;
-  border-radius: 12px;
-  backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  z-index: 2;
-  transition: background 0.3s;
-}
-
-.hero-feature:hover {
-  background: rgba(68, 68, 68, 0.5);
-}
-
-.hero-feature:focus {
-  outline: 2px solid var(--white);
-  outline-offset: 2px;
-}
-
-.feature-box {
-  display: flex;
-  align-items: center;
-  padding: 0 1em .5em .5em;
-}
-
-.progress-ring {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  margin-right: 20px;
-}
-
-.progress-ring__svg {
-  transform: rotate(-90deg);
-}
-
-.progress-ring__circle--bg {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.3);
-  stroke-width: 8;
-}
-
-.progress-ring__circle {
-  fill: none;
-  stroke: #13e080;
-  stroke-width: 8;
-  stroke-dasharray: 176;
-  stroke-dashoffset: 74;
-  transition: stroke-dashoffset 0.5s ease;
-}
-
-.progress-ring__text {
-  position: absolute;
-  top: 58%;
-  left: 58%;
-  transform: translate(-58%, -58%);
-  color: #13e080;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.feature-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 1.2em;
-}
-
-.feature-text h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: white;
-}
-
-.small-text {
-  font-size: 0.85rem;
-  color: #e0e0e0;
-  margin-top: 3px;
-}
-
-/* Update GoFundMe widget container styles */
-.gfm-embed-container {
-  position: absolute;
-  bottom: 25px;
-  right: 30px;
-  z-index: 2;
-  max-width: 320px;
-  transform: scale(0.85);
-  transform-origin: bottom right;
-  transition: transform 0.2s ease;
-}
-
-.gfm-embed-container:hover {
-  transform: scale(0.88);
-}
-
-/* GoFundMe widget styling - updated with scaling */
-.gfm-embed {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Hide the original hero-feature when GoFundMe is active */
-.hero-feature.hidden {
-  display: none;
-}
-
-/* Our Why Section */
-.our-why {
-  padding: 80px 0;
-  content-visibility: auto;
-}
-
-.our-why .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.section-content h2 {
-  margin-bottom: 20px;
-  color: var(--text-color);
-}
-
-.section-content p {
-  margin-bottom: 15px;
-}
-
-.section-content .btn {
-  margin-top: 20px;
-}
-
-.section-image img {
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  margin-top: 4rem;
-}
-
-.our-why,
-.the-project,
-.who-we-are,
-.cta {
-  padding: 60px 0;
-}
-
-.container,
-.container-wide {
-  padding: 0 24px; /* Increased side padding */
-}
-
-.section-content {
-  padding: 0 8px; /* Added padding */
-}
-
-.section-image {
-  margin-top: 2rem;
-}
-
-/* GoFundMe Section - Updated for more compact styling */
-.gofundme-section {
-  padding: 40px 0; /* Further reduced padding from 60px to 40px */
-  background-color: #dfd8bb;
-  text-align: center;
-}
-
-.gofundme-section .section-title {
-  margin-bottom: 20px; /* Reduced from 30px to 20px */
-  color: var(--rich-black);
-}
-
-/* Updated container to be more compact */
-.gofundme-section .container {
-  max-width: 600px;
-  background-color: white;
-  border-radius: 16px;
-  padding: 25px 20px; /* Reduced padding */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-}
-
-.gofundme-section #__next {
-  margin: 0;
-  padding: 0;
-}
-
-.large-gofundme-container {
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: visible;
-}
-
-/* The large GoFundMe widget styling - SIMPLIFIED */
-.large-gofundme-container .gfm-embed {
-  width: 100%;
-  min-height: 420px;
-  border-radius: 0;
-  box-shadow: none;
-  margin: 0 auto;
-}
-
-/* Simple alternative donate link styling */
-.gfm-alternative {
-  margin-top: 15px;
-  text-align: center;
-  padding: 10px;
-  border-top: 1px solid #eee;
-}
-
-.alternative-donate-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--primary-color);
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
-}
-
-.alternative-donate-link:hover {
-  color: #007a3d;
-  text-decoration: underline;
-}
-
-.alternative-donate-link i {
-  font-size: 0.8rem;
-}
-
-/* Direct donation link in footer */
-.direct-donate {
-  margin-top: 15px;
-}
-
-.footer-donate-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--primary-color);
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.footer-donate-link:hover {
-  color: #007a3d;
-  text-decoration: underline;
-}
-
-.team {
-  gap: 50px; /* Increased gap */
-}
-
-.values {
-  gap: 40px; /* Increased gap */
-}
-
-/* Modern Lightbox - Completely redesigned */
-.lightbox {
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--lightbox-bg);
-  z-index: 9999;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--lightbox-transition), visibility var(--lightbox-transition);
-  text-align: center !important;
-  overflow: hidden;
-}
-
-.lightbox.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.lightbox-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) !important;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox img {
-  max-width: 80% !important;
-  max-height: 80vh !important;
-  object-fit: contain;
-  border-radius: 4px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
-  transform: scale(0.95);
-  transition: transform var(--lightbox-transition);
-  position: relative !important;
-  margin: 0 auto !important;
-  display: block !important;
-}
-
-.lightbox.active img {
-  transform: scale(1);
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  background-color: var(--lightbox-control-bg);
-  color: var(--lightbox-text);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  z-index: 10000;
-  border: none;
-}
-
-.lightbox-close:hover,
-.lightbox-close:focus {
-  background-color: var(--lightbox-control-hover);
-}
-
-.lightbox-nav {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
-  display: flex;
-  justify-content: space-between;
-  padding: 0 30px;
-  z-index: 10000;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a855f7' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/svg%3E")
+    repeat;
   pointer-events: none;
 }
 
-.lightbox-nav button {
-  background-color: var(--lightbox-control-bg);
-  color: var(--lightbox-text);
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
-}
-
-.lightbox-nav button:hover,
-.lightbox-nav button:focus {
-  background-color: var(--lightbox-control-hover);
-}
-
-.lightbox-caption {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: var(--lightbox-text);
-  padding: 15px;
-  font-size: 16px;
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity var(--lightbox-transition), transform var(--lightbox-transition);
-}
-
-.lightbox.active .lightbox-caption {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.lightbox-counter {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  color: var(--lightbox-text);
-  background-color: var(--lightbox-control-bg);
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 14px;
-}
-
-/* Lightbox trigger styling */
-.lightbox-trigger {
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-  display: block;
-}
-
-.lightbox-trigger:hover {
-  opacity: 0.9;
-}
-
-.lightbox-trigger:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-}
-
-/* The Project Section */
-.the-project {
-  padding: 80px 0;
-  background: linear-gradient(to top, #fffcee 0%, #ffffff 100%);
-  content-visibility: auto;
-}
-
-.the-project .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: start;
-  margin-bottom: 40px;
-}
-
-/* Timeline Fixes */
-.project-timeline {
-  margin-top: 30px;
+.get-involved .container {
   position: relative;
-  padding-left: 20px; /* Added spacing to the left */
+  z-index: 1;
 }
 
-.project-timeline::before {
+.streamers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+  margin-bottom: var(--space-3xl);
+}
+
+/* Loading state */
+.loading-streamers {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-xl);
+  color: var(--text-secondary);
+  grid-column: 1 / -1;
+}
+
+/* Get involved CTA */
+.get-involved-cta {
+  text-align: center;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: white;
+  padding: var(--space-2xl) var(--space-xl);
+  border-radius: var(--radius-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.get-involved-cta::before {
   content: "";
   position: absolute;
-  top: 20px; /* Start at the center of the first icon */
-  bottom: 20px; /* End at the center of the last icon */
-  left: 40px;
-  width: 2px;
-  background-color: var(--light-gray);
-  height: calc(100% - 40px); /* Adjust height to not extend beyond first/last items */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")
+    repeat;
+  pointer-events: none;
 }
 
-.timeline-item {
-  display: flex;
-  margin-bottom: 40px; /* Increased spacing between items */
+.get-involved-cta > * {
   position: relative;
-  align-items: center; /* Center align the icon and content */
+  z-index: 1;
 }
 
-.timeline-item:last-child {
-  margin-bottom: 0; /* Remove bottom margin from last item */
+.get-involved-cta h3 {
+  font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  color: white;
 }
 
-.timeline-item:last-child::after {
-  display: none; /* Remove the extra line after the last item */
+.get-involved-cta p {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-xl);
+  opacity: 0.9;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
 }
 
-.timeline-icon {
-  width: 40px;
-  height: 40px;
-  min-width: 40px; /* Ensure consistent width */
-  min-height: 40px; /* Ensure consistent height */
-  border-radius: 12px; /* Increased border radius */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 20px;
-  color: var(--white);
-  z-index: 2;
-  position: relative;
+.get-involved-cta .btn {
+  background: white;
+  color: #6366f1;
+  font-weight: 700;
+  padding: var(--space-md) var(--space-xl);
+  font-size: var(--text-base);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
 }
 
-.timeline-icon.completed {
-  background-color: var(--primary-color);
+.get-involved-cta .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background: #f8fafc;
 }
 
-.timeline-icon.active {
-  background-color: var(--active-color);
-  animation: pulse 2s infinite;
-}
-
-.timeline-icon.future {
-  background-color: var(--light-gray);
-  color: var(--dark-gray);
-}
-
-.timeline-content {
-  transition: transform 0.3s ease;
-  background-color: transparent; /* Removed background */
-  padding: 0 15px; /* Removed top/bottom padding to center vertically */
-  border-radius: 8px;
-  box-shadow: none; /* Removed box shadow */
-}
-
-.timeline-item:hover .timeline-content {
-  transform: translateX(5px);
-}
-
-.timeline-content h4 {
-  font-weight: 600;
-  margin-bottom: 5px;
-  display: inline-block;
-}
-
-.timeline-content.completed h4,
-.timeline-content.completed em {
-  color: var(--primary-color);
-}
-
-.timeline-content.active h4,
-.timeline-content.active em {
-  color: var(--active-color);
-}
-
-.timeline-content.future h4,
-.timeline-content.future em {
-  color: var(--dark-gray);
-}
-
-.timeline-content p {
-  color: var(--dark-gray);
-  font-size: 0.9rem;
-  margin-bottom: 0; /* Remove bottom margin to help with vertical centering */
-}
-
-/* Pulsating animation for active (current) goal */
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.6);
-  }
-  70% {
-    box-shadow: 0 0 0 15px rgba(0, 123, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
-  }
-}
-
-.image-caption {
-  font-size: 0.9rem;
-  color: var(--dark-gray);
-  margin-top: 16px;
-  margin-bottom: 20px;
-  border-left: 4px solid var(--secondary-color);
-  padding-left: 8px;
-  min-height: 48px;
-  display: flex;
-  align-items: center;
-}
-
-.floor-plan {
-  margin-top: 20px;
-}
-
-/* Who We Are Section */
-.who-we-are {
-  padding: 80px 0;
-  text-align: center;
-  content-visibility: auto;
-}
-
-.who-we-are > p {
-  max-width: 800px;
-  margin: 0 auto 40px;
-}
-
-.team {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-bottom: 60px;
-}
-
-.team-member {
-  max-width: 200px;
-}
-
-.member-avatar {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 15px;
-}
-
-.member-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.team-member h3 {
-  margin-bottom: 5px;
-  white-space: nowrap; /* Ensure names stay on one line */
-  overflow: hidden;
-  text-overflow: ellipsis; /* Add ellipsis if name is too long */
-  font-size: 1rem; /* Slightly smaller font size to fit */
-}
-
-.values {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.value {
-  border-left: 3px solid var(--secondary-color);
-  text-align: left;
-  background: #fffbea;
-  padding: 1.5rem 1rem .6rem 3rem;
-}
-
-.value-icon {
-  color: var(--bittersweet);
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-/* CTA Section */
-.cta {
-  padding: 32px 0;
-  position: relative;
-  overflow: hidden;
-  content-visibility: auto;
-}
-
-/* CTA card background image with .jpg extension */
+/* CTA section */
 .cta-card {
   position: relative;
   overflow: hidden;
-  border-radius: 15px;
-  padding: 2rem 0 8rem 4rem;
+  border-radius: var(--radius-xl);
+  padding: var(--space-4xl) var(--space-3xl);
   background: linear-gradient(
       315deg,
-      rgba(24, 28, 69, 0.95) 0%,
-      rgba(24, 28, 69, 0.85) 30%,
-      rgba(24, 28, 69, 0.7) 60%,
-      rgba(24, 28, 69, 0.6) 100%
-    ), url("../images/hero-bg.jpg") center center / cover no-repeat;
-  color: var(--white);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      rgba(44, 62, 80, 0.95) 0%,
+      rgba(44, 62, 80, 0.85) 30%,
+      rgba(52, 73, 94, 0.7) 60%,
+      rgba(52, 73, 94, 0.6) 100%
+    ), url("../images/hero-bg.jpg") top -40px center / cover no-repeat;
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cta-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl), 0 25px 50px rgba(11, 29, 38, 0.2);
+}
+
+.cta-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E")
+    repeat;
+  pointer-events: none;
+}
+
+.cta-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+.cta-card:hover::after {
+  left: 100%;
 }
 
 .cta-content {
   position: relative;
   z-index: 1;
-  padding: 60px 40px;
   max-width: 600px;
+  text-align: center;
+}
+
+.cta-content h2 {
+  color: var(--text-inverse);
+  margin-bottom: var(--space-lg);
+}
+
+.cta-content p {
+  color: var(--text-inverse);
+  opacity: 0.9;
+  margin-bottom: var(--space-xl);
 }
 
 .cta .btn {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.cta .btn.primary {
-  background-color: var(--secondary-color); /* Changed to orange color */
-  color: var(--rich-black); /* Dark text for better contrast */
-  border: none;
-}
-
-.cta .btn.primary:hover {
-  background-color: #e9a912; /* Darker orange on hover */
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
 }
 
 .social-links {
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   font-weight: bold;
+  color: var(--text-inverse);
+  margin-top: 0.5em;
 }
 
-/* Footer */
-footer {
-  padding: 4rem 0 20px;
-  content-visibility: auto;
+.social-links a {
+  color: var(--text-inverse);
+  opacity: 0.8;
+  transition: opacity var(--transition-normal);
 }
 
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-  margin-bottom: 6rem;
-}
-
-.footer-left,
-.footer-right {
-  flex: 1 1 300px;
-}
-
-footer .logo {
-  margin-bottom: 2rem;
-}
-
-.footer-links {
-  display: flex;
-  gap: 6rem;
-  flex-wrap: wrap;
-}
-
-.footer-column {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* Footer heading styles */
-.footer-column h3 {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.footer-link {
-  color: inherit;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.footer-link:hover {
-  text-decoration: underline;
-}
-
-.footer-description {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--dark-gray);
-}
-
-.footer-description a {
-  color: #00a651;
-  text-decoration: underline;
-}
-
-.footer-description {
-  margin-top: 20px;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--dark-gray);
-}
-
-.organization-info {
-  border-left: 3px solid var(--primary-color);
-  padding-left: 15px;
-  max-width: 400px;
-}
-
-.org-name {
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--text-color);
-  margin-bottom: 8px;
-}
-
-.address-section {
-  margin-top: 12px;
-}
-
-.address-title {
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-/* Responsive styles for footer description */
-@media (max-width: 768px) {
-  .organization-info {
-    max-width: 100%;
-  }
-}
-
-.copyright {
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--dark-gray);
-  padding-top: 20px;
-  border-top: 1px solid #eee;
-  margin-top: 40px;
-}
-
-/* Share Modal Styles - Modern Redesign - Optimized Animations */
-.share-modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0);
-  transition: background-color 0.25s ease;
-  backdrop-filter: blur(0);
-  transition: backdrop-filter 0.25s ease, background-color 0.25s ease;
-}
-
-.share-modal.visible {
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
-}
-
-.share-modal-content {
-  position: relative;
-  background-color: #1e1e1e;
-  margin: 10% auto;
-  padding: 40px;
-  border-radius: 16px;
-  max-width: 500px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
-  color: white;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(20px) scale(0.98);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  will-change: transform, opacity;
-}
-
-.share-modal.visible .share-modal-content {
+.social-links a:hover {
   opacity: 1;
-  transform: translateY(0) scale(1);
 }
 
-.share-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.7);
-  cursor: pointer;
-  transition: all 0.15s ease;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  border: none;
-  will-change: transform, background-color;
-}
-
-.share-close:hover,
-.share-close:focus {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: scale(1.05);
-}
-
-.share-modal h3 {
-  font-size: 1.5rem;
-  margin-bottom: 24px;
-  color: #ffffff;
+/* Accessibility contrast fixes */
+.highlight-text {
+  color: #007a3d !important;
   font-weight: 600;
 }
 
-.share-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 24px;
+.btn-accent {
+  background-color: #007a3d !important;
+  border-color: #007a3d !important;
 }
 
-.share-buttons .btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 14px 20px;
-  border-radius: 12px;
-  font-weight: 500;
-  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
-  will-change: transform, background-color;
+.btn-accent:hover {
+  background-color: #005a2d !important;
+  border-color: #005a2d !important;
 }
 
-.share-buttons .btn i {
-  font-size: 1.2rem;
+.footer-donate-link {
+  color: #007a3d !important;
 }
 
-.share-buttons .btn.secondary {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+.team-member p {
+  color: #2d3748 !important;
 }
 
-.share-buttons .btn.secondary:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+/* Keep timeline headings the same size as before */
+.timeline-content h3 {
+  font-size: var(--text-lg) !important;
+  font-weight: 600 !important;
+  margin-bottom: var(--space-xs) !important;
+  line-height: 1.3 !important;
 }
 
-/* Social media specific colors */
-#share-facebook {
-  border-left: 4px solid #1877f2;
+/* Ensure the timeline content styling is preserved */
+.timeline-content.completed h3 {
+  color: var(--brand-accent) !important;
 }
 
-#share-twitter {
-  border-left: 4px solid #1da1f2;
+.timeline-content.active h3 {
+  color: var(--brand-secondary) !important;
+  font-weight: 700 !important;
 }
 
-#share-linkedin {
-  border-left: 4px solid #0a66c2;
+.timeline-content.future h3 {
+  color: var(--text-secondary) !important;
 }
 
-#share-whatsapp {
-  border-left: 4px solid #25d366;
+/* Make logo very close to text */
+.logo img {
+  margin-right: 0.25rem !important;
 }
 
-#copy-link {
-  border-left: 4px solid #fdb813;
-}
-
-/* Improve keyboard accessibility for share modal */
-.share-modal[aria-hidden="false"] {
-  display: block;
-}
-
-.share-buttons .btn:focus {
-  outline: 2px solid rgba(255, 255, 255, 0.5);
-  outline-offset: 2px;
-}
-
-.share-close:focus {
-  outline: 2px solid rgba(255, 255, 255, 0.5);
-  outline-offset: 2px;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Mobile adjustments for share modal */
-@media (max-width: 600px) {
-  .share-modal-content {
-    margin: 15% auto;
-    padding: 30px 20px;
-    width: 90%;
-  }
-
-  .share-close {
-    top: 12px;
-    right: 12px;
-  }
-}
-
-/* Mobile Menu - Improved responsiveness */
-nav.active {
-  display: block;
-  position: absolute;
-  top: 70px;
-  left: 0;
-  right: 0;
-  background: white;
-  z-index: 1000;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: none; /* Remove any transition for immediate display */
-}
-
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--text-color);
-  padding: 8px;
-  transition: color 0.2s; /* Quick transition for feedback */
-}
-
-.mobile-menu-btn:active {
-  color: var(--primary-color);
-}
-
-/* Improve accessibility for focus states */
-a:focus,
-button:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-}
-
-/* MacBook 14" and 16" specific adjustments */
-@media (min-width: 1280px) and (max-width: 1800px) {
-  /* MacBook breakpoint */
-  .hero-card {
-    min-height: 78vh; /* Reduced from 82vh to 78vh for better fit */
-    padding-bottom: 10rem; /* Increased padding to ensure space for widget */
-  }
-
-  .gfm-embed-container {
-    bottom: 30px; /* Better positioning */
-    transform: scale(0.8); /* Scale down more on MacBooks */
-  }
-
-  .gfm-embed-container:hover {
-    transform: scale(0.83); /* Consistent hover effect */
-  }
-}
-
-/* Improved responsive styles for iPad and other tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .hero h1 {
-    font-size: clamp(3.5rem, 7vw, 5rem); /* Increased minimum size for iPad */
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-content {
-    max-width: 70%; /* Wider content area on tablets */
-  }
-
-  .hero-buttons {
-    flex-wrap: nowrap; /* Prevent wrapping */
-  }
-
-  .btn {
-    min-width: auto; /* Allow buttons to size naturally */
-    padding: 12px 20px; /* Slightly reduced padding */
-  }
-
-  .gfm-embed-container {
-    bottom: 20px;
-    right: 20px;
-    transform: scale(0.8); /* Smaller on tablets */
-  }
-}
-
-/* iPad Air specific fixes */
-@media only screen and (min-width: 768px) and (max-width: 834px) {
-  .hero h1 {
-    font-size: 3.8rem !important; /* Force larger font size on iPad Air */
-  }
-
-  .hero-buttons {
-    gap: 1.5rem; /* More space between buttons */
-  }
-
-  .btn {
-    padding: 12px 18px; /* Slightly reduced padding */
-    font-size: 0.95rem; /* Slightly smaller font */
-  }
-}
-
-/* Combined responsive styles for tablets and mobile */
+/* Fix CTA background on mobile */
 @media (max-width: 768px) {
-  /* Hero section styles */
-  .hero-card {
-    min-height: 100vh;
-    padding: 6rem 1.5rem 8rem 1.5rem;
-    align-items: center;
-  }
-
-  .hero-content {
-    text-align: center;
-    max-width: 100%;
-    align-items: center;
-    padding: 40px 20px;
-  }
-
-  .hero h1 {
-    font-size: clamp(3rem, 8vw, 4.5rem);
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-content p {
-    max-width: 100%;
-    margin-bottom: 2rem;
-  }
-
-  .hero-buttons {
-    justify-content: center;
-    width: 100%;
-    gap: 1rem;
-    flex-direction: row; /* Keep buttons in a row if possible */
-    flex-wrap: wrap; /* Allow wrapping only when necessary */
-  }
-
-  .btn {
-    flex: 0 1 auto; /* Allow buttons to shrink but not grow */
-    min-width: 140px; /* Minimum width for buttons */
-  }
-
-  .gfm-embed-container {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    right: auto;
-    margin: 3rem auto 1rem;
-    max-width: 100%;
-    transform: scale(1);
-    transform-origin: center;
-  }
-
-  /* CTA section styles */
-  .cta-content {
-    padding: 40px 20px;
-  }
-
-  /* Layout styles */
-  .our-why .container,
-  .the-project .container {
-    grid-template-columns: 1fr;
-  }
-
-  .team {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .values {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-links {
-    grid-template-columns: 1fr;
-  }
-
-  /* Navigation styles */
-  nav {
-    display: none;
-  }
-
-  nav.active {
-    display: block;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: white;
-    z-index: 1000;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  nav.active ul {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .mobile-menu-btn {
-    display: block;
-  }
-
-  /* Lightbox responsive adjustments */
-  .lightbox-nav {
-    padding: 0 15px;
-  }
-
-  .lightbox-nav button {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-
-  .lightbox-close {
-    top: 15px;
-    right: 15px;
-    width: 35px;
-    height: 35px;
-    font-size: 20px;
-  }
-
-  .lightbox-caption {
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  .lightbox-counter {
-    display: none;
-  }
-}
-
-/* Responsive adjustments for the GoFundMe widget */
-@media (max-width: 640px) {
-  .gofundme-section .container {
-    padding: 25px 15px; /* Further reduced padding */
-    border-radius: 12px;
-  }
-
-  /* Create horizontal scrolling container for small screens */
-  .large-gofundme-container {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-  }
-
-  /* Ensure the widget doesn't shrink */
-  .large-gofundme-container .gfm-embed {
-    min-width: 100%;
-    min-height: 420px;
-  }
-}
-
-/* Combined mobile styles */
-@media (max-width: 480px) {
-  /* Header styles */
-  header {
-    padding: 20px 12px 20px 0;
-  }
-
-  /* Hero section styles */
-  .hero-card {
-    min-height: 110vh;
-    padding: 4rem 1.5rem 6rem 1.5rem;
-  }
-
-  .hero-content {
-    margin-bottom: 2rem;
-  }
-
-  .hero h1 {
-    margin-bottom: 1rem;
-  }
-
-  .hero-content p {
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .btn {
-    width: 100%;
-    margin-bottom: 0.5rem;
-  }
-
-  .hero-feature {
-    bottom: 10px;
-    left: 10px;
-    padding: 5px 10px;
-  }
-
-  /* CTA section styles */
   .cta-card {
-    padding: 2rem 0 4rem 1rem;
+    background: linear-gradient(
+        315deg,
+        rgba(44, 62, 80, 0.95) 0%,
+        rgba(44, 62, 80, 0.85) 30%,
+        rgba(52, 73, 94, 0.7) 60%,
+        rgba(52, 73, 94, 0.6) 100%
+      ), url("../images/hero-bg.jpg") center center / cover no-repeat !important;
+    background-attachment: scroll !important;
+    min-height: 400px !important;
   }
-
-  /* Image styles */
-  .section-image img {
-    margin-top: 0;
-  }
-
-  /* GoFundMe widget responsive styles */
-  .large-gofundme-container {
-    overflow-x: auto;
-    padding: 0;
-  }
-
-  /* Lightbox mobile adjustments */
-  .lightbox-nav {
-    padding: 0 10px;
-  }
-
-  .lightbox-nav button {
-    width: 35px;
-    height: 35px;
-    font-size: 18px;
-  }
-
-  .lightbox-close {
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
-  }
-
-  .lightbox-caption {
-    padding: 8px;
-    font-size: 12px;
-  }
-
-  .lightbox-counter {
-    display: none;
-  }
-}
-
-/* Print styles for better accessibility */
-@media print {
-  .hero-card {
-    background: #fff !important;
-    color: #000 !important;
-    min-height: auto;
-    padding: 2rem;
-  }
-
-  .hero h1,
-  .hero p {
-    color: #000 !important;
-  }
-
-  .btn,
-  .hero-feature,
-  .lightbox-trigger,
-  .share-modal {
-    display: none !important;
-  }
-
-  img {
-    max-width: 100% !important;
-    page-break-inside: avoid;
-  }
-
-  a {
-    text-decoration: underline;
-  }
-
-  a[href^="http"]:after {
-    content: " (" attr(href) ")";
-  }
-}
-
-/* Fix for GoFundMe widget loading spinner */
-.gfm-embed {
-  position: relative;
-  min-height: 200px;
-}
-
-/* Ensure proper iframe dimensions */
-iframe {
-  border: 0;
-}
-
-/* Prevent body scrolling when lightbox is open */
-body.lightbox-open {
-  overflow: hidden;
 }

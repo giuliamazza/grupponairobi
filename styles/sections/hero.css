@@ -1,0 +1,399 @@
+/* ===== HERO SECTION ===== */
+.hero {
+  padding: 0;
+  min-height: 70vh;
+  position: relative;
+  padding-top: 120px; /* Increased to properly account for nav height */
+}
+
+.hero-card {
+  min-height: 85vh; /* Slightly increased for better proportions */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--text-inverse);
+  align-items: flex-start;
+  background: linear-gradient(
+    135deg,
+    var(--brand-secondary) 0%,
+    rgba(254, 185, 22, 0.8) 30%,
+    rgba(254, 185, 22, 0.4) 60%,
+    transparent 90%
+  );
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  padding: 12rem 0 12rem 8rem;
+  margin-top: 0;
+}
+
+/* WebP support with fallback - FIXED PATHS */
+.hero-card {
+  background-image: linear-gradient(
+      135deg,
+      var(--brand-secondary) 0%,
+      rgba(254, 185, 22, 0.8) 30%,
+      rgba(254, 185, 22, 0.4) 60%,
+      transparent 90%
+    ), url("../../images/kenya.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Try WebP if supported */
+@supports (background-image: url("../../images/kenya.webp")) {
+  .hero-card {
+    background-image: linear-gradient(
+        135deg,
+        var(--brand-secondary) 0%,
+        rgba(254, 185, 22, 0.8) 30%,
+        rgba(254, 185, 22, 0.4) 60%,
+        transparent 90%
+      ), url("../../images/kenya.webp");
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure the hero h1 styling is preserved */
+.hero h1 {
+  color: var(--text-inverse);
+  margin-bottom: var(--space-lg);
+  font-size: clamp(3.5rem, 8vw, 5.5rem); /* Explicitly set size */
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+.hero-content p {
+  font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
+  line-height: 1.5;
+  margin-bottom: var(--space-2xl);
+  max-width: 90%;
+  font-weight: 400;
+  color: var(--text-inverse);
+}
+
+/* ===== IMPROVED HERO FEATURE - CONSISTENT SIZING ===== */
+.hero-feature {
+  position: absolute;
+  bottom: var(--space-xl);
+  left: var(--space-xl);
+  background: rgba(11, 29, 38, 0.8);
+  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  min-width: 280px;
+}
+
+.hero-feature:hover {
+  background: rgba(11, 29, 38, 0.9);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.feature-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* PROGRESS RING - IDENTICAL ACROSS ALL DEVICES */
+.progress-ring {
+  position: relative;
+  width: 64px !important;
+  height: 64px !important;
+  margin-right: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.progress-ring__svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 64px !important;
+  height: 64px !important;
+  viewBox: 0 0 64 64;
+  overflow: visible;
+}
+
+.progress-ring__circle--bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 4;
+  cx: 32;
+  cy: 32;
+  r: 28;
+}
+
+.progress-ring__circle {
+  fill: none;
+  stroke: var(--brand-accent);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 176;
+  stroke-dashoffset: 74;
+  transform-origin: 32px 32px;
+  cx: 32;
+  cy: 32;
+  r: 28;
+}
+
+.progress-ring__icon {
+  position: absolute;
+  top: 50%;
+  left: 46%; /* Perfect visual centering for school icon */
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: var(--brand-accent);
+  font-size: 1.25rem !important; /* Slightly smaller */
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-align: center;
+}
+
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.feature-text h3 {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+.feature-text .goal-text {
+  font-size: var(--text-sm);
+  color: var(--brand-accent);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.feature-text .next-goal {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+/* ===== HERO SECTION BUTTON FIXES ===== */
+.hero .btn {
+  transform: none;
+  transition: background-color var(--transition-normal), box-shadow var(--transition-normal), transform
+    var(--transition-normal);
+}
+
+.hero .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.hero .btn-primary {
+  background-color: var(--brand-primary);
+  color: var(--text-inverse);
+}
+
+.hero .btn-primary:hover {
+  background-color: var(--interactive-hover);
+}
+
+.hero .btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--text-inverse);
+  color: var(--text-inverse);
+}
+
+.hero .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive styles for hero */
+@media (max-width: 1024px) {
+  .hero {
+    padding-top: 100px; /* Slightly less on tablets */
+  }
+
+  .hero-card {
+    padding: 8rem 0 8rem 4rem;
+    min-height: 80vh;
+  }
+
+  .hero-content {
+    max-width: 70%;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 7vw, 4.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 120px; /* Increased to account for 90px mobile header + extra space */
+  }
+
+  .hero-card {
+    padding: 6rem 2rem;
+    align-items: center;
+    text-align: center;
+    margin-top: 0;
+    min-height: 75vh; /* Slightly smaller on mobile for better proportions */
+  }
+
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    text-align: center;
+  }
+
+  .hero-content p {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .hero-feature {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem);
+    max-width: 380px; /* Slightly larger to accommodate full-size ring */
+    min-width: 320px;
+    padding: var(--space-lg);
+  }
+
+  .hero-feature:hover {
+    transform: translateX(-50%) translateY(-3px);
+  }
+
+  /* FORCE EXACT SAME PROGRESS RING ON MOBILE */
+  .progress-ring {
+    width: 64px !important;
+    height: 64px !important;
+    margin-right: var(--space-lg) !important;
+    min-width: 64px !important;
+    min-height: 64px !important;
+  }
+
+  .progress-ring__svg {
+    width: 64px !important;
+    height: 64px !important;
+  }
+
+  /* NO CHANGES TO CIRCLE ATTRIBUTES ON MOBILE */
+  .progress-ring__circle--bg,
+  .progress-ring__circle {
+    /* Keep exactly the same as desktop - no overrides */
+  }
+
+  .progress-ring__icon {
+    left: 46% !important; /* Keep the visual centering adjustment */
+    font-size: 1.25rem !important;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 110px; /* Increased to account for 80px mobile header + extra space */
+  }
+
+  .hero-card {
+    padding: 5rem 1.5rem;
+    min-height: 70vh;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+  }
+
+  .hero-feature {
+    bottom: var(--space-md);
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: calc(100% - 1.5rem);
+    max-width: 350px;
+    min-width: 300px;
+    padding: var(--space-md) var(--space-lg); /* Adjust padding to fit ring better */
+  }
+
+  .hero-feature:hover {
+    transform: translateX(-50%) translateY(-3px);
+  }
+
+  /* STILL FORCE EXACT SAME PROGRESS RING */
+  .progress-ring {
+    width: 64px !important;
+    height: 64px !important;
+    margin-right: var(--space-md) !important;
+    min-width: 64px !important;
+    min-height: 64px !important;
+  }
+
+  .progress-ring__svg {
+    width: 64px !important;
+    height: 64px !important;
+  }
+
+  /* NO MOBILE OVERRIDES FOR CIRCLE */
+  .progress-ring__circle--bg,
+  .progress-ring__circle {
+    /* Keep exactly the same as desktop - no overrides */
+  }
+
+  .progress-ring__icon {
+    left: 46% !important; /* Keep the visual centering adjustment */
+    font-size: 1.25rem !important;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  /* Adjust text sizes slightly for better balance with full-size ring */
+  .feature-text h3 {
+    font-size: var(--text-base);
+  }
+
+  .feature-text .goal-text {
+    font-size: var(--text-sm);
+  }
+
+  .feature-text .next-goal {
+    font-size: var(--text-xs);
+  }
+}

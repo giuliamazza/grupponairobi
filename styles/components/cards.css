@@ -1,0 +1,352 @@
+/* ===== CARD COMPONENTS ===== */
+
+/* Base card */
+.card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Streamer cards - FIXED HOVER GLITCH */
+.streamer-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  /* ✅ FIX: Anchor transform to prevent cursor escape */
+  transform-origin: center bottom;
+}
+
+.streamer-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.streamer-card:hover {
+  /* ✅ FIX: More stable hover with bottom anchor */
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.streamer-card:hover::before {
+  opacity: 1;
+}
+
+/* Streamer avatar */
+.streamer-avatar {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-lg);
+}
+
+.streamer-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--neutral-100);
+  transition: border-color var(--transition-normal);
+}
+
+.streamer-card:hover .streamer-avatar img {
+  border-color: #a855f7;
+}
+
+/* Streamer info */
+.streamer-info {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.streamer-name {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+}
+
+.streamer-followers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  color: #6366f1;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+  font-size: var(--text-sm);
+}
+
+.streamer-followers i {
+  font-size: var(--text-lg);
+}
+
+.streamer-description {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.streamer-actions {
+  text-align: center;
+}
+
+/* Team member cards - FIXED HOVER GLITCH */
+.team-member {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl) var(--space-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(11, 29, 38, 0.06);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  /* ✅ FIX: Anchor transform to prevent cursor escape */
+  transform-origin: center bottom;
+}
+
+.team-member::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--brand-accent);
+  opacity: 1;
+  transition: width 0.3s ease;
+}
+
+.team-member:hover {
+  /* ✅ FIX: More stable hover with bottom anchor */
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.team-member:hover::before {
+  width: 6px;
+}
+
+.member-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto var(--space-lg);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.member-initial {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--interactive-hover) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  box-shadow: var(--shadow-md);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.member-initial::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+  animation: member-shine 6s infinite ease-in-out;
+  transform: rotate(45deg);
+}
+
+.team-member:hover .member-initial {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+@keyframes member-shine {
+  0%,
+  20%,
+  100% {
+    transform: rotate(45deg) translateX(-100%);
+    opacity: 0;
+  }
+  50%,
+  70% {
+    transform: rotate(45deg) translateX(100%);
+    opacity: 0.5;
+  }
+}
+
+.team-member h3 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.team-member p {
+  font-size: var(--text-base);
+  color: var(--brand-accent);
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.team-member p::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  background: var(--brand-accent);
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+
+.team-member:hover p::after {
+  width: 40px;
+}
+
+/* Feature cards - FIXED HOVER GLITCH */
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--brand-accent);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  /* ✅ FIX: Anchor transform to prevent cursor escape */
+  transform-origin: center bottom;
+}
+
+.feature-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-item i {
+  font-size: var(--text-xl);
+  color: var(--brand-accent);
+  margin-top: var(--space-xs);
+  flex-shrink: 0;
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-content h4 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.feature-content p {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Value cards - FIXED HOVER GLITCH */
+.value {
+  background: linear-gradient(135deg, rgba(254, 185, 22, 0.05) 0%, rgba(254, 185, 22, 0.02) 100%);
+  border: 1px solid rgba(254, 185, 22, 0.2);
+  border-left: 4px solid var(--brand-secondary);
+  text-align: left;
+  padding: var(--space-2xl);
+  border-radius: var(--radius-xl);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  /* ✅ FIX: Anchor transform to prevent cursor escape */
+  transform-origin: center bottom;
+}
+
+.value::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(254, 185, 22, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.value:hover::before {
+  opacity: 1;
+}
+
+.value:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(254, 185, 22, 0.15), 0 8px 16px rgba(11, 29, 38, 0.1);
+  border-left-color: var(--brand-accent);
+}
+
+.value-icon {
+  color: var(--brand-secondary);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-lg);
+  transition: all 0.3s ease;
+}
+
+.value:hover .value-icon {
+  color: var(--brand-accent);
+  transform: scale(1.1);
+}
+
+.value h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  font-size: var(--text-xl);
+  font-weight: 700;
+}
+
+.value p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}

@@ -1,0 +1,133 @@
+/* Load Geist Variable Font - FIXED PATH */
+@font-face {
+  font-family: "Geist";
+  src: url("../../fonts/Geist-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== TYPOGRAPHY SYSTEM ===== */
+h1 {
+  font-size: clamp(var(--text-4xl), 8vw, var(--text-6xl));
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2xl);
+  color: var(--text-primary);
+}
+
+/* Remove the previous section h1 rule that's making the hero heading small */
+/* Replace with more specific rules that preserve the hero heading size */
+/* Add this after the h1 rule but before the h2 rule */
+
+/* Fix for Lighthouse warning while preserving hero heading size */
+/* All h1 elements within sectioning elements need explicit font-size with !important */
+section h1,
+article h1,
+aside h1,
+nav h1 {
+  font-size: clamp(var(--text-4xl), 8vw, var(--text-6xl)) !important;
+}
+
+/* Then override specifically for the hero to make it larger */
+.hero h1 {
+  font-size: clamp(3.5rem, 8vw, 5.5rem) !important;
+  color: var(--text-inverse);
+  margin-bottom: var(--space-lg);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-2xl);
+  color: var(--text-primary);
+}
+
+/* FIX: Explicit font-size for h2 within sectioning elements */
+section h2,
+article h2,
+aside h2,
+nav h2 {
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl)) !important;
+}
+
+h3 {
+  font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: var(--space-lg);
+  color: var(--text-primary);
+}
+
+/* FIX: Explicit font-size for h3 within sectioning elements */
+section h3,
+article h3,
+aside h3,
+nav h3 {
+  font-size: clamp(var(--text-xl), 3vw, var(--text-2xl)) !important;
+}
+
+h4 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+}
+
+/* FIX: Explicit font-size for h4 within sectioning elements */
+section h4,
+article h4,
+aside h4,
+nav h4 {
+  font-size: var(--text-lg) !important;
+}
+
+h5 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+}
+
+/* FIX: Explicit font-size for h5 within sectioning elements */
+section h5,
+article h5,
+aside h5,
+nav h5 {
+  font-size: var(--text-base) !important;
+}
+
+h6 {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+}
+
+/* FIX: Explicit font-size for h6 within sectioning elements */
+section h6,
+article h6,
+aside h6,
+nav h6 {
+  font-size: var(--text-sm) !important;
+}
+
+p {
+  font-size: clamp(var(--text-base), 2vw, var(--text-lg));
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+.highlight-text {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--brand-accent);
+  margin: var(--space-xl) 0;
+}

@@ -1,0 +1,115 @@
+/* ===== FOOTER ===== */
+footer {
+  padding: var(--space-3xl) 0 var(--space-lg);
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-3xl);
+  margin-bottom: var(--space-4xl);
+}
+
+.footer-left,
+.footer-right {
+  flex: 1 1 300px;
+}
+
+footer .logo {
+  margin-bottom: var(--space-xl);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-4xl);
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer-column h3 {
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+.footer-link {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-description {
+  margin-top: var(--space-lg);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.footer-description a {
+  color: var(--brand-accent);
+  text-decoration: underline;
+}
+
+.organization-info {
+  border-left: 3px solid var(--brand-accent);
+  padding-left: var(--space-md);
+  max-width: 400px;
+}
+
+.org-name {
+  font-weight: 700;
+  font-size: var(--text-lg);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.address-section {
+  margin-top: var(--space-md);
+}
+
+.address-title {
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.direct-donate {
+  margin-top: var(--space-md);
+}
+
+.footer-donate-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--brand-accent);
+  font-weight: 600;
+  transition: color var(--transition-normal);
+}
+
+.footer-donate-link:hover {
+  color: #007a3d;
+  text-decoration: underline;
+}
+
+.footer-donate-link i {
+  font-size: var(--text-sm);
+}
+
+.copyright {
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-light);
+  margin-top: var(--space-3xl);
+}

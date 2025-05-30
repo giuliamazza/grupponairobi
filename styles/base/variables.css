@@ -1,0 +1,107 @@
+/* ===== CSS CUSTOM PROPERTIES & DESIGN TOKENS ===== */
+:root {
+  /* Primary Brand Colors */
+  --brand-primary: #0b1d26;
+  --brand-secondary: #feb916;
+  --brand-accent: #00a651;
+
+  /* Background Colors */
+  --bg-primary: #fff9e0;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f8f6f0;
+  --bg-dark: #181c45;
+
+  /* Text Colors */
+  --text-primary: #0b1d26;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --text-inverse: #ffffff;
+
+  /* Interactive Colors */
+  --interactive-primary: #0b1d26;
+  --interactive-secondary: #feb916;
+  --interactive-accent: #00a651;
+  --interactive-hover: #142e41;
+
+  /* Spacing & Typography */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Typography Scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(11, 29, 38, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(11, 29, 38, 0.1), 0 2px 4px -1px rgba(11, 29, 38, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(11, 29, 38, 0.1), 0 4px 6px -2px rgba(11, 29, 38, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(11, 29, 38, 0.1), 0 10px 10px -5px rgba(11, 29, 38, 0.04);
+
+  /* Legacy support (for existing code) */
+  --primary-color: var(--brand-accent);
+  --secondary-color: var(--brand-secondary);
+  --active-color: #6261b6;
+  --bittersweet: var(--brand-primary);
+  --background-color: var(--bg-primary);
+  --text-color: var(--text-primary);
+  --white: var(--bg-secondary);
+  --gray: #f5f5f5;
+  --dark-gray: var(--text-secondary);
+  --rich-black: var(--brand-primary);
+  --light-gray: #cbd5e0;
+  --lightbox-bg: rgba(0, 0, 0, 0.9);
+  --lightbox-text: #ffffff;
+  --lightbox-control-bg: rgba(255, 255, 255, 0.15);
+  --lightbox-control-hover: rgba(255, 255, 255, 0.3);
+  --lightbox-transition: 0.3s ease;
+
+  /* Borders */
+  --border-light: rgba(11, 29, 38, 0.055);
+  --border-medium: rgba(11, 29, 38, 0.2);
+  --border-dark: rgba(11, 29, 38, 0.3);
+
+  /* Neutral Colors */
+  --neutral-50: #f7fafc;
+  --neutral-100: #edf2f7;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e0;
+  --neutral-400: #a0aec0;
+  --neutral-500: #718096;
+  --neutral-600: #4a5568;
+  --neutral-700: #2d3748;
+  --neutral-800: #1a202c;
+  --neutral-900: #171923;
+
+  /* Status Colors */
+  --status-success: #00a651;
+  --status-warning: #feb916;
+  --status-error: #e53e3e;
+  --status-info: #3182ce;
+}
