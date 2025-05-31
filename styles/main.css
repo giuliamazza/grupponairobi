@@ -291,7 +291,7 @@
 /* Protect .feature-text h2 from section h2 styling */
 .feature-text h2 {
   margin: 0;
-  font-size: var(--text-lg) !important;
+  font-size: 24px !important;
   font-weight: 700 !important;
   color: white;
   margin-bottom: 0.25rem;
