@@ -25,10 +25,9 @@
   position: relative;
   overflow: hidden;
   border: 1px solid var(--border-light);
-  /* ✅ FIX: Anchor transform to prevent cursor escape */
   transform-origin: center bottom;
-  max-width: 400px; /* Prevents individual cards from stretching */
-  margin: 0 auto; /* Centers single cards */
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .streamer-card::before {
@@ -44,7 +43,6 @@
 }
 
 .streamer-card:hover {
-  /* ✅ FIX: More stable hover with bottom anchor */
   transform: translateY(-8px);
   box-shadow: var(--shadow-xl);
 }
@@ -124,7 +122,6 @@
   position: relative;
   overflow: hidden;
   text-align: center;
-  /* ✅ FIX: Anchor transform to prevent cursor escape */
   transform-origin: center bottom;
 }
 
@@ -141,7 +138,6 @@
 }
 
 .team-member:hover {
-  /* ✅ FIX: More stable hover with bottom anchor */
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
 }
@@ -255,7 +251,6 @@
   box-shadow: var(--shadow-sm);
   border-left: 4px solid var(--brand-accent);
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-  /* ✅ FIX: Anchor transform to prevent cursor escape */
   transform-origin: center bottom;
 }
 
@@ -302,7 +297,6 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  /* ✅ FIX: Anchor transform to prevent cursor escape */
   transform-origin: center bottom;
 }
 
