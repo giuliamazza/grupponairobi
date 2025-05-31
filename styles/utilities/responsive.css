@@ -147,15 +147,6 @@
   }
   */
 
-  .progress-ring {
-    width: 48px;
-    height: 48px;
-    margin-right: var(--space-md);
-  }
-
-  .progress-ring__icon {
-    font-size: 1.2rem;
-  }
 
   .feature-text h3 {
     font-size: var(--text-base);
@@ -222,26 +213,6 @@
   .hero-buttons {
     flex-direction: column;
     width: 100%;
-  }
-
-  /* Hero feature mobile adjustments - MOVED TO HERO.CSS */
-  /* 
-  .hero-feature {
-    bottom: var(--space-sm);
-    left: var(--space-sm);
-    right: var(--space-sm);
-    padding: var(--space-sm);
-  }
-  */
-
-  .progress-ring {
-    width: 40px;
-    height: 40px;
-    margin-right: var(--space-sm);
-  }
-
-  .progress-ring__icon {
-    font-size: 1rem;
   }
 
   /* CTA section styles */
