@@ -374,6 +374,71 @@ nav a:hover {
   border: 0;
 }
 
+/* Share Modal Critical Styles */
+.share-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.share-modal.visible {
+  opacity: 1;
+}
+
+.share-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.share-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.share-close:hover {
+  background-color: #f0f0f0;
+}
+
+.share-buttons {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.share-buttons .btn {
+  justify-content: center;
+  width: 100%;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   nav ul {
@@ -407,8 +472,8 @@ nav a:hover {
 }
 </style>
 
-<!-- Immediate scroll check for header -->
 <script>
+// Immediate scroll check for header
 if (window.scrollY > 10) {
   document.documentElement.classList.add('scrolled-page');
   document.addEventListener('DOMContentLoaded', function() {
@@ -416,6 +481,83 @@ if (window.scrollY > 10) {
     if (header) header.classList.add('scrolled');
   });
 }
+
+// Critical Share Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('share-modal');
+  const triggers = document.querySelectorAll('[data-key="hero_read"], [data-key="cta_share"]');
+  const closeBtn = document.querySelector('.share-close');
+  const copyBtn = document.getElementById('copy-link');
+
+  if (!modal) return;
+
+  // Open modal
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      modal.style.display = 'block';
+      modal.setAttribute('aria-hidden', 'false');
+      setTimeout(() => modal.classList.add('visible'), 10);
+      document.body.style.overflow = 'hidden';
+      if (closeBtn) closeBtn.focus();
+    });
+  });
+
+  // Close modal
+  function closeModal() {
+    modal.classList.remove('visible');
+    setTimeout(() => {
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  // Close on outside click
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+
+  // Close on escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+      closeModal();
+    }
+  });
+
+  // Copy link functionality
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async function() {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        showCopyFeedback();
+      } catch (err) {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = window.location.href;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showCopyFeedback();
+      }
+    });
+
+    function showCopyFeedback() {
+      const originalText = copyBtn.innerHTML;
+      copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      copyBtn.style.background = '#10b981';
+      setTimeout(() => {
+        copyBtn.innerHTML = originalText;
+        copyBtn.style.background = '';
+      }, 2000);
+    }
+  }
+});
 </script>
 
 <link rel="preload" href="./fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
