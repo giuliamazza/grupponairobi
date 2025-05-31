@@ -181,7 +181,7 @@
   flex: 1;
 }
 
-.feature-text h3 {
+.feature-text h2 {
   margin: 0;
   font-size: var(--text-lg);
   font-weight: 700;
@@ -384,7 +384,7 @@
   }
 
   /* Adjust text sizes slightly for better balance with full-size ring */
-  .feature-text h3 {
+  .feature-text h2 {
     font-size: var(--text-base);
   }
 
