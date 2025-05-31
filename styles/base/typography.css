@@ -73,6 +73,14 @@ nav h3 {
   font-size: clamp(var(--text-xl), 3vw, var(--text-2xl)) !important;
 }
 
+/* Exclude .feature-text h2 from section styling */
+section h2:not(.feature-text h2),
+article h2:not(.feature-text h2),
+aside h2:not(.feature-text h2),
+nav h2:not(.feature-text h2) {
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl)) !important;
+}
+
 h4 {
   font-size: var(--text-lg);
   font-weight: 600;
