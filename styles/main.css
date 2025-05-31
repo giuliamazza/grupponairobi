@@ -290,10 +290,9 @@
 
 /* Protect .feature-text h2 from section h2 styling */
 .feature-text h2 {
-  font-size: clamp(var(--text-xl), 4vw, var(--text-2xl)) !important;
+  margin: 0;
+  font-size: var(--text-lg) !important;
   font-weight: 700 !important;
-  color: var(--text-primary) !important;
-  margin-bottom: var(--space-md) !important;
-  line-height: 1.3 !important;
-  text-align: left !important;
+  color: white;
+  margin-bottom: 0.25rem;
 }
