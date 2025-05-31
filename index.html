@@ -8,6 +8,8 @@
 <meta name="author" content="Gruppo Nairobi Team">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0b1d26">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; img-src 'self' data: https:; font-src 'self' cdnjs.cloudflare.com; connect-src 'self' https://gruppo-nairobi-api.vercel.app;">
+<link rel="canonical" href="https://grupponairobi.org/">
 
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:title" content="Gruppo Nairobi – Build a School, Ignite Hope">
@@ -20,7 +22,7 @@
 <meta name="twitter:description" content="Join us to build a school that transforms lives and empowers the next generation.">
 <meta name="twitter:image" content="./images/og-image.jpg">
 
-<!-- FIXED: Optimized Favicons - Changed from absolute to relative paths -->
+<!-- Favicons -->
 <link rel="icon" type="image/png" href="./images/favicons/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="./images/favicons/favicon.svg" />
 <link rel="shortcut icon" href="./images/favicons/favicon.ico" />
@@ -28,13 +30,25 @@
 <meta name="apple-mobile-web-app-title" content="Charity" />
 <link rel="manifest" href="./images/favicons/site.webmanifest" />
 
-<!-- Preload critical resources -->
+<!-- Preconnect & Preload resources -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preconnect" href="https://www.gofundme.com">
 <link rel="preload" href="./fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-<link rel="preload" href="./images/kenya.webp" as="image" type="image/webp">
+<!-- Font Awesome async loading -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+      as="style" 
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+      crossorigin="anonymous"
+      onload="this.onload=null;this.rel='stylesheet'"
+      onerror="this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+        crossorigin="anonymous">
+</noscript>
 
 <!-- Critical CSS for first paint -->
 <style>
-/* Unified Design System */
 :root {
   /* Primary Brand Colors */
   --brand-primary: #0b1d26;
@@ -161,6 +175,39 @@ if (window.scrollY > 10) {
 <link rel="stylesheet" href="./styles/main.css">
 
 <script src="./translations/translations.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "Gruppo Nairobi",
+  "alternateName": "Associazione Gruppo Nairobi",
+  "description": "Building schools in Kenya to transform lives and empower a new generation through education",
+  "url": "https://grupponairobi.org",
+  "logo": "https://grupponairobi.org/images/logo.svg",
+  "image": "https://grupponairobi.org/images/og-image.jpg",
+  "email": "info@grupponairobi.org",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Prova 32",
+    "addressLocality": "San Bonifacio",
+    "addressRegion": "VR",
+    "postalCode": "37047",
+    "addressCountry": "IT"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Kenya"
+  },
+  "seeks": {
+    "@type": "Demand",
+    "name": "School Construction Funding"
+  },
+  "sameAs": [
+    "https://www.gofundme.com/f/associazione-gruppo-nairobi"
+  ]
+}
+</script>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
@@ -393,7 +440,6 @@ if (window.scrollY > 10) {
     <p class="section-subtitle lang" data-key="involved_subtitle">Join our amazing community of streamers supporting the cause</p>
     
     <div class="streamers-grid" id="streamers-container">
-      <!-- Skeleton screens that show while loading -->
       <div class="streamer-skeleton">
         <div class="streamer-skeleton-card">
           <div class="streamer-skeleton-avatar skeleton"></div>
@@ -643,6 +689,6 @@ if (window.scrollY > 10) {
 <script src="./scripts/ui-components.js" defer></script>
 
 <script src="./scripts/twitch-client.js" defer></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
 </body>
 </html>
