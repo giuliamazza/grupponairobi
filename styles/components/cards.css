@@ -27,6 +27,8 @@
   border: 1px solid var(--border-light);
   /* ✅ FIX: Anchor transform to prevent cursor escape */
   transform-origin: center bottom;
+  max-width: 400px; /* Prevents individual cards from stretching */
+  margin: 0 auto; /* Centers single cards */
 }
 
 .streamer-card::before {
