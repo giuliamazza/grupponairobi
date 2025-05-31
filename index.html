@@ -10,11 +10,11 @@
 <meta name="theme-color" content="#0b1d26">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; img-src 'self' data: https:; font-src 'self' cdnjs.cloudflare.com; connect-src 'self' https://gruppo-nairobi-api.vercel.app;">
 
-<!-- Preconnect & Preload resources -->
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link rel="preconnect" href="https://www.gofundme.com">
 
 <link rel="preload" href="./images/kenya.webp" as="image" type="image/webp">
+<link rel="preload" href="./images/kenya.jpg" as="image" type="image/jpeg">
 
 <!-- Critical CSS for first paint -->
 <style>
@@ -93,6 +93,7 @@
   box-sizing: border-box;
 }
 
+/* PREVENT LAYOUT SHIFT - BODY SETUP */
 body {
   margin: 0;
   padding: 0;
@@ -101,6 +102,9 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-size: 16px;
+  overflow-x: hidden;
+  /* CRITICAL: Add top padding to account for fixed header from the start */
+  padding-top: 88px;
 }
 
 /* Container Styles */
@@ -118,10 +122,12 @@ body {
   padding: 0 var(--space-lg);
 }
 
-/* Header Styles */
+/* ===== HEADER - FIXED FROM THE START TO PREVENT LAYOUT SHIFT ===== */
 header {
-  position: sticky;
+  position: fixed; /* FIXED from the start, not sticky */
   top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   background-color: rgba(255, 249, 224, 0.95);
   padding: var(--space-xl) 0;
@@ -129,6 +135,9 @@ header {
   transition: all var(--transition-normal);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
+  height: 88px; /* Fixed height */
+  display: flex;
+  align-items: center;
 }
 
 header.scrolled {
@@ -136,6 +145,7 @@ header.scrolled {
   box-shadow: var(--shadow-md);
   padding: var(--space-lg) 0;
   border-bottom-color: rgba(11, 29, 38, 0.1);
+  height: 78px;
 }
 
 header .container {
@@ -143,6 +153,7 @@ header .container {
   justify-content: space-between;
   align-items: center;
   min-height: 40px;
+  width: 100%;
 }
 
 /* Logo Styles */
@@ -238,12 +249,31 @@ nav a:hover {
   background-color: var(--bg-tertiary);
 }
 
-/* ===== HERO SECTION - LAYOUT SHIFT PREVENTION ===== */
+/* Skip Link - ENSURE IT DOESN'T AFFECT LAYOUT */
+.skip-link {
+  position: fixed;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 10001;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* ===== HERO SECTION - NO PADDING TOP NEEDED ===== */
 .hero {
   padding: 0;
   min-height: 70vh;
   position: relative;
-  padding-top: 120px;
+  /* NO padding-top needed since body has it */
 }
 
 .hero-card {
@@ -474,10 +504,18 @@ nav a:hover {
   font-style: italic;
 }
 
-/* Hero responsive styles */
+/* ===== RESPONSIVE STYLES WITH BODY PADDING ADJUSTMENTS ===== */
 @media (max-width: 1024px) {
-  .hero {
-    padding-top: 100px;
+  body {
+    padding-top: 84px;
+  }
+  
+  header {
+    height: 84px;
+  }
+  
+  header.scrolled {
+    height: 74px;
   }
 
   .hero-card {
@@ -495,8 +533,18 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
-  .hero {
-    padding-top: 120px;
+  body {
+    padding-top: 90px;
+  }
+  
+  header {
+    height: 90px;
+    padding: var(--space-lg) 0;
+  }
+  
+  header.scrolled {
+    height: 80px;
+    padding: var(--space-md) 0;
   }
 
   .hero-card {
@@ -557,8 +605,18 @@ nav a:hover {
 }
 
 @media (max-width: 480px) {
-  .hero {
-    padding-top: 110px;
+  body {
+    padding-top: 80px;
+  }
+  
+  header {
+    height: 80px;
+    padding: var(--space-md) 0;
+  }
+  
+  header.scrolled {
+    height: 70px;
+    padding: var(--space-sm) 0;
   }
 
   .hero-card {
@@ -584,24 +642,6 @@ nav a:hover {
   .hero-feature:hover {
     transform: translateX(-50%) translateY(-3px);
   }
-}
-
-/* Skip Link */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 6px;
-  background: #000;
-  color: #fff;
-  padding: 8px 16px;
-  text-decoration: none;
-  z-index: 10000;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.skip-link:focus {
-  top: 6px;
 }
 
 /* Screen Reader Only */
@@ -747,6 +787,7 @@ nav a:hover {
 }
 </style>
 
+<!-- Immediate scroll check for header -->
 <script>
 if (window.scrollY > 10) {
   document.documentElement.classList.add('scrolled-page');
@@ -1463,16 +1504,16 @@ document.addEventListener('DOMContentLoaded', function() {
   <button class="share-close" aria-label="Close modal" type="button">&times;</button>
   <h3 id="share-title">Share this project</h3>
   <div class="share-buttons">
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="share-facebook">
       <i class="fab fa-facebook-f"></i> Share on Facebook
     </a>
-    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgrupponairobi.org%2F&text=Every%20child%20deserves%20a%20future.%20Help%20us%20build%20a%20school%20in%20Kenya%20with%20Gruppo%20Nairobi.%20%F0%9F%8F%AB%E2%9C%A8" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgrupponairobi.org%2F&text=Every%20child%20deserves%20a%20future.%20Help%20us%20build%20a%20school%20in%20Kenya%20with%20Gruppo%20Nairobi.%20%F0%9F%8F%AB%E2%9C%A8" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="share-twitter">
       <i class="fab fa-twitter"></i> Share on Twitter
     </a>
-    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="share-linkedin">
       <i class="fab fa-linkedin-in"></i> Share on LinkedIn
     </a>
-    <a href="https://wa.me/?text=Every%20child%20deserves%20a%20future.%20Help%20us%20build%20a%20school%20in%20Kenya%20with%20Gruppo%20Nairobi:%20https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+    <a href="https://wa.me/?text=Every%20child%20deserves%20a%20future.%20Help%20us%20build%20a%20school%20in%20Kenya%20with%20Gruppo%20Nairobi:%20https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="share-whatsapp">
       <i class="fab fa-whatsapp"></i> Share on WhatsApp
     </a>
     <button class="btn btn-secondary" id="copy-link">
