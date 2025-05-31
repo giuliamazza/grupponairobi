@@ -10,9 +10,11 @@
 <meta name="theme-color" content="#0b1d26">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; img-src 'self' data: https:; font-src 'self' cdnjs.cloudflare.com; connect-src 'self' https://gruppo-nairobi-api.vercel.app;">
 
+<!-- Preconnect -->
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link rel="preconnect" href="https://www.gofundme.com">
 
+<!-- CRITICAL: Preload hero image to prevent layout shift -->
 <link rel="preload" href="./images/kenya.webp" as="image" type="image/webp">
 <link rel="preload" href="./images/kenya.jpg" as="image" type="image/jpeg">
 
@@ -103,8 +105,35 @@ body {
   color: var(--text-primary);
   font-size: 16px;
   overflow-x: hidden;
-  /* CRITICAL: Add top padding to account for fixed header from the start */
-  padding-top: 88px;
+  /* NO padding-top - back to original */
+}
+
+/* ===== HEADER - STICKY FROM THE START TO PREVENT LAYOUT SHIFT ===== */
+header {
+  position: sticky; /* Keep sticky but ensure it's positioned immediately */
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgba(255, 249, 224, 0.95);
+  padding: var(--space-xl) 0;
+  z-index: 1000;
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  height: 88px; /* Fixed height */
+  display: flex;
+  align-items: center;
+  /* CRITICAL: Ensure it's positioned from first render */
+  transform: translateZ(0); /* Force GPU layer to prevent reflow */
+}
+
+header.scrolled {
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-lg) 0;
+  border-bottom-color: rgba(11, 29, 38, 0.1);
+  height: 78px;
 }
 
 /* Container Styles */
@@ -120,32 +149,6 @@ body {
   max-width: 1800px;
   margin: 0 auto;
   padding: 0 var(--space-lg);
-}
-
-/* ===== HEADER - FIXED FROM THE START TO PREVENT LAYOUT SHIFT ===== */
-header {
-  position: fixed; /* FIXED from the start, not sticky */
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background-color: rgba(255, 249, 224, 0.95);
-  padding: var(--space-xl) 0;
-  z-index: 1000;
-  transition: all var(--transition-normal);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid transparent;
-  height: 88px; /* Fixed height */
-  display: flex;
-  align-items: center;
-}
-
-header.scrolled {
-  background-color: var(--bg-secondary);
-  box-shadow: var(--shadow-md);
-  padding: var(--space-lg) 0;
-  border-bottom-color: rgba(11, 29, 38, 0.1);
-  height: 78px;
 }
 
 header .container {
@@ -268,12 +271,13 @@ nav a:hover {
   top: 6px;
 }
 
-/* ===== HERO SECTION - NO PADDING TOP NEEDED ===== */
+/* ===== HERO SECTION - BACK TO ORIGINAL PADDING ===== */
 .hero {
   padding: 0;
   min-height: 70vh;
   position: relative;
-  /* NO padding-top needed since body has it */
+  /* Back to original padding that accounts for header */
+  padding-top: 88px; /* Matches header height exactly */
 }
 
 .hero-card {
@@ -504,18 +508,18 @@ nav a:hover {
   font-style: italic;
 }
 
-/* ===== RESPONSIVE STYLES WITH BODY PADDING ADJUSTMENTS ===== */
+/* Hero responsive styles */
 @media (max-width: 1024px) {
-  body {
-    padding-top: 84px;
-  }
-  
   header {
     height: 84px;
   }
   
   header.scrolled {
     height: 74px;
+  }
+  
+  .hero {
+    padding-top: 84px; /* Match header height */
   }
 
   .hero-card {
@@ -533,18 +537,18 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
-  body {
-    padding-top: 90px;
-  }
-  
   header {
-    height: 90px;
+    height: 90px; /* Taller on mobile for better touch targets */
     padding: var(--space-lg) 0;
   }
   
   header.scrolled {
     height: 80px;
     padding: var(--space-md) 0;
+  }
+  
+  .hero {
+    padding-top: 90px; /* Match mobile header height */
   }
 
   .hero-card {
@@ -605,10 +609,6 @@ nav a:hover {
 }
 
 @media (max-width: 480px) {
-  body {
-    padding-top: 80px;
-  }
-  
   header {
     height: 80px;
     padding: var(--space-md) 0;
@@ -617,6 +617,10 @@ nav a:hover {
   header.scrolled {
     height: 70px;
     padding: var(--space-sm) 0;
+  }
+  
+  .hero {
+    padding-top: 80px; /* Match small mobile header */
   }
 
   .hero-card {
