@@ -22,7 +22,10 @@ class ScriptLoader {
         },
         {
           id: "the-project",
-          scripts: [{ src: "./scripts/ui-components.js" }],
+          scripts: [
+            { src: "./scripts/lightbox.js" }, // Corrected path to lightbox script
+            { src: "./scripts/ui-components.js" },
+          ],
         },
       ],
       // Scripts loaded on specific user interactions
@@ -30,7 +33,10 @@ class ScriptLoader {
         {
           selector: ".lightbox-trigger",
           event: "click",
-          scripts: [{ src: "./scripts/ui-components.js" }],
+          scripts: [
+            { src: "./scripts/lightbox.js" }, // Corrected path to lightbox script
+            { src: "./scripts/ui-components.js" },
+          ],
         },
         {
           selector: '[data-key="hero_read"], [data-key="cta_share"]',
