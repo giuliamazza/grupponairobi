@@ -10,42 +10,9 @@
 <meta name="theme-color" content="#0b1d26">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; img-src 'self' data: https:; font-src 'self' cdnjs.cloudflare.com; connect-src 'self' https://gruppo-nairobi-api.vercel.app;">
 
-<!-- Open Graph / Social Meta Tags -->
-<meta property="og:title" content="Gruppo Nairobi – Build a School, Ignite Hope">
-<meta property="og:description" content="Join us to build a school that transforms lives and empowers the next generation.">
-<meta property="og:image" content="./images/og-image.jpg">
-<meta property="og:url" content="https://grupponairobi.org/">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Gruppo Nairobi – Build a School, Ignite Hope">
-<meta name="twitter:description" content="Join us to build a school that transforms lives and empowers the next generation.">
-<meta name="twitter:image" content="./images/og-image.jpg">
-
-<!-- Favicons -->
-<link rel="icon" type="image/png" href="./images/favicons/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="./images/favicons/favicon.svg" />
-<link rel="shortcut icon" href="./images/favicons/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="Charity" />
-<link rel="manifest" href="./images/favicons/site.webmanifest" />
-
 <!-- Preconnect & Preload resources -->
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link rel="preconnect" href="https://www.gofundme.com">
-<link rel="preload" href="./fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-<link rel="preload" href="./images/kenya.webp" as="image" type="image/webp">
-<!-- Font Awesome async loading -->
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-      as="style" 
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-      crossorigin="anonymous"
-      onload="this.onload=null;this.rel='stylesheet'"
-      onerror="this.rel='stylesheet'">
-<noscript>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-        crossorigin="anonymous">
-</noscript>
 
 <!-- Critical CSS for first paint -->
 <style>
@@ -172,9 +139,45 @@ if (window.scrollY > 10) {
 }
 </script>
 
-<link rel="stylesheet" href="./styles/main.css">
+<link rel="preload" href="./fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="./images/kenya.webp" as="image" type="image/webp">
+
+<link rel="preload" href="./styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="./styles/main.css"></noscript>
+
+<!-- Font Awesome async loading -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+      as="style" 
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+      crossorigin="anonymous"
+      onload="this.onload=null;this.rel='stylesheet'"
+      onerror="this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+        crossorigin="anonymous">
+</noscript>
 
 <script src="./translations/translations.js" defer></script>
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" href="./images/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="./images/favicons/favicon.svg" />
+<link rel="shortcut icon" href="./images/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Charity" />
+<link rel="manifest" href="./images/favicons/site.webmanifest" />
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Gruppo Nairobi – Build a School, Ignite Hope">
+<meta property="og:description" content="Join us to build a school that transforms lives and empowers the next generation.">
+<meta property="og:image" content="./images/og-image.jpg">
+<meta property="og:url" content="https://grupponairobi.org/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gruppo Nairobi – Build a School, Ignite Hope">
+<meta name="twitter:description" content="Join us to build a school that transforms lives and empowers the next generation.">
+<meta name="twitter:image" content="./images/og-image.jpg">
 
 <script type="application/ld+json">
 {
@@ -684,13 +687,7 @@ if (window.scrollY > 10) {
 </div>
 </div>
 
-<script src="./scripts/config.js"></script>
-
-<script src="./scripts/core.js" defer></script>
-
-<script src="./scripts/ui-components.js" defer></script>
-
-<script src="./scripts/twitch-client.js" defer></script>
+<script src="./scripts/script-loader.js"></script>
 
 </body>
 </html>
