@@ -14,6 +14,8 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link rel="preconnect" href="https://www.gofundme.com">
 
+<link rel="preload" href="./images/kenya.webp" as="image" type="image/webp">
+
 <!-- Critical CSS for first paint -->
 <style>
 :root {
@@ -77,6 +79,13 @@
   --shadow-md: 0 4px 6px -1px rgba(11, 29, 38, 0.1), 0 2px 4px -1px rgba(11, 29, 38, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(11, 29, 38, 0.1), 0 4px 6px -2px rgba(11, 29, 38, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(11, 29, 38, 0.1), 0 10px 10px -5px rgba(11, 29, 38, 0.04);
+  
+  /* Modal Variables */
+  --lightbox-bg: rgba(0, 0, 0, 0.9);
+  --lightbox-text: #ffffff;
+  --lightbox-control-bg: rgba(0, 0, 0, 0.7);
+  --lightbox-control-hover: rgba(0, 0, 0, 0.85);
+  --lightbox-transition: 0.3s ease;
 }
 
 /* Base Styles */
@@ -229,7 +238,7 @@ nav a:hover {
   background-color: var(--bg-tertiary);
 }
 
-/* ===== COMPLETE HERO SECTION - EXACTLY LIKE BEFORE ===== */
+/* ===== HERO SECTION - LAYOUT SHIFT PREVENTION ===== */
 .hero {
   padding: 0;
   min-height: 70vh;
@@ -244,35 +253,26 @@ nav a:hover {
   justify-content: center;
   color: var(--text-inverse);
   align-items: flex-start;
-  background: linear-gradient(
-    135deg,
-    var(--brand-secondary) 0%,
-    rgba(254, 185, 22, 0.8) 30%,
-    rgba(254, 185, 22, 0.4) 60%,
-    transparent 90%
-  );
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-2xl);
   padding: 12rem 0 12rem 8rem;
   margin-top: 0;
-}
-
-/* WebP support with fallback - FIXED PATHS */
-.hero-card {
+  /* PREVENT LAYOUT SHIFT - Set background color immediately */
+  background-color: var(--brand-secondary);
   background-image: linear-gradient(
-      135deg,
-      var(--brand-secondary) 0%,
-      rgba(254, 185, 22, 0.8) 30%,
-      rgba(254, 185, 22, 0.4) 60%,
-      transparent 90%
-    ), url("./images/kenya.jpg");
+    135deg,
+    var(--brand-secondary) 0%,
+    rgba(254, 185, 22, 0.8) 30%,
+    rgba(254, 185, 22, 0.4) 60%,
+    transparent 90%
+  ), url("./images/kenya.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-/* Try WebP if supported */
+/* WebP support with fallback */
 @supports (background-image: url("./images/kenya.webp")) {
   .hero-card {
     background-image: linear-gradient(
@@ -294,7 +294,6 @@ nav a:hover {
   flex-direction: column;
 }
 
-/* Ensure the hero h1 styling is preserved */
 .hero h1 {
   color: var(--text-inverse);
   margin-bottom: var(--space-lg);
@@ -356,7 +355,7 @@ nav a:hover {
   color: var(--brand-primary);
 }
 
-/* ===== IMPROVED HERO FEATURE - CONSISTENT SIZING ===== */
+/* Hero Feature Box */
 .hero-feature {
   position: absolute;
   bottom: var(--space-xl);
@@ -387,7 +386,6 @@ nav a:hover {
   width: 100%;
 }
 
-/* PROGRESS RING - IDENTICAL ACROSS ALL DEVICES */
 .progress-ring {
   position: relative;
   width: 64px;
@@ -429,7 +427,6 @@ nav a:hover {
   r: 28;
 }
 
-/* FIXED ICON POSITIONING - WORKS EVERYWHERE */
 .progress-ring__icon-container {
   position: absolute;
   top: 0;
@@ -477,40 +474,7 @@ nav a:hover {
   font-style: italic;
 }
 
-/* ===== HERO SECTION BUTTON FIXES ===== */
-.hero .btn {
-  transform: none;
-  transition: background-color var(--transition-normal), box-shadow var(--transition-normal), transform
-    var(--transition-normal);
-}
-
-.hero .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.hero .btn-primary {
-  background-color: var(--brand-primary);
-  color: var(--text-inverse);
-}
-
-.hero .btn-primary:hover {
-  background-color: var(--interactive-hover);
-}
-
-.hero .btn-secondary {
-  background-color: transparent;
-  border: 2px solid var(--text-inverse);
-  color: var(--text-inverse);
-}
-
-.hero .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Responsive styles for hero */
+/* Hero responsive styles */
 @media (max-width: 1024px) {
   .hero {
     padding-top: 100px;
@@ -575,14 +539,6 @@ nav a:hover {
     transform: translateX(-50%) translateY(-3px);
   }
 
-  .progress-ring {
-    margin-right: var(--space-lg);
-  }
-
-  .feature-text h2 {
-    font-size: var(--text-base);
-  }
-
   nav ul {
     display: none;
   }
@@ -593,12 +549,6 @@ nav a:hover {
   
   .hero-buttons {
     justify-content: center;
-  }
-  
-  .feature-box {
-    flex-direction: column;
-    text-align: center;
-    gap: var(--space-md);
   }
   
   .container, .container-wide {
@@ -634,22 +584,6 @@ nav a:hover {
   .hero-feature:hover {
     transform: translateX(-50%) translateY(-3px);
   }
-
-  .progress-ring {
-    margin-right: var(--space-md);
-  }
-
-  .feature-text h2 {
-    font-size: var(--text-base);
-  }
-
-  .feature-text .goal-text {
-    font-size: var(--text-sm);
-  }
-
-  .feature-text .next-goal {
-    font-size: var(--text-xs);
-  }
 }
 
 /* Skip Link */
@@ -683,74 +617,137 @@ nav a:hover {
   border: 0;
 }
 
-/* Share Modal Critical Styles */
+/* ===== COMPLETE SHARE MODAL - ORIGINAL STYLING ===== */
 .share-modal {
   display: none;
   position: fixed;
-  top: 0;
+  z-index: 1000;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 10000;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color var(--transition-normal);
+  backdrop-filter: blur(0);
+  transition: backdrop-filter var(--transition-normal), background-color var(--transition-normal);
 }
 
 .share-modal.visible {
-  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
 }
 
 .share-modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
+  position: relative;
+  background-color: #1e1e1e;
+  margin: 10% auto;
+  padding: var(--space-3xl);
+  border-radius: var(--radius-xl);
   max-width: 500px;
-  width: 90%;
-  max-height: 80vh;
-  overflow-y: auto;
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.share-modal.visible .share-modal-content {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .share-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #666;
-  width: 32px;
-  height: 32px;
+  top: var(--space-md);
+  right: var(--space-md);
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: var(--text-xl);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  transition: background-color 0.2s;
+  border: none;
 }
 
-.share-close:hover {
-  background-color: #f0f0f0;
+.share-close:hover,
+.share-close:focus {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.share-modal h3 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-xl);
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .share-buttons {
-  display: grid;
-  gap: 1rem;
-  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
 }
 
 .share-buttons .btn {
-  justify-content: center;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-xl);
+  font-weight: 500;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow
+    var(--transition-fast);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.share-buttons .btn i {
+  font-size: var(--text-xl);
+}
+
+.share-buttons .btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Social media specific colors */
+#share-facebook {
+  border-left: 4px solid #1877f2;
+}
+
+#share-twitter {
+  border-left: 4px solid #1da1f2;
+}
+
+#share-linkedin {
+  border-left: 4px solid #0a66c2;
+}
+
+#share-whatsapp {
+  border-left: 4px solid #25d366;
+}
+
+#copy-link {
+  border-left: 4px solid var(--brand-secondary);
 }
 </style>
 
 <script>
-// Immediate scroll check for header
 if (window.scrollY > 10) {
   document.documentElement.classList.add('scrolled-page');
   document.addEventListener('DOMContentLoaded', function() {
@@ -759,8 +756,96 @@ if (window.scrollY > 10) {
   });
 }
 
-// Critical Share Modal Functionality
+// Critical functionality - Language Management & Share Modal
 document.addEventListener('DOMContentLoaded', function() {
+  // ===== LANGUAGE MANAGEMENT - INLINE =====
+  class LanguageManager {
+    constructor() {
+      this.currentLanguage = "en";
+      this.translations = window.translations || {};
+      this.selectors = document.querySelectorAll(".language-select");
+      this.init();
+    }
+
+    init() {
+      const savedLanguage = localStorage.getItem("selectedLanguage");
+      const browserLanguage = navigator.language.slice(0, 2);
+
+      if (savedLanguage && this.translations[savedLanguage]) {
+        this.currentLanguage = savedLanguage;
+      } else if (this.translations[browserLanguage]) {
+        this.currentLanguage = browserLanguage;
+      }
+
+      this.selectors.forEach((selector) => {
+        selector.value = this.currentLanguage;
+        selector.addEventListener("change", (e) => this.changeLanguage(e.target.value));
+      });
+
+      this.applyTranslations();
+    }
+
+    changeLanguage(language) {
+      if (!this.translations[language]) {
+        console.warn(`Language ${language} not available`);
+        return;
+      }
+
+      this.currentLanguage = language;
+      localStorage.setItem("selectedLanguage", language);
+
+      this.selectors.forEach((selector) => {
+        selector.value = language;
+      });
+
+      this.applyTranslations();
+
+      document.dispatchEvent(
+        new CustomEvent("languageChanged", {
+          detail: { language: language },
+        })
+      );
+    }
+
+    applyTranslations() {
+      const elements = document.querySelectorAll("[data-key]");
+
+      elements.forEach((element) => {
+        const key = element.getAttribute("data-key");
+        const translation = this.getTranslation(key);
+
+        if (translation) {
+          if (element.tagName === "INPUT" && element.type === "submit") {
+            element.value = translation;
+          } else if (element.tagName === "INPUT" && element.placeholder !== undefined) {
+            element.placeholder = translation;
+          } else {
+            element.textContent = translation;
+          }
+        }
+      });
+    }
+
+    getTranslation(key) {
+      const languageData = this.translations[this.currentLanguage];
+      return languageData ? languageData[key] : null;
+    }
+  }
+
+  // Initialize language manager when translations are loaded
+  if (window.translations) {
+    window.languageManager = new LanguageManager();
+  } else {
+    // Wait for translations to load
+    const checkTranslations = setInterval(() => {
+      if (window.translations) {
+        window.languageManager = new LanguageManager();
+        clearInterval(checkTranslations);
+      }
+    }, 100);
+  }
+
+  // ===== SHARE MODAL FUNCTIONALITY =====
   const modal = document.getElementById('share-modal');
   const triggers = document.querySelectorAll('[data-key="hero_read"], [data-key="cta_share"]');
   const closeBtn = document.querySelector('.share-close');
@@ -768,19 +853,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (!modal) return;
 
-  // Open modal
-  triggers.forEach(trigger => {
-    trigger.addEventListener('click', function(e) {
-      e.preventDefault();
-      modal.style.display = 'block';
-      modal.setAttribute('aria-hidden', 'false');
-      setTimeout(() => modal.classList.add('visible'), 10);
-      document.body.style.overflow = 'hidden';
-      if (closeBtn) closeBtn.focus();
-    });
-  });
+  function openModal() {
+    modal.style.display = 'block';
+    modal.setAttribute('aria-hidden', 'false');
+    setTimeout(() => modal.classList.add('visible'), 10);
+    document.body.style.overflow = 'hidden';
+    if (closeBtn) closeBtn.focus();
+  }
 
-  // Close modal
   function closeModal() {
     modal.classList.remove('visible');
     setTimeout(() => {
@@ -790,30 +870,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 300);
   }
 
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
   if (closeBtn) {
     closeBtn.addEventListener('click', closeModal);
   }
 
-  // Close on outside click
   modal.addEventListener('click', function(e) {
     if (e.target === modal) closeModal();
   });
 
-  // Close on escape
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && modal.style.display === 'block') {
       closeModal();
     }
   });
 
-  // Copy link functionality
   if (copyBtn) {
     copyBtn.addEventListener('click', async function() {
       try {
         await navigator.clipboard.writeText(window.location.href);
         showCopyFeedback();
       } catch (err) {
-        // Fallback for older browsers
         const textArea = document.createElement('textarea');
         textArea.value = window.location.href;
         document.body.appendChild(textArea);
@@ -834,11 +917,25 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 2000);
     }
   }
+
+  // ===== SCROLL TO PROJECT FUNCTION =====
+  window.scrollToProject = function() {
+    const projectSection = document.getElementById("the-project");
+    if (projectSection) {
+      const header = document.querySelector("header");
+      const headerHeight = header ? header.offsetHeight : 0;
+      const targetPosition = projectSection.offsetTop - headerHeight - 20;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
 });
 </script>
 
 <link rel="preload" href="./fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-<link rel="preload" href="./images/kenya.webp" as="image" type="image/webp">
 
 <link rel="preload" href="./styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="./styles/main.css"></noscript>
