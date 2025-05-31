@@ -10,13 +10,42 @@
 <meta name="theme-color" content="#0b1d26">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; img-src 'self' data: https:; font-src 'self' cdnjs.cloudflare.com; connect-src 'self' https://gruppo-nairobi-api.vercel.app;">
 
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Gruppo Nairobi – Build a School, Ignite Hope">
+<meta property="og:description" content="Join us to build a school that transforms lives and empowers the next generation.">
+<meta property="og:image" content="./images/og-image.jpg">
+<meta property="og:url" content="https://grupponairobi.org/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gruppo Nairobi – Build a School, Ignite Hope">
+<meta name="twitter:description" content="Join us to build a school that transforms lives and empowers the next generation.">
+<meta name="twitter:image" content="./images/og-image.jpg">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" href="./images/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="./images/favicons/favicon.svg" />
+<link rel="shortcut icon" href="./images/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Charity" />
+<link rel="manifest" href="./images/favicons/site.webmanifest" />
+
 <!-- Preconnect & Preload resources -->
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link rel="preconnect" href="https://www.gofundme.com">
-
-<!-- CRITICAL: Preload hero image to prevent layout shift -->
+<link rel="preload" href="./fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="./images/kenya.webp" as="image" type="image/webp">
-<link rel="preload" href="./images/kenya.jpg" as="image" type="image/jpeg">
+<!-- Font Awesome async loading -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+      as="style" 
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+      crossorigin="anonymous"
+      onload="this.onload=null;this.rel='stylesheet'"
+      onerror="this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+        crossorigin="anonymous">
+</noscript>
 
 <!-- Critical CSS for first paint -->
 <style>
@@ -51,25 +80,6 @@
   --space-lg: 1.5rem;
   --space-xl: 2rem;
   --space-2xl: 3rem;
-  --space-3xl: 4rem;
-  --space-4xl: 6rem;
-  
-  /* Text Sizes */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  
-  /* Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
-  --radius-full: 9999px;
   
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -80,39 +90,15 @@
   --shadow-sm: 0 1px 2px 0 rgba(11, 29, 38, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(11, 29, 38, 0.1), 0 2px 4px -1px rgba(11, 29, 38, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(11, 29, 38, 0.1), 0 4px 6px -2px rgba(11, 29, 38, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(11, 29, 38, 0.1), 0 10px 10px -5px rgba(11, 29, 38, 0.04);
-  
-  /* Modal Variables */
-  --lightbox-bg: rgba(0, 0, 0, 0.9);
-  --lightbox-text: #ffffff;
-  --lightbox-control-bg: rgba(0, 0, 0, 0.7);
-  --lightbox-control-hover: rgba(0, 0, 0, 0.85);
-  --lightbox-transition: 0.3s ease;
 }
 
-/* Base Styles */
-* {
-  box-sizing: border-box;
-}
-
-/* PREVENT LAYOUT SHIFT - BODY SETUP */
 body {
   margin: 0;
   padding: 0;
-  font-family: "Geist", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Geist", system-ui, sans-serif;
   line-height: 1.6;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-size: 16px;
-  overflow-x: hidden;
-}
-
-/* Container Styles */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-lg);
 }
 
 .container-wide {
@@ -122,1045 +108,73 @@ body {
   padding: 0 var(--space-lg);
 }
 
-/* ===== HEADER - IMMEDIATE POSITIONING TO PREVENT LAYOUT SHIFT ===== */
 header {
   position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   width: 100%;
-  background-color: rgba(255, 249, 224, 0.95);
+  background-color: transparent;
   padding: var(--space-xl) 0;
   z-index: 1000;
   transition: all var(--transition-normal);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid transparent;
-  height: 88px;
-  display: flex;
-  align-items: center;
-  /* CRITICAL: Force immediate positioning */
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
 }
 
 header.scrolled {
   background-color: var(--bg-secondary);
   box-shadow: var(--shadow-md);
   padding: var(--space-lg) 0;
-  border-bottom-color: rgba(11, 29, 38, 0.1);
-  height: 78px;
 }
 
-header .container {
+.hero-card {
+  min-height: 80vh;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 40px;
-  width: 100%;
-}
-
-/* Logo Styles */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-}
-
-.logo img {
-  height: 40px;
-  width: auto;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.logo-text span:first-child {
-  font-size: 0.75rem;
-  font-weight: 400;
-  color: var(--text-secondary);
-  letter-spacing: 0.05em;
-}
-
-.logo-text .brand {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--brand-primary);
-  letter-spacing: 0.02em;
-}
-
-/* Navigation Styles */
-nav ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: var(--space-xl);
-  align-items: center;
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--text-primary);
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: color var(--transition-fast);
-  padding: var(--space-sm) 0;
-}
-
-nav a:hover {
-  color: var(--brand-secondary);
-}
-
-/* Language Switcher */
-.language-switcher {
+  color: var(--text-inverse);
   position: relative;
+  border-radius: 1.5rem;
+  padding: 12rem 0 12rem 8rem;
+  background: linear-gradient(
+    135deg,
+    var(--brand-secondary) 0%,
+    rgba(254, 185, 22, 0.8) 30%,
+    rgba(254, 185, 22, 0.4) 60%,
+    transparent 90%
+  );
 }
-
-.language-select {
-  background: var(--bg-secondary);
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  padding: var(--space-sm) var(--space-md);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: all var(--transition-fast);
+.hero h1 {
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
 }
-
-.language-select:hover {
-  border-color: var(--brand-secondary);
-}
-
-/* Mobile Menu Button */
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.25rem;
-  color: var(--text-primary);
-  cursor: pointer;
-  padding: var(--space-sm);
-  border-radius: 6px;
-  transition: background-color var(--transition-fast);
-}
-
-.mobile-menu-btn:hover {
-  background-color: var(--bg-tertiary);
-}
-
-/* Skip Link */
 .skip-link {
-  position: fixed;
+  position: absolute;
   top: -40px;
   left: 6px;
   background: #000;
   color: #fff;
   padding: 8px 16px;
   text-decoration: none;
-  z-index: 10001;
+  z-index: 10000;
   border-radius: 4px;
   font-weight: 600;
-  transition: top 0.2s ease;
 }
-
 .skip-link:focus {
   top: 6px;
 }
-
-/* ===== HERO SECTION - PRECISE SPACING ===== */
-.hero {
-  padding: 0;
-  min-height: 70vh;
-  position: relative;
-  /* Precise padding to account for header */
-  padding-top: 88px;
-}
-
-.hero-card {
-  min-height: 85vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: var(--text-inverse);
-  align-items: flex-start;
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-2xl);
-  padding: 12rem 0 12rem 8rem;
-  margin-top: 0;
-  /* PREVENT LAYOUT SHIFT - Set background immediately */
-  background-color: var(--brand-secondary);
-  background-image: linear-gradient(
-    135deg,
-    var(--brand-secondary) 0%,
-    rgba(254, 185, 22, 0.8) 30%,
-    rgba(254, 185, 22, 0.4) 60%,
-    transparent 90%
-  ), url("./images/kenya.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-/* WebP support with fallback */
-@supports (background-image: url("./images/kenya.webp")) {
-  .hero-card {
-    background-image: linear-gradient(
-        135deg,
-        var(--brand-secondary) 0%,
-        rgba(254, 185, 22, 0.8) 30%,
-        rgba(254, 185, 22, 0.4) 60%,
-        transparent 90%
-      ), url("./images/kenya.webp");
-  }
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: left;
-  max-width: 60%;
-  display: flex;
-  flex-direction: column;
-}
-
-.hero h1 {
-  color: var(--text-inverse);
-  margin-bottom: var(--space-lg);
-  font-size: clamp(3.5rem, 8vw, 5.5rem);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  font-weight: 800;
-}
-
-.hero-content p {
-  font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
-  line-height: 1.5;
-  margin-bottom: var(--space-2xl);
-  max-width: 90%;
-  font-weight: 400;
-  color: var(--text-inverse);
-}
-
-/* Hero Buttons */
-.hero-buttons {
-  display: flex;
-  gap: var(--space-lg);
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-md) var(--space-xl);
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all var(--transition-fast);
-  border: 2px solid transparent;
-  cursor: pointer;
-  text-align: center;
-}
-
-.btn-primary {
-  background-color: var(--brand-primary);
-  color: var(--text-inverse);
-}
-
-.btn-primary:hover {
-  background-color: var(--interactive-hover);
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background-color: transparent;
-  color: var(--text-inverse);
-  border-color: var(--text-inverse);
-}
-
-.btn-secondary:hover {
-  background-color: var(--text-inverse);
-  color: var(--brand-primary);
-}
-
-/* Hero Feature Box */
-.hero-feature {
-  position: absolute;
-  bottom: var(--space-xl);
-  left: var(--space-xl);
-  background: rgba(11, 29, 38, 0.8);
-  padding: var(--space-lg);
-  border-radius: var(--radius-xl);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  z-index: 2;
-  transition: all var(--transition-normal);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  min-width: 280px;
-}
-
-.hero-feature:hover {
-  background: rgba(11, 29, 38, 0.9);
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-}
-
-.feature-box {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.progress-ring {
-  position: relative;
-  width: 64px;
-  height: 64px;
-  margin-right: var(--space-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.progress-ring__svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 64px;
-  height: 64px;
-}
-
-.progress-ring__circle--bg {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.2);
-  stroke-width: 4;
-  cx: 32;
-  cy: 32;
-  r: 28;
-}
-
-.progress-ring__circle {
-  fill: none;
-  stroke: var(--brand-accent);
-  stroke-width: 4;
-  stroke-linecap: round;
-  stroke-dasharray: 176;
-  stroke-dashoffset: 74;
-  transform-origin: 32px 32px;
-  cx: 32;
-  cy: 32;
-  r: 28;
-}
-
-.progress-ring__icon-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-
-.progress-ring__icon {
-  color: var(--brand-accent);
-  font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.feature-text {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.feature-text h2 {
-  margin: 0;
-  font-size: var(--text-lg);
-  font-weight: 700;
-  color: white;
-  margin-bottom: 0.25rem;
-}
-
-.feature-text .goal-text {
-  font-size: var(--text-sm);
-  color: var(--brand-accent);
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-
-.feature-text .next-goal {
-  font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.7);
-  font-style: italic;
-}
-
-/* ===== SIMPLE LIGHTBOX STYLES ===== */
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  backdrop-filter: blur(4px);
-}
-
-.lightbox.active {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox-content {
-  position: relative;
-  max-width: 90%;
-  max-height: 90%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease;
-}
-
-.lightbox-close:hover {
-  background: rgba(0, 0, 0, 0.9);
-}
-
-/* Hero responsive styles */
-@media (max-width: 1024px) {
-  header {
-    height: 84px;
-  }
-  
-  header.scrolled {
-    height: 74px;
-  }
-  
-  .hero {
-    padding-top: 84px;
-  }
-
-  .hero-card {
-    padding: 8rem 0 8rem 4rem;
-    min-height: 80vh;
-  }
-
-  .hero-content {
-    max-width: 70%;
-  }
-
-  .hero h1 {
-    font-size: clamp(3rem, 7vw, 4.5rem);
-  }
-}
-
-@media (max-width: 768px) {
-  header {
-    height: 90px;
-    padding: var(--space-lg) 0;
-  }
-  
-  header.scrolled {
-    height: 80px;
-    padding: var(--space-md) 0;
-  }
-  
-  .hero {
-    padding-top: 90px;
-  }
-
-  .hero-card {
-    padding: 6rem 2rem;
-    align-items: center;
-    text-align: center;
-    margin-top: 0;
-    min-height: 75vh;
-  }
-
-  .hero-content {
-    max-width: 100%;
-    text-align: center;
-    align-items: center;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.5rem, 10vw, 4rem);
-    text-align: center;
-  }
-
-  .hero-content p {
-    text-align: center;
-    max-width: 100%;
-  }
-
-  .hero-feature {
-    position: absolute;
-    bottom: var(--space-lg);
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    width: calc(100% - 2rem);
-    max-width: 380px;
-    min-width: 320px;
-    padding: var(--space-lg);
-  }
-
-  .hero-feature:hover {
-    transform: translateX(-50%) translateY(-3px);
-  }
-
-  nav ul {
-    display: none;
-  }
-  
-  .mobile-menu-btn {
-    display: block;
-  }
-  
-  .hero-buttons {
-    justify-content: center;
-  }
-  
-  .container, .container-wide {
-    padding: 0 var(--space-md);
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    height: 80px;
-    padding: var(--space-md) 0;
-  }
-  
-  header.scrolled {
-    height: 70px;
-    padding: var(--space-sm) 0;
-  }
-  
-  .hero {
-    padding-top: 80px;
-  }
-
-  .hero-card {
-    padding: 5rem 1.5rem;
-    min-height: 70vh;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.2rem, 9vw, 3rem);
-  }
-
-  .hero-feature {
-    bottom: var(--space-md);
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    width: calc(100% - 1.5rem);
-    max-width: 350px;
-    min-width: 300px;
-    padding: var(--space-md) var(--space-lg);
-  }
-
-  .hero-feature:hover {
-    transform: translateX(-50%) translateY(-3px);
-  }
-}
-
-/* Screen Reader Only */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* ===== SHARE MODAL STYLES ===== */
-.share-modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0);
-  transition: background-color var(--transition-normal);
-  backdrop-filter: blur(0);
-  transition: backdrop-filter var(--transition-normal), background-color var(--transition-normal);
-}
-
-.share-modal.visible {
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
-}
-
-.share-modal-content {
-  position: relative;
-  background-color: #1e1e1e;
-  margin: 10% auto;
-  padding: var(--space-3xl);
-  border-radius: var(--radius-xl);
-  max-width: 500px;
-  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(255, 255, 255, 0.1);
-  color: white;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(20px) scale(0.98);
-  transition: opacity var(--transition-normal), transform var(--transition-normal);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.share-modal.visible .share-modal-content {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.share-close {
-  position: absolute;
-  top: var(--space-md);
-  right: var(--space-md);
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--text-xl);
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.7);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  border: none;
-}
-
-.share-close:hover,
-.share-close:focus {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: scale(1.05);
-}
-
-.share-modal h3 {
-  font-size: var(--text-xl);
-  margin-bottom: var(--space-xl);
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.share-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  margin-top: var(--space-xl);
-}
-
-.share-buttons .btn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
-  padding: var(--space-md) var(--space-lg);
-  border-radius: var(--radius-xl);
-  font-weight: 500;
-  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow
-    var(--transition-fast);
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-}
-
-.share-buttons .btn i {
-  font-size: var(--text-xl);
-}
-
-.share-buttons .btn:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Social media specific colors */
-#share-facebook {
-  border-left: 4px solid #1877f2;
-}
-
-#share-twitter {
-  border-left: 4px solid #1da1f2;
-}
-
-#share-linkedin {
-  border-left: 4px solid #0a66c2;
-}
-
-#share-whatsapp {
-  border-left: 4px solid #25d366;
-}
-
-#copy-link {
-  border-left: 4px solid var(--brand-secondary);
-}
 </style>
 
-<!-- Critical functionality script -->
+<!-- Immediate scroll check for header -->
 <script>
-// ===== IMMEDIATE LAYOUT SHIFT PREVENTION =====
 if (window.scrollY > 10) {
   document.documentElement.classList.add('scrolled-page');
-}
-
-// ===== SIMPLE LIGHTBOX FUNCTIONALITY =====
-function initLightbox() {
-  // Create lightbox HTML
-  const lightboxHTML = `
-    <div id="lightbox" class="lightbox">
-      <div class="lightbox-content">
-        <img id="lightbox-img" src="/placeholder.svg" alt="">
-        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-      </div>
-    </div>
-  `;
-  
-  // Add lightbox to body
-  document.body.insertAdjacentHTML('beforeend', lightboxHTML);
-  
-  // Add click handlers to all lightbox triggers
-  document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
-    trigger.addEventListener('click', function(e) {
-      e.preventDefault();
-      const imgSrc = this.href || this.querySelector('img').src;
-      openLightbox(imgSrc);
-    });
-  });
-  
-  // Close on escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      closeLightbox();
-    }
-  });
-  
-  // Close on background click
-  document.getElementById('lightbox').addEventListener('click', function(e) {
-    if (e.target === this) {
-      closeLightbox();
-    }
+  document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    if (header) header.classList.add('scrolled');
   });
 }
-
-function openLightbox(imgSrc) {
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  lightboxImg.src = imgSrc;
-  lightbox.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-  const lightbox = document.getElementById('lightbox');
-  lightbox.classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-// ===== DOM READY FUNCTIONALITY =====
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize lightbox
-  initLightbox();
-  
-  // Header scroll behavior
-  const header = document.querySelector('header');
-  if (header) {
-    if (window.scrollY > 10) {
-      header.classList.add('scrolled');
-    }
-    
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    }, { passive: true });
-  }
-  
-  // Mobile menu
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const nav = document.querySelector('nav');
-  
-  if (menuBtn && nav) {
-    menuBtn.addEventListener('click', function() {
-      nav.classList.toggle('active');
-      const isOpen = nav.classList.contains('active');
-      menuBtn.setAttribute('aria-expanded', isOpen);
-      menuBtn.innerHTML = isOpen ? 
-        '<i class="fas fa-times" aria-hidden="true"></i>' : 
-        '<i class="fas fa-bars" aria-hidden="true"></i>';
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-  }
-  
-  // Share modal functionality
-  const modal = document.getElementById('share-modal');
-  const triggers = document.querySelectorAll('[data-key="hero_read"], [data-key="cta_share"]');
-  const closeBtn = document.querySelector('.share-close');
-  const copyBtn = document.getElementById('copy-link');
-
-  if (modal) {
-    function openModal() {
-      modal.style.display = 'block';
-      modal.setAttribute('aria-hidden', 'false');
-      setTimeout(() => modal.classList.add('visible'), 10);
-      document.body.style.overflow = 'hidden';
-      if (closeBtn) closeBtn.focus();
-    }
-
-    function closeModal() {
-      modal.classList.remove('visible');
-      setTimeout(() => {
-        modal.style.display = 'none';
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      }, 300);
-    }
-
-    triggers.forEach(trigger => {
-      trigger.addEventListener('click', function(e) {
-        e.preventDefault();
-        openModal();
-      });
-    });
-
-    if (closeBtn) {
-      closeBtn.addEventListener('click', closeModal);
-    }
-
-    modal.addEventListener('click', function(e) {
-      if (e.target === modal) closeModal();
-    });
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && modal.style.display === 'block') {
-        closeModal();
-      }
-    });
-
-    if (copyBtn) {
-      copyBtn.addEventListener('click', async function() {
-        try {
-          await navigator.clipboard.writeText(window.location.href);
-          showCopyFeedback();
-        } catch (err) {
-          const textArea = document.createElement('textarea');
-          textArea.value = window.location.href;
-          document.body.appendChild(textArea);
-          textArea.select();
-          document.execCommand('copy');
-          document.body.removeChild(textArea);
-          showCopyFeedback();
-        }
-      });
-
-      function showCopyFeedback() {
-        const originalText = copyBtn.innerHTML;
-        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-        copyBtn.style.background = '#10b981';
-        setTimeout(() => {
-          copyBtn.innerHTML = originalText;
-          copyBtn.style.background = '';
-        }, 2000);
-      }
-    }
-  }
-  
-  // Scroll to project function
-  window.scrollToProject = function() {
-    const projectSection = document.getElementById("the-project");
-    if (projectSection) {
-      const header = document.querySelector("header");
-      const headerHeight = header ? header.offsetHeight : 0;
-      const targetPosition = projectSection.offsetTop - headerHeight - 20;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-  
-  // Language management
-  class LanguageManager {
-    constructor() {
-      this.currentLanguage = "en";
-      this.translations = window.translations || {};
-      this.selectors = document.querySelectorAll(".language-select");
-      this.init();
-    }
-
-    init() {
-      const savedLanguage = localStorage.getItem("selectedLanguage");
-      const browserLanguage = navigator.language.slice(0, 2);
-
-      if (savedLanguage && this.translations[savedLanguage]) {
-        this.currentLanguage = savedLanguage;
-      } else if (this.translations[browserLanguage]) {
-        this.currentLanguage = browserLanguage;
-      }
-
-      this.selectors.forEach((selector) => {
-        selector.value = this.currentLanguage;
-        selector.addEventListener("change", (e) => this.changeLanguage(e.target.value));
-      });
-
-      this.applyTranslations();
-    }
-
-    changeLanguage(language) {
-      if (!this.translations[language]) {
-        console.warn(`Language ${language} not available`);
-        return;
-      }
-
-      this.currentLanguage = language;
-      localStorage.setItem("selectedLanguage", language);
-
-      this.selectors.forEach((selector) => {
-        selector.value = language;
-      });
-
-      this.applyTranslations();
-
-      document.dispatchEvent(
-        new CustomEvent("languageChanged", {
-          detail: { language: language },
-        })
-      );
-    }
-
-    applyTranslations() {
-      const elements = document.querySelectorAll("[data-key]");
-
-      elements.forEach((element) => {
-        const key = element.getAttribute("data-key");
-        const translation = this.getTranslation(key);
-
-        if (translation) {
-          if (element.tagName === "INPUT" && element.type === "submit") {
-            element.value = translation;
-          } else if (element.tagName === "INPUT" && element.placeholder !== undefined) {
-            element.placeholder = translation;
-          } else {
-            element.textContent = translation;
-          }
-        }
-      });
-    }
-
-    getTranslation(key) {
-      const languageData = this.translations[this.currentLanguage];
-      return languageData ? languageData[key] : null;
-    }
-  }
-
-  // Initialize language manager when translations are loaded
-  if (window.translations) {
-    window.languageManager = new LanguageManager();
-  } else {
-    // Wait for translations to load
-    const checkTranslations = setInterval(() => {
-      if (window.translations) {
-        window.languageManager = new LanguageManager();
-        clearInterval(checkTranslations);
-      }
-    }, 100);
-  }
-});
 </script>
 
-<link rel="preload" href="./fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-
-<link rel="preload" href="./styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="./styles/main.css"></noscript>
-
-<!-- Font Awesome async loading -->
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-      as="style" 
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-      crossorigin="anonymous"
-      onload="this.onload=null;this.rel='stylesheet'"
-      onerror="this.rel='stylesheet'">
-<noscript>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-        crossorigin="anonymous">
-</noscript>
+<link rel="stylesheet" href="./styles/main.css">
 
 <script src="./translations/translations.js" defer></script>
-
-<!-- Favicons -->
-<link rel="icon" type="image/png" href="./images/favicons/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="./images/favicons/favicon.svg" />
-<link rel="shortcut icon" href="./images/favicons/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="Charity" />
-<link rel="manifest" href="./images/favicons/site.webmanifest" />
-
-<!-- Open Graph / Social Meta Tags -->
-<meta property="og:title" content="Gruppo Nairobi – Build a School, Ignite Hope">
-<meta property="og:description" content="Join us to build a school in Kenya that transforms lives and empowers a new generation.">
-<meta property="og:image" content="./images/og-image.jpg">
-<meta property="og:url" content="https://grupponairobi.org/">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Gruppo Nairobi – Build a School, Ignite Hope">
-<meta name="twitter:description" content="Join us to build a school in Kenya that transforms lives and empowers the next generation.">
-<meta name="twitter:image" content="./images/og-image.jpg">
 
 <script type="application/ld+json">
 {
@@ -1651,16 +665,16 @@ document.addEventListener('DOMContentLoaded', function() {
   <button class="share-close" aria-label="Close modal" type="button">&times;</button>
   <h3 id="share-title">Share this project</h3>
   <div class="share-buttons">
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="share-facebook">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
       <i class="fab fa-facebook-f"></i> Share on Facebook
     </a>
-    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgrupponairobi.org%2F&text=Every%20child%20deserves%20a%20future.%20Help%20us%20build%20a%20school%20in%20Kenya%20with%20Gruppo%20Nairobi.%20%F0%9F%8F%AB%E2%9C%A8" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="share-twitter">
+    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgrupponairobi.org%2F&text=Every%20child%20deserves%20a%20future.%20Help%20us%20build%20a%20school%20in%20Kenya%20with%20Gruppo%20Nairobi.%20%F0%9F%8F%AB%E2%9C%A8" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
       <i class="fab fa-twitter"></i> Share on Twitter
     </a>
-    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="share-linkedin">
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
       <i class="fab fa-linkedin-in"></i> Share on LinkedIn
     </a>
-    <a href="https://wa.me/?text=Every%20child%20deserves%20a%20future.%20Help%20us%20build%20a%20school%20in%20Kenya%20with%20Gruppo%20Nairobi:%20https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="share-whatsapp">
+    <a href="https://wa.me/?text=Every%20child%20deserves%20a%20future.%20Help%20us%20build%20a%20school%20in%20Kenya%20with%20Gruppo%20Nairobi:%20https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
       <i class="fab fa-whatsapp"></i> Share on WhatsApp
     </a>
     <button class="btn btn-secondary" id="copy-link">
@@ -1669,6 +683,14 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </div>
 </div>
+
+<script src="./scripts/config.js" defer></script>
+
+<script src="./scripts/core.js" defer></script>
+
+<script src="./scripts/ui-components.js" defer></script>
+
+<script src="./scripts/twitch-client.js" defer></script>
 
 </body>
 </html>
