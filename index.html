@@ -636,23 +636,6 @@ if (window.scrollY > 10) {
 </div>
 </div>
 
-<script>
-function sanitizeInput(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  const inputs = document.querySelectorAll('input[type="text"], textarea');
-  inputs.forEach(input => {
-    input.addEventListener('blur', function() {
-      this.value = sanitizeInput(this.value);
-    });
-  });
-});
-</script>
-
 <script src="./scripts/config.js"></script>
 
 <script src="./scripts/core.js" defer></script>
