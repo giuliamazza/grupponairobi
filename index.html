@@ -59,13 +59,27 @@
   --shadow-lg: 0 10px 15px -3px rgba(11, 29, 38, 0.1), 0 4px 6px -2px rgba(11, 29, 38, 0.05);
 }
 
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Geist", system-ui, sans-serif;
+  font-family: "Geist", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  font-size: 16px;
+}
+
+/* Container Styles */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
 }
 
 .container-wide {
@@ -75,6 +89,7 @@ body {
   padding: 0 var(--space-lg);
 }
 
+/* Header Styles */
 header {
   position: sticky;
   top: 0;
@@ -91,26 +106,244 @@ header.scrolled {
   padding: var(--space-lg) 0;
 }
 
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-text span:first-child {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.logo-text .brand {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  letter-spacing: 0.02em;
+}
+
+/* Navigation Styles */
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color var(--transition-fast);
+  padding: var(--space-sm) 0;
+}
+
+nav a:hover {
+  color: var(--brand-secondary);
+}
+
+/* Language Switcher */
+.language-switcher {
+  position: relative;
+}
+
+.language-select {
+  background: var(--bg-secondary);
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.language-select:hover {
+  border-color: var(--brand-secondary);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: var(--space-sm);
+  border-radius: 6px;
+  transition: background-color var(--transition-fast);
+}
+
+.mobile-menu-btn:hover {
+  background-color: var(--bg-tertiary);
+}
+
+/* Hero Section */
+.hero {
+  padding: var(--space-2xl) 0;
+}
+
 .hero-card {
   min-height: 80vh;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: var(--text-inverse);
   position: relative;
   border-radius: 1.5rem;
-  padding: 12rem 0 12rem 8rem;
+  padding: 4rem 6rem;
   background: linear-gradient(
     135deg,
     var(--brand-secondary) 0%,
     rgba(254, 185, 22, 0.8) 30%,
     rgba(254, 185, 22, 0.4) 60%,
     transparent 90%
-  );
+  ),
+  url('./images/kenya.webp') center/cover;
+  background-blend-mode: overlay;
 }
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
 .hero h1 {
   font-size: clamp(3.5rem, 8vw, 5.5rem);
   font-weight: 800;
   line-height: 1;
+  margin: 0 0 var(--space-lg) 0;
 }
+
+.hero p {
+  font-size: 1.25rem;
+  margin: 0 0 var(--space-2xl) 0;
+  opacity: 0.95;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+  display: flex;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--brand-primary);
+  color: var(--text-inverse);
+}
+
+.btn-primary:hover {
+  background-color: var(--interactive-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-inverse);
+  border-color: var(--text-inverse);
+}
+
+.btn-secondary:hover {
+  background-color: var(--text-inverse);
+  color: var(--brand-primary);
+}
+
+/* Hero Feature Box */
+.hero-feature {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: var(--space-xl);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-feature:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.feature-box {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.progress-ring {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.progress-ring__icon-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.progress-ring__icon {
+  font-size: 1.5rem;
+  color: var(--brand-accent);
+}
+
+.feature-text h2 {
+  margin: 0 0 var(--space-sm) 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.goal-text, .next-goal {
+  font-size: 0.875rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Skip Link */
 .skip-link {
   position: absolute;
   top: -40px;
@@ -123,8 +356,54 @@ header.scrolled {
   border-radius: 4px;
   font-weight: 600;
 }
+
 .skip-link:focus {
   top: 6px;
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .hero-card {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-2xl) var(--space-lg);
+    gap: var(--space-2xl);
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .feature-box {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-md);
+  }
+  
+  .container, .container-wide {
+    padding: 0 var(--space-md);
+  }
 }
 </style>
 
