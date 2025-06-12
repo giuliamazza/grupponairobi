@@ -1,4 +1,8 @@
 /* ===== OUR WHY SECTION LAYOUT - FIXED ===== */
+#our-why {
+  background: linear-gradient(to bottom, #fff9e0 0%, #ffffff 100%);
+}
+
 #our-why .container {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
