@@ -23,7 +23,7 @@
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-2xl);
-  padding: 12rem 0 12rem 8rem;
+  padding: 12rem 0 12rem 12rem;
   margin-top: 0;
 }
 
