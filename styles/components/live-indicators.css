@@ -243,6 +243,9 @@
   animation: live-info-subtle-glow 6s infinite ease-in-out;
   position: relative;
   overflow: hidden;
+  max-width: 280px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .live-info::before {
