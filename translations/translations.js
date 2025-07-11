@@ -118,28 +118,28 @@ window.translations = {
 
   it: {
     // Navigation
-    nav_why: "Il Nostro Perché",
+    nav_why: "Perché lo facciamo",
     nav_project: "Il Progetto",
     nav_who: "Chi Siamo",
-    nav_donate: "Dona",
+    nav_donate: "DONA ORA",
     nav_involved: "Partecipa",
     nav_support: "Sostienici",
 
     // Hero
     hero_title: "Accendi la Speranza",
-    hero_text: "Unisciti a noi per costruire una scuola che cambia vite e dà forza a una nuova generazione.",
+    hero_text: "Unisciti a noi per costruire una scuola che cambia vite: dai forza a una nuova generazione.",
     hero_donate: "Voglio aiutare!",
     hero_read: "Condividi sui Social",
     hero_build: "Costruisci una Scuola",
-    hero_current_goal: "Attuale: Fondamenta",
-    hero_next_goal: "Prossimo: Struttura in Cemento",
+    hero_current_goal: "Obiettivo attuale: le fondamenta della scuola",
+    hero_next_goal: "Prossimo obiettivo: struttura in cemento",
 
     // Our Why
-    why_title: "Il Nostro Perché: L'Istruzione è la Chiave dello Sviluppo",
+    why_title: "L'Istruzione è la Chiave dello Sviluppo.",
     why_p1:
-      "In Kenya, migliaia di bambini sono esclusi dall'istruzione pubblica semplicemente per difficoltà economiche.",
+      "In Kenya, a causa di difficoltà economiche, migliaia di bambini sono esclusi dall'istruzione pubblica.",
     why_p2:
-      "Ispirati da Suor Hitha, una cara collaboratrice che ci ha aiutato a costruire una scuola in Kerala, India, lanciamo una nuova missione: realizzare una scuola primaria di sei aule nella Parrocchia di Ngunga, Distretto di Machakos, vicino al confine con la Tanzania — una zona profondamente colpita dalla povertà e dalla mancanza di infrastrutture.",
+      "Suor Hitha, una nostra cara collaboratrice che ci ha aiutato a costruire una scuola in Kerala (India), ci ha isprirato. Realizziamo insieme una nuova scuola primaria nella Parrocchia di Ngunga, Distretto di Machakos composta da sei aule , vicino al confine con la Tanzania — una zona profondamente colpita dalla povertà e dalla mancanza di infrastrutture.",
     why_p3:
       "L'istruzione apre le porte all'opportunità. Aiuta i bambini a uscire dalla povertà, rafforza le comunità locali e riduce la necessità di migrazione rischiosa.",
     why_p4: "Tu puoi essere il cambiamento.",
