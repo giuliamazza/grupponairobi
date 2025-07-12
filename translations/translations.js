@@ -139,20 +139,20 @@ window.translations = {
     why_p1:
       "In Kenya, a causa di difficoltà economiche, migliaia di bambini sono esclusi dall'istruzione pubblica.",
     why_p2:
-      "Suor Hitha, una nostra cara collaboratrice che ci ha aiutato a costruire una scuola in Kerala (India), ci ha isprirato. Realizziamo insieme una nuova scuola primaria nella Parrocchia di Ngunga, Distretto di Machakos composta da sei aule , vicino al confine con la Tanzania — una zona profondamente colpita dalla povertà e dalla mancanza di infrastrutture.",
+      "Suor Hitha, una nostra cara collaboratrice che ci ha aiutato a costruire una scuola in Kerala (India), ci ha ispirato. Realizziamo insieme una nuova scuola primaria nella Parrocchia di Ngunga, Distretto di Machakos, composta da sei aule, vicino al confine con la Tanzania — una zona profondamente colpita dalla povertà e dalla mancanza di infrastrutture.",
     why_p3:
-      "L'istruzione apre le porte all'opportunità. Aiuta i bambini a uscire dalla povertà, rafforza le comunità locali e riduce la necessità di migrazione rischiosa.",
-    why_p4: "Tu puoi essere il cambiamento.",
-    why_donate: "Dona per Costruire la Scuola!",
+      "L'istruzione apre le porte alle opportunità. Aiutiamo i bambini a uscire dalla povertà, rafforziamo le comunità locali e riduciamo la migrazione rischiosa.",
+    why_p4: "Tu puoi far parte del cambiamento. Tu puoi essere il cambiamento.",
+    why_donate: "Dona ORA per costruire la scuola di domani.",
 
     // Project
-    project_title: "Il Progetto: 6 Aule. Possibilità Infinite.",
+    project_title: "6 Aule, possibilità infinite: il progetto ",
     project_text:
       "Stiamo creando una scuola vivace per bambini che altrimenti resterebbero esclusi. Il terreno è pronto — donato generosamente dalle suore locali. Ora abbiamo bisogno del tuo aiuto per costruirla.",
     project_render_caption:
-      "Una casa per la speranza: sei aule luminose e accoglienti pensate per ispirare creatività e comunità.",
+      "Sei aule luminose e accoglienti pensate per ispirare creatività e comunità: una casa per la speranza.",
     project_plan_caption:
-      "Costruita con cura: ogni spazio progettato per garantire sicurezza, appartenenza e immaginazione.",
+      "Ogni spazio progettato per garantire sicurezza, appartenenza e immaginazione: costruita con cura.",
 
     // Timeline
     timeline_well: "Costruzione Pozzo",
@@ -166,7 +166,7 @@ window.translations = {
     timeline_walls: "Riempimenti",
     timeline_walls_desc: "Costruzione di pareti e lavori interni",
     timeline_floor: "Pavimenti e Rivestimenti",
-    timeline_floor_desc: "Pavimentazioni sicure e durevoli",
+    timeline_floor_desc: "Pavimenti sicuri e durevoli",
     timeline_electric: "Impianto Elettrico",
     timeline_electric_desc: "Illuminazione, prese e sistema elettrico",
     timeline_water: "Impianto Idrico",
@@ -177,7 +177,7 @@ window.translations = {
     // Who We Are
     who_title: "Chi Siamo: Gruppo Nairobi",
     who_text:
-      "Siamo Gruppo Nairobi, una realtà no-profit guidata dalla convinzione che l'istruzione apra davvero la via allo sviluppo. Un piccolo team appassionato che lavora fianco a fianco con le comunità locali per trasformare i sogni in realtà.",
+      "Siamo Gruppo Nairobi, una realtà no-profit. L'istruzione apre davvero la via allo sviluppo: questo è quello che crediamo. Il nostro piccolo team trasforma i sogni in realtà: ognuno lavora fianco a fianco per e con le comunità locali.",
     role_president: "Presidente",
     role_vp: "Vicepresidente",
     role_admin: "Amministratore",
@@ -187,13 +187,13 @@ window.translations = {
     value_funding_text:
       "Ogni centesimo va direttamente al progetto scolastico, gestito in modo sicuro tramite GoFundMe.",
     value_global: "Movimento Globale",
-    value_global_text: "Unisciti a una famiglia in crescita di changemakers da tutto il mondo.",
+    value_global_text: " Unisciti alla nostra grande famiglia, in crescita, da tutto il mondo di changemakers.",
 
     // CTA
     cta_title: "Insieme Siamo Più Forti",
     cta_p1:
-      "Ogni donazione ci avvicina all'apertura della scuola ai primi studenti. Leggi i messaggi di incoraggiamento e generosità dei nostri donatori.",
-    cta_donate: "Dona Ora e Fai Parte",
+      "Ogni donazione ci avvicina all'apertura della scuola ai primi studenti.",
+    cta_donate: "Dona Ora. Unisciti al cambiamento.",
     cta_share: "Condividi sui Social",
     cta_contact: "Contattaci",
 
@@ -211,7 +211,7 @@ window.translations = {
 
     // Partnership CTA
     become_streamer_title: "Vuoi diventare uno streamer partner?",
-    become_streamer_text: "Unisciti alla nostra comunità e aiutaci a raccogliere fondi facendo quello che ami!",
+    become_streamer_text: "Unisciti alla nostra comunità e aiutaci a raccogliere fondi facendo quello che davvero ami!",
     contact_partnership: "Contattaci per Partnership",
 
     // Support Project
