@@ -1,40 +1,40 @@
 window.translations = {
   en: {
     // Navigation
-    nav_why: "Our Why",
+    nav_why: "Why We Do It",
     nav_project: "The Project",
     nav_who: "Who We Are",
     nav_donate: "Donate",
     nav_involved: "Get Involved",
-    nav_support: "Support",
+    nav_support: "Support Us",
 
     // Hero
     hero_title: "Ignite Hope",
-    hero_text: "Join us to build a school that changes lives and empowers a new generation.",
+    hero_text: "Join us to build a school that changes lives: empower a new generation.",
     hero_donate: "I wanna help!",
     hero_read: "Share on Social Media",
     hero_build: "Build a School",
-    hero_current_goal: "Current: Foundations",
-    hero_next_goal: "Next: Concrete Structure",
+    hero_current_goal: "Current Goal: the Foundations of the School",
+    hero_next_goal: "Next Goal: Concrete Structure",
 
     // Our Why
-    why_title: "Our Why: Education is the Key to Development",
+    why_title: "Education is the Key to Development",
     why_p1:
-      "In Kenya, thousands of children are denied an education simply because their families cannot afford school fees.",
+      "In Kenya, due to economic difficulties, thousands of children are excluded from public education.",
     why_p2:
-      "Inspired by Sister Hitha, a close partner who helped us build a school in Kerala, India, we are launching a new mission: to create a six-classroom primary school in Ngunga Parish, Machakos District, near the Tanzanian border — a region deeply impacted by poverty and lack of infrastructure.",
+      "Sister Hitha, our dear close partner who helped us build a school in Kerala (India), has inspired us. Together, let’s build a new primary school in the Parish of Ngunga, Machakos District, consisting of six classrooms, near the Tanzanian border — a region deeply impacted by poverty and lack of infrastructure.",
     why_p3:
-      "Education opens the door to opportunity. It lifts children out of poverty, strengthens local communities, and reduces the need for risky migration.",
-    why_p4: "You can be that change.",
-    why_donate: "Donate to Build the School!",
+      "Education opens the door to opportunity. Let’s help children break free from poverty, strengthen local communities, and reduce risky migration.",
+    why_p4: "You can be part of the change. You can be the change.",
+    why_donate: "Donate NOW to Build the School of Tomorrow.",
 
     // Project
-    project_title: "The Project: 6 Classrooms. Infinite Possibilities.",
+    project_title: "6 Classrooms. Infinite Possibilities.",
     project_text:
-      "We're creating a vibrant school for children who would otherwise be left behind. The land is ready — a gift from the local nuns. Now, we need your help to build it.",
+      "We're creating a vibrant school for children who would otherwise be left behind. The land is ready — generously donated by the local nuns. Now, we need your help to build it.",
     project_render_caption:
-      "A home for hope: Six bright, welcoming classrooms designed to inspire creativity and community.",
-    project_plan_caption: "Built with care: Every corner planned to nurture safety, belonging, and imagination.",
+      "Six bright, welcoming classrooms designed to inspire creativity and community — a home for hope.",
+    project_plan_caption: "Every space designed to ensure safety, belonging, and imagination — built with care.",
 
     // Timeline
     timeline_well: "Well Construction",
@@ -59,7 +59,7 @@ window.translations = {
     // Who We Are
     who_title: "Who We Are: Gruppo Nairobi",
     who_text:
-      "We are Gruppo Nairobi, a non-profit driven by the belief that education unlocks true development. Our small but passionate team works hand-in-hand with local communities to turn dreams into reality.",
+      "We are Gruppo Nairobi, a non-profit organization. Education truly paves the way for development — this is what we believe. Our small team turns dreams into reality: everyone works side by side for and with local communities.",
     role_president: "President",
     role_vp: "Vice President",
     role_admin: "Administrator",
@@ -74,7 +74,7 @@ window.translations = {
     cta_title: "Together, We Are Stronger",
     cta_p1:
       "Every donation brings us closer to opening our doors to the first students. Read messages of encouragement and generosity from our donors.",
-    cta_donate: "Donate Now and Be Part of It",
+    cta_donate: "Donate Now. Join the Change.",
     cta_share: "Share on Social Media",
     cta_contact: "Contact Us",
 
@@ -91,8 +91,8 @@ window.translations = {
     streamer_desc_4: "Creative content creator supporting educational initiatives worldwide.",
 
     // Partnership CTA
-    become_streamer_title: "Want to become a partner streamer?",
-    become_streamer_text: "Join our community and help us raise funds while doing what you love!",
+    become_streamer_title: "Do you want to become a partner streamer?",
+    become_streamer_text: "Join our community and help us raise funds by doing what you truly love!",
     contact_partnership: "Contact Us for Partnership",
 
     // Support Project
