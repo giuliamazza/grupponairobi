@@ -29,12 +29,12 @@ window.translations = {
     why_donate: "Donate NOW to Build the School of Tomorrow.",
 
     // Project
-    project_title: "6 Classrooms. Infinite Possibilities.",
+    project_title: "6 Classrooms, Infinite Possibilities: The Project",
     project_text:
       "We're creating a vibrant school for children who would otherwise be left behind. The land is ready — generously donated by the local nuns. Now, we need your help to build it.",
     project_render_caption:
-      "Six bright, welcoming classrooms designed to inspire creativity and community — a home for hope.",
-    project_plan_caption: "Every space designed to ensure safety, belonging, and imagination — built with care.",
+      "Six bright, welcoming classrooms designed to inspire creativity and community: a home for hope.",
+    project_plan_caption: "Every space designed to ensure safety, belonging, and imagination: built with care.",
 
     // Timeline
     timeline_well: "Well Construction",
@@ -237,41 +237,41 @@ window.translations = {
 
   de: {
     // Navigation
-    nav_why: "Warum Wir",
+    nav_why: "Warum Wir Es Tun",
     nav_project: "Das Projekt",
     nav_who: "Wer Wir Sind",
     nav_donate: "Spenden",
     nav_involved: "Mitmachen",
-    nav_support: "Unterstützen",
+    nav_support: "Unterstütze Uns",
 
     // Hero
     hero_title: "Hoffnung Entfachen",
-    hero_text: "Hilf uns, eine Schule zu bauen, die Leben verändert und eine neue Generation stärkt.",
+    hero_text: "Schließe dich uns an, um eine Schule zu bauen, die Leben verändert. Gib einer neuen Generation Kraft.",
     hero_donate: "Ich will helfen!",
     hero_read: "Teile es auf Social Media",
     hero_build: "Baue eine Schule",
-    hero_current_goal: "Aktuell: Fundamente",
-    hero_next_goal: "Nächstes Ziel: Betonkonstruktion",
+    hero_current_goal: "Aktuelles Ziel: Die Fundamente der Schule",
+    hero_next_goal: "Nächstes Ziel: Stahlbetonstruktur",
 
     // Our Why
-    why_title: "Unser Warum: Bildung ist der Schlüssel zur Entwicklung",
+    why_title: "Bildung ist der Schlüssel zur Entwicklung",
     why_p1:
-      "In Kenia bleibt tausenden Kindern der Zugang zur Schule verwehrt, weil ihre Familien sich die Gebühren nicht leisten können.",
+      "In Kenia sind aufgrund wirtschaftlicher Schwierigkeiten Tausende von Kindern von der öffentlichen Bildung ausgeschlossen.",
     why_p2:
-      "Inspiriert von Schwester Hitha, die uns beim Bau einer Schule in Kerala (Indien) unterstützte, beginnen wir nun ein neues Projekt: den Bau einer Grundschule mit sechs Klassen in der Pfarrei Ngunga im Bezirk Machakos, nahe der tansanischen Grenze. Die Region ist stark von Armut und fehlender Infrastruktur geprägt.",
+      "Schwester Hitha, eine liebe Partnerin von uns, die uns beim Bau einer Schule in Kerala (Indien) geholfen hat, hat uns inspiriert. Lasst uns gemeinsam in der Pfarrei Ngunga im Bezirk Machakos eine neue Grundschule verwirklichen, die aus sechs Klassenräumen besteht, nahe der tansanischen Grenze – eine Region, die tief von Armut und fehlender Infrastruktur betroffen ist.",
     why_p3:
-      "Bildung schafft Chancen. Sie hilft Kindern, der Armut zu entkommen, stärkt Gemeinschaften vor Ort und verringert den Druck zur gefährlichen Migration.",
-    why_p4: "Du kannst Teil dieser Veränderung sein.",
-    why_donate: "Spende für den Schulbau!",
+      "Bildung schafft Chancen. Lasst uns den Kindern helfen, sich aus der Armut zu befreien, lokale Gemeinschaften stärken und riskante Migration reduzieren.",
+    why_p4: "Du kannst Teil der Veränderung sein. Du kannst die Veränderung sein.",
+    why_donate: "Spendet JETZT, um die Schule der Zukunft zu bauen!",
 
     // Project
-    project_title: "Das Projekt: 6 Klassenzimmer. Unendliche Möglichkeiten.",
+    project_title: "6 Klassenräume, unendliche Möglichkeiten: das Projekt",
     project_text:
-      "Wir bauen eine Schule für Kinder, die sonst keine Chance auf Bildung hätten. Das Grundstück wurde uns von den örtlichen Nonnen geschenkt. Jetzt brauchen wir deine Unterstützung, damit die Schule Wirklichkeit wird.",
+      "Wir bauen eine lebendige Schule für Kinder, die sonst ausgeschlossen wären. Das Grundstück ist bereit – großzügig von den lokalen Nonnen gespendet. Jetzt brauchen wir deine Hilfe, um sie zu bauen.",
     project_render_caption:
-      "Ein Zuhause der Hoffnung: Sechs helle, einladende Klassenzimmer, gestaltet zur Förderung von Kreativität und Gemeinschaft.",
+      "Sechs helle, einladende Klassenräume, gestaltet, um Kreativität und Gemeinschaft zu inspirieren: ein Zuhause für die Hoffnung.",
     project_plan_caption:
-      "Mit Sorgfalt geplant: Jeder Bereich fördert Sicherheit, Zugehörigkeit und Vorstellungskraft.",
+      "Jeder Raum ist so gestaltet, dass Sicherheit, Zugehörigkeit und Fantasie gewährleistet sind: mit Sorgfalt gebaut.",
 
     // Timeline
     timeline_well: "Brunnenbau",
@@ -279,7 +279,7 @@ window.translations = {
     timeline_solar: "Solaranlagen",
     timeline_solar_desc: "Nachhaltige Energieversorgung für die Schule",
     timeline_foundations: "Fundamente",
-    timeline_foundations_desc: "Derzeit im Bau",
+    timeline_foundations_desc: "Derzeit im Gange",
     timeline_concrete: "Stahlbetonstruktur",
     timeline_concrete_desc: "Nächste Phase nach den Fundamenten",
     timeline_walls: "Füllungen",
@@ -296,7 +296,7 @@ window.translations = {
     // Who We Are
     who_title: "Wer Wir Sind: Gruppo Nairobi",
     who_text:
-      "Wir sind Gruppo Nairobi, eine gemeinnützige Organisation, die überzeugt ist: Bildung ist der Schlüssel zur Entwicklung. Unser kleines, engagiertes Team arbeitet eng mit lokalen Gemeinschaften zusammen, um Träume Wirklichkeit werden zu lassen.",
+      "Wir sind Gruppo Nairobi, eine gemeinnützige Organisation. Bildung öffnet wirklich den Weg zur Entwicklung: Das ist, woran wir glauben. Unser kleines Team verwandelt Träume in Realität: Alle arbeiten Seite an Seite für und mit den lokalen Gemeinschaften.",
     role_president: "Präsident",
     role_vp: "Vizepräsident",
     role_admin: "Administrator",
@@ -311,7 +311,7 @@ window.translations = {
     cta_title: "Gemeinsam sind wir stärker",
     cta_p1:
       "Jede Spende bringt uns dem Ziel näher, die Schule für die ersten Kinder zu öffnen. Lies die Nachrichten voller Ermutigung und Großzügigkeit unserer Unterstützerinnen und Unterstützer.",
-    cta_donate: "Jetzt Spenden und Teil Werden",
+    cta_donate: "Jetzt spenden. Teil der Veränderung werden.",
     cta_share: "Teile die Aktion auf Social Media",
     cta_contact: "Kontaktiere uns direkt",
 
@@ -330,7 +330,7 @@ window.translations = {
     // Partnership CTA
     become_streamer_title: "Möchtest du Partner-Streamer werden?",
     become_streamer_text:
-      "Schließe dich unserer Community an und hilf uns beim Spendensammeln, während du tust, was du liebst!",
+      "Werde Teil unserer Gemeinschaft und hilf uns, Geld zu sammeln, indem du das tust, was du wirklich liebst!",
     contact_partnership: "Kontaktiere uns für Partnerschaft",
 
     // Support Project
