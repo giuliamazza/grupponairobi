@@ -3,7 +3,7 @@
   padding: 0;
   min-height: 70vh;
   position: relative;
-  padding-top: 110px; /* Increased to properly account for nav height */
+  padding-top: 120px; /* Increased to properly account for nav height */
 }
 
 .hero-card {
