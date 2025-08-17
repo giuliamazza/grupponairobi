@@ -258,7 +258,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding-top: 90px; /* Increased to account for 90px mobile header + extra space */
+    padding-top: 96px; /* Increased to account for 90px mobile header + extra space */
   }
 
   .hero-card {
