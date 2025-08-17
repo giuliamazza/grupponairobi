@@ -32,9 +32,9 @@ window.SITE_CONFIG = {
 
     // Custom descriptions for streamers (optional)
     streamerDescriptions: {
-      studytme: "Educational content and study sessions",
-      forsen: "Variety gaming and entertainment",
-      loltyler1: "League of Legends and variety games",
+      //studytme: "Educational content and study sessions",
+      //forsen: "Variety gaming and entertainment",
+      //loltyler1: "League of Legends and variety games",
     },
   },
 
