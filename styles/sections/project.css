@@ -27,7 +27,7 @@
 .project-images {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
+  gap: 12px;
 }
 
 .project-images img {

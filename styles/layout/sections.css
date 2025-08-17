@@ -21,6 +21,38 @@
   color: var(--text-inverse);
 }
 
+.section-image {
+  width: 100%;
+  /* Removed max-width: 500px constraint that was preventing mobile scaling */
+}
+
+.section-image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 768px) {
+  .section-content {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+    gap: var(--space-2xl);
+  }
+
+  /* Fixed selector to work with our-why section HTML structure */
+  .section-content > div:first-child,
+  .section-content:not(.our-why-content) {
+    flex: 1.5;
+  }
+
+  .section-image {
+    flex: 1;
+    max-width: none;
+  }
+}
+
 /* ===== UNIFIED HEADING STYLES ===== */
 .section-title {
   text-align: left;

@@ -36,7 +36,7 @@
 
   /* Hero section styles */
   .hero-card {
-    min-height: 100vh;
+    min-height: 80vh;
     padding: var(--space-4xl) var(--space-lg) var(--space-4xl) var(--space-lg);
     align-items: center;
   }
@@ -202,7 +202,7 @@
 
   /* Hero section styles */
   .hero-card {
-    min-height: 110vh;
+
     padding: var(--space-3xl) var(--space-lg) var(--space-4xl) var(--space-lg);
   }
 

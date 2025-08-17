@@ -89,6 +89,12 @@ nav a:hover::after {
   width: 100%;
 }
 
+@media (max-width: 1024px) {
+  nav ul {
+    gap: var(--space-xl);
+  }
+}
+
 /* Language Switcher */
 .language-switcher {
   display: flex;
