@@ -213,7 +213,7 @@ nav a:hover::after {
   }
 
   .logo img {
-    height: 36px; /* Slightly smaller logo on very small screens */
+    height: 46px; /* Slightly smaller logo on very small screens */
   }
 
   .logo-text .brand {
