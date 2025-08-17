@@ -268,11 +268,6 @@
   color: var(--text-secondary) !important;
 }
 
-/* Make logo very close to text */
-.logo img {
-  margin-right: 0.25rem !important;
-}
-
 /* Fix CTA background on mobile */
 @media (max-width: 768px) {
   .cta-card {
