@@ -1,4 +1,8 @@
 /* ===== OUR WHY SECTION RESPONSIVE LAYOUT ===== */
+#our-why {
+  background: linear-gradient(#fff9e0, #ffffff);
+}
+
 #our-why .container {
   display: flex;
   flex-direction: column;
