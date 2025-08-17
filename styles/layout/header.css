@@ -43,7 +43,8 @@ header .container {
 }
 
 .logo img {
-  height: 40px;
+  height: 46px;
+  width: 46px;
   margin-right: var(--space-sm);
 }
 
