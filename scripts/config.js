@@ -19,7 +19,7 @@ window.SITE_CONFIG = {
     streamers: ["studytme"],
 
     display: {
-      maxStreamers: 6,
+      maxStreamers: 9,
       refreshInterval: 300, // seconds
       showOffline: true,
       prioritizeLive: true,
