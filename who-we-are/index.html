@@ -13,27 +13,27 @@
 <!-- Open Graph / Social Meta Tags -->
 <meta property="og:title" content="Gruppo Nairobi – Build a School, Ignite Hope">
 <meta property="og:description" content="Join us to build a school that transforms lives and empowers the next generation.">
-<meta property="og:image" content="./images/og-image.jpg">
+<meta property="og:image" content="../images/og-image.jpg">
 <meta property="og:url" content="https://grupponairobi.org/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Gruppo Nairobi – Build a School, Ignite Hope">
 <meta name="twitter:description" content="Join us to build a school that transforms lives and empowers the next generation.">
-<meta name="twitter:image" content="./images/og-image.jpg">
+<meta name="twitter:image" content="../images/og-image.jpg">
 
 <!-- Favicons -->
-<link rel="icon" type="image/png" href="./images/favicons/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="./images/favicons/favicon.svg" />
-<link rel="shortcut icon" href="./images/favicons/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" href="../images/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="../images/favicons/favicon.svg" />
+<link rel="shortcut icon" href="../images/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="../images/favicons/apple-touch-icon.png" />
 <meta name="apple-mobile-web-app-title" content="Charity" />
-<link rel="manifest" href="./images/favicons/site.webmanifest" />
+<link rel="manifest" href="../images/favicons/site.webmanifest" />
 
 <!-- Preconnect & Preload resources -->
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link rel="preconnect" href="https://www.gofundme.com">
-<link rel="preload" href="./fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-<link rel="preload" href="./images/kenya.webp" as="image" type="image/webp">
+<link rel="preload" href="../fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="../images/kenya.webp" as="image" type="image/webp">
 <!-- Font Awesome async loading -->
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
       as="style" 
@@ -172,9 +172,9 @@ if (window.scrollY > 10) {
 }
 </script>
 
-<link rel="stylesheet" href="./styles/main.css">
+<link rel="stylesheet" href="../styles/main.css">
 
-<script src="./translations/translations.js" defer></script>
+<script src="../translations/translations.js" defer></script>
 
 <script type="application/ld+json">
 {
@@ -214,7 +214,7 @@ if (window.scrollY > 10) {
 <header>
 <div class="container">
   <div class="logo">
-    <img src="./images/logo.webp" alt="Gruppo Nairobi Logo" width="46" height="46">
+    <a href="/"><img src="../images/logo.webp" alt="Gruppo Nairobi Logo" width="46" height="46"></a>
     <div class="logo-text">
       <span>ASSOCIAZIONE</span>
       <span class="brand">GRUPPO NAIROBI</span>
@@ -222,11 +222,11 @@ if (window.scrollY > 10) {
   </div>
   <nav aria-label="Main navigation">
     <ul>
-      <li><a href="#our-why" class="lang" data-key="nav_why">Our Why</a></li>
-      <li><a href="#the-project" class="lang" data-key="nav_project">The Project</a></li>
-      <li><a href="/get-involved" class="lang" data-key="nav_involved">Get Involved</a></li>
+      <li><a href="/#our-why" class="lang" data-key="nav_why">Our Why</a></li>
+      <li><a href="/#the-project" class="lang" data-key="nav_project">The Project</a></li>
+      <li><a href="" class="lang" data-key="nav_involved">Get Involved</a></li>
       <li><a href="#support-project" class="lang" data-key="nav_support">Support</a></li>
-      <li><a href="/who-we-are" class="lang" data-key="nav_who">Who We Are</a></li>
+      <li><a href="#who-we-are" class="lang" data-key="nav_who">Who We Are</a></li>
       <li>
         <div class="language-switcher">
           <label for="language-select" class="sr-only">Select Language</label>
@@ -246,245 +246,7 @@ if (window.scrollY > 10) {
 </header>
 
 <main id="main">
-<section class="hero">
-  <div class="container-wide">
-    <div class="hero-card">
-      <div class="hero-content">
-        <h1 class="lang" data-key="hero_title">Ignite Hope</h1>
-        <p class="lang" data-key="hero_text">Join us to build a school that changes lives and empowers a new generation.</p>
-        <div class="hero-buttons">
-          <a href="#support-project" class="btn btn-primary lang" data-key="hero_donate">I wanna help!</a>
-          <a href="#" class="btn btn-secondary lang" data-key="hero_read">Share on Social Media</a>
-        </div>
-      </div>
-      
-      <div class="hero-feature" onclick="scrollToProject()" role="button" tabindex="0" aria-label="View project progress">
-        <div class="feature-box">
-          <div class="progress-ring">
-            <svg class="progress-ring__svg" width="64" height="64" aria-hidden="true">
-              <circle class="progress-ring__circle--bg" cx="32" cy="32" r="28"/>
-              <circle class="progress-ring__circle" cx="32" cy="32" r="28"/>
-            </svg>
-            <div class="progress-ring__icon-container">
-              <i class="fas fa-school progress-ring__icon" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="feature-text">
-            <h2 class="lang" data-key="hero_build">Build a School</h2>
-            <div class="goal-text lang" data-key="hero_current_goal">Current: Foundations</div>
-            <div class="next-goal lang" data-key="hero_next_goal">Next: Concrete Structure</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="our-why" class="section">
-  <div class="container">
-    <div class="section-content">
-      <h2 class="lang" data-key="why_title">Our Why: Education is the Key to Development</h2>
-      <p class="lang" data-key="why_p1">In Kenya, thousands of children are denied an education simply because their families cannot afford school fees.</p>
-      <p class="lang" data-key="why_p2">Inspired by Sister Hitha, a close partner who helped us build a school in Kerala, India, we are launching a new mission: 
-        to create a six-classroom primary school in Ngunga Parish, Machakos District, near the Tanzanian border — a region deeply impacted by poverty and lack of infrastructure.</p>
-      <p class="lang" data-key="why_p3">Education opens the door to opportunity. It lifts children out of poverty, strengthens local communities, and reduces the need for risky migration.</p>
-      <p class="highlight-text lang" data-key="why_p4">You can be that change.</p>
-      <a href="#support-project" class="btn btn-accent lang" data-key="why_donate">Donate to Build the School!</a>
-    </div>
-    <div class="section-image">
-      <img 
-          src="./images/children.jpg" 
-          alt="Children in school uniforms in Kenya" 
-          loading="lazy" 
-        >
-    </div>
-  </div>
-</section>
-
-<section id="the-project" class="section section-white">
-  <div class="container">
-    <div class="project-intro">
-      <h2 class="lang" data-key="project_title">The Project:<br>6 Classrooms. Infinite Possibilities.</h2>
-      <p class="lang" data-key="project_text">We're creating a vibrant school for children who would otherwise be left behind. 
-        The land is ready — a gift from the local nuns. Now, we need your help to build it.</p>
-    </div>
-    
-    <div class="project-content">
-      <div class="project-timeline" aria-label="Project timeline">
-        <div class="timeline-item">
-          <div class="timeline-icon completed" aria-hidden="true">
-            <i class="fas fa-tint"></i>
-          </div>
-          <div class="timeline-content completed">
-            <h3 class="lang" data-key="timeline_well">Well Construction</h3> <em class="amount" data-value="14000">(€14,000)</em>
-            <p class="lang" data-key="timeline_well_desc">Clean water access for all students</p>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-icon completed" aria-hidden="true">
-            <i class="fas fa-solar-panel"></i>
-          </div>
-          <div class="timeline-content completed">
-            <h3 class="lang" data-key="timeline_solar">Solar Panels</h3> <em class="amount" data-value="3500">(€3,500)</em>
-            <p class="lang" data-key="timeline_solar_desc">Sustainable energy for the school</p>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-icon active" aria-hidden="true">
-            <i class="fas fa-building"></i>
-          </div>
-          <div class="timeline-content active">
-            <h3 class="lang" data-key="timeline_foundations">Foundations</h3> <em class="amount" data-value="21200">(€21,200)</em>
-            <p class="lang" data-key="timeline_foundations_desc">Currently in progress</p>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-icon future" aria-hidden="true">
-            <i class="fas fa-person-digging"></i>
-          </div>
-          <div class="timeline-content future">
-            <h3 class="lang" data-key="timeline_concrete">Reinforced Concrete Structure</h3> <em class="amount" data-value="60000">(€60,000)</em>
-            <p class="lang" data-key="timeline_concrete_desc">Next phase after foundations</p>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-icon future" aria-hidden="true">
-            <i class="fas fa-house"></i>
-          </div>
-          <div class="timeline-content future">
-            <h3 class="lang" data-key="timeline_walls">Fillings</h3> <em class="amount" data-value="15400">(€15,400)</em>
-            <p class="lang" data-key="timeline_walls_desc">Wall construction and interior work</p>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-icon future" aria-hidden="true">
-            <i class="fas fa-rug"></i>
-          </div>
-          <div class="timeline-content future">
-            <h3 class="lang" data-key="timeline_floor">Floor Coverings</h3> <em class="amount" data-value="43700">(€43,700)</em>
-            <p class="lang" data-key="timeline_floor_desc">Safe and durable flooring</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-icon future" aria-hidden="true">
-            <i class="fas fa-lightbulb"></i>
-          </div>
-          <div class="timeline-content future">
-            <h3 class="lang" data-key="timeline_electric">Electric</h3> <em class="amount" data-value="25000">(€25,000)</em>
-            <p class="lang" data-key="timeline_electric_desc">Electrical systems and lighting</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-icon future" aria-hidden="true">
-            <i class="fas fa-tint"></i>
-          </div>
-          <div class="timeline-content future">
-            <h3 class="lang" data-key="timeline_water">Water</h3> <em class="amount" data-value="35000">(€35,000)</em>
-            <p class="lang" data-key="timeline_water_desc">Plumbing and water systems</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-icon future" aria-hidden="true">
-            <i class="fa-solid fa-door-closed"></i>
-          </div>
-          <div class="timeline-content future">
-            <h3 class="lang" data-key="timeline_windowsdoors">Windows And Doors</h3> <em class="amount" data-value="10000">(€10,000)</em>
-            <p class="lang" data-key="timeline_windowsdoors_desc">Final touches for completion</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="project-images">
-        <a href="./images/school-render.jpg" class="lightbox-trigger" aria-label="View larger school rendering">
-          <img 
-              src="./images/school-render.jpg" 
-              alt="School rendering showing the planned building design" 
-              loading="lazy" 
-              width="600" 
-              height="400"
-            >
-        </a>
-        <div class="image-caption lang" data-key="project_render_caption">
-          A home for hope: Six bright, welcoming classrooms designed to inspire creativity and community.
-        </div>
-      
-        <a href="./images/floor-plan.jpg" class="lightbox-trigger" aria-label="View larger floor plan">
-          <img 
-              src="./images/floor-plan.jpg" 
-              alt="School floor plan showing the layout of classrooms" 
-              class="floor-plan" 
-              loading="lazy" 
-              width="600" 
-              height="400"
-            >
-        </a>
-        <div class="image-caption lang" data-key="project_plan_caption">
-          Built with care: Every corner planned to nurture safety, belonging, and imagination.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="support-project" class="section section-accent">
-  <div class="container">
-    <h2 class="section-title lang" data-key="support_title">Support Our Project</h2>
-    
-    <div class="support-grid">
-      <div class="support-info">
-        <h3 class="lang" data-key="support_info_title">Every Donation Makes a Difference</h3>
-        <p class="lang" data-key="support_info_text">Your contribution directly supports building classrooms, providing clean water, and creating educational opportunities for children in Kenya. We use GoFundMe to ensure transparent and secure donations.</p>
-        
-        <div class="support-features">
-          <div class="feature-item">
-            <i class="fas fa-shield-alt"></i>
-            <div class="feature-content">
-              <h4 class="lang" data-key="feature_secure_title">Secure Donations</h4>
-              <p class="lang" data-key="feature_secure_text">All donations are processed securely through GoFundMe</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-eye"></i>
-            <div class="feature-content">
-              <h4 class="lang" data-key="feature_transparent_title">100% Transparent</h4>
-              <p class="lang" data-key="feature_transparent_text">Track exactly how your donation is being used</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-heart"></i>
-            <div class="feature-content">
-              <h4 class="lang" data-key="feature_impact_title">Direct Impact</h4>
-              <p class="lang" data-key="feature_impact_text">Every euro goes directly to the school construction</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="support-actions">
-        <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi/donate" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
-          <i class="fas fa-heart"></i>
-          <span class="lang" data-key="donate_now">Donate Now</span>
-        </a>
-        <p class="support-note lang" data-key="support_note">Secure donation through GoFundMe</p>
-        
-        <div class="alternative-links">
-          <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi" target="_blank" rel="noopener noreferrer" class="link-secondary">
-            <i class="fas fa-external-link-alt"></i>
-            <span class="lang" data-key="view_campaign">View Full Campaign</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="who-we-are" class="section section-white">
   <div class="container">
