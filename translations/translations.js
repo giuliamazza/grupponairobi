@@ -78,6 +78,9 @@ window.translations = {
     cta_share: "Share on Social Media",
     cta_contact: "Contact Us",
 
+    // Footer
+    footer_follow_us: "Follow Us",
+
     // Get Involved Section
     involved_title: "Get Involved",
     involved_subtitle: "Join our amazing community of streamers supporting the cause",
@@ -197,6 +200,9 @@ window.translations = {
     cta_share: "Condividi sui Social",
     cta_contact: "Contattaci",
 
+    // Footer
+    footer_follow_us: "Seguici",
+
     // Get Involved Section
     involved_title: "Partecipa",
     involved_subtitle: "Unisciti alla nostra incredibile comunità di streamer che supportano la causa",
@@ -314,6 +320,9 @@ window.translations = {
     cta_donate: "Jetzt spenden. Teil der Veränderung werden.",
     cta_share: "Teile die Aktion auf Social Media",
     cta_contact: "Kontaktiere uns direkt",
+
+    // Footer
+    footer_follow_us: "Folge uns",
 
     // Get Involved Section
     involved_title: "Mitmachen",

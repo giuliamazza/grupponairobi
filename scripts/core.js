@@ -435,6 +435,26 @@ class ErrorHandler {
   }
 }
 
+// Footer Link Manager
+class FooterLinkManager {
+  constructor() {
+    this.init()
+  }
+
+  init() {
+    this.updateInstagramLink()
+  }
+
+  updateInstagramLink() {
+    if (window.SITE_CONFIG?.contact?.instagram) {
+      const instagramLink = document.getElementById("footer-instagram-link")
+      if (instagramLink) {
+        instagramLink.href = `https://www.instagram.com/${window.SITE_CONFIG.contact.instagram}`
+      }
+    }
+  }
+}
+
 // Global utility functions
 window.scrollToProject = () => {
   const projectSection = document.getElementById("the-project")
@@ -461,6 +481,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.smoothScrollHandler = new SmoothScrollHandler()
     window.accessibilityEnhancer = new AccessibilityEnhancer()
     window.errorHandler = new ErrorHandler()
+    window.footerLinkManager = new FooterLinkManager()
 
     // Expose language manager globally
     window.changeLanguage = (language) => {
