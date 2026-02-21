@@ -45,6 +45,13 @@ window.SITE_CONFIG = {
     cacheTimeout: 300000, // 5 minutes
   },
 
+  // Language Configuration
+  languages: [
+    { code: "en", label: "English", shortLabel: "ENG" },
+    { code: "it", label: "Italiano", shortLabel: "ITA" },
+    { code: "de", label: "Deutsch", shortLabel: "DEU" },
+  ],
+
   // Feature Flags
   features: {
     twitchIntegration: true,

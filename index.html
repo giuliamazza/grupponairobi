@@ -229,12 +229,11 @@ if (window.scrollY > 10) {
       <li><a href="#who-we-are" class="lang" data-key="nav_who">Who We Are</a></li>
       <li>
         <div class="language-switcher">
-          <label for="language-select" class="sr-only">Select Language</label>
-          <select id="language-select" class="language-select" aria-label="Select language">
-            <option value="en">ENG</option>
-            <option value="it">ITA</option>
-            <option value="de">DEU</option>
-          </select>
+          <button class="language-toggle" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="language-list-header" aria-label="Language: English">
+            <i class="fas fa-globe" aria-hidden="true"></i>
+            <span class="language-current">ENG</span>
+          </button>
+          <ul class="language-dropdown" id="language-list-header" role="listbox" aria-label="Select language"></ul>
         </div>
       </li>
     </ul>
@@ -635,12 +634,11 @@ if (window.scrollY > 10) {
       </div>
       <div class="footer-column">
         <div class="language-switcher">
-          <label for="language-select-footer" class="sr-only">Select Language</label>
-          <select id="language-select-footer" class="language-select" aria-label="Select language">
-            <option value="en">ENG</option>
-            <option value="it">ITA</option>
-            <option value="de">DEU</option>
-          </select>
+          <button class="language-toggle" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="language-list-footer" aria-label="Language: English">
+            <i class="fas fa-globe" aria-hidden="true"></i>
+            <span class="language-current">ENG</span>
+          </button>
+          <ul class="language-dropdown" id="language-list-footer" role="listbox" aria-label="Select language"></ul>
         </div>
         <div class="direct-donate">
           <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi/donate" target="_blank" rel="noopener noreferrer" class="footer-donate-link">
