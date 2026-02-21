@@ -91,6 +91,12 @@ class HeaderController {
     // Apply scrolled state
     this.header.classList.toggle("scrolled", currentScrollY > this.scrollThreshold)
 
+    // Desktop: always visible
+    if (window.innerWidth > 768) {
+      this.header.classList.remove("scrolled-hidden", "scrolled-visible")
+      return;
+    }
+
     // Handle header visibility
     if (currentScrollY > this.hideThreshold) {
       if (scrollDirection === "down" && currentScrollY > this.lastScrollY + 10) {

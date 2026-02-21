@@ -1,6 +1,6 @@
 /* ===== HEADER ===== */
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   background-color: rgba(255, 249, 224, 0.95);
@@ -9,7 +9,6 @@ header {
   z-index: 1000;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
-  transform: translateY(0);
   min-height: 80px; /* Ensure consistent height */
 }
 
@@ -61,7 +60,7 @@ header .container {
 
 nav ul {
   display: flex;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   align-items: center;
 }
 
@@ -138,7 +137,14 @@ nav a:hover::after {
 
 /* Mobile responsive navigation */
 @media (max-width: 768px) {
+  body {
+    padding-top: 110px;
+  }
+
   header {
+    position: fixed;
+    top: 0;
+    transform: translateY(0);
     padding: var(--space-xl) 0; /* Increased padding for better height */
     min-height: 90px; /* Increased height on mobile */
   }
@@ -190,9 +196,17 @@ nav a:hover::after {
   .logo img {
     height: 40px; /* Keep logo size consistent */
   }
+
+  .nav-donate-item {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
+  body {
+    padding-top: 96px;
+  }
+
   header {
     padding: var(--space-lg) 0; /* Increased padding */
     min-height: 80px; /* Increased height */
@@ -218,5 +232,61 @@ nav a:hover::after {
 
   .logo-text .brand {
     font-size: var(--text-sm);
+  }
+}
+
+/* ===== DONATE BUTTON (Desktop Nav) ===== */
+.btn-donate {
+  display: inline-block;
+  background-color: var(--brand-accent);
+  color: #ffffff;
+  font-weight: 700;
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 166, 81, 0.4);
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-donate:hover {
+  background-color: #008c44;
+  box-shadow: 0 6px 20px rgba(0, 166, 81, 0.5);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.btn-donate::after {
+  display: none;
+}
+
+/* ===== FLOATING DONATE BUTTON (Mobile FAB) ===== */
+.donate-fab {
+  display: none;
+  position: fixed;
+  bottom: var(--space-xl);
+  right: var(--space-xl);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--brand-accent);
+  color: #ffffff;
+  font-size: 1.4rem;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 166, 81, 0.4);
+  z-index: 999;
+  text-decoration: none;
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.donate-fab:hover {
+  background-color: #008c44;
+  box-shadow: 0 6px 20px rgba(0, 166, 81, 0.5);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .donate-fab {
+    display: flex;
   }
 }
