@@ -10,6 +10,7 @@ window.SITE_CONFIG = {
   // Contact Information
   contact: {
     email: "info@grupponairobi.org",
+    instagram: "grupponairobi",
   },
 
   // Twitch Configuration
