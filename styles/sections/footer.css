@@ -83,6 +83,12 @@ footer .logo {
   margin-bottom: var(--space-xs);
 }
 
+/* Footer language dropdown opens upward */
+footer .language-dropdown {
+  top: auto;
+  bottom: calc(100% + var(--space-xs));
+}
+
 .direct-donate {
   margin-top: var(--space-md);
 }

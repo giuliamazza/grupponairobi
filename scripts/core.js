@@ -118,7 +118,12 @@ class LanguageManager {
   constructor() {
     this.currentLanguage = "en"
     this.translations = window.translations || {}
-    this.selectors = document.querySelectorAll(".language-select")
+    this.languages = (window.SITE_CONFIG && window.SITE_CONFIG.languages) || [
+      { code: "en", label: "English", shortLabel: "ENG" },
+      { code: "it", label: "Italiano", shortLabel: "ITA" },
+      { code: "de", label: "Deutsch", shortLabel: "DEU" },
+    ]
+    this.switchers = document.querySelectorAll(".language-switcher")
     this.storageKey = "selectedLanguage"
 
     this.init()
@@ -128,20 +133,146 @@ class LanguageManager {
     // Load saved language or detect from browser
     const savedLanguage = localStorage.getItem(this.storageKey)
     const browserLanguage = navigator.language.slice(0, 2)
+    const validCodes = this.languages.map((l) => l.code)
 
-    if (savedLanguage && this.translations[savedLanguage]) {
+    if (savedLanguage && validCodes.includes(savedLanguage)) {
       this.currentLanguage = savedLanguage
-    } else if (this.translations[browserLanguage]) {
+    } else if (validCodes.includes(browserLanguage)) {
       this.currentLanguage = browserLanguage
     }
 
-    // Set up event listeners
-    this.selectors.forEach((selector) => {
-      selector.value = this.currentLanguage
-      selector.addEventListener("change", (e) => this.changeLanguage(e.target.value))
+    // Set document language
+    document.documentElement.lang = this.currentLanguage
+
+    // Build dropdown options and bind events for each switcher
+    this.switchers.forEach((switcher) => this.setupSwitcher(switcher))
+
+    this.updateAllSwitchers()
+    this.applyTranslations()
+  }
+
+  setupSwitcher(switcher) {
+    const dropdown = switcher.querySelector(".language-dropdown")
+    const toggle = switcher.querySelector(".language-toggle")
+    const listId = dropdown.id
+
+    // Build options from config
+    dropdown.innerHTML = ""
+    this.languages.forEach((lang) => {
+      const li = document.createElement("li")
+      const optionId = `${listId}-${lang.code}`
+      li.setAttribute("role", "option")
+      li.setAttribute("id", optionId)
+      li.setAttribute("data-lang", lang.code)
+      li.setAttribute("tabindex", "-1")
+      li.setAttribute("aria-selected", lang.code === this.currentLanguage ? "true" : "false")
+      li.textContent = lang.label
+      if (lang.code === this.currentLanguage) {
+        li.classList.add("active")
+        toggle.setAttribute("aria-activedescendant", optionId)
+      }
+      dropdown.appendChild(li)
     })
 
-    this.applyTranslations()
+    // Toggle open/close
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation()
+      const isOpen = toggle.getAttribute("aria-expanded") === "true"
+      this.closeAllDropdowns()
+      if (!isOpen) this.openDropdown(switcher)
+    })
+
+    // Select language on option click
+    dropdown.addEventListener("click", (e) => {
+      const option = e.target.closest("[data-lang]")
+      if (option) {
+        this.changeLanguage(option.getAttribute("data-lang"))
+        this.closeAllDropdowns()
+        toggle.focus()
+      }
+    })
+
+    // Keyboard navigation
+    toggle.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+        e.preventDefault()
+        this.openDropdown(switcher)
+        // Focus currently active option, or first
+        const active = dropdown.querySelector("[role=option].active") || dropdown.querySelector("[role=option]")
+        if (active) active.focus()
+      }
+    })
+
+    dropdown.addEventListener("keydown", (e) => {
+      const options = [...dropdown.querySelectorAll("[role=option]")]
+      const current = document.activeElement
+      const idx = options.indexOf(current)
+
+      if (e.key === "ArrowDown") {
+        e.preventDefault()
+        const next = options[idx + 1] || options[0]
+        next.focus()
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault()
+        const prev = options[idx - 1] || options[options.length - 1]
+        prev.focus()
+      } else if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault()
+        if (current.hasAttribute("data-lang")) {
+          this.changeLanguage(current.getAttribute("data-lang"))
+          this.closeAllDropdowns()
+          toggle.focus()
+        }
+      } else if (e.key === "Escape") {
+        this.closeAllDropdowns()
+        toggle.focus()
+      } else if (e.key === "Tab") {
+        this.closeAllDropdowns()
+      } else if (e.key === "Home") {
+        e.preventDefault()
+        options[0]?.focus()
+      } else if (e.key === "End") {
+        e.preventDefault()
+        options[options.length - 1]?.focus()
+      }
+    })
+  }
+
+  openDropdown(switcher) {
+    const toggle = switcher.querySelector(".language-toggle")
+    toggle.setAttribute("aria-expanded", "true")
+  }
+
+  closeAllDropdowns() {
+    this.switchers.forEach((s) => {
+      const toggle = s.querySelector(".language-toggle")
+      toggle.setAttribute("aria-expanded", "false")
+    })
+  }
+
+  updateAllSwitchers() {
+    const lang = this.languages.find((l) => l.code === this.currentLanguage)
+    if (!lang) return
+
+    this.switchers.forEach((switcher) => {
+      const toggle = switcher.querySelector(".language-toggle")
+      const current = switcher.querySelector(".language-current")
+      if (current) current.textContent = lang.shortLabel
+
+      // Update button aria-label with current language name
+      toggle.setAttribute("aria-label", `Language: ${lang.label}`)
+
+      // Update active state and aria-selected on options
+      const options = switcher.querySelectorAll("[role=option]")
+      options.forEach((opt) => {
+        const isActive = opt.getAttribute("data-lang") === this.currentLanguage
+        opt.classList.toggle("active", isActive)
+        opt.setAttribute("aria-selected", isActive ? "true" : "false")
+        if (isActive) {
+          toggle.setAttribute("aria-activedescendant", opt.id)
+        }
+      })
+    })
   }
 
   changeLanguage(language) {
@@ -152,13 +283,16 @@ class LanguageManager {
 
     this.currentLanguage = language
     localStorage.setItem(this.storageKey, language)
+    document.documentElement.lang = language
 
-    // Update all selectors
-    this.selectors.forEach((selector) => {
-      selector.value = language
-    })
-
+    this.updateAllSwitchers()
     this.applyTranslations()
+
+    // Announce language change to screen readers
+    const lang = this.languages.find((l) => l.code === language)
+    if (lang && window.announceToScreenReader) {
+      window.announceToScreenReader(`Language changed to ${lang.label}`)
+    }
 
     // Dispatch event for other components
     document.dispatchEvent(
@@ -166,7 +300,6 @@ class LanguageManager {
         detail: { language },
       }),
     )
-
   }
 
   applyTranslations() {
@@ -190,7 +323,9 @@ class LanguageManager {
 
   getTranslation(key) {
     const languageData = this.translations[this.currentLanguage]
-    return languageData ? languageData[key] : null
+    if (languageData && languageData[key]) return languageData[key]
+    const fallback = this.translations["en"]
+    return fallback ? fallback[key] : null
   }
 
   getCurrentLanguage() {
@@ -489,6 +624,13 @@ document.addEventListener("DOMContentLoaded", () => {
         window.languageManager.changeLanguage(language)
       }
     }
+
+    // Close language dropdowns on outside click
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".language-switcher")) {
+        window.languageManager.closeAllDropdowns()
+      }
+    })
 
   } catch (error) {
     console.error("❌ Error during core initialization:", error)
