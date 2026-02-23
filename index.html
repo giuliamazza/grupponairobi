@@ -92,6 +92,10 @@
   --shadow-lg: 0 10px 15px -3px rgba(11, 29, 38, 0.1), 0 4px 6px -2px rgba(11, 29, 38, 0.05);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -210,11 +214,12 @@ if (window.scrollY > 10) {
 </script>
 </head>
 <body>
+<a href="#" id="backToTop" class="back-to-top" aria-label="Back to top"> <span aria-hidden="true">&#8593;</span> </a>
 <a href="#main" class="skip-link">Skip to main content</a>
 <header>
 <div class="container">
   <div class="logo">
-    <img src="./images/logo.webp" alt="Gruppo Nairobi Logo" width="46" height="46">
+    <a href="#" class="back-to-top-logo" aria-label="Back to top"><img src="./images/logo.webp" alt="Gruppo Nairobi Logo" width="46" height="46"></a>
     <div class="logo-text">
       <span>ASSOCIAZIONE</span>
       <span class="brand">GRUPPO NAIROBI</span>

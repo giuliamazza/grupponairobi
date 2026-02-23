@@ -516,3 +516,25 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("❌ Error during UI initialization:", error)
   }
 })
+
+const backToTopButton = document.getElementById('backToTop');
+
+// Handle visibility on scroll
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    backToTopButton.classList.add('show');
+  } else {
+    backToTopButton.classList.remove('show');
+  }
+});
+
+// Move focus to the top when clicked for better keyboard accessibility
+backToTopButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+  // Set focus to the body or a top-level heading
+  document.body.setAttribute('tabindex', '-1');
+  document.body.focus();
+  document.body.removeAttribute('tabindex');
+});
