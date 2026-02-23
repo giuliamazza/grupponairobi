@@ -92,10 +92,6 @@
   --shadow-lg: 0 10px 15px -3px rgba(11, 29, 38, 0.1), 0 4px 6px -2px rgba(11, 29, 38, 0.05);
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -214,12 +210,11 @@ if (window.scrollY > 10) {
 </script>
 </head>
 <body>
-<a href="#" id="backToTop" class="back-to-top" aria-label="Back to top"> <span aria-hidden="true">&#8593;</span> </a>
 <a href="#main" class="skip-link">Skip to main content</a>
 <header>
 <div class="container">
   <div class="logo">
-    <a href="#" class="back-to-top-logo" aria-label="Back to top"><img src="./images/logo.webp" alt="Gruppo Nairobi Logo" width="46" height="46"></a>
+    <img src="./images/logo.webp" alt="Gruppo Nairobi Logo" width="46" height="46">
     <div class="logo-text">
       <span>ASSOCIAZIONE</span>
       <span class="brand">GRUPPO NAIROBI</span>
@@ -240,6 +235,9 @@ if (window.scrollY > 10) {
           </button>
           <ul class="language-dropdown" id="language-list-header" role="listbox" aria-label="Select language"></ul>
         </div>
+      </li>
+      <li class="nav-donate-item">
+        <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi/donate" target="_blank" rel="noopener noreferrer" class="btn-donate lang" data-key="nav_donate">Donate</a>
       </li>
     </ul>
   </nav>
@@ -662,6 +660,10 @@ if (window.scrollY > 10) {
 <script src="./scripts/ui-components.js" defer></script>
 
 <script src="./scripts/twitch-client.js" defer></script>
+
+<a href="https://www.gofundme.com/f/associazione-gruppo-nairobi/donate" target="_blank" rel="noopener noreferrer" class="donate-fab" aria-label="Donate">
+  <i class="fas fa-heart" aria-hidden="true"></i>
+</a>
 
 </body>
 </html>
