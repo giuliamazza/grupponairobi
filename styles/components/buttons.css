@@ -132,3 +132,7 @@
   opacity: 1;
   visibility: visible;
 }
+
+.back-to-top-logo {
+    outline: none !important;
+}
