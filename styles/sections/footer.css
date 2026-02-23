@@ -83,26 +83,57 @@ footer .logo {
   margin-bottom: var(--space-xs);
 }
 
+/* Footer language dropdown opens upward */
+footer .language-dropdown {
+  top: auto;
+  bottom: calc(100% + var(--space-xs));
+}
+
 .direct-donate {
   margin-top: var(--space-md);
 }
 
-.footer-donate-link {
+.social-media {
+  margin-top: var(--space-lg);
+}
+
+.social-media-heading {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+
+.footer-donate-link, .footer-social-link {
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
-  color: var(--brand-accent);
   font-weight: 600;
   transition: color var(--transition-normal);
+  text-decoration: none;
+}
+
+.footer-donate-link:hover span, .footer-social-link:hover span {
+  text-decoration: underline;
+}
+
+.footer-donate-link i, .footer-social-link i {
+  font-size: var(--text-sm);
+}
+
+.footer-donate-link {
+  color: var(--brand-accent);
 }
 
 .footer-donate-link:hover {
   color: #007a3d;
-  text-decoration: underline;
 }
 
-.footer-donate-link i {
-  font-size: var(--text-sm);
+.footer-social-link {
+  color: var(--text-primary);
 }
 
 .copyright {
