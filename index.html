@@ -315,94 +315,58 @@ if (window.scrollY > 10) {
     </div>
     
     <div class="project-content">
-      <div class="project-timeline" aria-label="Project timeline">
-        <div class="timeline-item">
-          <div class="timeline-icon completed" aria-hidden="true">
-            <i class="fas fa-tint"></i>
+      <div class="project-phases" aria-label="Construction phases">
+        <div class="phase-card phase-completed">
+          <div class="phase-header">
+            <div class="phase-number">1</div>
+            <span class="phase-badge completed lang" data-key="phase_completed">Completed</span>
           </div>
-          <div class="timeline-content completed">
-            <h3 class="lang" data-key="timeline_well">Well Construction</h3> <em class="amount" data-value="14000">(€14,000)</em>
-            <p class="lang" data-key="timeline_well_desc">Clean water access for all students</p>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-icon completed" aria-hidden="true">
-            <i class="fas fa-solar-panel"></i>
-          </div>
-          <div class="timeline-content completed">
-            <h3 class="lang" data-key="timeline_solar">Solar Panels</h3> <em class="amount" data-value="3500">(€3,500)</em>
-            <p class="lang" data-key="timeline_solar_desc">Sustainable energy for the school</p>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-icon active" aria-hidden="true">
-            <i class="fas fa-building"></i>
-          </div>
-          <div class="timeline-content active">
-            <h3 class="lang" data-key="timeline_foundations">Foundations</h3> <em class="amount" data-value="21200">(€21,200)</em>
-            <p class="lang" data-key="timeline_foundations_desc">Currently in progress</p>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-icon future" aria-hidden="true">
-            <i class="fas fa-person-digging"></i>
-          </div>
-          <div class="timeline-content future">
-            <h3 class="lang" data-key="timeline_concrete">Reinforced Concrete Structure</h3> <em class="amount" data-value="60000">(€60,000)</em>
-            <p class="lang" data-key="timeline_concrete_desc">Next phase after foundations</p>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-icon future" aria-hidden="true">
-            <i class="fas fa-house"></i>
-          </div>
-          <div class="timeline-content future">
-            <h3 class="lang" data-key="timeline_walls">Fillings</h3> <em class="amount" data-value="15400">(€15,400)</em>
-            <p class="lang" data-key="timeline_walls_desc">Wall construction and interior work</p>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-icon future" aria-hidden="true">
-            <i class="fas fa-rug"></i>
-          </div>
-          <div class="timeline-content future">
-            <h3 class="lang" data-key="timeline_floor">Floor Coverings</h3> <em class="amount" data-value="43700">(€43,700)</em>
-            <p class="lang" data-key="timeline_floor_desc">Safe and durable flooring</p>
+          <h3 class="lang" data-key="phase1_title">Foundations</h3>
+          <p class="lang" data-key="phase1_desc">The groundwork is done — water, energy, and structural foundations are in place.</p>
+          <ul class="phase-stages">
+            <li><i class="fas fa-tint"></i> <span class="lang" data-key="stage_well">Well Construction</span> <em class="amount">(€14,000)</em></li>
+            <li><i class="fas fa-solar-panel"></i> <span class="lang" data-key="stage_solar">Solar Panels</span> <em class="amount">(€3,500)</em></li>
+            <li><i class="fas fa-building"></i> <span class="lang" data-key="stage_foundations">Foundations</span> <em class="amount">(€21,200)</em></li>
+            <li><i class="fas fa-person-digging"></i> <span class="lang" data-key="stage_concrete">Reinforced Concrete Structure</span> <em class="amount">(€60,000)</em></li>
+          </ul>
+          <div class="phase-icon" aria-hidden="true">
+            <i class="fas fa-check-circle"></i>
           </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-icon future" aria-hidden="true">
-            <i class="fas fa-lightbulb"></i>
+        <div class="phase-card phase-active">
+          <div class="phase-header">
+            <div class="phase-number">2</div>
+            <span class="phase-badge active lang" data-key="phase_in_progress">In Progress</span>
           </div>
-          <div class="timeline-content future">
-            <h3 class="lang" data-key="timeline_electric">Electric</h3> <em class="amount" data-value="25000">(€25,000)</em>
-            <p class="lang" data-key="timeline_electric_desc">Electrical systems and lighting</p>
+          <h3 class="lang" data-key="phase2_title">Walls & Roof</h3>
+          <p class="lang" data-key="phase2_desc">Raising the structure — walls, flooring, and all building systems.</p>
+          <ul class="phase-stages">
+            <li><i class="fas fa-house"></i> <span class="lang" data-key="stage_walls">Fillings</span> <em class="amount">(€15,400)</em></li>
+            <li><i class="fas fa-rug"></i> <span class="lang" data-key="stage_floor">Floor Coverings</span> <em class="amount">(€43,700)</em></li>
+            <li><i class="fas fa-lightbulb"></i> <span class="lang" data-key="stage_electric">Electric</span> <em class="amount">(€25,000)</em></li>
+            <li><i class="fas fa-tint"></i> <span class="lang" data-key="stage_water">Water</span> <em class="amount">(€35,000)</em></li>
+            <li><i class="fa-solid fa-door-closed"></i> <span class="lang" data-key="stage_windowsdoors">Windows & Doors</span> <em class="amount">(€10,000)</em></li>
+          </ul>
+          <div class="phase-icon" aria-hidden="true">
+            <i class="fas fa-hammer"></i>
           </div>
         </div>
 
-        <div class="timeline-item">
-          <div class="timeline-icon future" aria-hidden="true">
-            <i class="fas fa-tint"></i>
+        <div class="phase-card phase-future">
+          <div class="phase-header">
+            <div class="phase-number">3</div>
+            <span class="phase-badge future lang" data-key="phase_future">Future</span>
           </div>
-          <div class="timeline-content future">
-            <h3 class="lang" data-key="timeline_water">Water</h3> <em class="amount" data-value="35000">(€35,000)</em>
-            <p class="lang" data-key="timeline_water_desc">Plumbing and water systems</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-icon future" aria-hidden="true">
-            <i class="fa-solid fa-door-closed"></i>
-          </div>
-          <div class="timeline-content future">
-            <h3 class="lang" data-key="timeline_windowsdoors">Windows And Doors</h3> <em class="amount" data-value="10000">(€10,000)</em>
-            <p class="lang" data-key="timeline_windowsdoors_desc">Final touches for completion</p>
+          <h3 class="lang" data-key="phase3_title">Finishing & Equipment</h3>
+          <p class="lang" data-key="phase3_desc">Everything needed to welcome the first students.</p>
+          <ul class="phase-stages">
+            <li><i class="fas fa-chalkboard"></i> <span class="lang" data-key="stage_whiteboards">Whiteboards</span></li>
+            <li><i class="fas fa-chair"></i> <span class="lang" data-key="stage_furniture">Furniture</span></li>
+            <li><i class="fas fa-book-open"></i> <span class="lang" data-key="stage_equipment">Classroom Equipment</span></li>
+          </ul>
+          <div class="phase-icon" aria-hidden="true">
+            <i class="fas fa-chalkboard-user"></i>
           </div>
         </div>
       </div>
