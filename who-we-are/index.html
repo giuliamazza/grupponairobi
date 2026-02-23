@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gruppo Nairobi – Building Schools for the Future</title>
+<meta name="description" content="Join Gruppo Nairobi to build a school in Kenya that transforms lives and empowers a new generation.">
+<meta name="author" content="Gruppo Nairobi Team">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0b1d26">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; img-src 'self' data: https:; font-src 'self' cdnjs.cloudflare.com; connect-src 'self' https://gruppo-nairobi-api.vercel.app;">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Gruppo Nairobi – Build a School, Ignite Hope">
+<meta property="og:description" content="Join us to build a school that transforms lives and empowers the next generation.">
+<meta property="og:image" content="../images/og-image.jpg">
+<meta property="og:url" content="https://grupponairobi.org/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gruppo Nairobi – Build a School, Ignite Hope">
+<meta name="twitter:description" content="Join us to build a school that transforms lives and empowers the next generation.">
+<meta name="twitter:image" content="../images/og-image.jpg">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" href="../images/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="../images/favicons/favicon.svg" />
+<link rel="shortcut icon" href="../images/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="../images/favicons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Charity" />
+<link rel="manifest" href="../images/favicons/site.webmanifest" />
+
+<!-- Preconnect & Preload resources -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preconnect" href="https://www.gofundme.com">
+<link rel="preload" href="../fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="../images/kenya.webp" as="image" type="image/webp">
+<!-- Font Awesome async loading -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+      as="style" 
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+      crossorigin="anonymous"
+      onload="this.onload=null;this.rel='stylesheet'"
+      onerror="this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+        crossorigin="anonymous">
+</noscript>
+
+<!-- Critical CSS for first paint -->
+<style>
+:root {
+  /* Primary Brand Colors */
+  --brand-primary: #0b1d26;
+  --brand-secondary: #feb916;
+  --brand-accent: #00a651;
+  
+  /* Background Colors */
+  --bg-primary: #fff9e0;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f8f6f0;
+  --bg-dark: #181c45;
+  
+  /* Text Colors */
+  --text-primary: #0b1d26;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --text-inverse: #ffffff;
+  
+  /* Interactive Colors */
+  --interactive-primary: #0b1d26;
+  --interactive-secondary: #feb916;
+  --interactive-accent: #00a651;
+  --interactive-hover: #142e41;
+  
+  /* Spacing & Typography */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(11, 29, 38, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(11, 29, 38, 0.1), 0 2px 4px -1px rgba(11, 29, 38, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(11, 29, 38, 0.1), 0 4px 6px -2px rgba(11, 29, 38, 0.05);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Geist", system-ui, sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.container-wide {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: var(--space-xl) 0;
+  z-index: 1000;
+  transition: all var(--transition-normal);
+}
+
+header.scrolled {
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-lg) 0;
+}
+
+.hero-card {
+  min-height: 80vh;
+  display: flex;
+  color: var(--text-inverse);
+  position: relative;
+  border-radius: 1.5rem;
+  padding: 12rem 0 12rem 8rem;
+  background: linear-gradient(
+    135deg,
+    var(--brand-secondary) 0%,
+    rgba(254, 185, 22, 0.8) 30%,
+    rgba(254, 185, 22, 0.4) 60%,
+    transparent 90%
+  );
+}
+.hero h1 {
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+}
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 10000;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.skip-link:focus {
+  top: 6px;
+}
+</style>
+
+<!-- Immediate scroll check for header -->
+<script>
+if (window.scrollY > 10) {
+  document.documentElement.classList.add('scrolled-page');
+  document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    if (header) header.classList.add('scrolled');
+  });
+}
+</script>
+
+<link rel="stylesheet" href="../styles/main.css">
+
+<script src="../translations/translations.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "Gruppo Nairobi",
+  "alternateName": "Associazione Gruppo Nairobi",
+  "description": "Building schools in Kenya to transform lives and empower a new generation through education",
+  "url": "https://grupponairobi.org",
+  "logo": "https://grupponairobi.org/images/logo.svg",
+  "image": "https://grupponairobi.org/images/og-image.jpg",
+  "email": "info@grupponairobi.org",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Prova 32",
+    "addressLocality": "San Bonifacio",
+    "addressRegion": "VR",
+    "postalCode": "37047",
+    "addressCountry": "IT"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Kenya"
+  },
+  "seeks": {
+    "@type": "Demand",
+    "name": "School Construction Funding"
+  },
+  "sameAs": [
+    "https://www.gofundme.com/f/associazione-gruppo-nairobi"
+  ]
+}
+</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<header>
+<div class="container">
+  <div class="logo">
+    <a href="/"><img src="../images/logo.webp" alt="Gruppo Nairobi Logo" width="46" height="46"></a>
+    <div class="logo-text">
+      <span>ASSOCIAZIONE</span>
+      <span class="brand">GRUPPO NAIROBI</span>
+    </div>
+  </div>
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="/#our-why" class="lang" data-key="nav_why">Our Why</a></li>
+      <li><a href="/#the-project" class="lang" data-key="nav_project">The Project</a></li>
+      <li><a href="/get-involved" class="lang" data-key="nav_involved">Get Involved</a></li>
+      <li><a href="/donate" class="lang" data-key="nav_support">Support</a></li>
+      <li><a href="" class="lang" data-key="nav_who">Who We Are</a></li>
+      <li>
+        <div class="language-switcher">
+          <label for="language-select" class="sr-only">Select Language</label>
+          <select id="language-select" class="language-select" aria-label="Select language">
+            <option value="en">ENG</option>
+            <option value="it">ITA</option>
+            <option value="de">DEU</option>
+          </select>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+    <i class="fas fa-bars" aria-hidden="true"></i>
+  </button>
+</div>
+</header>
+
+<main id="main">
+
+
+<section id="who-we-are" class="section section-white">
+  <div class="container">
+    <h2 class="lang" data-key="who_title">Who We Are: Gruppo Nairobi</h2>
+    <p class="lang" data-key="who_text">We are Gruppo Nairobi, a non-profit driven by the belief that education unlocks true development.
+      Our small but passionate team works hand-in-hand with local communities to turn dreams into reality.</p>
+    
+    <div class="team">
+      <div class="team-member">
+        <div class="member-avatar">
+          <div class="member-initial">MP</div>
+        </div>
+        <h3>Mazza Pierdomenico</h3>
+        <p class="lang" data-key="role_president">President</p>
+      </div>
+      
+      <div class="team-member">
+        <div class="member-avatar">
+          <div class="member-initial">AF</div>
+        </div>
+        <h3>Abela Franco</h3>
+        <p class="lang" data-key="role_vp">Vice President</p>
+      </div>
+      
+      <div class="team-member">
+        <div class="member-avatar">
+          <div class="member-initial">RM</div>
+        </div>
+        <h3>Rinaldi Mattia</h3>
+        <p class="lang" data-key="role_admin">Administrator</p>
+      </div>
+    </div>
+    
+    <div class="values">
+      <div class="value">
+        <div class="value-icon" aria-hidden="true">
+          <i class="fas fa-hand-holding-usd"></i>
+        </div>
+        <h3 class="lang" data-key="value_funding">Transparent Funding</h3>
+        <p class="lang" data-key="value_funding_text">Every cent goes directly to the school project, securely managed through GoFundMe.</p>
+      </div>
+      
+      <div class="value">
+        <div class="value-icon" aria-hidden="true">
+          <i class="fas fa-globe"></i>
+        </div>
+        <h3 class="lang" data-key="value_global">Global Movement</h3>
+        <p class="lang" data-key="value_global_text">Be part of a growing family of changemakers from around the world.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="donate">
+  <div class="container-wide">
+    <div class="cta-card">
+      <div class="cta-content">
+        <h2 class="lang" data-key="cta_title">Together, We Are Stronger</h2>
+        <p class="lang" data-key="cta_p1">Every donation brings us closer to opening our doors to the first students.
+          Read messages of encouragement and generosity from our donors.</p>
+      
+        <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi/donate" target="_blank" rel="noopener noreferrer" class="btn btn-secondary lang" data-key="cta_donate">Donate Now and Be Part of It</a>
+        <div class="social-links">
+        <a href="#" class="lang" data-key="cta_share">Share on Social Media</a> &bull; <a href="mailto:info@grupponairobi.org" class="lang" data-key="cta_contact" rel="noopener noreferrer">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+<div class="container footer-container">
+  <div class="footer-left">
+    <div class="logo">
+      <img src="./images/logo.svg" alt="Gruppo Nairobi Logo" width="60" height="40">
+      <div class="logo-text">
+        <span>ASSOCIAZIONE</span>
+        <span class="brand">GRUPPO NAIROBI</span>
+      </div>
+    </div>
+    <div class="footer-description">
+      <div class="organization-info">
+        <p class="org-name">GRUPPO NAIROBI</p>
+        <p>Associazione Gruppo Nairobi – Associazione di Promozione Sociale/APS – Ente del Terzo Settore/ETS</p>
+        <p>Iscrizione al RUNTS – Rep. N° 147799 – Associazione con riconoscimento di Personalità Giuridica</p>
+        <div class="address-section">
+          <p class="address-title">Sede legale:</p>
+          <p>Via Angelo Emo 40 - 37138 Verona (VR)</p>
+          <p>CF: 92031590232</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-right">
+    <div class="footer-links">
+      <div class="footer-column">
+        <h3><a href="/#our-why" class="footer-link lang" data-key="nav_why">Our Why</a></h3>
+        <h3><a href="/#the-project" class="footer-link lang" data-key="nav_project">The Project</a></h3>
+        <h3><a href="/get-involved" class="footer-link lang" data-key="nav_involved">Get Involved</a></h3>
+        <h3><a href="/donate" class="footer-link lang" data-key="nav_support">Support</a></h3>
+        <h3><a href="" class="footer-link lang" data-key="nav_who">Who We Are</a></h3>
+      </div>
+      <div class="footer-column">
+        <div class="language-switcher">
+          <label for="language-select-footer" class="sr-only">Select Language</label>
+          <select id="language-select-footer" class="language-select" aria-label="Select language">
+            <option value="en">ENG</option>
+            <option value="it">ITA</option>
+            <option value="de">DEU</option>
+          </select>
+        </div>
+        <div class="direct-donate">
+          <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi/donate" target="_blank" rel="noopener noreferrer" class="footer-donate-link">
+            <i class="fas fa-heart"></i> Donate Directly
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="copyright">
+  © COPYRIGHT GRUPPO NAIROBI – TUTTI I DIRITTI RISERVATI
+</div>
+</footer>
+
+<!-- Social Share Modal -->
+<div id="share-modal" class="share-modal" aria-hidden="true" role="dialog" aria-labelledby="share-title">
+<div class="share-modal-content">
+  <button class="share-close" aria-label="Close modal" type="button">&times;</button>
+  <h3 id="share-title">Share this project</h3>
+  <div class="share-buttons">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+      <i class="fab fa-facebook-f"></i> Share on Facebook
+    </a>
+    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgrupponairobi.org%2F&text=Every%20child%20deserves%20a%20future.%20Help%20us%20build%20a%20school%20in%20Kenya%20with%20Gruppo%20Nairobi.%20%F0%9F%8F%AB%E2%9C%A8" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+      <i class="fab fa-twitter"></i> Share on Twitter
+    </a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+      <i class="fab fa-linkedin-in"></i> Share on LinkedIn
+    </a>
+    <a href="https://wa.me/?text=Every%20child%20deserves%20a%20future.%20Help%20us%20build%20a%20school%20in%20Kenya%20with%20Gruppo%20Nairobi:%20https%3A%2F%2Fgrupponairobi.org%2F" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+      <i class="fab fa-whatsapp"></i> Share on WhatsApp
+    </a>
+    <button class="btn btn-secondary" id="copy-link">
+      <i class="fas fa-link"></i> Copy Link
+    </button>
+  </div>
+</div>
+</div>
+
+<script src="./scripts/config.js" defer></script>
+
+<script src="./scripts/core.js" defer></script>
+
+<script src="./scripts/ui-components.js" defer></script>
+
+<script src="./scripts/twitch-client.js" defer></script>
+
+</body>
+</html>
