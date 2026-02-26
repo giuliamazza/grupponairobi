@@ -1,6 +1,7 @@
 window.translations = {
   en: {
     // Navigation
+    nav_home: "Home",
     nav_why: "Why We Do It",
     nav_project: "The Project",
     nav_who: "Who We Are",
@@ -124,6 +125,7 @@ window.translations = {
 
   it: {
     // Navigation
+    nav_home: "Home",
     nav_why: "Perché lo facciamo",
     nav_project: "Il Progetto",
     nav_who: "Chi Siamo",
@@ -249,6 +251,7 @@ window.translations = {
 
   de: {
     // Navigation
+    nav_home: "Startseite",
     nav_why: "Warum Wir Es Tun",
     nav_project: "Das Projekt",
     nav_who: "Wer Wir Sind",

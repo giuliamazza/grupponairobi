@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Involved – Gruppo Nairobi</title>
+<meta name="description" content="Join our community of streamers and supporters helping build a school in Kenya. Become a partner streamer today.">
+<meta name="author" content="Gruppo Nairobi Team">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0b1d26">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; img-src 'self' data: https:; font-src 'self' cdnjs.cloudflare.com; connect-src 'self' https://gruppo-nairobi-api.vercel.app;">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Get Involved – Gruppo Nairobi">
+<meta property="og:description" content="Join our community of streamers and supporters helping build a school in Kenya.">
+<meta property="og:image" content="https://grupponairobi.org/images/og-image.jpg">
+<meta property="og:url" content="https://grupponairobi.org/get-involved">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Get Involved – Gruppo Nairobi">
+<meta name="twitter:description" content="Join our community of streamers and supporters helping build a school in Kenya.">
+<meta name="twitter:image" content="https://grupponairobi.org/images/og-image.jpg">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/images/favicons/favicon.svg" />
+<link rel="shortcut icon" href="/images/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Charity" />
+<link rel="manifest" href="/images/favicons/site.webmanifest" />
+
+<!-- Preconnect & Preload resources -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preload" href="/fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<!-- Font Awesome async loading -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      as="style"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      onload="this.onload=null;this.rel='stylesheet'"
+      onerror="this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous">
+</noscript>
+
+<!-- Custom element components (synchronous – must load before body) -->
+<script src="/components/site-header.js"></script>
+<script src="/components/site-footer.js"></script>
+<script src="/components/share-modal.js"></script>
+
+<!-- Immediate scroll check for header -->
+<script>
+if (window.scrollY > 10) {
+  document.documentElement.classList.add('scrolled-page');
+  document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    if (header) header.classList.add('scrolled');
+  });
+}
+</script>
+
+<link rel="stylesheet" href="/styles/main.css">
+<script src="/translations/translations.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<site-header></site-header>
+
+<main id="main">
+<section id="get-involved" class="section">
+  <div class="container">
+    <h2 class="section-title lang" data-key="involved_title">Get Involved</h2>
+    <p class="section-subtitle lang" data-key="involved_subtitle">Join our amazing community of streamers supporting the cause</p>
+
+    <div class="streamers-grid" id="streamers-container">
+      <div class="streamer-skeleton">
+        <div class="streamer-skeleton-card">
+          <div class="streamer-skeleton-avatar skeleton"></div>
+          <div class="streamer-skeleton-name skeleton"></div>
+          <div class="streamer-skeleton-followers skeleton"></div>
+          <div class="streamer-skeleton-desc skeleton"></div>
+          <div class="streamer-skeleton-desc skeleton"></div>
+          <div class="streamer-skeleton-button skeleton"></div>
+        </div>
+        <div class="streamer-skeleton-card">
+          <div class="streamer-skeleton-avatar skeleton"></div>
+          <div class="streamer-skeleton-name skeleton"></div>
+          <div class="streamer-skeleton-followers skeleton"></div>
+          <div class="streamer-skeleton-desc skeleton"></div>
+          <div class="streamer-skeleton-desc skeleton"></div>
+          <div class="streamer-skeleton-button skeleton"></div>
+        </div>
+        <div class="streamer-skeleton-card">
+          <div class="streamer-skeleton-avatar skeleton"></div>
+          <div class="streamer-skeleton-name skeleton"></div>
+          <div class="streamer-skeleton-followers skeleton"></div>
+          <div class="streamer-skeleton-desc skeleton"></div>
+          <div class="streamer-skeleton-desc skeleton"></div>
+          <div class="streamer-skeleton-button skeleton"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="get-involved-cta">
+      <h3 class="lang" data-key="become_streamer_title">Want to become a partner streamer?</h3>
+      <p class="lang" data-key="become_streamer_text">Join our community and help us raise funds while doing what you love!</p>
+      <a href="mailto:info@grupponairobi.org?subject=Streamer Partnership" class="btn btn-primary lang" data-key="contact_partnership" rel="noopener noreferrer">
+        Contact Us for Partnership
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<site-footer></site-footer>
+<share-modal></share-modal>
+
+<script src="/scripts/config.js" defer></script>
+<script src="/scripts/core.js" defer></script>
+<script src="/scripts/ui-components.js" defer></script>
+<script src="/scripts/twitch-client.js" defer></script>
+<script src="/scripts/router.js" defer></script>
+
+</body>
+</html>

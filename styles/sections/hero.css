@@ -70,6 +70,7 @@
   line-height: 1;
   letter-spacing: -0.03em;
   font-weight: 800;
+  text-shadow: 0 2px 12px rgba(11, 29, 38, 0.3);
 }
 
 .hero-content p {
@@ -79,6 +80,7 @@
   max-width: 90%;
   font-weight: 400;
   color: var(--text-inverse);
+  text-shadow: 0 1px 8px rgba(11, 29, 38, 0.25);
 }
 
 /* ===== IMPROVED HERO FEATURE - CONSISTENT SIZING ===== */
@@ -349,3 +351,4 @@
     font-size: var(--text-xs);
   }
 }
+
