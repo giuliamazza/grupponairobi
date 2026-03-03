@@ -10,7 +10,9 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: var(--text-primary);
-  background-color: var(--bg-primary);
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%) no-repeat;
+  background-color: var(--bg-secondary);
+  min-height: 100vh;
   font-size: var(--text-base);
 }
 

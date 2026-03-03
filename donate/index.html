@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate – Gruppo Nairobi</title>
+<meta name="description" content="Support our project to build a school in Kenya. Every donation makes a difference in children's lives.">
+<meta name="author" content="Gruppo Nairobi Team">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0b1d26">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; img-src 'self' data: https:; font-src 'self' cdnjs.cloudflare.com; connect-src 'self' https://gruppo-nairobi-api.vercel.app;">
+
+<!-- Open Graph / Social Meta Tags -->
+<meta property="og:title" content="Donate – Gruppo Nairobi">
+<meta property="og:description" content="Support our project to build a school in Kenya. Every donation makes a difference.">
+<meta property="og:image" content="https://grupponairobi.org/images/og-image.jpg">
+<meta property="og:url" content="https://grupponairobi.org/donate">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Donate – Gruppo Nairobi">
+<meta name="twitter:description" content="Support our project to build a school in Kenya. Every donation makes a difference.">
+<meta name="twitter:image" content="https://grupponairobi.org/images/og-image.jpg">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/images/favicons/favicon.svg" />
+<link rel="shortcut icon" href="/images/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Charity" />
+<link rel="manifest" href="/images/favicons/site.webmanifest" />
+
+<!-- Preconnect & Preload resources -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preconnect" href="https://www.gofundme.com">
+<link rel="preload" href="/fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<!-- Font Awesome async loading -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      as="style"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      onload="this.onload=null;this.rel='stylesheet'"
+      onerror="this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous">
+</noscript>
+
+<!-- Custom element components (synchronous – must load before body) -->
+<script src="/components/site-header.js"></script>
+<script src="/components/site-footer.js"></script>
+<script src="/components/share-modal.js"></script>
+
+<!-- Immediate scroll check for header -->
+<script>
+if (window.scrollY > 10) {
+  document.documentElement.classList.add('scrolled-page');
+  document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    if (header) header.classList.add('scrolled');
+  });
+}
+</script>
+
+<link rel="stylesheet" href="/styles/main.css">
+<script src="/translations/translations.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<site-header></site-header>
+
+<main id="main">
+<section id="support-project" class="section">
+  <div class="container">
+    <h2 class="section-title lang" data-key="support_title">Support Our Project</h2>
+
+    <div class="support-grid">
+      <div class="support-info">
+        <h3 class="lang" data-key="support_info_title">Every Donation Makes a Difference</h3>
+        <p class="lang" data-key="support_info_text">Your contribution directly supports building classrooms, providing clean water, and creating educational opportunities for children in Kenya. We use GoFundMe to ensure transparent and secure donations.</p>
+
+        <div class="support-features">
+          <div class="feature-item">
+            <i class="fas fa-shield-alt"></i>
+            <div class="feature-content">
+              <h4 class="lang" data-key="feature_secure_title">Secure Donations</h4>
+              <p class="lang" data-key="feature_secure_text">All donations are processed securely through GoFundMe</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-eye"></i>
+            <div class="feature-content">
+              <h4 class="lang" data-key="feature_transparent_title">100% Transparent</h4>
+              <p class="lang" data-key="feature_transparent_text">Track exactly how your donation is being used</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-heart"></i>
+            <div class="feature-content">
+              <h4 class="lang" data-key="feature_impact_title">Direct Impact</h4>
+              <p class="lang" data-key="feature_impact_text">Every euro goes directly to the school construction</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="support-actions">
+        <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi/donate" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+          <i class="fas fa-heart"></i>
+          <span class="lang" data-key="donate_now">Donate Now</span>
+        </a>
+        <p class="support-note lang" data-key="support_note">Secure donation through GoFundMe</p>
+
+        <div class="alternative-links">
+          <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi" target="_blank" rel="noopener noreferrer" class="link-secondary">
+            <i class="fas fa-external-link-alt"></i>
+            <span class="lang" data-key="view_campaign">View Full Campaign</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="cta">
+  <div class="container-wide">
+    <div class="cta-card">
+      <div class="cta-content">
+        <h2 class="lang" data-key="cta_title">Together, We Are Stronger</h2>
+        <p class="lang" data-key="cta_p1">Every donation brings us closer to opening our doors to the first students.
+          Read messages of encouragement and generosity from our donors.</p>
+
+        <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi/donate" target="_blank" rel="noopener noreferrer" class="btn btn-secondary lang" data-key="cta_donate">Donate Now and Be Part of It</a>
+        <div class="social-links">
+        <a href="#" class="lang" data-key="cta_share">Share on Social Media</a> &bull; <a href="mailto:info@grupponairobi.org" class="lang" data-key="cta_contact" rel="noopener noreferrer">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<site-footer></site-footer>
+<share-modal></share-modal>
+
+<script src="/scripts/config.js" defer></script>
+<script src="/scripts/core.js" defer></script>
+<script src="/scripts/ui-components.js" defer></script>
+<script src="/scripts/router.js" defer></script>
+
+</body>
+</html>

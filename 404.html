@@ -10,234 +10,34 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; img-src 'self' data: https:; font-src 'self' cdnjs.cloudflare.com; connect-src 'self' https://gruppo-nairobi-api.vercel.app;">
   <link rel="canonical" href="https://grupponairobi.org/404.html">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://www.gofundme.com">
-  <link rel="preload" href="./fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-  <link rel="preload" href="./images/kenya.webp" as="image" type="image/webp">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-        as="style" 
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+  <link rel="preload" href="/fonts/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        as="style"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous"
         onload="this.onload=null;this.rel='stylesheet'"
         onerror="this.rel='stylesheet'">
   <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
           crossorigin="anonymous">
   </noscript>
-  <style>
-    /* Unified Design System */
-    :root {
-      /* Primary Brand Colors */
-      --brand-primary: #0b1d26;
-      --brand-secondary: #feb916;
-      --brand-accent: #00a651;
-      
-      /* Background Colors */
-      --bg-primary: #fff9e0;
-      --bg-secondary: #ffffff;
-      --bg-tertiary: #f8f6f0;
-      --bg-dark: #181c45;
-      
-      /* Text Colors */
-      --text-primary: #0b1d26;
-      --text-secondary: #4a5568;
-      --text-muted: #718096;
-      --text-inverse: #ffffff;
-      
-      /* Interactive Colors */
-      --interactive-primary: #0b1d26;
-      --interactive-secondary: #feb916;
-      --interactive-accent: #00a651;
-      --interactive-hover: #142e41;
-      
-      /* Spacing & Typography */
-      --space-xs: 0.25rem;
-      --space-sm: 0.5rem;
-      --space-md: 1rem;
-      --space-lg: 1.5rem;
-      --space-xl: 2rem;
-      --space-2xl: 3rem;
-      
-      /* Transitions */
-      --transition-fast: 150ms ease;
-      --transition-normal: 250ms ease;
-      --transition-slow: 350ms ease;
-      
-      /* Shadows */
-      --shadow-sm: 0 1px 2px 0 rgba(11, 29, 38, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(11, 29, 38, 0.1), 0 2px 4px -1px rgba(11, 29, 38, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(11, 29, 38, 0.1), 0 4px 6px -2px rgba(11, 29, 38, 0.05);
-    }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Geist", system-ui, sans-serif;
-      line-height: 1.6;
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-    }
+  <!-- Custom element components (synchronous – must load before body) -->
+  <script src="/components/site-header.js"></script>
+  <script src="/components/site-footer.js"></script>
+  <script src="/components/share-modal.js"></script>
 
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--space-lg);
-    }
-
-    .container-wide {
-      width: 100%;
-      max-width: 1800px;
-      margin: 0 auto;
-      padding: 0 var(--space-lg);
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background-color: transparent;
-      padding: var(--space-xl) 0;
-      z-index: 1000;
-      transition: all var(--transition-normal);
-    }
-
-    header.scrolled {
-      background-color: var(--bg-secondary);
-      box-shadow: var(--shadow-md);
-      padding: var(--space-lg) 0;
-    }
-
-    .hero-card {
-      min-height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-inverse);
-      position: relative;
-      border-radius: 1.5rem;
-      padding: 8rem 4rem;
-      background: linear-gradient(
-        135deg,
-        var(--brand-secondary) 0%,
-        rgba(254, 185, 22, 0.8) 30%,
-        rgba(254, 185, 22, 0.4) 60%,
-        transparent 90%
-      );
-      text-align: center;
-    }
-
-    .hero-content h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .hero-content p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 1rem 2rem;
-      border-radius: 0.5rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all var(--transition-normal);
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background-color: var(--brand-primary);
-      color: var(--text-inverse);
-    }
-
-    .btn-primary:hover {
-      background-color: var(--interactive-hover);
-      transform: translateY(-2px);
-    }
-
-    /* Screen reader only class */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    /* Skip link */
-    .skip-link {
-      position: absolute;
-      top: -100px;
-      left: 6px;
-      background: var(--brand-primary);
-      color: white;
-      padding: 8px 12px;
-      text-decoration: none;
-      z-index: 10000;
-      border-radius: 4px;
-      font-weight: 600;
-      transition: top 0.2s ease;
-    }
-
-    .skip-link:focus {
-      top: 6px;
-    }
-  </style>
-
-  <link rel="stylesheet" href="styles/main.css">
-  
-  <script src="translations/translations.js"></script>
+  <link rel="stylesheet" href="/styles/main.css">
+  <script src="/translations/translations.js" defer></script>
 </head>
 <body>
   <!-- Skip to content link for accessibility -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="logo">
-        <img src="images/logo.svg" alt="Gruppo Nairobi Logo" width="60" height="40">
-        <div class="logo-text">
-          <span>ASSOCIAZIONE</span>
-          <span class="brand">GRUPPO NAIROBI</span>
-        </div>
-      </div>
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html#our-why" class="lang" data-key="nav_why">Our Why</a></li>
-          <li><a href="index.html#the-project" class="lang" data-key="nav_project">The Project</a></li>
-          <li><a href="index.html#get-involved" class="lang" data-key="nav_involved">Get Involved</a></li>
-          <li><a href="index.html#support-project" class="lang" data-key="nav_support">Support</a></li>
-          <li><a href="index.html#who-we-are" class="lang" data-key="nav_who">Who We Are</a></li>
-          <li>
-            <div class="language-switcher">
-              <label for="language-select" class="sr-only">Select Language</label>
-              <select id="language-select" class="language-select" aria-label="Select language">
-                <option value="en">ENG</option>
-                <option value="it">ITA</option>
-                <option value="de">DEU</option>
-              </select>
-            </div>
-          </li>
-        </ul>
-      </nav>
-      <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-        <i class="fas fa-bars" aria-hidden="true"></i>
-      </button>
-    </div>
-  </header>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <site-header></site-header>
 
   <!-- 404 Hero Section -->
-  <main id="main-content">
+  <main id="main">
     <section class="hero">
       <div class="container-wide">
         <div class="hero-card">
@@ -245,7 +45,7 @@
             <h1 class="lang" data-key="404_title">Page Not Found</h1>
             <p class="lang" data-key="404_text">Oops! Looks like you've taken a wrong turn. Let's get you back home.</p>
             <div class="hero-buttons">
-              <a href="index.html" class="btn btn-primary lang" data-key="404_back_home">Return to Home</a>
+              <a href="/" class="btn btn-primary lang" data-key="404_back_home">Return to Home</a>
             </div>
           </div>
         </div>
@@ -253,238 +53,13 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-container">
-      <div class="footer-left">
-        <div class="logo">
-          <img src="./images/logo.svg" alt="Gruppo Nairobi Logo" width="60" height="40">
-          <div class="logo-text">
-            <span>ASSOCIAZIONE</span>
-            <span class="brand">GRUPPO NAIROBI</span>
-          </div>
-        </div>
-        <div class="footer-description">
-          <div class="organization-info">
-            <p class="org-name">GRUPPO NAIROBI</p>
-            <p>Associazione Gruppo Nairobi – Associazione di Promozione Sociale/APS – Ente del Terzo Settore/ETS</p>
-            <p>Iscrizione al RUNTS – Rep. N° 147799 – Associazione con riconoscimento di Personalità Giuridica</p>
-            <div class="address-section">
-              <p class="address-title">Sede legale:</p>
-              <p>Via Prova 32 – 37047 San Bonifacio (VR)</p>
-              <p>CF: 92031590232</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <site-footer></site-footer>
+  <share-modal></share-modal>
 
-      <div class="footer-right">
-        <div class="footer-links">
-          <div class="footer-column">
-            <h3><a href="index.html#our-why" class="footer-link lang" data-key="nav_why">Our Why</a></h3>
-            <h3><a href="index.html#the-project" class="footer-link lang" data-key="nav_project">The Project</a></h3>
-            <h3><a href="index.html#get-involved" class="footer-link lang" data-key="nav_involved">Get Involved</a></h3>
-            <h3><a href="index.html#support-project" class="footer-link lang" data-key="nav_support">Support</a></h3>
-            <h3><a href="index.html#who-we-are" class="footer-link lang" data-key="nav_who">Who We Are</a></h3>
-          </div>
-          <div class="footer-column">
-            <div class="language-switcher">
-              <label for="language-select-footer" class="sr-only">Select Language</label>
-              <select id="language-select-footer" class="language-select" aria-label="Select language">
-                <option value="en">ENG</option>
-                <option value="it">ITA</option>
-                <option value="de">DEU</option>
-              </select>
-            </div>
-            <div class="direct-donate">
-              <!-- SECURITY FIX: Added rel="noopener noreferrer" -->
-              <a href="https://www.gofundme.com/f/associazione-gruppo-nairobi/donate" target="_blank" rel="noopener noreferrer" class="footer-donate-link">
-                <i class="fas fa-heart"></i> Donate Directly
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="copyright">
-      © COPYRIGHT GRUPPO NAIROBI – TUTTI I DIRITTI RISERVATI
-    </div>
-  </footer>
-
-  <!-- Live region for screen reader announcements -->
-  <div id="live-region" class="sr-only" aria-live="polite" aria-atomic="true"></div>
-
-  <!-- Standalone translation and mobile menu script -->
-  <script>
-    // Simple standalone language manager for 404 page
-    class Simple404LanguageManager {
-      constructor() {
-        this.currentLanguage = 'en';
-        this.translations = window.translations || {};
-        this.selectors = document.querySelectorAll('.language-select');
-        
-        this.init();
-      }
-      
-      init() {
-        console.log('🔧 Initializing 404 language manager...');
-        
-        // Load saved language or detect from browser
-        const savedLanguage = localStorage.getItem('selectedLanguage');
-        const browserLanguage = navigator.language.slice(0, 2);
-        
-        if (savedLanguage && this.translations[savedLanguage]) {
-          this.currentLanguage = savedLanguage;
-        } else if (this.translations[browserLanguage]) {
-          this.currentLanguage = browserLanguage;
-        }
-        
-        // Set up event listeners for all language selectors
-        this.selectors.forEach(selector => {
-          selector.value = this.currentLanguage;
-          selector.addEventListener('change', (e) => this.changeLanguage(e.target.value));
-        });
-        
-        // Apply initial translations
-        this.applyTranslations();
-        
-        console.log('✅ 404 language manager initialized');
-      }
-      
-      changeLanguage(language) {
-        if (!this.translations[language]) {
-          console.warn(`Language ${language} not available`);
-          return;
-        }
-        
-        this.currentLanguage = language;
-        localStorage.setItem('selectedLanguage', language);
-        
-        // Update all selectors
-        this.selectors.forEach(selector => {
-          selector.value = language;
-        });
-        
-        // Apply translations
-        this.applyTranslations();
-        
-        console.log(`Language changed to: ${language}`);
-      }
-      
-      applyTranslations() {
-        const elements = document.querySelectorAll('[data-key]');
-        
-        elements.forEach(element => {
-          const key = element.getAttribute('data-key');
-          const translation = this.getTranslation(key);
-          
-          if (translation) {
-            // Handle different element types
-            if (element.tagName === 'INPUT' && element.type === 'submit') {
-              element.value = translation;
-            } else if (element.tagName === 'INPUT' && element.placeholder !== undefined) {
-              element.placeholder = translation;
-            } else {
-              element.textContent = translation;
-            }
-          }
-        });
-      }
-      
-      getTranslation(key) {
-        const languageData = this.translations[this.currentLanguage];
-        return languageData ? languageData[key] : null;
-      }
-    }
-
-    // Simple mobile menu handler for 404 page
-    class Simple404MobileMenu {
-      constructor() {
-        this.menuBtn = document.querySelector('.mobile-menu-btn');
-        this.nav = document.querySelector('nav');
-        this.isOpen = false;
-        
-        this.init();
-      }
-      
-      init() {
-        if (!this.menuBtn || !this.nav) {
-          console.error('Mobile menu elements not found');
-          return;
-        }
-        
-        this.menuBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          this.toggleMenu();
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-          if (this.isOpen && !this.nav.contains(e.target) && !this.menuBtn.contains(e.target)) {
-            this.closeMenu();
-          }
-        });
-        
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && this.isOpen) {
-            this.closeMenu();
-          }
-        });
-        
-        console.log('✅ 404 mobile menu initialized');
-      }
-      
-      toggleMenu() {
-        if (this.isOpen) {
-          this.closeMenu();
-        } else {
-          this.openMenu();
-        }
-      }
-      
-      openMenu() {
-        this.nav.classList.add('active');
-        this.menuBtn.setAttribute('aria-expanded', 'true');
-        this.menuBtn.innerHTML = '<i class="fas fa-times" aria-hidden="true"></i>';
-        this.isOpen = true;
-        document.body.style.overflow = 'hidden';
-      }
-      
-      closeMenu() {
-        this.nav.classList.remove('active');
-        this.menuBtn.setAttribute('aria-expanded', 'false');
-        this.menuBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
-        this.isOpen = false;
-        document.body.style.overflow = '';
-      }
-    }
-
-    // Initialize everything when DOM is ready
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('🔧 Initializing 404 page...');
-      
-      try {
-        // Check if translations are loaded
-        if (!window.translations) {
-          console.error('❌ Translations not loaded');
-          return;
-        }
-        
-        // Initialize language manager
-        window.languageManager404 = new Simple404LanguageManager();
-        
-        // Initialize mobile menu
-        window.mobileMenu404 = new Simple404MobileMenu();
-        
-        console.log('✅ 404 page initialized successfully');
-      } catch (error) {
-        console.error('❌ Error during 404 page initialization:', error);
-      }
-    });
-  </script>
+  <script src="/scripts/config.js" defer></script>
+  <script src="/scripts/core.js" defer></script>
+  <script src="/scripts/ui-components.js" defer></script>
+  <script src="/scripts/router.js" defer></script>
 
 </body>
 </html>

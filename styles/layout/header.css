@@ -1,3 +1,21 @@
+/* Custom element wrappers — invisible to layout */
+site-header, site-footer, share-modal { display: contents; }
+
+/* Logo as link */
+a.logo {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Active nav link */
+nav a.active:not(.btn-donate) {
+  color: var(--brand-accent);
+}
+
+nav a.active::after {
+  width: 100%;
+}
+
 /* ===== HEADER ===== */
 header {
   position: sticky;
