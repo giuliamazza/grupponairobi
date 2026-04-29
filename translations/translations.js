@@ -77,8 +77,8 @@ window.translations = {
     // CTA
     cta_title: "Together, We Are Stronger",
     cta_p1:
-      "Every donation brings us closer to opening our doors to the first students. Read messages of encouragement and generosity from our donors.",
-    cta_donate: "Donate Now. Join the Change.",
+      "Every donation brings us closer to opening our doors to the first students. Read messages of encouragement and generosity from our donors. Join the Change.",
+    cta_donate: "Donate Now",
     cta_share: "Share on Social Media",
     cta_contact: "Contact Us",
 
@@ -203,8 +203,8 @@ window.translations = {
     // CTA
     cta_title: "Insieme Siamo Più Forti",
     cta_p1:
-      "Ogni donazione ci avvicina all'apertura della scuola ai primi studenti.",
-    cta_donate: "Dona Ora. Unisciti al cambiamento.",
+      "Ogni donazione ci avvicina all'apertura della scuola ai primi studenti. Unisciti al cambiamento.",
+    cta_donate: "Dona Ora",
     cta_share: "Condividi sui Social",
     cta_contact: "Contattaci",
 
@@ -328,8 +328,8 @@ window.translations = {
     // CTA
     cta_title: "Gemeinsam sind wir stärker",
     cta_p1:
-      "Jede Spende bringt uns dem Ziel näher, die Schule für die ersten Kinder zu öffnen. Lies die Nachrichten voller Ermutigung und Großzügigkeit unserer Unterstützerinnen und Unterstützer.",
-    cta_donate: "Jetzt spenden. Teil der Veränderung werden.",
+      "Jede Spende bringt uns dem Ziel näher, die Schule für die ersten Kinder zu öffnen. Lies die Nachrichten voller Ermutigung und Großzügigkeit unserer Unterstützerinnen und Unterstützer. Teil der Veränderung werden.",
+    cta_donate: "Jetzt spenden",
     cta_share: "Teile die Aktion auf Social Media",
     cta_contact: "Kontaktiere uns direkt",
 
