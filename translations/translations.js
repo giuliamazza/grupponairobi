@@ -85,22 +85,39 @@ window.translations = {
     // Footer
     footer_follow_us: "Follow Us",
 
-    // Get Involved Section
-    involved_title: "Get Involved",
-    involved_subtitle: "Join our amazing community of streamers supporting the cause",
-
-    // Streamers
-    streamer_live: "LIVE",
-    watch_stream: "Watch Stream",
-    streamer_desc_1: "Supporting education through gaming streams and community events.",
-    streamer_desc_2: "Variety streamer passionate about making a difference in education.",
-    streamer_desc_3: "Gaming for good - raising funds through charity streams and events.",
-    streamer_desc_4: "Creative content creator supporting educational initiatives worldwide.",
-
-    // Partnership CTA
-    become_streamer_title: "Do you want to become a partner streamer?",
-    become_streamer_text: "Join our community and help us raise funds by doing what you truly love!",
-    contact_partnership: "Contact Us for Partnership",
+    // Get Involved Page
+    get_involved_hero_title: "TIME to ACT",
+    get_involved_hero_subtitle: "with StudyTme",
+    get_involved_hero_image_alt: "StudyTme with children at the school site in Kenya",
+    get_involved_last_year_title: "About Last Year",
+    get_involved_last_year_kicker: "10 Days Raising Funds - Over €18,000 Raised!",
+    get_involved_metrics_label: "Last year's project highlights",
+    get_involved_metric_minutes: "watched minutes",
+    get_involved_metric_hours: "hours streamed live",
+    get_involved_metric_streamers: "streamers involved",
+    get_involved_last_year_image_1_alt: "StudyTme sitting in a field in Kenya",
+    get_involved_last_year_image_2_alt: "Children and StudyTme resting together near a garden",
+    get_involved_last_year_image_3_alt: "StudyTme standing with students and teachers in Kenya",
+    get_involved_last_year_copy_1:
+      "In 2025, StudyTme spent 10 days in Kenya streaming live while staying with the nuns and documenting the community, the children, the future school site, and the people involved in the project.",
+    get_involved_last_year_copy_2: "Together with 7 streamers, the project raised more than €18,000 in just 10 days.",
+    get_involved_coming_title: "What’s Coming in 2026",
+    get_involved_coming_kicker: "This year, the project will be bigger.",
+    get_involved_coming_image_1_alt: "StudyTme walking through the Kenyan countryside",
+    get_involved_coming_image_2_alt: "The school construction site with foundations in progress",
+    get_involved_coming_copy_1:
+      "From around June 8 to July 8, 2026, StudyTme will return to Kenya for about a month to document the progress of the school, spend more time with the nuns, work one day on the school site, and explore more of the country live.",
+    get_involved_coming_copy_2:
+      "The project will stream 6 days a week, involve more than 7 streamers, and reach an even larger audience.",
+    get_involved_join_title: "Get Involved for 2026!",
+    get_involved_streamer_title: "Are you a streamer?",
+    get_involved_streamer_copy:
+      "Join the team, receive visibility through raids and shoutouts, be featured on the website, and involve your community in the project",
+    get_involved_streamer_button: "Request to join",
+    get_involved_brand_title: "Are you a brand?",
+    get_involved_brand_copy:
+      "Support the project through promotion, giveaways, or donations and get visibility through a network of streamers",
+    get_involved_brand_button: "Contact us",
 
     // Support Project
     support_title: "Support Our Project",
@@ -211,22 +228,39 @@ window.translations = {
     // Footer
     footer_follow_us: "Seguici",
 
-    // Get Involved Section
-    involved_title: "Partecipa",
-    involved_subtitle: "Unisciti alla nostra incredibile comunità di streamer che supportano la causa",
-
-    // Streamers
-    streamer_live: "LIVE",
-    watch_stream: "Guarda Stream",
-    streamer_desc_1: "Supporta l'istruzione attraverso stream di gaming e eventi della comunità.",
-    streamer_desc_2: "Streamer versatile appassionato di fare la differenza nell'istruzione.",
-    streamer_desc_3: "Gaming per il bene - raccolta fondi attraverso stream e eventi di beneficenza.",
-    streamer_desc_4: "Content creator creativo che supporta iniziative educative in tutto il mondo.",
-
-    // Partnership CTA
-    become_streamer_title: "Vuoi diventare uno streamer partner?",
-    become_streamer_text: "Unisciti alla nostra comunità e aiutaci a raccogliere fondi facendo quello che davvero ami!",
-    contact_partnership: "Contattaci per Partnership",
+    // Get Involved Page
+    get_involved_hero_title: "TIME to ACT",
+    get_involved_hero_subtitle: "con StudyTme",
+    get_involved_hero_image_alt: "StudyTme con alcuni bambini nel cantiere della scuola in Kenya",
+    get_involved_last_year_title: "L'anno scorso",
+    get_involved_last_year_kicker: "10 giorni di raccolta fondi - oltre €18.000 raccolti!",
+    get_involved_metrics_label: "Risultati del progetto dello scorso anno",
+    get_involved_metric_minutes: "minuti guardati",
+    get_involved_metric_hours: "ore in diretta",
+    get_involved_metric_streamers: "streamer coinvolti",
+    get_involved_last_year_image_1_alt: "StudyTme seduta in un campo in Kenya",
+    get_involved_last_year_image_2_alt: "Bambini e StudyTme insieme vicino a un giardino",
+    get_involved_last_year_image_3_alt: "StudyTme insieme a studenti e insegnanti in Kenya",
+    get_involved_last_year_copy_1:
+      "Nel 2025, StudyTme ha trascorso 10 giorni in Kenya in diretta streaming mentre viveva con le suore e documentava la comunità, i bambini, il futuro sito della scuola e le persone coinvolte nel progetto.",
+    get_involved_last_year_copy_2: "Insieme a 7 streamer, il progetto ha raccolto più di €18.000 in soli 10 giorni.",
+    get_involved_coming_title: "Cosa arriverà nel 2026",
+    get_involved_coming_kicker: "Quest'anno il progetto sarà più grande.",
+    get_involved_coming_image_1_alt: "StudyTme cammina nella campagna del Kenya",
+    get_involved_coming_image_2_alt: "Il cantiere della scuola con le fondamenta in corso",
+    get_involved_coming_copy_1:
+      "All'incirca dall'8 giugno all'8 luglio 2026, StudyTme tornerà in Kenya per circa un mese per documentare i progressi della scuola, passare più tempo con le suore, lavorare un giorno nel cantiere della scuola ed esplorare più parti del Paese in diretta.",
+    get_involved_coming_copy_2:
+      "Il progetto andrà in diretta 6 giorni a settimana, coinvolgerà più di 7 streamer e raggiungerà un pubblico ancora più ampio.",
+    get_involved_join_title: "Partecipa per il 2026!",
+    get_involved_streamer_title: "Sei uno streamer?",
+    get_involved_streamer_copy:
+      "Unisciti al team, ricevi visibilità attraverso raid e shoutout, compari sul sito e coinvolgi la tua community nel progetto",
+    get_involved_streamer_button: "Chiedi di partecipare",
+    get_involved_brand_title: "Sei un brand?",
+    get_involved_brand_copy:
+      "Sostieni il progetto attraverso promozione, giveaway o donazioni e ottieni visibilità tramite una rete di streamer",
+    get_involved_brand_button: "Contattaci",
 
     // Support Project
     support_title: "Sostieni il Nostro Progetto",
@@ -336,23 +370,39 @@ window.translations = {
     // Footer
     footer_follow_us: "Folge uns",
 
-    // Get Involved Section
-    involved_title: "Mitmachen",
-    involved_subtitle: "Schließe dich unserer großartigen Streamer-Community an, die die Sache unterstützt",
-
-    // Streamers
-    streamer_live: "LIVE",
-    watch_stream: "Stream Ansehen",
-    streamer_desc_1: "Unterstützt Bildung durch Gaming-Streams und Community-Events.",
-    streamer_desc_2: "Vielseitiger Streamer mit Leidenschaft für Bildungsveränderungen.",
-    streamer_desc_3: "Gaming für das Gute - Spendensammlung durch Charity-Streams und Events.",
-    streamer_desc_4: "Kreativer Content Creator, der Bildungsinitiativen weltweit unterstützt.",
-
-    // Partnership CTA
-    become_streamer_title: "Möchtest du Partner-Streamer werden?",
-    become_streamer_text:
-      "Werde Teil unserer Gemeinschaft und hilf uns, Geld zu sammeln, indem du das tust, was du wirklich liebst!",
-    contact_partnership: "Kontaktiere uns für Partnerschaft",
+    // Get Involved Page
+    get_involved_hero_title: "TIME to ACT",
+    get_involved_hero_subtitle: "mit StudyTme",
+    get_involved_hero_image_alt: "StudyTme mit Kindern auf dem Schulgelände in Kenia",
+    get_involved_last_year_title: "Das letzte Jahr",
+    get_involved_last_year_kicker: "10 Tage Spendenaktion - über €18.000 gesammelt!",
+    get_involved_metrics_label: "Highlights des Projekts aus dem letzten Jahr",
+    get_involved_metric_minutes: "angeschaute Minuten",
+    get_involved_metric_hours: "Stunden live gestreamt",
+    get_involved_metric_streamers: "Streamer beteiligt",
+    get_involved_last_year_image_1_alt: "StudyTme sitzt auf einem Feld in Kenia",
+    get_involved_last_year_image_2_alt: "Kinder und StudyTme ruhen sich gemeinsam in der Nähe eines Gartens aus",
+    get_involved_last_year_image_3_alt: "StudyTme steht mit Schülerinnen, Schülern und Lehrkräften in Kenia",
+    get_involved_last_year_copy_1:
+      "2025 verbrachte StudyTme 10 Tage in Kenia und streamte live, während sie bei den Nonnen wohnte und die Gemeinschaft, die Kinder, das zukünftige Schulgelände und die beteiligten Menschen dokumentierte.",
+    get_involved_last_year_copy_2: "Zusammen mit 7 Streamern sammelte das Projekt in nur 10 Tagen mehr als €18.000.",
+    get_involved_coming_title: "Was 2026 kommt",
+    get_involved_coming_kicker: "Dieses Jahr wird das Projekt größer.",
+    get_involved_coming_image_1_alt: "StudyTme läuft durch die kenianische Landschaft",
+    get_involved_coming_image_2_alt: "Die Schulbaustelle mit den laufenden Fundamentarbeiten",
+    get_involved_coming_copy_1:
+      "Etwa vom 8. Juni bis zum 8. Juli 2026 kehrt StudyTme für rund einen Monat nach Kenia zurück, um den Fortschritt der Schule zu dokumentieren, mehr Zeit mit den Nonnen zu verbringen, einen Tag auf der Schulbaustelle mitzuarbeiten und mehr vom Land live zu erkunden.",
+    get_involved_coming_copy_2:
+      "Das Projekt wird 6 Tage pro Woche streamen, mehr als 7 Streamer einbeziehen und ein noch größeres Publikum erreichen.",
+    get_involved_join_title: "Mach 2026 mit!",
+    get_involved_streamer_title: "Bist du Streamer?",
+    get_involved_streamer_copy:
+      "Werde Teil des Teams, erhalte Sichtbarkeit durch Raids und Shoutouts, werde auf der Website vorgestellt und binde deine Community in das Projekt ein",
+    get_involved_streamer_button: "Teilnahme anfragen",
+    get_involved_brand_title: "Bist du eine Marke?",
+    get_involved_brand_copy:
+      "Unterstütze das Projekt durch Promotion, Giveaways oder Spenden und erhalte Sichtbarkeit über ein Netzwerk von Streamern",
+    get_involved_brand_button: "Kontaktiere uns",
 
     // Support Project
     support_title: "Unterstütze Unser Projekt",
