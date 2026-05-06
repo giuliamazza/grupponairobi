@@ -309,11 +309,11 @@ class LanguageManager {
   }
 
   applyTranslations() {
-    const elements = document.querySelectorAll("[data-key]")
+    const elements = document.querySelectorAll("[data-key], [data-alt-key], [data-aria-label-key]")
 
     elements.forEach((element) => {
       const key = element.getAttribute("data-key")
-      const translation = this.getTranslation(key)
+      const translation = key ? this.getTranslation(key) : null
 
       if (translation) {
         if (element.tagName === "INPUT" && element.type === "submit") {
@@ -323,6 +323,18 @@ class LanguageManager {
         } else {
           element.textContent = translation
         }
+      }
+
+      const altKey = element.getAttribute("data-alt-key")
+      const altTranslation = altKey ? this.getTranslation(altKey) : null
+      if (altTranslation) {
+        element.setAttribute("alt", altTranslation)
+      }
+
+      const ariaLabelKey = element.getAttribute("data-aria-label-key")
+      const ariaLabelTranslation = ariaLabelKey ? this.getTranslation(ariaLabelKey) : null
+      if (ariaLabelTranslation) {
+        element.setAttribute("aria-label", ariaLabelTranslation)
       }
     })
   }
