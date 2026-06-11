@@ -70,7 +70,7 @@ window.translations = {
 
     // Bottom Values
     value_funding: "Transparent Funding",
-    value_funding_text: "Every cent goes directly to the school project, securely managed through GoFundMe.",
+    value_funding_text: "Every cent goes directly to the school project, securely managed through Tiltify.",
     value_global: "Global Movement",
     value_global_text: "Be part of a growing family of changemakers from around the world.",
 
@@ -106,15 +106,15 @@ window.translations = {
     support_title: "Support Our Project",
     support_info_title: "Every Donation Makes a Difference",
     support_info_text:
-      "Your contribution directly supports building classrooms, providing clean water, and creating educational opportunities for children in Kenya. We use GoFundMe to ensure transparent and secure donations.",
+      "Your contribution directly supports building classrooms, providing clean water, and creating educational opportunities for children in Kenya. We use Tiltify to ensure transparent and secure donations.",
     feature_secure_title: "Secure Donations",
-    feature_secure_text: "All donations are processed securely through GoFundMe",
+    feature_secure_text: "All donations are processed securely through Tiltify",
     feature_transparent_title: "100% Transparent",
     feature_transparent_text: "Track exactly how your donation is being used",
     feature_impact_title: "Direct Impact",
     feature_impact_text: "Every euro goes directly to the school construction",
     donate_now: "Donate Now",
-    support_note: "Secure donation through GoFundMe",
+    support_note: "Secure donation through Tiltify",
     view_campaign: "View Full Campaign",
 
     // Error page
@@ -196,7 +196,7 @@ window.translations = {
     // Bottom Values
     value_funding: "Finanziamento Trasparente",
     value_funding_text:
-      "Ogni centesimo va direttamente al progetto scolastico, gestito in modo sicuro tramite GoFundMe.",
+      "Ogni centesimo va direttamente al progetto scolastico, gestito in modo sicuro tramite Tiltify.",
     value_global: "Movimento Globale",
     value_global_text: " Unisciti alla nostra grande famiglia, in crescita, da tutto il mondo di changemakers.",
 
@@ -232,15 +232,15 @@ window.translations = {
     support_title: "Sostieni il Nostro Progetto",
     support_info_title: "Ogni Donazione Fa la Differenza",
     support_info_text:
-      "Il tuo contributo supporta direttamente la costruzione di aule, la fornitura di acqua pulita e la creazione di opportunità educative per i bambini in Kenya. Utilizziamo GoFundMe per garantire donazioni trasparenti e sicure.",
+      "Il tuo contributo supporta direttamente la costruzione di aule, la fornitura di acqua pulita e la creazione di opportunità educative per i bambini in Kenya. Utilizziamo Tiltify per garantire donazioni trasparenti e sicure.",
     feature_secure_title: "Donazioni Sicure",
-    feature_secure_text: "Tutte le donazioni sono elaborate in modo sicuro tramite GoFundMe",
+    feature_secure_text: "Tutte le donazioni sono elaborate in modo sicuro tramite Tiltify",
     feature_transparent_title: "100% Trasparente",
     feature_transparent_text: "Monitora esattamente come viene utilizzata la tua donazione",
     feature_impact_title: "Impatto Diretto",
     feature_impact_text: "Ogni euro va direttamente alla costruzione della scuola",
     donate_now: "Dona Ora",
-    support_note: "Donazione sicura tramite GoFundMe",
+    support_note: "Donazione sicura tramite Tiltify",
     view_campaign: "Visualizza Campagna Completa",
 
     // Error page
@@ -321,7 +321,7 @@ window.translations = {
 
     // Bottom Values
     value_funding: "Transparente Finanzierung",
-    value_funding_text: "Jeder Cent fließt direkt in das Schulprojekt und wird sicher über GoFundMe verwaltet.",
+    value_funding_text: "Jeder Cent fließt direkt in das Schulprojekt und wird sicher über Tiltify verwaltet.",
     value_global: "Eine weltweite Bewegung",
     value_global_text: "Werde Teil einer wachsenden Gemeinschaft von Menschen, die aktiv etwas verändern wollen.",
 
@@ -358,15 +358,15 @@ window.translations = {
     support_title: "Unterstütze Unser Projekt",
     support_info_title: "Jede Spende Zählt",
     support_info_text:
-      "Dein Beitrag unterstützt direkt den Bau von Klassenzimmern, die Bereitstellung von sauberem Wasser und die Schaffung von Bildungsmöglichkeiten für Kinder in Kenia. Wir nutzen GoFundMe, um transparente und sichere Spenden zu gewährleisten.",
+      "Dein Beitrag unterstützt direkt den Bau von Klassenzimmern, die Bereitstellung von sauberem Wasser und die Schaffung von Bildungsmöglichkeiten für Kinder in Kenia. Wir nutzen Tiltify, um transparente und sichere Spenden zu gewährleisten.",
     feature_secure_title: "Sichere Spenden",
-    feature_secure_text: "Alle Spenden werden sicher über GoFundMe abgewickelt",
+    feature_secure_text: "Alle Spenden werden sicher über Tiltify abgewickelt",
     feature_transparent_title: "100% Transparent",
     feature_transparent_text: "Verfolge genau, wie deine Spende verwendet wird",
     feature_impact_title: "Direkte Wirkung",
     feature_impact_text: "Jeder Euro fließt direkt in den Schulbau",
     donate_now: "Jetzt Spenden",
-    support_note: "Sichere Spende über GoFundMe",
+    support_note: "Sichere Spende über Tiltify",
     view_campaign: "Vollständige Kampagne Ansehen",
 
     // Error page
